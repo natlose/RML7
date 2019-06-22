@@ -74,6 +74,9 @@
       <DependentUpon>FelsoMenuFoglalat.xaml</DependentUpon>
     </Compile>
     <Compile Include="Tortenet.cs" />
+    <Compile Include="TortenetValto_N.xaml.cs">
+      <DependentUpon>TortenetValto_N.xaml</DependentUpon>
+    </Compile>
     <Page Include="Tortenetek_N.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -103,6 +106,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="FelsoMenuFoglalat.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TortenetValto_N.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

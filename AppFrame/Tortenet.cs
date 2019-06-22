@@ -11,10 +11,13 @@ namespace AppFrame
 {
     public class Tortenet
     {
+        public DateTime Azonosito { get; private set; }
+
         public ObservableCollection<FEset_N> Nezetek { get; private set; }
 
         public Tortenet(FEKerelem kerelem, Action<Tortenet> valtozaskor)
         {
+            Azonosito = DateTime.Now;
             Nezetek = new ObservableCollection<FEset_N>();
             Nezetek.CollectionChanged += (s, e) => {
                 valtozaskor?.Invoke(this);

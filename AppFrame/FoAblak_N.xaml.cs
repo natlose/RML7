@@ -28,6 +28,7 @@ namespace AppFrame
             (Tortenetek_N.DataContext as Tortenetek_NM).TortenetValtozott += (s, ea) => {
                 Tortenetek_ScrollViewer.ScrollToRightEnd();
             };
+            TortenetValto_N.DataContext = Tortenetek_N.DataContext;
 
         }
     }

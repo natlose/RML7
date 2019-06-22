@@ -21,7 +21,14 @@
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <local:BalMenu_N x:Name="BalMenu_N"/>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <local:BalMenu_N x:Name="BalMenu_N"/>
+                <local:TortenetValto_N x:Name="TortenetValto_N" Grid.Row="1"/>
+            </Grid>
             <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" Width="5"/>
             <ScrollViewer Grid.Column="2" x:Name="Tortenetek_ScrollViewer" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" Background="LightGray" >
                 <local:Tortenetek_N x:Name="Tortenetek_N"/>

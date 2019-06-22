@@ -1,6 +1,7 @@
 ﻿using AppFrame.API;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,15 +11,16 @@ namespace AppFrame
 {
     public class Tortenetek_NM : MegfigyelhetokOse
     {
-        private Dictionary<DateTime, Tortenet> tortenetek = new Dictionary<DateTime, Tortenet>();
+        public ObservableCollection<Tortenet> Tortenetek { get; set; } = new ObservableCollection<Tortenet>();
 
-        private DateTime aktivTortenetKulcsa;
-        public DateTime AktivTortenetKulcsa
+        private DateTime aktiv;
+        public DateTime Aktiv
         {
-            get => aktivTortenetKulcsa;
+            get => aktiv;
             set
             {
-                aktivTortenetKulcsa = value;
+                aktiv = value;
+                MegfigyelokErtesitese();
                 MegfigyelokErtesitese(nameof(AktivTortenet));
             }
         }
@@ -27,8 +29,7 @@ namespace AppFrame
         {
             get
             {
-                if (tortenetek.ContainsKey(AktivTortenetKulcsa)) return tortenetek[aktivTortenetKulcsa];
-                else return null;
+                return Tortenetek.SingleOrDefault(t => t.Azonosito == aktiv);
             }
         }
 
@@ -36,16 +37,15 @@ namespace AppFrame
         {
             Tortenet tortenet = new Tortenet(kerelem, (t) => {
                 TortenetValtozott?.Invoke(t, null);
-                // Ha kiürült a történet, akkor kidobom a szótárból is:
+                // Ha kiürült a történet, akkor kidobom a listából is:
                 if (t.Nezetek.Count == 0)
                 {
-                    AktivTortenetKulcsa = DateTime.MinValue;
-                    tortenetek.Remove(tortenetek.Single(kvp => kvp.Value == t).Key);
+                    Aktiv = DateTime.MinValue;
+                    Tortenetek.Remove(t);
                 }
             });
-            DateTime kulcs = DateTime.Now;
-            tortenetek.Add(kulcs, tortenet);
-            AktivTortenetKulcsa = kulcs;
+            Tortenetek.Add(tortenet);
+            Aktiv = tortenet.Azonosito;
         }
 
         public event EventHandler TortenetValtozott;
