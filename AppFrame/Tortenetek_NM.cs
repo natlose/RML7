@@ -34,10 +34,14 @@ namespace AppFrame
 
         public void UjTortenetKerelemkor(object sender, FEKerelem kerelem)
         {
-            Tortenet tortenet = new Tortenet(kerelem);
+            Tortenet tortenet = new Tortenet(kerelem, () => {
+                TortenetValtozott?.Invoke(this, null);
+            });
             DateTime kulcs = DateTime.Now;
             tortenetek.Add(kulcs, tortenet);
             AktivTortenetKulcsa = kulcs;
         }
+
+        public event EventHandler TortenetValtozott;
     }
 }

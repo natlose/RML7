@@ -35,7 +35,7 @@ namespace Partner
         public void Uj()
         {
             FEKerelem kerelem = new FEKerelem("Partner", "Partner.SzemelyValasztasFE", eredmenyek => {
-                Nev = (string) eredmenyek["partner"];
+                if (eredmenyek != null) Nev = (string) eredmenyek["partner"];
             });
             SajatFEKerelem?.Invoke(kerelem);
         }

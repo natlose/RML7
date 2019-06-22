@@ -23,7 +23,7 @@
             </Grid.ColumnDefinitions>
             <local:BalMenu_N x:Name="BalMenu_N"/>
             <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" Width="5"/>
-            <ScrollViewer Grid.Column="2" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" Background="LightGray" >
+            <ScrollViewer Grid.Column="2" x:Name="Tortenetek_ScrollViewer" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" Background="LightGray" >
                 <local:Tortenetek_N x:Name="Tortenetek_N"/>
             </ScrollViewer>
         </Grid>

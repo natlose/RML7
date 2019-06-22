@@ -25,6 +25,10 @@ namespace AppFrame
         private void FeluletBetoltesenekBefejezesekor(object sender, RoutedEventArgs e)
         {
             (BalMenu_N.DataContext as BalMenu_NM).UjTortenetKerelem += (Tortenetek_N.DataContext as Tortenetek_NM).UjTortenetKerelemkor;
+            (Tortenetek_N.DataContext as Tortenetek_NM).TortenetValtozott += (s, ea) => {
+                Tortenetek_ScrollViewer.ScrollToRightEnd();
+            };
+
         }
     }
 }
