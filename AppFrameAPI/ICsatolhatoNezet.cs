@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace AppFrame.API
 {
-    public interface IDinamikusanCsatolhatoNezetModell
+    public interface ICsatolhatoNezet
     {
-        FEKerelem KapottFEKerelem { get; set; }
-
-        event FEKerelemEsemenyKezelo SajatFEKerelem;
+        object NezetModell { get; }
     }
 }

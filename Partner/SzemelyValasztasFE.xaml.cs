@@ -16,7 +16,7 @@ using AppFrame.API;
 
 namespace Partner
 {
-    public partial class SzemelyValasztasFE : UserControl, INezetModelltAtad
+    public partial class SzemelyValasztasFE : UserControl, ICsatolhatoNezet
     {
         public SzemelyValasztasFE()
         {

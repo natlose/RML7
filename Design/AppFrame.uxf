@@ -175,7 +175,7 @@ m2=1..n</panel_attributes>
       <w>300</w>
       <h>150</h>
     </coordinates>
-    <panel_attributes>&lt;&lt;IDinamikusanCsatolhatoNezetModell&gt;&gt;
+    <panel_attributes>&lt;&lt;ICsatolhatoNezetModell&gt;&gt;
 --
 KapottFEKerelem : FEKerelem</panel_attributes>
     <additional_attributes/>

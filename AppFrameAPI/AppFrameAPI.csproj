@@ -42,8 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FEEredmenyek.cs" />
-    <Compile Include="IDinamikusanCsatolhatoNezetModell.cs" />
-    <Compile Include="INezetModelltAtad.cs" />
+    <Compile Include="ICsatolhatoNezetModell.cs" />
+    <Compile Include="ICsatolhatoNezet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="FEKerelem.cs" />
     <Compile Include="FEParameterek.cs" />

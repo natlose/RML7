@@ -34,8 +34,14 @@ namespace AppFrame
 
         public void UjTortenetKerelemkor(object sender, FEKerelem kerelem)
         {
-            Tortenet tortenet = new Tortenet(kerelem, () => {
-                TortenetValtozott?.Invoke(this, null);
+            Tortenet tortenet = new Tortenet(kerelem, (t) => {
+                TortenetValtozott?.Invoke(t, null);
+                // Ha kiürült a történet, akkor kidobom a szótárból is:
+                if (t.Nezetek.Count == 0)
+                {
+                    AktivTortenetKulcsa = DateTime.MinValue;
+                    tortenetek.Remove(tortenetek.Single(kvp => kvp.Value == t).Key);
+                }
             });
             DateTime kulcs = DateTime.Now;
             tortenetek.Add(kulcs, tortenet);

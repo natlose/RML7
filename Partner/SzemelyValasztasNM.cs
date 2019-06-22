@@ -8,7 +8,7 @@ using WPFNotification;
 
 namespace Partner
 {
-    public class SzemelyValasztasNM : MegfigyelhetokOse, IDinamikusanCsatolhatoNezetModell 
+    public class SzemelyValasztasNM : MegfigyelhetokOse, ICsatolhatoNezetModell 
     {
         public event FEKerelemEsemenyKezelo SajatFEKerelem;
 

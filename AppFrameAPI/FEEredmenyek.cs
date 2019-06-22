@@ -8,5 +8,5 @@ namespace AppFrame.API
 {
     public class FEEredmenyek : Dictionary<string, object> {  }
 
-    public delegate void FEEredmenyekEsemenyKezelo(IDinamikusanCsatolhatoNezetModell kuldte, FEEredmenyek eredmenyek);
+    public delegate void FEEredmenyekEsemenyKezelo(ICsatolhatoNezetModell kuldte, FEEredmenyek eredmenyek);
 }
