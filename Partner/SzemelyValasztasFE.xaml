@@ -1,0 +1,46 @@
+﻿<UserControl x:Class="Partner.SzemelyValasztasFE"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Partner"
+             mc:Ignorable="d">
+    <UserControl.DataContext>
+        <local:SzemelyValasztasNM/>
+    </UserControl.DataContext>
+    <StackPanel HorizontalAlignment="Left" Width="350">
+        <Label Content="SzemelyValasztas"/>
+        <DockPanel Margin="10,5">
+            <Button DockPanel.Dock="Right" Content="Keres" Click="Button_Click" Background="Orange"/>
+            <TextBox DockPanel.Dock="Left" HorizontalAlignment="Stretch" x:Name="Text" Text="{Binding Nev}" />
+        </DockPanel>
+        <ItemsControl Margin="10,5">
+            <ItemsControl.Items>
+                <DockPanel LastChildFill="False">
+                    <Button Content="Kiválaszt" Margin="5,2" DockPanel.Dock="Left" Background="LightGreen" Click="Kivalaszt_Click"/>
+                    <TextBlock Text="Gipsz Jakab" VerticalAlignment="Center" DockPanel.Dock="Left"/>
+                    <Button Content="Szerkeszt" Margin="5,2" DockPanel.Dock="Right" Background="LightBlue"/>
+                </DockPanel>
+                <DockPanel LastChildFill="False">
+                    <Button Content="Kiválaszt" Margin="5,2" DockPanel.Dock="Left" Background="LightGreen"/>
+                    <TextBlock Text="Teszt Elek" VerticalAlignment="Center" DockPanel.Dock="Left"/>
+                    <Button Content="Szerkeszt" Margin="5,2" DockPanel.Dock="Right" Background="LightBlue"/>
+                </DockPanel>
+                <DockPanel LastChildFill="False">
+                    <Button Content="Kiválaszt" Margin="5,2" DockPanel.Dock="Left" Background="LightGreen"/>
+                    <TextBlock Text="Próba Péter" VerticalAlignment="Center" DockPanel.Dock="Left"/>
+                    <Button Content="Szerkeszt" Margin="5,2" DockPanel.Dock="Right" Background="LightBlue"/>
+                </DockPanel>
+                <DockPanel LastChildFill="False">
+                    <Button Content="Kiválaszt" Margin="5,2" DockPanel.Dock="Left" Background="LightGreen"/>
+                    <TextBlock Text="Átlag János" VerticalAlignment="Center" DockPanel.Dock="Left"/>
+                    <Button Content="Szerkeszt" Margin="5,2" DockPanel.Dock="Right" Background="LightBlue"/>
+                </DockPanel>
+            </ItemsControl.Items>
+        </ItemsControl>
+        <DockPanel LastChildFill="False" Margin="10,5">
+            <Button Content="Mégsem" MinWidth="75" Background="Pink" Click="Button_Click"/>
+            <Button Content="Új" DockPanel.Dock="Right" MinWidth="75" Background="LightBlue" Click="Uj_Click"/>
+        </DockPanel>
+    </StackPanel>
+</UserControl>

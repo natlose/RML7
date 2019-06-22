@@ -15,12 +15,9 @@ using System.Windows.Shapes;
 
 namespace AppFrame
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window
+    public partial class FelsoMenuFoglalat : UserControl
     {
-        public MainWindow()
+        public FelsoMenuFoglalat()
         {
             InitializeComponent();
         }
