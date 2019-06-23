@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Menu>
+  <Sor szoveg="Partnerek">
+    <Sor szoveg="Személyek" szerelveny="M_Partner_WPF" osztaly="Sajat.Partner.SzemelyValasztasFE"/>
+    <Sor szoveg="Társaságok" szerelveny="Partner" osztaly="Partner.SelectCompany"/>
+    <Sor szoveg="Szállítók" szerelveny="Partner" osztaly="Partner.SelectSupplier"/>
+    <Sor szoveg="Képviselők" szerelveny="Partner" osztaly="Partner.SelectContact"/>
+    <Sor szoveg="Kezelők" szerelveny="Partner" osztaly="Partner.SelectOperator"/>
+  </Sor>
+  <Sor szoveg="Pénzügy">
+    <Sor szoveg="Vevői számlák" szerelveny="Finance" osztaly="Finance.SelectCustomerInvoice"/>
+    <Sor szoveg="Szállítói számlák" szerelveny="Finance" osztaly="Finance.SelectSupplierInvoice"/>
+    <Sor szoveg="Pénztár">
+      <Sor szoveg="Ügyintézés" szerelveny="Finance" osztaly="Finance.CashierSession"/>
+      <Sor szoveg="Bizonylatok" szerelveny="Finance" osztaly="Finance.SelectCashierNote"/>
+      <Sor szoveg="Napló" szerelveny="Finance" osztaly="Finance.SelectCashierLog"/>
+    </Sor>
+    <Sor szoveg="Bankanyag">
+      <Sor szoveg="Iktatás" szerelveny="Finance" osztaly="Finance.RegisterBankAccountLog"/>
+      <Sor szoveg="Kivonatok" szerelveny="Finance" osztaly="Finance.BrowseBankAccountLog"/>
+    </Sor>
+    <Sor szoveg="Iktató" szerelveny="Finance" osztaly="Finance.BrowseRegister"/>
+  </Sor>
+  <Sor szoveg="Raktár">
+    <Sor szoveg="Cikkek" szerelveny="Stock" osztaly="Stock.SelectSKU"/>
+    <Sor szoveg="Tárolási helyek" szerelveny="Stock" osztaly="Stock.SelectStockLocation"/>
+  </Sor>
+</Menu>
