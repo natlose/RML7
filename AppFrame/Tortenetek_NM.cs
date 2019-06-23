@@ -1,15 +1,15 @@
-﻿using AppFrame.API;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WPFNotification;
+using AlkalmazasKeret.API;
+using WPFErtesites;
 
-namespace AppFrame
+namespace AlkalmazasKeret
 {
-    public class Tortenetek_NM : MegfigyelhetokOse
+    public class Tortenetek_NM : Megfigyelheto
     {
         public ObservableCollection<Tortenet> Tortenetek { get; set; } = new ObservableCollection<Tortenet>();
 

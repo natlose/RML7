@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace AppFrame
+namespace AlkalmazasKeret
 {
     /// <summary>
     /// Interaction logic for TortenetValto_N.xaml

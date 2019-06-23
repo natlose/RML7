@@ -7,8 +7,8 @@
     <ProjectGuid>{467A2FE7-82B3-4107-8DAC-1BD134D6B279}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WPFNotification</RootNamespace>
-    <AssemblyName>WPFNotification</AssemblyName>
+    <RootNamespace>WPFErtesites</RootNamespace>
+    <AssemblyName>U_WPFErtesites</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,8 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EllenorizhetokOse.cs" />
-    <Compile Include="MegfigyelhetokOse.cs" />
+    <Compile Include="Ellenorizheto.cs" />
+    <Compile Include="Megfigyelheto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

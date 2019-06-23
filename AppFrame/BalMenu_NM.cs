@@ -6,12 +6,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
-using AppFrame.API;
-using WPFNotification;
+using AlkalmazasKeret.API;
+using WPFErtesites;
 
-namespace AppFrame
+namespace AlkalmazasKeret
 {
-    public class BalMenu_NM : MegfigyelhetokOse
+    public class BalMenu_NM : Megfigyelheto
     {
 
         public ObservableCollection<BalMenuSor> LathatoSorok { get; private set; } = new ObservableCollection<BalMenuSor>();

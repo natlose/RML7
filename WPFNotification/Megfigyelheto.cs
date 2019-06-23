@@ -7,9 +7,9 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WPFNotification
+namespace WPFErtesites
 {
-    public class MegfigyelhetokOse : INotifyPropertyChanged
+    public class Megfigyelheto : INotifyPropertyChanged
     {
         #region INotifyPropertChanged
         public event PropertyChangedEventHandler PropertyChanged;

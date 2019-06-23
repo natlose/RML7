@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AppFrame.API
+namespace AlkalmazasKeret.API
 {
     public interface ICsatolhatoNezetModell
     {

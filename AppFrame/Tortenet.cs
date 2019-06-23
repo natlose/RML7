@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
-using AppFrame.API;
+using AlkalmazasKeret.API;
 
-namespace AppFrame
+namespace AlkalmazasKeret
 {
     public class Tortenet
     {

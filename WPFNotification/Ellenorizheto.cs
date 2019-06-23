@@ -7,9 +7,9 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WPFNotification
+namespace WPFErtesites
 {
-    public class EllenorizhetokOse : MegfigyelhetokOse, INotifyDataErrorInfo
+    public class Ellenorizheto : Megfigyelheto, INotifyDataErrorInfo
     {
 
         #region Hibaüzenetek nyilvántartása

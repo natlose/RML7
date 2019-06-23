@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AppFrame.API;
 
-namespace AppFrame.API
+namespace AlkalmazasKeret.API
 {
     /// <summary>
     /// Felhasználói eset indítására irányuló kérelem 

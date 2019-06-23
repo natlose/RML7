@@ -7,8 +7,8 @@
     <ProjectGuid>{4FC8D20F-86CF-4549-8D03-9FE4CE7E8093}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AppFrame.API</RootNamespace>
-    <AssemblyName>AppFrameAPI</AssemblyName>
+    <RootNamespace>AlkalmazasKeret.API</RootNamespace>
+    <AssemblyName>M_AlkalmazasKeretAPI</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

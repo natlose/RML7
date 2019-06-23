@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace AppFrame
+namespace AlkalmazasKeret
 {
     public partial class FoAblak_N : Window
     {

@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AppFrame.API;
-using WPFNotification;
+using AlkalmazasKeret.API;
+using WPFErtesites;
 
 namespace Partner
 {
-    public class SzemelyValasztasNM : MegfigyelhetokOse, ICsatolhatoNezetModell 
+    public class SzemelyValasztasNM : Megfigyelheto, ICsatolhatoNezetModell 
     {
         public event FEKerelemEsemenyKezelo SajatFEKerelem;
 
@@ -34,7 +34,7 @@ namespace Partner
 
         public void Uj()
         {
-            FEKerelem kerelem = new FEKerelem("Partner", "Partner.SzemelyValasztasFE", eredmenyek => {
+            FEKerelem kerelem = new FEKerelem("M_Partner", "Partner.SzemelyValasztasFE", eredmenyek => {
                 if (eredmenyek != null) Nev = (string) eredmenyek["partner"];
             });
             SajatFEKerelem?.Invoke(kerelem);
