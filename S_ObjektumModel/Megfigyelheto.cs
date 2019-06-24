@@ -11,7 +11,7 @@ namespace Sajat.ObjektumModel
 {
     public class Megfigyelheto : INotifyPropertyChanged
     {
-        #region INotifyPropertChanged
+        #region INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected void MegfigyelokErtesitese([CallerMemberName] string propertyName = null)

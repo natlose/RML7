@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace Sajat.Partner
 {
-    public interface IPartnerTarolo
+    public interface ITarolo : SQLTarolas.ITarolo<Partner>
     {
-        IEnumerable<Partner> Partnerek { get; }
-
-        void ValtozasokTarolasa();
+        IEnumerable<Partner> NevAlapjan(string nev, int oldal, int oldalmeret);
     }
 }

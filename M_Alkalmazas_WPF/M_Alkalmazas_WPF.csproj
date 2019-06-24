@@ -141,7 +141,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="BalMenu.xml">
+    <None Include="M_Alkalmazas_WPF_BalMenu.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{14DFADDD-4EAD-4BFB-910D-B6A3ADF8AC52}</ProjectGuid>
+    <ProjectGuid>{9CD601A3-B9F4-442E-8912-B8B92E64FE9C}</ProjectGuid>
     <OutputType>library</OutputType>
-    <RootNamespace>Sajat.Partner</RootNamespace>
-    <AssemblyName>M_Partner_WPF</AssemblyName>
+    <RootNamespace>Sajat.WPF</RootNamespace>
+    <AssemblyName>M_Komponensek_WPF</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -48,6 +48,9 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EllenorzottSzoveg.xaml.cs">
+      <DependentUpon>EllenorzottSzoveg.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -61,14 +64,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="SzemelyValasztasFE.xaml.cs">
-      <DependentUpon>SzemelyValasztasFE.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="SzemelyValasztasNM.cs" />
-    <Compile Include="Szerkesztes_N.xaml.cs">
-      <DependentUpon>Szerkesztes_N.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Szerkesztes_NM.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -79,44 +74,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="SzemelyValasztasFE.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="EllenorzottSzoveg.xaml">
       <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>
-    <Page Include="Szerkesztes_N.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\M_AlkalmazasAPI\M_AlkalmazasAPI.csproj">
-      <Project>{4fc8d20f-86cf-4549-8d03-9fe4ce7e8093}</Project>
-      <Name>M_AlkalmazasAPI</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\M_Komponensek_WPF\M_Komponensek_WPF.csproj">
-      <Project>{9cd601a3-b9f4-442e-8912-b8b92e64fe9c}</Project>
-      <Name>M_Komponensek_WPF</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\S_ObjektumModel\S_ObjektumModel.csproj">
-      <Project>{467a2fe7-82b3-4107-8dac-1bd134d6b279}</Project>
-      <Name>S_ObjektumModel</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\S_SQLTarolas\S_SQLTarolas.csproj">
-      <Project>{72cc60eb-2f55-4e12-bb92-c21ab96735da}</Project>
-      <Name>S_SQLTarolas</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\T_Partner_SQL\T_Partner_SQL.csproj">
-      <Project>{75bdd659-bf5c-45f8-91bc-b171cc5de7a1}</Project>
-      <Name>T_Partner_SQL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\U_Partner\U_Partner.csproj">
-      <Project>{643a210f-39a9-4844-806c-0f5497021ba4}</Project>
-      <Name>U_Partner</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <PostBuildEvent>
-    </PostBuildEvent>
-  </PropertyGroup>
 </Project>

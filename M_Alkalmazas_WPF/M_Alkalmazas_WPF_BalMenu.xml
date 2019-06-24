@@ -2,7 +2,7 @@
 <Menu>
   <Sor szoveg="Partnerek">
     <Sor szoveg="Személyek" szerelveny="M_Partner_WPF" osztaly="Sajat.Partner.SzemelyValasztasFE"/>
-    <Sor szoveg="Társaságok" szerelveny="Partner" osztaly="Partner.SelectCompany"/>
+    <Sor szoveg="Társaságok" szerelveny="M_Partner_WPF" osztaly="Sajat.Partner.Szerkesztes_N"/>
     <Sor szoveg="Szállítók" szerelveny="Partner" osztaly="Partner.SelectSupplier"/>
     <Sor szoveg="Képviselők" szerelveny="Partner" osztaly="Partner.SelectContact"/>
     <Sor szoveg="Kezelők" szerelveny="Partner" osztaly="Partner.SelectOperator"/>
