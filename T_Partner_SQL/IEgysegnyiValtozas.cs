@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sajat.SQLTarolas
+namespace Sajat.Partner
 {
-    public interface IValtozas : IDisposable
+    public interface IEgysegnyiValtozas : SQLTarolas.IEgysegnyiValtozas
     {
-        int ValtozasVege();
+        ITarolo Partnerek { get; set; }
     }
 }

@@ -29,5 +29,15 @@ namespace Sajat.Partner
         {
             (DataContext as Szerkesztes_NM).BetoltesBefejezesekor();
         }
+
+        private void Rogziteskor(object sender, RoutedEventArgs e)
+        {
+            (DataContext as Szerkesztes_NM).Rogziteskor();
+        }
+
+        private void Elveteskor(object sender, RoutedEventArgs e)
+        {
+            (DataContext as Szerkesztes_NM).Elveteskor();
+        }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sajat.Partner
 {
-    public class Valtozas_EF : IValtozas
+    public class Valtozas_EF : IEgysegnyiValtozas
     {
         private readonly EFContext context;
 
@@ -18,7 +18,13 @@ namespace Sajat.Partner
 
         public ITarolo Partnerek { get; set; }
 
-        public int ValtozasVege()
+        #region IEgysegnyiValtozas
+        public bool VanValtozas()
+        {
+            return context.ChangeTracker.HasChanges();
+        }
+
+        public int ValtozasRogzitese()
         {
             return context.SaveChanges();
         }
@@ -27,5 +33,7 @@ namespace Sajat.Partner
         {
             context.Dispose();
         }
+        #endregion
+
     }
 }

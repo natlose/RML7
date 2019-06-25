@@ -10,18 +10,26 @@
     <UserControl.DataContext>
         <local:Szerkesztes_NM/>
     </UserControl.DataContext>
-    <ScrollViewer VerticalScrollBarVisibility="Auto">
-        <StackPanel Width="325">
-            <sajatwpf:EllenorzottSzoveg Cimke="id" Szoveg="{Binding Partner.Id}"/>
-            <sajatwpf:EllenorzottSzoveg Cimke="Vezetéknév" Szoveg="{Binding Partner.Maganszemely.Vezeteknev}"/>
-            <sajatwpf:EllenorzottSzoveg Cimke="Keresztnév" Szoveg="{Binding Partner.Maganszemely.Keresztnev}"/>
-            <sajatwpf:EllenorzottSzoveg Cimke="Rövid név" Szoveg="{Binding Partner.Jogiszemely.Rovidnev}"/>
-            <sajatwpf:EllenorzottSzoveg Cimke="Ország" Szoveg="{Binding Partner.Jogiszemely.Orszag}"/>
-            <sajatwpf:EllenorzottSzoveg Cimke="Cégjegyzékszám" Szoveg="{Binding Partner.Jogiszemely.Cegjegyzekszam}"/>
-            <sajatwpf:EllenorzottSzoveg Cimke="Adószám" Szoveg="{Binding Partner.Jogiszemely.Adoszam}"/>
-            <sajatwpf:EllenorzottSzoveg Cimke="Telefon" Szoveg="{Binding Partner.Elerhetoseg.Telefon}"/>
-            <sajatwpf:EllenorzottSzoveg Cimke="Mobil" Szoveg="{Binding Partner.Elerhetoseg.Mobil}"/>
-            <sajatwpf:EllenorzottSzoveg Cimke="Email" Szoveg="{Binding Partner.Elerhetoseg.Email}"/>
-        </StackPanel>
-    </ScrollViewer>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <sajatwpf:RogzitElvetGombok Grid.Row="0" Rogzit="Rogziteskor" Elvet="Elveteskor" VanValtozas="{Binding VanValtozas, Mode=OneWay}"  />
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="1">
+            <StackPanel Width="325">
+                <sajatwpf:EllenorzottSzoveg Cimke="id" Szoveg="{Binding Partner.Id}"/>
+                <sajatwpf:EllenorzottSzoveg Cimke="Vezetéknév" Szoveg="{Binding Partner.Maganszemely.Vezeteknev}"/>
+                <sajatwpf:EllenorzottSzoveg Cimke="Keresztnév" Szoveg="{Binding Partner.Maganszemely.Keresztnev}"/>
+                <sajatwpf:EllenorzottSzoveg Cimke="Rövid név" Szoveg="{Binding Partner.Jogiszemely.Rovidnev}"/>
+                <sajatwpf:EllenorzottSzoveg Cimke="Ország" Szoveg="{Binding Partner.Jogiszemely.Orszag}"/>
+                <sajatwpf:EllenorzottSzoveg Cimke="Cégjegyzékszám" Szoveg="{Binding Partner.Jogiszemely.Cegjegyzekszam}"/>
+                <sajatwpf:EllenorzottSzoveg Cimke="Adószám" Szoveg="{Binding Partner.Jogiszemely.Adoszam}"/>
+                <sajatwpf:EllenorzottSzoveg Cimke="Telefon" Szoveg="{Binding Partner.Elerhetoseg.Telefon}"/>
+                <sajatwpf:EllenorzottSzoveg Cimke="Mobil" Szoveg="{Binding Partner.Elerhetoseg.Mobil}"/>
+                <sajatwpf:EllenorzottSzoveg Cimke="Email" Szoveg="{Binding Partner.Elerhetoseg.Email}"/>
+            </StackPanel>
+        </ScrollViewer>
+        
+    </Grid>
 </UserControl>

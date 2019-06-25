@@ -16,7 +16,8 @@ namespace Sajat.Partner
 
         public event FEKerelemEsemenyKezelo SajatFEKerelem;
 
-        IValtozas valtozas = new Valtozas_EF(new EFContext());
+
+        IEgysegnyiValtozas valtozas = new Valtozas_EF(new EFContext());
 
         public void BetoltesBefejezesekor()
         {
@@ -34,6 +35,35 @@ namespace Sajat.Partner
                 partner = value;
                 MegfigyelokErtesitese();
             }
+        }
+
+        public bool VanValtozas
+        {
+            get
+            {
+                return valtozas.VanValtozas();
+            }
+        }
+
+        private const string IdEredmeny = "id";
+        private const string RogzitesEredmeny = "rogzites";
+
+        public void Rogziteskor()
+        {
+            valtozas.ValtozasRogzitese();
+            KapottFEKerelem.Eredmeny?.Invoke(
+                new FEEredmenyek()
+                    .Eredmeny(RogzitesEredmeny, true)
+                    .Eredmeny(IdEredmeny, Partner.Id)
+            );
+        }
+
+        public void Elveteskor()
+        {
+            KapottFEKerelem.Eredmeny?.Invoke(
+                new FEEredmenyek()
+                    .Eredmeny(RogzitesEredmeny, false)
+            );
         }
 
     }

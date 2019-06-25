@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace Sajat.Alkalmazas.API
 {
-    public class FEEredmenyek : Dictionary<string, object> {  }
+    public class FEEredmenyek : Dictionary<string, object> {
+
+        public FEEredmenyek(){ }
+
+        public FEEredmenyek Eredmeny(string kulcs, object ertek)
+        {
+            Add(kulcs, ertek);
+            return this;
+        }
+    }
 
     public delegate void FEEredmenyekEsemenyKezelo(ICsatolhatoNezetModell kuldte, FEEredmenyek eredmenyek);
 }
