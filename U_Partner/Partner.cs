@@ -16,6 +16,8 @@ namespace Sajat.Partner
 
         }
 
+        public byte[] RowVersion { get; set; }
+
         private int id;
         public int Id
         {

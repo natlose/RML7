@@ -17,6 +17,9 @@ namespace Sajat.Partner
 
             #region Partner
             modelBuilder.Entity<Partner>().ToTable("Partner");
+            modelBuilder.Entity<Partner>().Property(p => p.RowVersion)
+                .IsRowVersion();
+
             modelBuilder.Entity<Partner>().Property(p => p.MJ)
                 .HasColumnName("MJ")
                 .IsRequired()

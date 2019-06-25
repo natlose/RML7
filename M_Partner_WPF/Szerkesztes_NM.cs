@@ -12,10 +12,11 @@ namespace Sajat.Partner
 {
     public class Szerkesztes_NM : Megfigyelheto, ICsatolhatoNezetModell
     {
+        #region ICsatolhatoNezetModell
         public FEKerelem KapottFEKerelem { get; set; }
 
         public event FEKerelemEsemenyKezelo SajatFEKerelem;
-
+        #endregion
 
         IEgysegnyiValtozas valtozas = new Valtozas_EF(new EFContext());
 
@@ -23,7 +24,7 @@ namespace Sajat.Partner
         {
             //object id = KapottFEKerelem.Parameterek["id"];
             //if (id is int)
-                Partner = valtozas.Partnerek.Egyetlen(1);
+            Partner = valtozas.Partnerek.Egyetlen(1);
         }
 
         private Partner partner;
@@ -48,13 +49,21 @@ namespace Sajat.Partner
         private const string IdEredmeny = "id";
         private const string RogzitesEredmeny = "rogzites";
 
-        public void Rogziteskor()
+        public void Rogziteskor(Action kivetel)
         {
-            valtozas.ValtozasRogzitese();
-            KapottFEKerelem.Eredmeny?.Invoke(
-                new FEEredmenyek()
-                    .Eredmeny(RogzitesEredmeny, true)
-                    .Eredmeny(IdEredmeny, Partner.Id)
+            valtozas.ValtozasRogzitese(
+                () =>
+                {
+                    KapottFEKerelem.Eredmeny?.Invoke(
+                     new FEEredmenyek()
+                         .Eredmeny(RogzitesEredmeny, true)
+                         .Eredmeny(IdEredmeny, Partner.Id)
+                    );
+                },
+                () =>
+                {
+                    kivetel?.Invoke();
+                }
             );
         }
 

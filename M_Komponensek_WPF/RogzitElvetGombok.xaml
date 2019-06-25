@@ -6,16 +6,16 @@
              xmlns:local="clr-namespace:Sajat.WPF"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <StackPanel 
-        DataContext="{Binding Mode=OneWay, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}"
-        Orientation="Horizontal"         
-    >
-        <Button Content="Rögzít" Click="RogzitClick" />
-        <Button x:Name="ElvetGomb" Content="Elvet" Click="ElvetClick"/>
-        <StackPanel x:Name="ElvetesMegerositesePanel" Orientation="Horizontal" Visibility="Hidden">
-            <TextBlock Text="Van változás! Elveti?" />
-            <Button Content="Elvetem" Click="ElvetesMegerositveClick"/>
-            <Button Content="Nem" Click="ElvetesMegszakitvaClick"/>
+    <StackPanel DataContext="{Binding Mode=OneWay, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}">
+        <StackPanel Orientation="Horizontal">
+            <Button Content="Rögzít" Click="RogzitClick" />
+            <Button x:Name="ElvetGomb" Content="Elvet" Click="ElvetClick"/>
+            <StackPanel x:Name="ElvetesMegerositesePanel" Orientation="Horizontal" Visibility="Hidden">
+                <TextBlock Text="Van változás! Elveti?" />
+                <Button Content="Elvetem" Click="ElvetesMegerositveClick"/>
+                <Button Content="Nem" Click="ElvetesMegszakitvaClick"/>
+            </StackPanel>
         </StackPanel>
+        <local:Versenyhelyzet x:Name="VersenyhelyzetPanel" Visibility="Collapsed"/>
     </StackPanel>
 </UserControl>

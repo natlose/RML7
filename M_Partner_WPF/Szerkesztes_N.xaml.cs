@@ -32,7 +32,11 @@ namespace Sajat.Partner
 
         private void Rogziteskor(object sender, RoutedEventArgs e)
         {
-            (DataContext as Szerkesztes_NM).Rogziteskor();
+            (DataContext as Szerkesztes_NM).Rogziteskor(
+                ()=> 
+                {
+                    RogzitElvetGombok.Versenyhelyzetkor();
+                });
         }
 
         private void Elveteskor(object sender, RoutedEventArgs e)

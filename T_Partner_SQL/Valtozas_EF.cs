@@ -24,9 +24,21 @@ namespace Sajat.Partner
             return context.ChangeTracker.HasChanges();
         }
 
-        public int ValtozasRogzitese()
+        public void ValtozasRogzitese(Action sikerkor, Action kivetelkor)
         {
-            return context.SaveChanges();
+            try
+            {
+                context.SaveChanges();
+                sikerkor?.Invoke();
+            }
+            catch (System.Data.Entity.Infrastructure.DbUpdateConcurrencyException e)
+            {
+                if (kivetelkor != null)
+                {
+                    kivetelkor();
+                }
+                else throw;
+            }
         }
 
         public void Dispose()

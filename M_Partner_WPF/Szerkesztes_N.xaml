@@ -15,7 +15,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <sajatwpf:RogzitElvetGombok Grid.Row="0" Rogzit="Rogziteskor" Elvet="Elveteskor" VanValtozas="{Binding VanValtozas, Mode=OneWay}"  />
+        <sajatwpf:RogzitElvetGombok x:Name="RogzitElvetGombok" Grid.Row="0" Rogzit="Rogziteskor" Elvet="Elveteskor" VanValtozas="{Binding VanValtozas, Mode=OneWay}"  />
         <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="1">
             <StackPanel Width="325">
                 <sajatwpf:EllenorzottSzoveg Cimke="id" Szoveg="{Binding Partner.Id}"/>

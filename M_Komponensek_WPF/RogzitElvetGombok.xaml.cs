@@ -40,6 +40,11 @@ namespace Sajat.WPF
             Rogzit?.Invoke(this, new RoutedEventArgs());
         }
 
+        public void Versenyhelyzetkor()
+        {
+            VersenyhelyzetPanel.Visibility = Visibility.Visible;
+        }
+
         public RoutedEventHandler Elvet
         {
             get { return (RoutedEventHandler)GetValue(ElvetProperty); }

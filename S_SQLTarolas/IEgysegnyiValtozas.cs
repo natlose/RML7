@@ -10,6 +10,6 @@ namespace Sajat.SQLTarolas
     {
         bool VanValtozas();
 
-        int ValtozasRogzitese();
+        void ValtozasRogzitese(Action sikerkor, Action kivetelkor);
     }
 }
