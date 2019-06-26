@@ -48,6 +48,9 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EgysegnyiValtozas.xaml.cs">
+      <DependentUpon>EgysegnyiValtozas.xaml</DependentUpon>
+    </Compile>
     <Compile Include="EllenorzottSzoveg.xaml.cs">
       <DependentUpon>EllenorzottSzoveg.xaml</DependentUpon>
     </Compile>
@@ -80,6 +83,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="EgysegnyiValtozas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="EllenorzottSzoveg.xaml">
       <SubType>Designer</SubType>
       <Generator>XamlIntelliSenseFileGenerator</Generator>

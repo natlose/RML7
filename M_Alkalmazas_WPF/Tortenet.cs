@@ -60,6 +60,7 @@ namespace Sajat.Alkalmazas.WPF
             catch (Exception)
             {
                 throw; //todo: valami hibakezelés kéne ide
+                // System.IO.FileNotFoundException - ha nincs meg a szerelvény
             }
         }
 
