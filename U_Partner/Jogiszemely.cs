@@ -1,6 +1,7 @@
 ﻿using Sajat.ObjektumModel;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -9,54 +10,41 @@ using System.Threading.Tasks;
 namespace Sajat.Partner
 {
     [ComplexType]
-    public class Jogiszemely : Megfigyelheto
+    public class Jogiszemely : Ellenorizheto
     {
         private string rovidnev;
 
+        [MaxLength(30, ErrorMessage = "hossz>30")]
         public string Rovidnev
         {
-            get { return rovidnev; }
-            set
-            {
-                rovidnev = value;
-                MegfigyelokErtesitese();
-            }
+                get => rovidnev;
+                set => ErtekadasErtesitesEllenorzes(ref rovidnev, value);
         }
 
         private string cegjegyzekszam;
-
+        [MaxLength(30, ErrorMessage = "hossz>30")]
+        [MinLength(5, ErrorMessage = "hossz<5")]
         public string Cegjegyzekszam
         {
-            get { return cegjegyzekszam; }
-            set
-            {
-                cegjegyzekszam = value;
-                MegfigyelokErtesitese();
-            }
+            get => cegjegyzekszam;
+            set => ErtekadasErtesitesEllenorzes(ref cegjegyzekszam, value);
         }
 
         private string adoszam;
-
+        [MaxLength(30, ErrorMessage = "hossz>30")]
         public string Adoszam
         {
-            get { return adoszam; }
-            set
-            {
-                adoszam = value;
-                MegfigyelokErtesitese();
-            }
+            get => adoszam;
+            set => ErtekadasErtesitesEllenorzes(ref adoszam, value);
         }
 
         private string orszag;
-
+        [MaxLength(2, ErrorMessage = "hossz>2")]
+        [MinLength(2, ErrorMessage = "hossz<2")]
         public string Orszag
         {
-            get { return orszag; }
-            set
-            {
-                orszag = value;
-                MegfigyelokErtesitese();
-            }
+            get => orszag;
+            set => ErtekadasErtesitesEllenorzes(ref orszag, value);
         }
 
     }

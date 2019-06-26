@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -9,30 +10,44 @@ using System.Threading.Tasks;
 
 namespace Sajat.ObjektumModel
 {
-    public class Ellenorizheto : Megfigyelheto, INotifyDataErrorInfo
+    public class Ellenorizheto : INotifyPropertyChanged, INotifyDataErrorInfo
     {
+        #region INotifyPropertyChanged
+        public event PropertyChangedEventHandler PropertyChanged;
+        #endregion
 
-        #region Hibaüzenetek nyilvántartása
         private Dictionary<string, List<string>> hibauzenetek = new Dictionary<string, List<string>>();
 
-        protected void TulajdonsagEllenorzesKezdete([CallerMemberName] string tulajdonsagNeve = null)
+        protected void ErtekadasErtesitesEllenorzes<T>(ref T mezo, T ertek, [CallerMemberName] string tulajdonsagNeve = null)
         {
-            hibauzenetek.Remove(tulajdonsagNeve);
-            hibauzenetek.Add(tulajdonsagNeve, new List<string>());
+            // Értékadás
+            mezo = ertek;
+            // Értesítés
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(tulajdonsagNeve));
+            // Ellenőrzés
+            // Alkalmazható attribútumok: https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations?view=netframework-4.8
+            List<ValidationResult> validatorEredmeny = new List<ValidationResult>();
+            int korabbiLetszam = 0;
+            int frissLetszam = 0;
+            if (hibauzenetek.ContainsKey(tulajdonsagNeve))
+            {
+                korabbiLetszam = hibauzenetek[tulajdonsagNeve].Count;
+                hibauzenetek.Remove(tulajdonsagNeve);
+            }
+            if (!Validator.TryValidateProperty(ertek, new ValidationContext(this, null, null) { MemberName = tulajdonsagNeve}, validatorEredmeny))
+            {
+                List<string> frissUzenetek = validatorEredmeny.Select(h => h.ErrorMessage).ToList();
+                hibauzenetek.Add(tulajdonsagNeve, frissUzenetek);
+                frissLetszam = frissUzenetek.Count;
+            }
+            if (frissLetszam != korabbiLetszam) ErrorsChanged?.Invoke(this, new DataErrorsChangedEventArgs(tulajdonsagNeve));
         }
 
-        protected void TulajdonsagHibauzenet(string hibauzenet, [CallerMemberName] string tulajdonsagNeve = null)
+        protected void ErtekadasErtesites<T>(ref T mezo, T ertek, [CallerMemberName] string propertyName = null)
         {
-            hibauzenetek[tulajdonsagNeve]?.Add(hibauzenet);
+            mezo = ertek;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
-        protected void TulajdonsagEllenorzesVege([CallerMemberName] string tulajdonsagNeve = null)
-        {
-            if (hibauzenetek[tulajdonsagNeve].Count == 0) hibauzenetek.Remove(tulajdonsagNeve);
-            ErrorsChanged?.Invoke(this, new DataErrorsChangedEventArgs(tulajdonsagNeve));
-            MegfigyelokErtesitese(nameof(HasErrors));
-        }
-        #endregion
 
         #region INotifyDataErrorInfo
         public event EventHandler<DataErrorsChangedEventArgs> ErrorsChanged;

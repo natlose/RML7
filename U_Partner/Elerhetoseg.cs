@@ -1,6 +1,7 @@
 ﻿using Sajat.ObjektumModel;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -9,42 +10,33 @@ using System.Threading.Tasks;
 namespace Sajat.Partner
 {
     [ComplexType]
-    public class Elerhetoseg : Megfigyelheto
+    public class Elerhetoseg : Ellenorizheto
     {
         private string telefon;
-
+        [MaxLength(20, ErrorMessage = "hossz>20")]
+        [Phone( ErrorMessage = "helytelen")]
         public string Telefon
         {
-            get { return telefon; }
-            set
-            {
-                telefon = value;
-                MegfigyelokErtesitese();
-            }
+            get => telefon;
+            set => ErtekadasErtesitesEllenorzes(ref telefon, value);
         }
 
         private string mobil;
-
+        [MaxLength(20, ErrorMessage = "hossz>20")]
+        [Phone(ErrorMessage = "helytelen")]
         public string Mobil
         {
-            get { return mobil; }
-            set
-            {
-                mobil = value;
-                MegfigyelokErtesitese();
-            }
+            get => mobil;
+            set => ErtekadasErtesitesEllenorzes(ref mobil, value);
         }
 
         private string email;
-
+        [MaxLength(50, ErrorMessage = "hossz>50")]
+        [EmailAddress(ErrorMessage = "helytelen")]
         public string Email
         {
-            get { return email; }
-            set
-            {
-                email = value;
-                MegfigyelokErtesitese();
-            }
+            get => email;
+            set => ErtekadasErtesitesEllenorzes(ref email, value);
         }
 
     }

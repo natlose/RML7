@@ -17,8 +17,6 @@ namespace Sajat.Partner
 
             #region Partner
             modelBuilder.Entity<Partner>().ToTable("Partner");
-            modelBuilder.Entity<Partner>().Property(p => p.RowVersion)
-                .IsRowVersion();
 
             modelBuilder.Entity<Partner>().Property(p => p.MJ)
                 .HasColumnName("MJ")
@@ -26,34 +24,25 @@ namespace Sajat.Partner
                 .HasMaxLength(1);
             modelBuilder.Entity<Partner>().Property(p => p.Maganszemely.Vezeteknev)
                 .HasColumnName("MVezeteknev")
-                .HasMaxLength(30)
                 .IsUnicode();
             modelBuilder.Entity<Partner>().Property(p => p.Maganszemely.Keresztnev)
                 .HasColumnName("MKeresztnev")
-                .HasMaxLength(30)
                 .IsUnicode();
             modelBuilder.Entity<Partner>().Property(p => p.Jogiszemely.Rovidnev)
                 .HasColumnName("JRovidnev")
-                .HasMaxLength(30)
                 .IsUnicode();
             modelBuilder.Entity<Partner>().Property(p => p.Jogiszemely.Cegjegyzekszam)
-                .HasColumnName("JCegjegyzekszam")
-                .HasMaxLength(30);
+                .HasColumnName("JCegjegyzekszam");
             modelBuilder.Entity<Partner>().Property(p => p.Jogiszemely.Adoszam)
-                .HasColumnName("JAdoszam")
-                .HasMaxLength(30);
+                .HasColumnName("JAdoszam");
             modelBuilder.Entity<Partner>().Property(p => p.Jogiszemely.Orszag)
-                .HasColumnName("JOrszag")
-                .HasMaxLength(2);
+                .HasColumnName("JOrszag");
             modelBuilder.Entity<Partner>().Property(p => p.Elerhetoseg.Telefon)
-                .HasColumnName("Telefon")
-                .HasMaxLength(20);
+                .HasColumnName("Telefon");
             modelBuilder.Entity<Partner>().Property(p => p.Elerhetoseg.Mobil)
-                .HasColumnName("Mobil")
-                .HasMaxLength(20);
+                .HasColumnName("Mobil");
             modelBuilder.Entity<Partner>().Property(p => p.Elerhetoseg.Email)
-                .HasColumnName("Email")
-                .HasMaxLength(50);
+                .HasColumnName("Email");
             modelBuilder.Entity<Partner>()
                 .HasMany<PostaCim>(p => p.PostaCimek)
                 .WithRequired(c => c.Partner)
@@ -64,26 +53,19 @@ namespace Sajat.Partner
             #region PostaCim
             modelBuilder.Entity<PostaCim>().ToTable("PostaCim");
             modelBuilder.Entity<PostaCim>().Property(p => p.Tipus)
-                .HasColumnName("Tipus")
-                .IsRequired()
-                .HasMaxLength(1);
+                .HasColumnName("Tipus");
             modelBuilder.Entity<PostaCim>().Property(p => p.Orszag)
-                .HasColumnName("Orszag")
-                .HasMaxLength(2);
+                .HasColumnName("Orszag");
             modelBuilder.Entity<PostaCim>().Property(p => p.Iranyitoszam)
-                .HasColumnName("Irsz")
-                .HasMaxLength(15);
+                .HasColumnName("Irsz");
             modelBuilder.Entity<PostaCim>().Property(p => p.Helyseg)
                 .HasColumnName("Helyseg")
-                .HasMaxLength(30)
                 .IsUnicode();
             modelBuilder.Entity<PostaCim>().Property(p => p.Sor1)
                 .HasColumnName("Sor1")
-                .HasMaxLength(30)
                 .IsUnicode();
             modelBuilder.Entity<PostaCim>().Property(p => p.Sor2)
                 .HasColumnName("Sor2")
-                .HasMaxLength(30)
                 .IsUnicode();
             #endregion
         }

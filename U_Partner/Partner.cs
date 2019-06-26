@@ -1,43 +1,41 @@
 ﻿using Sajat.ObjektumModel;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Sajat.Partner
 {
-    public class Partner : Megfigyelheto
+    public class Partner : Ellenorizheto
     {
+
+        // Sajnos, beszűrődik egy tárolási rétegre tartozó megvalósítási részlet ide.
+        // Nem kéne az üzleti rétegnek egy private alapkonstruktor, de sajnos az EF igényli.
+        // Megdöbbentő módon tudja is használni. Reflection alapon példányosít...
         private Partner(){}
 
-        public Partner(int id)
-        {
+        public Partner(int id) { }
 
-        }
-
+        [Timestamp]
         public byte[] RowVersion { get; set; }
 
         private int id;
+        [Key]
         public int Id
         {
-            get { return id; }
-            set
-            {
-                id = value;
-                MegfigyelokErtesitese();
-            }
+            get => id;
+            set => ErtekadasErtesites(ref id, value);
         }
 
         private string mj;
+        [Required(ErrorMessage = "kötelező")]
+        [MaxLength(1, ErrorMessage = "hossz>1")]
         public string MJ // M-magánszemély, J-jogi személy
         {
-            get { return mj; }
-            set
-            {
-                mj = value;
-                MegfigyelokErtesitese();
-            }
+            get => mj;
+            set => ErtekadasErtesitesEllenorzes(ref mj, value);
         }
 
         private Maganszemely maganszemely;
@@ -46,12 +44,8 @@ namespace Sajat.Partner
         /// </summary>
         public Maganszemely Maganszemely
         {
-            get { return maganszemely; }
-            set
-            {
-                maganszemely = value;
-                MegfigyelokErtesitese();
-            }
+            get => maganszemely;
+            set => ErtekadasErtesites(ref maganszemely, value);
         }
 
         private Jogiszemely jogiszemely;
@@ -60,36 +54,22 @@ namespace Sajat.Partner
         /// </summary>
         public Jogiszemely Jogiszemely
         {
-            get { return jogiszemely; }
-            set
-            {
-                jogiszemely = value;
-                MegfigyelokErtesitese();
-            }
+            get => jogiszemely;
+            set => ErtekadasErtesites(ref jogiszemely, value);
         }
 
         private Elerhetoseg elerhetoseg;
-
         public Elerhetoseg Elerhetoseg
         {
-            get { return elerhetoseg; }
-            set
-            {
-                elerhetoseg = value;
-                MegfigyelokErtesitese();
-            }
+            get => elerhetoseg;
+            set => ErtekadasErtesites(ref elerhetoseg, value);
         }
 
         private ICollection<PostaCim> postaCimek;
-
         public ICollection<PostaCim> PostaCimek
         {
-            get { return postaCimek; }
-            set
-            {
-                postaCimek = value;
-                MegfigyelokErtesitese();
-            }
+            get => postaCimek;
+            set => ErtekadasErtesites(ref postaCimek, value);
         }
 
     }
