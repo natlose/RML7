@@ -48,12 +48,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EFContext.cs" />
-    <Compile Include="Valtozas_EF.cs" />
-    <Compile Include="IEgysegnyiValtozas.cs" />
+    <Compile Include="PartnerContext.cs" />
+    <Compile Include="PartnerValtozas_EF.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tarolo_EF.cs" />
-    <Compile Include="ITarolo.cs" />
+    <Compile Include="PartnerTarolo_EF.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\S_ObjektumModel\S_ObjektumModel.csproj">

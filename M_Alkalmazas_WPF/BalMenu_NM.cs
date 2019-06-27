@@ -21,12 +21,8 @@ namespace Sajat.Alkalmazas.WPF
         private BalMenuSor kivalasztottSor;
         public BalMenuSor KivalasztottSor
         {
-            get { return kivalasztottSor; }
-            set
-            {
-                kivalasztottSor = value;
-                MegfigyelokErtesitese(nameof(KivalasztottSor));
-            }
+            get => kivalasztottSor;
+            set => ErtekadasErtesites(ref kivalasztottSor, value);
         }
 
 

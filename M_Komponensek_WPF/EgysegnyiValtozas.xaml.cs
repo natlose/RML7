@@ -71,6 +71,15 @@ namespace Sajat.WPF
         public static readonly DependencyProperty VanValtozasProperty =
             DependencyProperty.Register("VanValtozas", typeof(bool), typeof(EgysegnyiValtozas), new PropertyMetadata(false));
 
+        public bool VanUtkozes
+        {
+            get { return (bool)GetValue(VanUtkozesProperty); }
+            set { SetValue(VanUtkozesProperty, value); }
+        }
+
+        public static readonly DependencyProperty VanUtkozesProperty =
+            DependencyProperty.Register("VanUtkozes", typeof(bool), typeof(EgysegnyiValtozas), new PropertyMetadata(false));
+
         private void ElvetClick(object sender, RoutedEventArgs e)
         {
             GetBindingExpression(VanValtozasProperty).UpdateTarget();

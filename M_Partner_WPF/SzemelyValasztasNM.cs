@@ -21,8 +21,7 @@ namespace Sajat.Partner
             get { return nev; }
             set
             {
-                nev = value;
-                MegfigyelokErtesitese();
+                ErtekadasErtesites(ref nev, value);
             }
         }
 

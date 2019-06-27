@@ -13,12 +13,17 @@ namespace Sajat.ObjektumModel
     {
         #region INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
-
-        protected void MegfigyelokErtesitese([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
         #endregion
 
+        protected void ErtekadasErtesites<T>(ref T mezo, T ertek, [CallerMemberName] string tulajdonsagNeve = null)
+        {
+            mezo = ertek;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(tulajdonsagNeve));
+        }
+
+        protected void Ertesites([CallerMemberName] string tulajdonsagNeve = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(tulajdonsagNeve));
+        }
     }
 }

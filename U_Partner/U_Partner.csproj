@@ -43,6 +43,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Elerhetoseg.cs" />
+    <Compile Include="IPartnerTarolo.cs" />
+    <Compile Include="IPartnerValtozas.cs" />
     <Compile Include="Jogiszemely.cs" />
     <Compile Include="Partner.cs" />
     <Compile Include="PostaCim.cs" />

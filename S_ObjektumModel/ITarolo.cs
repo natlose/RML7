@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sajat.SQLTarolas
+namespace Sajat.ObjektumModel
 {
     public interface ITarolo<TEntitas> where TEntitas : class
     {

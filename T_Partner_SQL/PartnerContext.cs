@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Sajat.Partner
 {
-    public class EFContext : DbContext
+    public class PartnerContext : DbContext
     {
-        public EFContext() : base("DEV") {  }        
+        public PartnerContext() : base("DEV") {  }        
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

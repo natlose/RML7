@@ -10,7 +10,7 @@
     <UserControl.DataContext>
         <local:Szerkesztes_NM/>
     </UserControl.DataContext>
-    <sajatwpf:EgysegnyiValtozas x:Name="EgysegnyiValtozas" Rogzit="Rogziteskor" Elvet="Elveteskor" VanValtozas="{Binding VanValtozas, Mode=OneWay}">
+    <sajatwpf:EgysegnyiValtozas Rogzit="Rogziteskor" Elvet="Elveteskor" VanValtozas="{Binding VanValtozas, Mode=OneWay}" VanUtkozes="{Binding VanUtkozes, Mode=OneWay}">
         <StackPanel Width="325">
             <sajatwpf:EllenorzottSzoveg Cimke="id" Szoveg="{Binding Partner.Id}"/>
             <sajatwpf:EllenorzottSzoveg Cimke="Vezetéknév" Szoveg="{Binding Partner.Maganszemely.Vezeteknev}"/>

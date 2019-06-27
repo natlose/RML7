@@ -6,6 +6,9 @@
              xmlns:local="clr-namespace:Sajat.WPF"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -21,7 +24,7 @@
                     <Button Content="Nem" Click="ElvetesMegszakitvaClick"/>
                 </StackPanel>
             </StackPanel>
-            <Border x:Name="VersenyhelyzetPanel" Visibility="Collapsed">
+            <Border x:Name="VersenyhelyzetPanel" Visibility="{Binding VanUtkozes, Converter={StaticResource BooleanToVisibilityConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}">
                 <StackPanel>
                     <TextBlock Text="FIGYELEM!"/>
                     <TextBlock Text="Az adatokat időközben más módosította az adatbázisban." TextWrapping="Wrap"/>

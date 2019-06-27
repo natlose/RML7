@@ -10,6 +10,11 @@ using System.Threading.Tasks;
 
 namespace Sajat.Partner
 {
+    // Hívása:
+    //    int id - módosítandó partner azonosítója, 0: új partner
+    // Eredmények:
+    //    bool rogzites - false: rögzítés elvetve, true: rögzítve
+    //    int id - a létrehozott partner azonosítója, ha volt rögzítés
     public class Szerkesztes_NM : Megfigyelheto, ICsatolhatoNezetModell
     {
         #region ICsatolhatoNezetModell
@@ -18,7 +23,7 @@ namespace Sajat.Partner
         public event FEKerelemEsemenyKezelo SajatFEKerelem;
         #endregion
 
-        IEgysegnyiValtozas valtozas = new Valtozas_EF(new EFContext());
+        IPartnerValtozas valtozas = new PartnerValtozas_EF(new PartnerContext()); //todo: IOC kell ide!Az M_Partner_WPF nem függhet a T_Partner_SQL-től!
 
         public void BetoltesBefejezesekor()
         {
@@ -30,48 +35,38 @@ namespace Sajat.Partner
         private Partner partner;
         public Partner Partner
         {
-            get { return partner; }
-            set
-            {
-                partner = value;
-                MegfigyelokErtesitese();
-            }
+            get => partner; 
+            set => ErtekadasErtesites(ref partner, value);
         }
 
         public bool VanValtozas
         {
-            get
-            {
-                return valtozas.VanValtozas();
-            }
+            get => valtozas.VanValtozas;            
         }
 
-        private const string IdEredmeny = "id";
-        private const string RogzitesEredmeny = "rogzites";
-
-        public void Rogziteskor(Action kivetel)
+        public bool VanUtkozes
         {
-            valtozas.ValtozasRogzitese(
-                () =>
-                {
-                    KapottFEKerelem.Eredmeny?.Invoke(
-                     new FEEredmenyek()
-                         .Eredmeny(RogzitesEredmeny, true)
-                         .Eredmeny(IdEredmeny, Partner.Id)
-                    );
-                },
-                () =>
-                {
-                    kivetel?.Invoke();
-                }
-            );
+            get => valtozas.VanUtkozes;
+        }
+
+        public void Rogziteskor()
+        {
+            if (valtozas.ValtozasRogzitese())
+            {
+                KapottFEKerelem.Eredmeny?.Invoke(
+                    new FEEredmenyek()
+                        .Eredmeny("rogzites", true)
+                        .Eredmeny("id", Partner.Id)
+                );
+            }
+            else Ertesites(nameof(VanUtkozes));
         }
 
         public void Elveteskor()
         {
             KapottFEKerelem.Eredmeny?.Invoke(
                 new FEEredmenyek()
-                    .Eredmeny(RogzitesEredmeny, false)
+                    .Eredmeny("rogzites", false)
             );
         }
 

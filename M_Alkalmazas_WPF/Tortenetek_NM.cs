@@ -19,18 +19,14 @@ namespace Sajat.Alkalmazas.WPF
             get => aktiv;
             set
             {
-                aktiv = value;
-                MegfigyelokErtesitese();
-                MegfigyelokErtesitese(nameof(AktivTortenet));
+                ErtekadasErtesites(ref aktiv, value);
+                Ertesites(nameof(AktivTortenet));
             }
         }
 
         public Tortenet AktivTortenet
         {
-            get
-            {
-                return Tortenetek.SingleOrDefault(t => t.Azonosito == aktiv);
-            }
+            get => Tortenetek.SingleOrDefault(t => t.Azonosito == aktiv);
         }
 
         public void UjTortenetKerelemkor(object sender, FEKerelem kerelem)

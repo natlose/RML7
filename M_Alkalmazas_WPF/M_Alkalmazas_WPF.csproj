@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="KivetelesHelyzet.xaml.cs">
+      <DependentUpon>KivetelesHelyzet.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Tortenetek_N.xaml.cs">
       <DependentUpon>Tortenetek_N.xaml</DependentUpon>
     </Compile>
@@ -77,6 +80,10 @@
     <Compile Include="TortenetValto_N.xaml.cs">
       <DependentUpon>TortenetValto_N.xaml</DependentUpon>
     </Compile>
+    <Page Include="KivetelesHelyzet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Tortenetek_N.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

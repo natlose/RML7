@@ -69,6 +69,10 @@
       <DependentUpon>Szerkesztes_N.xaml</DependentUpon>
     </Compile>
     <Compile Include="Szerkesztes_NM.cs" />
+    <Compile Include="Valasztas_N.xaml.cs">
+      <DependentUpon>Valasztas_N.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Valasztas_NM.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -84,6 +88,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Szerkesztes_N.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Valasztas_N.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

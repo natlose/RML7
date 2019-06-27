@@ -43,10 +43,10 @@ namespace Sajat.ObjektumModel
             if (frissLetszam != korabbiLetszam) ErrorsChanged?.Invoke(this, new DataErrorsChangedEventArgs(tulajdonsagNeve));
         }
 
-        protected void ErtekadasErtesites<T>(ref T mezo, T ertek, [CallerMemberName] string propertyName = null)
+        protected void ErtekadasErtesites<T>(ref T mezo, T ertek, [CallerMemberName] string tulajdonsagNeve = null)
         {
             mezo = ertek;
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(tulajdonsagNeve));
         }
 
         #region INotifyDataErrorInfo

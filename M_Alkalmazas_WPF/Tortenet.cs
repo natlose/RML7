@@ -57,10 +57,17 @@ namespace Sajat.Alkalmazas.WPF
                 if (Nezetek.Count > 0) Nezetek.Last().IsEnabled = false;
                 Nezetek.Add(nezet);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                throw; //todo: valami hibakezelés kéne ide
-                // System.IO.FileNotFoundException - ha nincs meg a szerelvény
+                FEset_N nezet = new FEset_N();
+                KivetelesHelyzet kivetel = new KivetelesHelyzet();
+                kivetel.Uzenet = e.Message;
+                kivetel.Vissza += (s, n) =>
+                {
+                    Nezetek.Remove(Nezetek.Last());
+                };
+                nezet.NezetHelye.Child = kivetel;
+                Nezetek.Add(nezet);
             }
         }
 

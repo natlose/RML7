@@ -48,14 +48,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ITarolo.cs" />
-    <Compile Include="IEgysegnyiValtozas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tarolo_EF.cs" />
+    <Compile Include="Valtozas_EF.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\S_ObjektumModel\S_ObjektumModel.csproj">
+      <Project>{467a2fe7-82b3-4107-8dac-1bd134d6b279}</Project>
+      <Name>S_ObjektumModel</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

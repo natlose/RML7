@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Sajat.Partner
 {
-    public interface IEgysegnyiValtozas : SQLTarolas.IEgysegnyiValtozas
+    public interface IPartnerValtozas : ObjektumModel.IEgysegnyiValtozas
     {
-        ITarolo Partnerek { get; set; }
+        IPartnerTarolo Partnerek { get; set; }
     }
 }

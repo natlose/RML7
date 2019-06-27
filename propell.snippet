@@ -2,9 +2,9 @@
 <CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
 	<CodeSnippet Format="1.0.0">
 		<Header>
-			<Title>Megfigyelhető property</Title>
-			<Shortcut>propmegf</Shortcut>
-			<Description>Megfigyelhető property háttérmezővel</Description>
+			<Title>Ellenőrizhető property</Title>
+			<Shortcut>propell</Shortcut>
+			<Description>Ellenőrizhető property háttérmezővel</Description>
 			<Author>natlose</Author>
 			<SnippetTypes>
 				<SnippetType>Expansion</SnippetType>
@@ -28,18 +28,14 @@
 					<Default>mezo</Default>
 				</Literal>
 			</Declarations>
-			<Code Language="csharp"><![CDATA[private $type$ $field$;
-
-	public $type$ $property$
-	{
-		get { return $field$;}
-		set 
-		{ 
-			$field$ = value;
-			MegfigyelokErtesitese();
-		}
-	}
-	$end$]]>
+			<Code Language="csharp">
+    <![CDATA[private $type$ $field$;
+public $type$ $property$
+{
+    get => $field$;
+    set => ErtekadasErtesitesEllenorzes(ref $field$, value);
+}
+$end$]]>
 			</Code>
 		</Snippet>
 	</CodeSnippet>

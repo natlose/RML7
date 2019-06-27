@@ -4,12 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sajat.SQLTarolas
+namespace Sajat.ObjektumModel
 {
     public interface IEgysegnyiValtozas : IDisposable
     {
-        bool VanValtozas();
+        bool VanValtozas { get; }
 
-        void ValtozasRogzitese(Action sikerkor, Action kivetelkor);
+        bool VanUtkozes { get; }
+
+        bool ValtozasRogzitese();
     }
 }
