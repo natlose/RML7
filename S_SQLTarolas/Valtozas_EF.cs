@@ -24,17 +24,29 @@ namespace Sajat.SQLTarolas
             get => vanUtkozes;
         }
 
+        private bool vanErvenytelenAdat = false;
+        public bool VanErvenytelenAdat
+        {
+            get => vanErvenytelenAdat;
+        }
+
         public bool ValtozasRogzitese()
         {
             try
             {
                 vanUtkozes = false;
+                vanErvenytelenAdat = false;
                 context.SaveChanges();
                 return true;
             }
             catch (System.Data.Entity.Infrastructure.DbUpdateConcurrencyException)
             {
                 vanUtkozes = true;
+                return false;
+            }
+            catch (System.Data.Entity.Validation.DbEntityValidationException)
+            {
+                vanErvenytelenAdat = true;
                 return false;
             }
         }

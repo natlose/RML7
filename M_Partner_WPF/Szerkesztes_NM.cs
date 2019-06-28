@@ -49,6 +49,11 @@ namespace Sajat.Partner
             get => valtozas.VanUtkozes;
         }
 
+        public bool VanErvenytelenAdat
+        {
+            get => valtozas.VanErvenytelenAdat;
+        }
+
         public void Rogziteskor()
         {
             if (valtozas.ValtozasRogzitese())

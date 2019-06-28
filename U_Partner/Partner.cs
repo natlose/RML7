@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,6 +37,14 @@ namespace Sajat.Partner
         {
             get => mj;
             set => ErtekadasErtesitesEllenorzes(ref mj, value);
+        }
+
+        private string nev;
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+        public string Nev
+        {
+            get => nev;
+            private set => ErtekadasErtesites(ref nev, value);
         }
 
         private Maganszemely maganszemely;

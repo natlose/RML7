@@ -7,18 +7,32 @@
              xmlns:sajatwpf="clr-namespace:Sajat.WPF;assembly=M_Komponensek_WPF"             
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" Loaded="BetoltesBefejezesekor">
+    <UserControl.Resources>
+        <sajatwpf:CharToCollapsedVisibilityConverter x:Key="maganszemely" VisibleChar="M" CollapsedChar="J"/>
+        <sajatwpf:CharToCollapsedVisibilityConverter x:Key="jogiszemely" VisibleChar="J" CollapsedChar="M"/>
+    </UserControl.Resources>
     <UserControl.DataContext>
         <local:Szerkesztes_NM/>
     </UserControl.DataContext>
-    <sajatwpf:EgysegnyiValtozas Rogzit="Rogziteskor" Elvet="Elveteskor" VanValtozas="{Binding VanValtozas, Mode=OneWay}" VanUtkozes="{Binding VanUtkozes, Mode=OneWay}">
+    <sajatwpf:EgysegnyiValtozas 
+        Rogzit="Rogziteskor" 
+        Elvet="Elveteskor" 
+        VanValtozas="{Binding VanValtozas, Mode=OneWay}" 
+        VanUtkozes="{Binding VanUtkozes, Mode=OneWay}" 
+        VanErvenytelenAdat="{Binding VanErvenytelenAdat, Mode=OneWay}"
+    >
         <StackPanel Width="325">
-            <sajatwpf:EllenorzottSzoveg Cimke="id" Szoveg="{Binding Partner.Id}"/>
-            <sajatwpf:EllenorzottSzoveg Cimke="Vezetéknév" Szoveg="{Binding Partner.Maganszemely.Vezeteknev}"/>
-            <sajatwpf:EllenorzottSzoveg Cimke="Keresztnév" Szoveg="{Binding Partner.Maganszemely.Keresztnev}"/>
-            <sajatwpf:EllenorzottSzoveg Cimke="Rövid név" Szoveg="{Binding Partner.Jogiszemely.Rovidnev}"/>
-            <sajatwpf:EllenorzottSzoveg Cimke="Ország" Szoveg="{Binding Partner.Jogiszemely.Orszag}"/>
-            <sajatwpf:EllenorzottSzoveg Cimke="Cégjegyzékszám" Szoveg="{Binding Partner.Jogiszemely.Cegjegyzekszam}"/>
-            <sajatwpf:EllenorzottSzoveg Cimke="Adószám" Szoveg="{Binding Partner.Jogiszemely.Adoszam}"/>
+            <sajatwpf:StatikusSzoveg Cimke="id" Szoveg="{Binding Partner.Id}"/>
+            <StackPanel Visibility="{Binding Partner.MJ, Converter={StaticResource maganszemely}}" >
+                <sajatwpf:EllenorzottSzoveg Cimke="Vezetéknév" Szoveg="{Binding Partner.Maganszemely.Vezeteknev}"/>
+                <sajatwpf:EllenorzottSzoveg Cimke="Keresztnév" Szoveg="{Binding Partner.Maganszemely.Keresztnev}"/>
+            </StackPanel>
+            <StackPanel Visibility="{Binding Partner.MJ, Converter={StaticResource jogiszemely}}">
+                <sajatwpf:EllenorzottSzoveg Cimke="Rövid név" Szoveg="{Binding Partner.Jogiszemely.Rovidnev}"/>
+                <sajatwpf:EllenorzottSzoveg Cimke="Ország" Szoveg="{Binding Partner.Jogiszemely.Orszag}"/>
+                <sajatwpf:EllenorzottSzoveg Cimke="Cégjegyzékszám" Szoveg="{Binding Partner.Jogiszemely.Cegjegyzekszam}"/>
+                <sajatwpf:EllenorzottSzoveg Cimke="Adószám" Szoveg="{Binding Partner.Jogiszemely.Adoszam}"/>
+            </StackPanel>
             <sajatwpf:EllenorzottSzoveg Cimke="Telefon" Szoveg="{Binding Partner.Elerhetoseg.Telefon}"/>
             <sajatwpf:EllenorzottSzoveg Cimke="Mobil" Szoveg="{Binding Partner.Elerhetoseg.Mobil}"/>
             <sajatwpf:EllenorzottSzoveg Cimke="Email" Szoveg="{Binding Partner.Elerhetoseg.Email}"/>

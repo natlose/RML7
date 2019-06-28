@@ -49,6 +49,11 @@ namespace Sajat.ObjektumModel
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(tulajdonsagNeve));
         }
 
+        protected void Ertesites([CallerMemberName] string tulajdonsagNeve = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(tulajdonsagNeve));
+        }
+
         #region INotifyDataErrorInfo
         public event EventHandler<DataErrorsChangedEventArgs> ErrorsChanged;
 

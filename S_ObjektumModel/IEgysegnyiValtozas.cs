@@ -12,6 +12,8 @@ namespace Sajat.ObjektumModel
 
         bool VanUtkozes { get; }
 
+        bool VanErvenytelenAdat { get; }
+
         bool ValtozasRogzitese();
     }
 }

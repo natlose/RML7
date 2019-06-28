@@ -22,6 +22,9 @@ namespace Sajat.Partner
                 .HasColumnName("MJ")
                 .IsRequired()
                 .HasMaxLength(1);
+            modelBuilder.Entity<Partner>().Property(p => p.Nev)
+                .HasColumnName("Nev")
+                .IsUnicode();
             modelBuilder.Entity<Partner>().Property(p => p.Maganszemely.Vezeteknev)
                 .HasColumnName("MVezeteknev")
                 .IsUnicode();

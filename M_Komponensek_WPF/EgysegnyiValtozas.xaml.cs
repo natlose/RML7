@@ -42,11 +42,7 @@ namespace Sajat.WPF
         private void RogzitClick(object sender, RoutedEventArgs e)
         {
             Rogzit?.Invoke(this, new RoutedEventArgs());
-        }
-
-        public void Versenyhelyzetkor()
-        {
-            VersenyhelyzetPanel.Visibility = Visibility.Visible;
+            GetBindingExpression(VanErvenytelenAdatProperty).UpdateTarget();
         }
 
         public RoutedEventHandler Elvet
@@ -79,6 +75,16 @@ namespace Sajat.WPF
 
         public static readonly DependencyProperty VanUtkozesProperty =
             DependencyProperty.Register("VanUtkozes", typeof(bool), typeof(EgysegnyiValtozas), new PropertyMetadata(false));
+
+        public bool VanErvenytelenAdat
+        {
+            get { return (bool)GetValue(VanErvenytelenAdatProperty); }
+            set { SetValue(VanErvenytelenAdatProperty, value); }
+        }
+
+        public static readonly DependencyProperty VanErvenytelenAdatProperty =
+            DependencyProperty.Register("VanErvenytelenAdat", typeof(bool), typeof(EgysegnyiValtozas), new PropertyMetadata(false));
+
 
         private void ElvetClick(object sender, RoutedEventArgs e)
         {

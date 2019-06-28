@@ -31,6 +31,13 @@
                     <TextBlock Text="A rögzítés NEM lehetséges!" TextWrapping="Wrap"/>
                 </StackPanel>
             </Border>
+            <Border x:Name="ErvenytelenAdatPanel" Visibility="{Binding VanErvenytelenAdat, Converter={StaticResource BooleanToVisibilityConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}">
+                <StackPanel>
+                    <TextBlock Text="FIGYELEM!"/>
+                    <TextBlock Text="Érvénytelen tartalom van a mezőkben!" TextWrapping="Wrap"/>
+                    <TextBlock Text="A rögzítés javítás után lehetséges!" TextWrapping="Wrap"/>
+                </StackPanel>
+            </Border>
         </StackPanel>
         <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
             <ContentPresenter Content="{Binding Tartalom, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}" />

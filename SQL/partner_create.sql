@@ -15,6 +15,7 @@ CREATE TABLE [Partner](
 	[Telefon] [nvarchar](20) NULL,
 	[Mobil] [nvarchar](20) NULL,
 	[Email] [nvarchar](50) NULL,
+	[Nev]  AS (case [MJ] when 'M' then ([MVezeteknev]+' ')+[MKeresztnev] when 'J' then [JRovidnev]  end),
  CONSTRAINT [PK_Partner] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
