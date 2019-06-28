@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Sajat.Alkalmazas.API
 {
-    public class FEEredmenyek : Dictionary<string, object> {
+    public class FEEredmenyek : Dictionary<string, object>
+    {
 
         public FEEredmenyek(){ }
 
@@ -14,6 +15,19 @@ namespace Sajat.Alkalmazas.API
         {
             Add(kulcs, ertek);
             return this;
+        }
+
+        public int AsInt(string kulcs, Action<string> kivetelkor = null)
+        {
+            try
+            {
+                return (int)this[kulcs];
+            }
+            catch (Exception e)
+            {
+                if (kivetelkor != null) kivetelkor.Invoke(kulcs + ":\n" + e.Message);
+                return int.MinValue;
+            }
         }
     }
 

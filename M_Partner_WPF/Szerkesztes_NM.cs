@@ -14,7 +14,7 @@ namespace Sajat.Partner
     //    int id - módosítandó partner azonosítója, 0: új partner
     // Eredmények:
     //    bool rogzites - false: rögzítés elvetve, true: rögzítve
-    //    int id - a létrehozott partner azonosítója, ha volt rögzítés
+    //    Partner partner - a partner (módosítva vagy sem)
     public class Szerkesztes_NM : Megfigyelheto, ICsatolhatoNezetModell
     {
         #region ICsatolhatoNezetModell
@@ -27,9 +27,9 @@ namespace Sajat.Partner
 
         public void BetoltesBefejezesekor()
         {
-            //object id = KapottFEKerelem.Parameterek["id"];
-            //if (id is int)
-            Partner = valtozas.Partnerek.Egyetlen(1);
+            Partner = valtozas.Partnerek.Egyetlen(KapottFEKerelem.Parameterek.AsInt("id", (e)=> {
+                //todo: hibakezelés kéne ide
+            }));
         }
 
         private Partner partner;
@@ -56,7 +56,7 @@ namespace Sajat.Partner
                 KapottFEKerelem.Eredmeny?.Invoke(
                     new FEEredmenyek()
                         .Eredmeny("rogzites", true)
-                        .Eredmeny("id", Partner.Id)
+                        .Eredmeny("partner", Partner)
                 );
             }
             else Ertesites(nameof(VanUtkozes));
@@ -67,6 +67,7 @@ namespace Sajat.Partner
             KapottFEKerelem.Eredmeny?.Invoke(
                 new FEEredmenyek()
                     .Eredmeny("rogzites", false)
+                    .Eredmeny("partner", Partner)
             );
         }
 

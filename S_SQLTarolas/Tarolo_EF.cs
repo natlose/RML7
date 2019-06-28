@@ -52,5 +52,10 @@ namespace Sajat.SQLTarolas
         {
             context.Set<TEntitas>().RemoveRange(entitasok);
         }
+
+        public void Frissit(TEntitas entitas)
+        {
+            context.Entry(entitas).Reload();
+        }
     }
 }

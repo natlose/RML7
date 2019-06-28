@@ -18,5 +18,7 @@ namespace Sajat.ObjektumModel
 
         void EgyetTorol(TEntitas entitas);
         void SokatTorol(IEnumerable<TEntitas> entitasok);
+
+        void Frissit(TEntitas entitas);
     }
 }

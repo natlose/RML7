@@ -11,12 +11,9 @@
         <local:Valasztas_NM/>
     </UserControl.DataContext>
     <sajatwpf:Lekerdezes Lekerdez="Lekerdezeskor" Vissza="Visszakor">
-        <ItemsControl>
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>            
+        <sajatwpf:KetgombosLista TetelForras="{Binding Lista, Mode=OneWay}" Kivalaszt="Kivalasztaskor" Modosit="Modositaskor">
+            <GridViewColumn DisplayMemberBinding="{Binding Maganszemely.Vezeteknev}" Header="Vezetéknév" Width="200" />
+            <GridViewColumn DisplayMemberBinding="{Binding Maganszemely.Keresztnev}" Header="Keresztnév" Width="200" />
+        </sajatwpf:KetgombosLista>
     </sajatwpf:Lekerdezes>
 </UserControl>

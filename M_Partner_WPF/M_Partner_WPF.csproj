@@ -61,10 +61,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="SzemelyValasztasFE.xaml.cs">
-      <DependentUpon>SzemelyValasztasFE.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="SzemelyValasztasNM.cs" />
     <Compile Include="Szerkesztes_N.xaml.cs">
       <DependentUpon>Szerkesztes_N.xaml</DependentUpon>
     </Compile>
@@ -83,10 +79,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="SzemelyValasztasFE.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Szerkesztes_N.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

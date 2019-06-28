@@ -34,5 +34,15 @@ namespace Sajat.Partner
         {
             (DataContext as Valasztas_NM).Visszakor();
         }
+
+        private void Kivalasztaskor(object sender, object e)
+        {
+            (DataContext as Valasztas_NM).Kivalasztaskor(e as Partner);
+        }
+
+        private void Modositaskor(object sender, object e)
+        {
+            (DataContext as Valasztas_NM).Modositaskor(e as Partner);
+        }
     }
 }

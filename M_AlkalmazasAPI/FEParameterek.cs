@@ -6,5 +6,27 @@ using System.Threading.Tasks;
 
 namespace Sajat.Alkalmazas.API
 {
-    public class FEParameterek : Dictionary<string, object> { }
+    public class FEParameterek : Dictionary<string, object>
+    {
+        public FEParameterek() { }
+
+        public FEParameterek Parameter(string kulcs, object ertek)
+        {
+            Add(kulcs, ertek);
+            return this;
+        }
+
+        public int AsInt(string kulcs, Action<string> kivetelkor = null)
+        {
+            try
+            {
+                return (int) this[kulcs];
+            }
+            catch (Exception e)
+            {
+                if (kivetelkor != null) kivetelkor.Invoke(kulcs + ":\n" + e.Message);
+                return int.MinValue;
+            }
+        }
+    }
 }
