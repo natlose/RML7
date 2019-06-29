@@ -16,9 +16,9 @@ using System.Windows.Shapes;
 
 namespace Sajat.Partner
 {
-    public partial class Valasztas_N : UserControl, ICsatolhatoNezet
+    public partial class PartnerValasztas_N : UserControl, ICsatolhatoNezet
     {
-        public Valasztas_N()
+        public PartnerValasztas_N()
         {
             InitializeComponent();
         }
@@ -27,27 +27,27 @@ namespace Sajat.Partner
 
         private void Lekerdezeskor(object sender, RoutedEventArgs e)
         {
-            (DataContext as Valasztas_NM).Lekerdezeskor();
+            (DataContext as PartnerValasztas_NM).Lekerdezeskor();
         }
 
         private void Felveszkor(object sender, RoutedEventArgs e)
         {
-            (DataContext as Valasztas_NM).Felveszkor();
+            (DataContext as PartnerValasztas_NM).Felveszkor();
         }
 
         private void Visszakor(object sender, RoutedEventArgs e)
         {
-            (DataContext as Valasztas_NM).Visszakor();
+            (DataContext as PartnerValasztas_NM).Visszakor();
         }
 
         private void Kivalasztaskor(object sender, object e)
         {
-            (DataContext as Valasztas_NM).Kivalasztaskor(e as Partner);
+            (DataContext as PartnerValasztas_NM).Kivalasztaskor(e as Partner);
         }
 
         private void Modositaskor(object sender, object e)
         {
-            (DataContext as Valasztas_NM).Modositaskor(e as Partner);
+            (DataContext as PartnerValasztas_NM).Modositaskor(e as Partner);
         }
     }
 }

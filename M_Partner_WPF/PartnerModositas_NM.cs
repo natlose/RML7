@@ -15,7 +15,7 @@ namespace Sajat.Partner
     // Eredmények:
     //    bool rogzites - false: rögzítés elvetve, true: rögzítve
     //    Partner partner - a partner (módosítva vagy sem)
-    public class Szerkesztes_NM : Megfigyelheto, ICsatolhatoNezetModell
+    public class PartnerModositas_NM : Megfigyelheto, ICsatolhatoNezetModell
     {
         #region ICsatolhatoNezetModell
         public FEKerelem KapottFEKerelem { get; set; }

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Sajat.Partner
 {
-    public class Valasztas_NM : Megfigyelheto, ICsatolhatoNezetModell
+    public class PartnerValasztas_NM : Megfigyelheto, ICsatolhatoNezetModell
     {
         #region ICsatolhatoNezetModell
         public FEKerelem KapottFEKerelem { get; set; }
@@ -36,7 +36,7 @@ namespace Sajat.Partner
         {
             SajatFEKerelem?.Invoke(
                 new FEKerelem(
-                    "M_Partner_WPF", "Sajat.Partner.Szerkesztes_N",
+                    "M_Partner_WPF", "Sajat.Partner.PartnerModositas_N",
                     new FEParameterek().Parameter("id", 0),
                     (eredmenyek) => {
                         if (eredmenyek.As<bool>("rogzites"))
@@ -66,7 +66,7 @@ namespace Sajat.Partner
         {
             SajatFEKerelem?.Invoke(
                 new FEKerelem(
-                    "M_Partner_WPF", "Sajat.Partner.Szerkesztes_N", 
+                    "M_Partner_WPF", "Sajat.Partner.PartnerModositas_N", 
                     new FEParameterek().Parameter("id", partner.Id),
                     (eredmenyek) => {
                         Partner modositott = eredmenyek.As<Partner>("partner");

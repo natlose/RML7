@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Menu>
   <Sor szoveg="Partnerek">
-    <Sor szoveg="Partnerek" szerelveny="M_Partner_WPF" osztaly="Sajat.Partner.Valasztas_N"/>
+    <Sor szoveg="Partnerek" szerelveny="M_Partner_WPF" osztaly="Sajat.Partner.PartnerValasztas_N"/>
     <Sor szoveg="Országok" szerelveny="M_Partner_WPF" osztaly="Sajat.Partner.OrszagValasztas_N"/>
     <Sor szoveg="Irányítószámok" szerelveny="M_Partner_WPF" osztaly="Sajat.Partner.IranyitoszamValasztas_N"/>
     <Sor szoveg="Szállítók" szerelveny="Partner" osztaly="Partner.SelectSupplier"/>

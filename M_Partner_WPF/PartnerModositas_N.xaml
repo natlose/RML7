@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="Sajat.Partner.Szerkesztes_N"
+﻿<UserControl x:Class="Sajat.Partner.PartnerModositas_N"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -14,7 +14,7 @@
         <partner:Szotar_Partner_MJ x:Key="mjSzotar"/>
     </UserControl.Resources>
     <UserControl.DataContext>
-        <local:Szerkesztes_NM/>
+        <local:PartnerModositas_NM/>
     </UserControl.DataContext>
     <sajatwpf:EgysegnyiValtozas 
         Rogzit="Rogziteskor" 

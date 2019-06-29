@@ -17,7 +17,7 @@
         RogzitesEredmeny="{Binding RogzitesEredmeny, Mode=OneWay}" 
     >
         <StackPanel >
-            <sajatwpf:EllenorzottSzoveg Cimke="ISO" Szoveg="{Binding Orszag.Iso}"/>
+            <sajatwpf:EllenorzottSzoveg Cimke="ISO 3166-1 alpha2" Szoveg="{Binding Orszag.Iso}"/>
             <sajatwpf:EllenorzottSzoveg Cimke="Ország" Szoveg="{Binding Orszag.Nev}"/>
         </StackPanel>
     </sajatwpf:EgysegnyiValtozas>
