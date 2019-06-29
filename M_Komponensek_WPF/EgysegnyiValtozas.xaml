@@ -8,6 +8,9 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+        <local:RogzitesEredmenyToVisibilityConverter x:Key="VersenyhelyzetVisible" VisibleEredmeny="Versenyhelyzet"/>
+        <local:RogzitesEredmenyToVisibilityConverter x:Key="ErvenytelenAdatVisible" VisibleEredmeny="ErvenytelenAdat"/>
+        <local:RogzitesEredmenyToVisibilityConverter x:Key="NemTarolhatoVisible" VisibleEredmeny="NemTarolhato"/>
     </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -24,18 +27,25 @@
                     <Button Content="Nem" Click="ElvetesMegszakitvaClick"/>
                 </StackPanel>
             </StackPanel>
-            <Border x:Name="VersenyhelyzetPanel" Visibility="{Binding VanUtkozes, Converter={StaticResource BooleanToVisibilityConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}">
+            <Border Visibility="{Binding RogzitesEredmeny, Converter={StaticResource VersenyhelyzetVisible}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}">
                 <StackPanel>
                     <TextBlock Text="FIGYELEM!"/>
                     <TextBlock Text="Az adatokat időközben más módosította az adatbázisban." TextWrapping="Wrap"/>
                     <TextBlock Text="A rögzítés NEM lehetséges!" TextWrapping="Wrap"/>
                 </StackPanel>
             </Border>
-            <Border x:Name="ErvenytelenAdatPanel" Visibility="{Binding VanErvenytelenAdat, Converter={StaticResource BooleanToVisibilityConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}">
+            <Border Visibility="{Binding RogzitesEredmeny, Converter={StaticResource ErvenytelenAdatVisible}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}">
                 <StackPanel>
                     <TextBlock Text="FIGYELEM!"/>
                     <TextBlock Text="Érvénytelen tartalom van a mezőkben!" TextWrapping="Wrap"/>
                     <TextBlock Text="A rögzítés javítás után lehetséges!" TextWrapping="Wrap"/>
+                </StackPanel>
+            </Border>
+            <Border Visibility="{Binding RogzitesEredmeny, Converter={StaticResource NemTarolhatoVisible}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}">
+                <StackPanel>
+                    <TextBlock Text="FIGYELEM!"/>
+                    <TextBlock Text="Az adat nem tárolható!" TextWrapping="Wrap"/>
+                    <TextBlock Text="Lehet, hogy már létezik?" TextWrapping="Wrap"/>
                 </StackPanel>
             </Border>
         </StackPanel>

@@ -48,6 +48,14 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="OrszagModositas_N.xaml.cs">
+      <DependentUpon>OrszagModositas_N.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OrszagModositas_NM.cs" />
+    <Compile Include="OrszagValasztas_N.xaml.cs">
+      <DependentUpon>OrszagValasztas_N.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OrszagValasztas_NM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -79,6 +87,14 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="OrszagModositas_N.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OrszagValasztas_N.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Szerkesztes_N.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

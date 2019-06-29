@@ -1,11 +1,16 @@
-lekérdezésbe új sor felvitele
-
 lekérdezésbe szûrõfeltételek
 
 lapozható kétgombos lista
 
-zoom gomb
+kétgombos lista gombok nélkül
 
 interfield validation
 
 reload button on concurrency
+
+appframe exit intention vs unsaved data
+
+IOC
+
+törlés
+

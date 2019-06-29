@@ -20,10 +20,9 @@
         Rogzit="Rogziteskor" 
         Elvet="Elveteskor" 
         VanValtozas="{Binding VanValtozas, Mode=OneWay}" 
-        VanUtkozes="{Binding VanUtkozes, Mode=OneWay}" 
-        VanErvenytelenAdat="{Binding VanErvenytelenAdat, Mode=OneWay}"
+        RogzitesEredmeny="{Binding RogzitesEredmeny, Mode=OneWay}" 
     >
-        <StackPanel Width="325">
+        <StackPanel >
             <sajatwpf:StatikusSzoveg Cimke="id" Szoveg="{Binding Partner.Id}"/>
             <sajatwpf:LenyiloSzoveg Cimke="MJ" Kod="{Binding Partner.MJ}" Szotar="{StaticResource mjSzotar}"/>
             <StackPanel Visibility="{Binding Partner.MJ, Converter={StaticResource maganszemely}}" >
@@ -32,7 +31,7 @@
             </StackPanel>
             <StackPanel Visibility="{Binding Partner.MJ, Converter={StaticResource jogiszemely}}">
                 <sajatwpf:EllenorzottSzoveg Cimke="Rövid név" Szoveg="{Binding Partner.Jogiszemely.Rovidnev}"/>
-                <sajatwpf:EllenorzottSzoveg Cimke="Ország" Szoveg="{Binding Partner.Jogiszemely.Orszag}"/>
+                <sajatwpf:EllenorzottSzoveg Cimke="Ország" Szoveg="{Binding Partner.Jogiszemely.Orszag}" Keres="OrszagKereseskor" />
                 <sajatwpf:EllenorzottSzoveg Cimke="Cégjegyzékszám" Szoveg="{Binding Partner.Jogiszemely.Cegjegyzekszam}"/>
                 <sajatwpf:EllenorzottSzoveg Cimke="Adószám" Szoveg="{Binding Partner.Jogiszemely.Adoszam}"/>
             </StackPanel>

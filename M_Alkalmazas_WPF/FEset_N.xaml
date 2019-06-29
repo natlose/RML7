@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Sajat.Alkalmazas.WPF"
              mc:Ignorable="d">
-    <Border x:Name="NezetBorder" CornerRadius="10" Margin="2" Padding="10,10,0,10" Background="White">
+    <Border CornerRadius="10" Margin="2" Padding="10,10,0,10" Background="White">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>

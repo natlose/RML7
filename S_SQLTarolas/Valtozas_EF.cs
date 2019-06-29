@@ -18,36 +18,24 @@ namespace Sajat.SQLTarolas
             get => context.ChangeTracker.HasChanges();
         }
 
-        private bool vanUtkozes = false;
-        public bool VanUtkozes
-        {
-            get => vanUtkozes;
-        }
-
-        private bool vanErvenytelenAdat = false;
-        public bool VanErvenytelenAdat
-        {
-            get => vanErvenytelenAdat;
-        }
-
-        public bool ValtozasRogzitese()
+        public RogzitesEredmeny ValtozasRogzitese()
         {
             try
             {
-                vanUtkozes = false;
-                vanErvenytelenAdat = false;
                 context.SaveChanges();
-                return true;
+                return RogzitesEredmeny.Siker;
             }
             catch (System.Data.Entity.Infrastructure.DbUpdateConcurrencyException)
             {
-                vanUtkozes = true;
-                return false;
+                return RogzitesEredmeny.Versenyhelyzet;
             }
             catch (System.Data.Entity.Validation.DbEntityValidationException)
             {
-                vanErvenytelenAdat = true;
-                return false;
+                return RogzitesEredmeny.ErvenytelenAdat;
+            }
+            catch (System.Data.Entity.Infrastructure.DbUpdateException)
+            {
+                return RogzitesEredmeny.NemTarolhato;
             }
         }
 

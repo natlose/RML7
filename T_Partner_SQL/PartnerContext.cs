@@ -19,9 +19,7 @@ namespace Sajat.Partner
             modelBuilder.Entity<Partner>().ToTable("Partner");
 
             modelBuilder.Entity<Partner>().Property(p => p.MJ)
-                .HasColumnName("MJ")
-                .IsRequired()
-                .HasMaxLength(1);
+                .HasColumnName("MJ");
             modelBuilder.Entity<Partner>().Property(p => p.Nev)
                 .HasColumnName("Nev")
                 .IsUnicode();
@@ -71,11 +69,21 @@ namespace Sajat.Partner
                 .HasColumnName("Sor2")
                 .IsUnicode();
             #endregion
+
+            #region Orszag
+            modelBuilder.Entity<Orszag>().ToTable("Orszag");
+            modelBuilder.Entity<Orszag>().Property(p => p.Iso)
+                .HasColumnName("Iso");
+            modelBuilder.Entity<Orszag>().Property(p => p.Nev)
+                .HasColumnName("Nev")
+                .IsUnicode();
+            #endregion
         }
 
         public DbSet<Partner> Partnerek { get; set; }
 
         public DbSet<PostaCim> PostaCimek { get; set; }
 
+        public DbSet<Orszag> Orszagok { get; set; }
     }
 }

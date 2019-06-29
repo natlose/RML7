@@ -16,9 +16,9 @@ using System.Windows.Shapes;
 
 namespace Sajat.Partner
 {
-    public partial class Szerkesztes_N : UserControl, ICsatolhatoNezet
+    public partial class OrszagModositas_N : UserControl, ICsatolhatoNezet
     {
-        public Szerkesztes_N()
+        public OrszagModositas_N()
         {
             InitializeComponent();
         }
@@ -27,22 +27,17 @@ namespace Sajat.Partner
 
         private void BetoltesBefejezesekor(object sender, RoutedEventArgs e)
         {
-            (DataContext as Szerkesztes_NM).BetoltesBefejezesekor();
+            (DataContext as OrszagModositas_NM).BetoltesBefejezesekor();
         }
 
         private void Rogziteskor(object sender, RoutedEventArgs e)
         {
-            (DataContext as Szerkesztes_NM).Rogziteskor();
+            (DataContext as OrszagModositas_NM).Rogziteskor();
         }
 
         private void Elveteskor(object sender, RoutedEventArgs e)
         {
-            (DataContext as Szerkesztes_NM).Elveteskor();
-        }
-
-        public void OrszagKereseskor(object sender, RoutedEventArgs e)
-        {
-            (DataContext as Szerkesztes_NM).OrszagKereseskor();
+            (DataContext as OrszagModositas_NM).Elveteskor();
         }
     }
 }

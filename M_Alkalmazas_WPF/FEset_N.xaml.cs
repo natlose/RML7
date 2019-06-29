@@ -29,9 +29,9 @@ namespace Sajat.Alkalmazas.WPF
 
         private void Thumb_DragDelta(object sender, System.Windows.Controls.Primitives.DragDeltaEventArgs e)
         {
-            if (NezetBorder.ActualWidth + e.HorizontalChange > MeretezoThumb.ActualWidth + NezetBorder.Padding.Right + NezetBorder.Padding.Left + 10)
+            if (NezetHelye.ActualWidth + e.HorizontalChange > MeretezoThumb.ActualWidth + NezetHelye.Padding.Right + NezetHelye.Padding.Left + 10)
             {
-                NezetBorder.SetValue(WidthProperty, NezetBorder.ActualWidth + e.HorizontalChange);
+                NezetHelye.SetValue(WidthProperty, NezetHelye.ActualWidth + e.HorizontalChange);
 
             }
         }

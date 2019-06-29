@@ -48,19 +48,34 @@ namespace Sajat.Partner
             get => valtozas.VanValtozas;            
         }
 
-        public bool VanUtkozes
+        private RogzitesEredmeny rogzitesEredmeny;
+        public RogzitesEredmeny RogzitesEredmeny
         {
-            get => valtozas.VanUtkozes;
+            get => rogzitesEredmeny;
+            set => ErtekadasErtesites(ref rogzitesEredmeny, value);
         }
 
-        public bool VanErvenytelenAdat
+        public void OrszagKereseskor()
         {
-            get => valtozas.VanErvenytelenAdat;
+            SajatFEKerelem?.Invoke(
+                new FEKerelem(
+                    "M_Partner_WPF", "Sajat.Partner.OrszagValasztas_N",
+                    null,
+                    (eredmenyek) => {
+                        if (eredmenyek.As<bool>("valasztas", null))
+                        {
+                            Orszag valasztott = eredmenyek.As<Orszag>("orszag");
+                            Partner.Jogiszemely.Orszag = valasztott.Iso;
+                        }
+                    }
+                )
+            );
         }
 
         public void Rogziteskor()
         {
-            if (valtozas.ValtozasRogzitese())
+            RogzitesEredmeny = valtozas.ValtozasRogzitese();
+            if (RogzitesEredmeny == RogzitesEredmeny.Siker)
             {
                 KapottFEKerelem.Eredmeny?.Invoke(
                     new FEEredmenyek()
@@ -68,7 +83,6 @@ namespace Sajat.Partner
                         .Eredmeny("partner", Partner)
                 );
             }
-            else Ertesites(nameof(VanUtkozes));
         }
 
         public void Elveteskor()

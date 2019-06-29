@@ -22,11 +22,17 @@
             FontFamily="Arial Narrow"
             FontSize="10"
             Margin="0,0,0,-3"/>
-        <TextBox 
-            Text="{Binding Path=Szoveg}" 
-            FontFamily="Consolas" 
-            FontSize="18"
-            Margin="0"/>
+        <DockPanel>
+            <Button DockPanel.Dock="Right" Content="Keres" Click="KeresClick"
+                    Visibility="{Binding VanKeres, Converter={StaticResource BooleanToVisibilityConverter}}"
+                    />
+            <TextBox 
+                DockPanel.Dock="Left"                
+                Text="{Binding Path=Szoveg}" 
+                FontFamily="Consolas" 
+                FontSize="18"
+                Margin="0"/>
+        </DockPanel>
         <ItemsControl
             ItemsSource="{Binding (Validation.Errors)}"
             Visibility="{Binding (Validation.HasError), Converter={StaticResource BooleanToVisibilityConverter}}"

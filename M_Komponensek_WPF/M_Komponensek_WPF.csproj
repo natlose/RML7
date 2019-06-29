@@ -79,6 +79,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="RogzitesEredmenyToVisibilityConverter.cs" />
     <Compile Include="StatikusSzoveg.xaml.cs">
       <DependentUpon>StatikusSzoveg.xaml</DependentUpon>
     </Compile>
@@ -116,6 +117,12 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\S_ObjektumModel\S_ObjektumModel.csproj">
+      <Project>{467A2FE7-82B3-4107-8DAC-1BD134D6B279}</Project>
+      <Name>S_ObjektumModel</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -44,5 +44,25 @@ namespace Sajat.WPF
             get { return (string)GetValue(SzovegProperty); }
             set { SetValue(SzovegProperty, value); }
         }
+
+        public RoutedEventHandler Keres
+        {
+            get { return (RoutedEventHandler)GetValue(KeresProperty); }
+            set { SetValue(KeresProperty, value); }
+        }
+
+        public static readonly DependencyProperty KeresProperty =
+            DependencyProperty.Register(
+                "Keres",
+                typeof(RoutedEventHandler),
+                typeof(EllenorzottSzoveg)
+            );
+
+        public bool VanKeres { get => Keres != null; }
+
+        private void KeresClick(object sender, RoutedEventArgs e)
+        {
+            Keres?.Invoke(this, null);
+        }
     }
 }

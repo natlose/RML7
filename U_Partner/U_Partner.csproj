@@ -43,9 +43,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Elerhetoseg.cs" />
+    <Compile Include="IOrszagTarolo.cs" />
+    <Compile Include="IOrszagValtozas.cs" />
     <Compile Include="IPartnerTarolo.cs" />
     <Compile Include="IPartnerValtozas.cs" />
     <Compile Include="Jogiszemely.cs" />
+    <Compile Include="Orszag.cs" />
     <Compile Include="Partner.cs" />
     <Compile Include="PostaCim.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

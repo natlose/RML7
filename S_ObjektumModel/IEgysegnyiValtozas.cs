@@ -6,14 +6,19 @@ using System.Threading.Tasks;
 
 namespace Sajat.ObjektumModel
 {
+    public enum RogzitesEredmeny
+    {
+        Nincs = 0,
+        Siker = 1,
+        Versenyhelyzet = -1,
+        ErvenytelenAdat = -2,
+        NemTarolhato = -3  // pl. másodlagos kulcsok egyediségének megsértése
+    }
+
     public interface IEgysegnyiValtozas : IDisposable
     {
         bool VanValtozas { get; }
 
-        bool VanUtkozes { get; }
-
-        bool VanErvenytelenAdat { get; }
-
-        bool ValtozasRogzitese();
+        RogzitesEredmeny ValtozasRogzitese();
     }
 }
