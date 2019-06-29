@@ -5,11 +5,13 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Sajat.Partner"
              xmlns:sajatwpf="clr-namespace:Sajat.WPF;assembly=M_Komponensek_WPF"             
+             xmlns:partner="clr-namespace:Sajat.Partner;assembly=U_Partner"             
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" Loaded="BetoltesBefejezesekor">
     <UserControl.Resources>
         <sajatwpf:CharToCollapsedVisibilityConverter x:Key="maganszemely" VisibleChar="M" CollapsedChar="J"/>
         <sajatwpf:CharToCollapsedVisibilityConverter x:Key="jogiszemely" VisibleChar="J" CollapsedChar="M"/>
+        <partner:Szotar_Partner_MJ x:Key="mjSzotar"/>
     </UserControl.Resources>
     <UserControl.DataContext>
         <local:Szerkesztes_NM/>
@@ -23,6 +25,7 @@
     >
         <StackPanel Width="325">
             <sajatwpf:StatikusSzoveg Cimke="id" Szoveg="{Binding Partner.Id}"/>
+            <sajatwpf:LenyiloSzoveg Cimke="MJ" Kod="{Binding Partner.MJ}" Szotar="{StaticResource mjSzotar}"/>
             <StackPanel Visibility="{Binding Partner.MJ, Converter={StaticResource maganszemely}}" >
                 <sajatwpf:EllenorzottSzoveg Cimke="Vezetéknév" Szoveg="{Binding Partner.Maganszemely.Vezeteknev}"/>
                 <sajatwpf:EllenorzottSzoveg Cimke="Keresztnév" Szoveg="{Binding Partner.Maganszemely.Keresztnev}"/>

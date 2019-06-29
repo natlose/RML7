@@ -62,6 +62,9 @@
     <Compile Include="Lekerdezes.xaml.cs">
       <DependentUpon>Lekerdezes.xaml</DependentUpon>
     </Compile>
+    <Compile Include="LenyiloSzoveg.xaml.cs">
+      <DependentUpon>LenyiloSzoveg.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Parancs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -102,6 +105,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Lekerdezes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LenyiloSzoveg.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

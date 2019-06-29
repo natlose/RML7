@@ -1,0 +1,11 @@
+lekérdezésbe új sor felvitele
+
+lekérdezésbe szûrõfeltételek
+
+lapozható kétgombos lista
+
+zoom gomb
+
+interfield validation
+
+reload button on concurrency
