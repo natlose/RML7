@@ -30,6 +30,11 @@ namespace Sajat.Partner
             (DataContext as Valasztas_NM).Lekerdezeskor();
         }
 
+        private void Felveszkor(object sender, RoutedEventArgs e)
+        {
+            (DataContext as Valasztas_NM).Felveszkor();
+        }
+
         private void Visszakor(object sender, RoutedEventArgs e)
         {
             (DataContext as Valasztas_NM).Visszakor();

@@ -32,13 +32,28 @@ namespace Sajat.Partner
             Ertesites(nameof(Lista));
         }
 
-        private const string ValasztasEredmeny = "valasztas";
+        public void Felveszkor()
+        {
+            SajatFEKerelem?.Invoke(
+                new FEKerelem(
+                    "M_Partner_WPF", "Sajat.Partner.Szerkesztes_N",
+                    new FEParameterek().Parameter("id", 0),
+                    (eredmenyek) => {
+                        if (eredmenyek.As<bool>("rogzites"))
+                        {
+                            Partner felvett = eredmenyek.As<Partner>("partner");
+                            Lekerdezeskor();
+                        }
+                    }
+                )
+            );
+        }
 
         public void Visszakor()
         {
             KapottFEKerelem.Eredmeny?.Invoke(
                 new FEEredmenyek()
-                    .Eredmeny(ValasztasEredmeny, false)
+                    .Eredmeny("valasztas", false)
             );
         }
 
@@ -54,7 +69,7 @@ namespace Sajat.Partner
                     "M_Partner_WPF", "Sajat.Partner.Szerkesztes_N", 
                     new FEParameterek().Parameter("id", partner.Id),
                     (eredmenyek) => {
-                        Partner modositott = eredmenyek["partner"] as Partner;
+                        Partner modositott = eredmenyek.As<Partner>("partner");
                         tarolo.Frissit(partner);
                     }
                 )

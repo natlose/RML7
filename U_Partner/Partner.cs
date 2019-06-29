@@ -12,12 +12,13 @@ namespace Sajat.Partner
     public class Partner : Ellenorizheto
     {
 
-        // Sajnos, beszűrődik egy tárolási rétegre tartozó megvalósítási részlet ide.
-        // Nem kéne az üzleti rétegnek egy private alapkonstruktor, de sajnos az EF igényli.
-        // Megdöbbentő módon tudja is használni. Reflection alapon példányosít...
-        private Partner(){}
-
-        public Partner(int id) { }
+        public Partner()
+        {
+            MJ = "M";
+            Maganszemely = new Maganszemely();
+            Jogiszemely = new Jogiszemely();
+            Elerhetoseg = new Elerhetoseg();
+        }
 
         [Timestamp]
         public byte[] RowVersion { get; set; }

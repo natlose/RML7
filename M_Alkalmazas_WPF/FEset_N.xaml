@@ -5,13 +5,18 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Sajat.Alkalmazas.WPF"
              mc:Ignorable="d">
-    <UserControl.Resources>
-        <Style TargetType="Border">
-            <Setter Property="CornerRadius" Value="10"/>
-            <Setter Property="Margin" Value="2"/>
-            <Setter Property="Padding" Value="10"/>
-            <Setter Property="Background" Value="White"/>
-        </Style>
-    </UserControl.Resources>
-    <Border x:Name="NezetHelye"/>
+    <Border x:Name="NezetBorder" CornerRadius="10" Margin="2" Padding="10,10,0,10" Background="White">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+            <Border x:Name="NezetHelye" />
+            <Thumb x:Name="MeretezoThumb" Grid.Column="1" 
+                   Width="5" Height="40"
+                   DragStarted="Thumb_DragStarted" DragDelta="Thumb_DragDelta" DragCompleted="Thumb_DragCompleted"
+                   Background="DarkGray"
+                   Opacity="0.5" MouseEnter="MeretezoThumb_MouseEnter" MouseLeave="MeretezoThumb_MouseLeave"/>
+        </Grid>
+    </Border>
 </UserControl>

@@ -17,7 +17,7 @@ namespace Sajat.WPF
 
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            if (value.ToString().ToUpper() == VisibleChar) return Visibility.Visible;
+            if (value != null && value.ToString().ToUpper() == VisibleChar) return Visibility.Visible;
             else return Visibility.Collapsed;
         }
 

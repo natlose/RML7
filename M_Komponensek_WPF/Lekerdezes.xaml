@@ -15,8 +15,10 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal">
-            <Button Content="Vissza" Click="VisszaClick" />
+        <DockPanel>
+            <Button DockPanel.Dock="Left" Content="Vissza" Click="VisszaClick" />
+            <Button x:Name="FelveszButton" DockPanel.Dock="Right" Content="Felvesz" Click="FelveszClick" Visibility="Hidden"/>
+            <Button DockPanel.Dock="Right" Content="Lekérdez" Click="LekerdezClick" />
             <ItemsControl>
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
@@ -27,8 +29,7 @@
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
-            <Button Content="Lekérdez" Click="LekerdezClick" />
-        </StackPanel>
+        </DockPanel>
         <ContentPresenter Grid.Row="1" Content="{Binding Tartalom, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}" />
     </Grid>
 </UserControl>

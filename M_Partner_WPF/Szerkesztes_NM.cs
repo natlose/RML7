@@ -20,16 +20,20 @@ namespace Sajat.Partner
         #region ICsatolhatoNezetModell
         public FEKerelem KapottFEKerelem { get; set; }
 
-        public event FEKerelemEsemenyKezelo SajatFEKerelem;
+        public event FEKerelemEsemenyKezelo SajatFEKerelem; 
         #endregion
 
         IPartnerValtozas valtozas = new PartnerValtozas_EF(new PartnerContext()); //todo: IOC kell ide!Az M_Partner_WPF nem függhet a T_Partner_SQL-től!
 
         public void BetoltesBefejezesekor()
         {
-            Partner = valtozas.Partnerek.Egyetlen(KapottFEKerelem.Parameterek.AsInt("id", (e)=> {
-                //todo: hibakezelés kéne ide
-            }));
+            int id = KapottFEKerelem.Parameterek.As<int>("id");
+            if (id == 0)
+            {
+                Partner = new Partner();
+                valtozas.Partnerek.EgyetBetesz(Partner);
+            }
+            else Partner = valtozas.Partnerek.Egyetlen(id);
         }
 
         private Partner partner;

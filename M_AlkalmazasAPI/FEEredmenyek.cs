@@ -17,16 +17,16 @@ namespace Sajat.Alkalmazas.API
             return this;
         }
 
-        public int AsInt(string kulcs, Action<string> kivetelkor = null)
+        public T As<T>(string kulcs, Action<string> kivetelkor = null)
         {
             try
             {
-                return (int)this[kulcs];
+                return (T)this[kulcs];
             }
             catch (Exception e)
             {
                 if (kivetelkor != null) kivetelkor.Invoke(kulcs + ":\n" + e.Message);
-                return int.MinValue;
+                return default;
             }
         }
     }

@@ -21,5 +21,34 @@ namespace Sajat.Alkalmazas.WPF
         {
             InitializeComponent();
         }
+
+        private void Thumb_DragStarted(object sender, System.Windows.Controls.Primitives.DragStartedEventArgs e)
+        {
+            MeretezoThumb.Background = Brushes.Orange;
+        }
+
+        private void Thumb_DragDelta(object sender, System.Windows.Controls.Primitives.DragDeltaEventArgs e)
+        {
+            if (NezetBorder.ActualWidth + e.HorizontalChange > MeretezoThumb.ActualWidth + NezetBorder.Padding.Right + NezetBorder.Padding.Left + 10)
+            {
+                NezetBorder.SetValue(WidthProperty, NezetBorder.ActualWidth + e.HorizontalChange);
+
+            }
+        }
+
+        private void Thumb_DragCompleted(object sender, System.Windows.Controls.Primitives.DragCompletedEventArgs e)
+        {
+            MeretezoThumb.Background = Brushes.DarkGray;
+        }
+
+        private void MeretezoThumb_MouseEnter(object sender, MouseEventArgs e)
+        {
+            MeretezoThumb.Opacity = 1;
+        }
+
+        private void MeretezoThumb_MouseLeave(object sender, MouseEventArgs e)
+        {
+            MeretezoThumb.Opacity = 0.5;
+        }
     }
 }
