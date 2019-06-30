@@ -33,7 +33,7 @@ namespace Sajat.Partner
                 Partner = new Partner();
                 valtozas.Partnerek.EgyetBetesz(Partner);
             }
-            else Partner = valtozas.Partnerek.Egyetlen(id);
+            else Partner = valtozas.Partnerek.PartnerCimekkel(id);
         }
 
         private Partner partner;
@@ -92,6 +92,16 @@ namespace Sajat.Partner
                     .Eredmeny("rogzites", false)
                     .Eredmeny("partner", Partner)
             );
+        }
+
+        public void PostaCimFelveszkor()
+        {
+            
+        }
+
+        internal void PostaCimModositaskor(PostaCim postaCim)
+        {
+            
         }
 
     }

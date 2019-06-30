@@ -13,6 +13,9 @@
         <DataTemplate x:Key="ModositOszlopTemplate">
             <Button Content="Módosít" Click="ModositClick"/>
         </DataTemplate>
+        <GridViewColumnHeader x:Key="ModositHeader" >
+            <Button Content="Felvesz" Click="FelveszClick" />
+        </GridViewColumnHeader>
     </UserControl.Resources>
     <ListView ItemsSource="{Binding TetelForras, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}">
         <ListView.View>

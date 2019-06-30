@@ -10,8 +10,8 @@
     <UserControl.DataContext>
         <local:PartnerValasztas_NM/>
     </UserControl.DataContext>
-    <sajatwpf:Lekerdezes Lekerdez="Lekerdezeskor" Vissza="Visszakor" Felvesz="Felveszkor">
-        <sajatwpf:KetgombosLista TetelForras="{Binding Lista, Mode=OneWay}" Kivalaszt="Kivalasztaskor" Modosit="Modositaskor">
+    <sajatwpf:Lekerdezes Lekerdez="Lekerdezeskor" Vissza="Visszakor">
+        <sajatwpf:KetgombosLista TetelForras="{Binding Lista, Mode=OneWay}" Kivalaszt="Kivalasztaskor" Modosit="Modositaskor" Felvesz="Felveszkor">
             <GridViewColumn DisplayMemberBinding="{Binding Id, StringFormat=\{0:D8\}}" Header="Id" Width="72" />
             <GridViewColumn DisplayMemberBinding="{Binding MJ}" Header="MJ" Width="50" />
             <GridViewColumn DisplayMemberBinding="{Binding Nev}" Header="Név" Width="200" />

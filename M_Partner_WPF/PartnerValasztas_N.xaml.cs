@@ -49,5 +49,6 @@ namespace Sajat.Partner
         {
             (DataContext as PartnerValasztas_NM).Modositaskor(e as Partner);
         }
+
     }
 }

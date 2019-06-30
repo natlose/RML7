@@ -1,5 +1,7 @@
 lekérdezésbe szûrõfeltételek
 
+automata lekérdezés
+
 lapozható kétgombos lista
 
 kétgombos lista gombok nélkül
@@ -14,3 +16,12 @@ IOC
 
 törlés
 
+internal, ahova kell
+
+ketgomboslistán EventHandler<object> helyett RoutedEvent és RouteEventHandler használata
+
+keres gomb mellé kell megtekint is
+
+gridviewcolumn szótáras kifejtéssel 
+
+statikusszovegbe szótáras kifejtés képessége

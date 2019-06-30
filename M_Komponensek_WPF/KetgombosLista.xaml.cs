@@ -35,13 +35,23 @@ namespace Sajat.WPF
             {
                 List<GridViewColumn> buffer = Oszlopok.ToList();
                 Oszlopok.Clear();
-                GridViewColumn bal = new GridViewColumn();
-                bal.CellTemplate = FindResource("KivalasztOszlopTemplate") as DataTemplate;
-                MyGridView.Columns.Add(bal);
+                // A kiválasztógombok oszlopát csak akkor adom hozzá, ha van végrehajtójuk:
+                if (Kivalaszt != null)
+                {
+                    GridViewColumn bal = new GridViewColumn();
+                    bal.CellTemplate = FindResource("KivalasztOszlopTemplate") as DataTemplate;
+                    MyGridView.Columns.Add(bal);
+                }
                 foreach (var oszlop in buffer) MyGridView.Columns.Add(oszlop);
-                GridViewColumn jobb = new GridViewColumn();
-                jobb.CellTemplate = FindResource("ModositOszlopTemplate") as DataTemplate;
-                MyGridView.Columns.Add(jobb);
+                // A módosítógombok oszlopát csak akkor adom hozzá, ha van végrehajtójuk:
+                if (Modosit != null)
+                {
+                    GridViewColumn jobb = new GridViewColumn();
+                    jobb.CellTemplate = FindResource("ModositOszlopTemplate") as DataTemplate;
+                    // A Felvesz gombot csak akkor adom hozzá, ha van végrehajtója
+                    if (Felvesz != null) jobb.Header = FindResource("ModositHeader") as GridViewColumnHeader;
+                    MyGridView.Columns.Add(jobb);
+                }
             }
         }
 
@@ -92,11 +102,27 @@ namespace Sajat.WPF
                 typeof(KetgombosLista)
             );
 
+        public RoutedEventHandler Felvesz
+        {
+            get { return (RoutedEventHandler)GetValue(FelveszProperty); }
+            set { SetValue(FelveszProperty, value); }
+        }
+
+        public static readonly DependencyProperty FelveszProperty =
+            DependencyProperty.Register(
+                "Felvesz",
+                typeof(RoutedEventHandler),
+                typeof(KetgombosLista)
+            );
+
         private void ModositClick(object sender, RoutedEventArgs e)
         {
             Modosit?.Invoke(this, (e.Source as Button).DataContext);
         }
 
-
+        private void FelveszClick(object sender, RoutedEventArgs e)
+        {
+            Felvesz?.Invoke(this, new RoutedEventArgs());
+        }
     }
 }

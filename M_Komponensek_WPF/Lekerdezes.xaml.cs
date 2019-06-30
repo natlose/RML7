@@ -39,19 +39,6 @@ namespace Sajat.WPF
                 typeof(Lekerdezes)
             );
 
-        public RoutedEventHandler Felvesz
-        {
-            get { return (RoutedEventHandler)GetValue(FelveszProperty); }
-            set { SetValue(FelveszProperty, value); }
-        }
-
-        public static readonly DependencyProperty FelveszProperty =
-            DependencyProperty.Register(
-                "Felvesz",
-                typeof(RoutedEventHandler),
-                typeof(Lekerdezes)
-            );
-
         public RoutedEventHandler Vissza
         {
             get { return (RoutedEventHandler)GetValue(VisszaProperty); }
@@ -65,11 +52,9 @@ namespace Sajat.WPF
                 typeof(Lekerdezes)
             );
 
-
         private void LekerdezClick(object sender, RoutedEventArgs e)
         {
             Lekerdez?.Invoke(this, new RoutedEventArgs());
-            FelveszButton.Visibility = Visibility.Visible;
         }
 
         private void VisszaClick(object sender, RoutedEventArgs e)
@@ -77,9 +62,5 @@ namespace Sajat.WPF
             Vissza?.Invoke(this, new RoutedEventArgs());
         }
 
-        private void FelveszClick(object sender, RoutedEventArgs e)
-        {
-            Felvesz?.Invoke(this, new RoutedEventArgs());
-        }
     }
 }

@@ -9,6 +9,6 @@ namespace Sajat.Partner
 {
     public interface IPartnerTarolo : ITarolo<Partner>
     {
-        IEnumerable<Partner> NevAlapjan(string nev, int oldal, int oldalmeret);
+        Partner PartnerCimekkel(int id);
     }
 }

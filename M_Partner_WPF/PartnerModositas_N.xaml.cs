@@ -44,5 +44,15 @@ namespace Sajat.Partner
         {
             (DataContext as PartnerModositas_NM).OrszagKereseskor();
         }
+
+        public void PostaCimFelveszkor(object sender, RoutedEventArgs e)
+        {
+            (DataContext as PartnerModositas_NM).PostaCimFelveszkor();
+        }
+
+        private void PostaCimModositaskor(object sender, object e)
+        {
+            (DataContext as PartnerModositas_NM).PostaCimModositaskor(e as PostaCim);
+        }
     }
 }

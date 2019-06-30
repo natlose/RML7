@@ -38,6 +38,13 @@
             <sajatwpf:EllenorzottSzoveg Cimke="Telefon" Szoveg="{Binding Partner.Elerhetoseg.Telefon}"/>
             <sajatwpf:EllenorzottSzoveg Cimke="Mobil" Szoveg="{Binding Partner.Elerhetoseg.Mobil}"/>
             <sajatwpf:EllenorzottSzoveg Cimke="Email" Szoveg="{Binding Partner.Elerhetoseg.Email}"/>
+            <sajatwpf:KetgombosLista TetelForras="{Binding Partner.PostaCimek, Mode=OneWay}" Modosit="PostaCimModositaskor" Felvesz="PostaCimFelveszkor">
+                <GridViewColumn DisplayMemberBinding="{Binding Tipus}" Header="Típus" Width="50" />
+                <GridViewColumn DisplayMemberBinding="{Binding Orszag}" Header="Ország" Width="30" />
+                <GridViewColumn DisplayMemberBinding="{Binding Iranyitoszam}" Header="Irsz" Width="80" />
+                <GridViewColumn DisplayMemberBinding="{Binding Helyseg}" Header="Helység" Width="100" />
+                <GridViewColumn DisplayMemberBinding="{Binding Sor1}" Header="Utca" Width="150" />
+            </sajatwpf:KetgombosLista>
         </StackPanel>
     </sajatwpf:EgysegnyiValtozas>
 </UserControl>

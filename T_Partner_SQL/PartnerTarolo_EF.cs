@@ -11,14 +11,9 @@ namespace Sajat.Partner
     {
         public PartnerTarolo_EF(PartnerContext context) : base(context) { }
 
-        public IEnumerable<Partner> NevAlapjan(string nev, int oldal, int oldalmeret)
+        public Partner PartnerCimekkel(int id)
         {
-            return (context as PartnerContext).Partnerek
-                .Where(p => (p.Maganszemely.Vezeteknev + p.Maganszemely.Keresztnev).Contains(nev))
-                .OrderBy(p => p.Maganszemely.Vezeteknev + p.Maganszemely.Keresztnev)
-                .Skip((oldal - 1) * oldalmeret)
-                .Take(oldalmeret)
-                .ToList();
+            return (context as PartnerContext).Partnerek.Include(p => p.PostaCimek).Single(p => p.Id == id);
         }
     }
 }

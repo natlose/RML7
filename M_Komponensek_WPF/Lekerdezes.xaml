@@ -17,7 +17,6 @@
         </Grid.RowDefinitions>
         <DockPanel>
             <Button DockPanel.Dock="Left" Content="Vissza" Click="VisszaClick" />
-            <Button x:Name="FelveszButton" DockPanel.Dock="Right" Content="Felvesz" Click="FelveszClick" Visibility="Hidden"/>
             <Button DockPanel.Dock="Right" Content="Lekérdez" Click="LekerdezClick" />
             <ItemsControl>
                 <ItemsControl.ItemTemplate>
