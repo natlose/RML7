@@ -6,8 +6,6 @@ automata lekérdezés
 
 lapozható kétgombos lista
 
-kétgombos lista gombok nélkül
-
 interfield validation
 
 reload button on concurrency

@@ -20,9 +20,9 @@ namespace Sajat.WPF
 {
 
     [ContentProperty(nameof(Oszlopok))]
-    public partial class KetgombosLista : UserControl
+    public partial class GombosLista : UserControl
     {
-        public KetgombosLista()
+        public GombosLista()
         {
             InitializeComponent();
         }
@@ -80,7 +80,7 @@ namespace Sajat.WPF
             DependencyProperty.Register(
                 "TetelForras",
                 typeof(IEnumerable),
-                typeof(KetgombosLista)
+                typeof(GombosLista)
             );
 
         public EventHandler<object> Kivalaszt
@@ -93,7 +93,7 @@ namespace Sajat.WPF
             DependencyProperty.Register(
                 "Kivalaszt",
                 typeof(EventHandler<object>),
-                typeof(KetgombosLista)
+                typeof(GombosLista)
             );
 
         private void KivalasztClick(object sender, RoutedEventArgs e)
@@ -112,7 +112,7 @@ namespace Sajat.WPF
             DependencyProperty.Register(
                 "Modosit",
                 typeof(EventHandler<object>),
-                typeof(KetgombosLista)
+                typeof(GombosLista)
             );
 
         private void ModositClick(object sender, RoutedEventArgs e)
@@ -130,7 +130,7 @@ namespace Sajat.WPF
             DependencyProperty.Register(
                 "Megnyit",
                 typeof(EventHandler<object>),
-                typeof(KetgombosLista)
+                typeof(GombosLista)
             );
 
         private void MegnyitClick(object sender, RoutedEventArgs e)
@@ -148,7 +148,7 @@ namespace Sajat.WPF
             DependencyProperty.Register(
                 "Felvesz",
                 typeof(RoutedEventHandler),
-                typeof(KetgombosLista)
+                typeof(GombosLista)
             );
 
         private void FelveszClick(object sender, RoutedEventArgs e)

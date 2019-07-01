@@ -59,8 +59,8 @@
     <Compile Include="EllenorzottSzoveg.xaml.cs">
       <DependentUpon>EllenorzottSzoveg.xaml</DependentUpon>
     </Compile>
-    <Compile Include="KetgombosLista.xaml.cs">
-      <DependentUpon>KetgombosLista.xaml</DependentUpon>
+    <Compile Include="GombosLista.xaml.cs">
+      <DependentUpon>GombosLista.xaml</DependentUpon>
     </Compile>
     <Compile Include="Lekerdezes.xaml.cs">
       <DependentUpon>Lekerdezes.xaml</DependentUpon>
@@ -108,7 +108,7 @@
       <SubType>Designer</SubType>
       <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>
-    <Page Include="KetgombosLista.xaml">
+    <Page Include="GombosLista.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
