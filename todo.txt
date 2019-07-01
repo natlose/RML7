@@ -14,8 +14,6 @@ appframe exit intention vs unsaved data
 
 IOC
 
-törlés
-
 internal, ahova kell
 
 ketgomboslistán EventHandler<object> helyett RoutedEvent és RouteEventHandler használata

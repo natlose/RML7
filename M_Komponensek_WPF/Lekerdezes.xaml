@@ -6,6 +6,16 @@
              xmlns:local="clr-namespace:Sajat.WPF"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <!--<UserControl.Resources>
+        <PathGeometry x:Key="cloud-download" 
+            Figures="M13.922 5.626A3.72 3.72 0 0 0 10.205 2a3.712 3.712 0 0 0-2.92 1.418 2.09 2.09 0 0 0-3.719 1.573 3.028 3.028 0 0 0-3.567 2.98A3.028 3.028 0 0 0 3.026 11H4.46l3.539 3.664L11.538 11h1.742a2.725 2.725 0 0 0 .641-5.374zM8 13l-3-3h2V7h2v3h2l-3 3z" 
+            FillRule="NonZero"
+        >
+            <PathGeometry.Transform>
+                <ScaleTransform ScaleX="2" ScaleY="2"/>
+            </PathGeometry.Transform>
+        </PathGeometry>
+    </UserControl.Resources>-->
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
@@ -18,6 +28,7 @@
         <DockPanel>
             <Button DockPanel.Dock="Left" Content="Vissza" Click="VisszaClick" />
             <Button DockPanel.Dock="Right" Content="Lekérdez" Click="LekerdezClick" />
+            <!--<local:GrafikasGomb DockPanel.Dock="Right" Grafika="{StaticResource cloud-download}" Click="LekerdezClick" Padding="5" />-->
             <ItemsControl>
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>

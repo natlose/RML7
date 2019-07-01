@@ -62,6 +62,7 @@
     <Compile Include="GombosLista.xaml.cs">
       <DependentUpon>GombosLista.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GrafikasGomb.cs" />
     <Compile Include="Lekerdezes.xaml.cs">
       <DependentUpon>Lekerdezes.xaml</DependentUpon>
     </Compile>
