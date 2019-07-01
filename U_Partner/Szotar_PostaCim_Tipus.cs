@@ -7,12 +7,13 @@ using System.Threading.Tasks;
 
 namespace Sajat.Partner
 {
-    public class Szotar_Partner_MJ : Szotar
+    public class Szotar_PostaCim_Tipus : Szotar
     {
-        public Szotar_Partner_MJ()
+        public Szotar_PostaCim_Tipus()
         {
-            Add("M", "magánszemély");
-            Add("J", "jogiszemély");
+            Add("S", "számlázás");
+            Add("L", "levelezés");
+            Add("D", "szállítás");
         }
     }
 }

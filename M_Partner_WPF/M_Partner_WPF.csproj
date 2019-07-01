@@ -56,6 +56,10 @@
       <DependentUpon>OrszagValasztas_N.xaml</DependentUpon>
     </Compile>
     <Compile Include="OrszagValasztas_NM.cs" />
+    <Compile Include="PostaCimModositas_N.xaml.cs">
+      <DependentUpon>PostaCimModositas_N.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PostaCimModositas_NM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -100,6 +104,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PartnerValasztas_N.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PostaCimModositas_N.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

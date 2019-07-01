@@ -1,5 +1,7 @@
 lekérdezésbe szûrõfeltételek
 
+PartnerValasztas mutassa a számlázási címet is
+
 automata lekérdezés
 
 lapozható kétgombos lista
@@ -25,3 +27,7 @@ keres gomb mellé kell megtekint is
 gridviewcolumn szótáras kifejtéssel 
 
 statikusszovegbe szótáras kifejtés képessége
+
+validátort országkódra, irányítószámra
+
+gomboslistának is kellhet cimke

@@ -33,7 +33,7 @@ namespace Sajat.Partner
                 Partner = new Partner();
                 valtozas.Partnerek.EgyetBetesz(Partner);
             }
-            else Partner = valtozas.Partnerek.PartnerCimekkel(id);
+            else Partner = valtozas.Partnerek.EgyetlenEsPostaCimek(id);
         }
 
         private Partner partner;
@@ -96,12 +96,34 @@ namespace Sajat.Partner
 
         public void PostaCimFelveszkor()
         {
-            
+            PostaCim postacim = new PostaCim();
+            Partner.PostaCimek.Add(postacim);
+            SajatFEKerelem?.Invoke(
+                new FEKerelem(
+                    "M_Partner_WPF", "Sajat.Partner.PostaCimModositas_N",
+                    new FEParameterek()
+                        .Parameter("valtozaspeldany", "kapott")
+                        .Parameter("valtozas", valtozas)
+                        .Parameter("postacim", postacim),
+                    //Szabad elhagyni az eredményfeldolgozót ha nincs mit csinálni benne.
+                    //A Sajat.Alkalmazas.WPF.Tortenet elég okos, hogy ne hívja, ha nincs.
+                    null
+                )
+            );
         }
 
-        internal void PostaCimModositaskor(PostaCim postaCim)
+        internal void PostaCimMegnyitaskor(PostaCim postaCim)
         {
-            
+            SajatFEKerelem?.Invoke(
+                new FEKerelem(
+                    "M_Partner_WPF", "Sajat.Partner.PostaCimModositas_N",
+                    new FEParameterek()
+                        .Parameter("valtozaspeldany", "kapott")
+                        .Parameter("valtozas", valtozas)
+                        .Parameter("postacim", postaCim),
+                    null
+                )
+            );
         }
 
     }

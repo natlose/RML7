@@ -9,6 +9,6 @@ namespace Sajat.Partner
 {
     public interface IPartnerTarolo : ITarolo<Partner>
     {
-        Partner PartnerCimekkel(int id);
+        Partner EgyetlenEsPostaCimek(int id);
     }
 }

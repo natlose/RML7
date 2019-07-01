@@ -13,7 +13,10 @@
         <DataTemplate x:Key="ModositOszlopTemplate">
             <Button Content="Módosít" Click="ModositClick"/>
         </DataTemplate>
-        <GridViewColumnHeader x:Key="ModositHeader" >
+        <DataTemplate x:Key="MegnyitOszlopTemplate">
+            <Button Content="Megnyit" Click="MegnyitClick"/>
+        </DataTemplate>
+        <GridViewColumnHeader x:Key="FelveszHeader" >
             <Button Content="Felvesz" Click="FelveszClick" />
         </GridViewColumnHeader>
     </UserControl.Resources>

@@ -1,6 +1,7 @@
 ﻿using Sajat.ObjektumModel;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -75,8 +76,8 @@ namespace Sajat.Partner
             set => ErtekadasErtesites(ref elerhetoseg, value);
         }
 
-        private ICollection<PostaCim> postaCimek;
-        public ICollection<PostaCim> PostaCimek
+        private ObservableCollection<PostaCim> postaCimek;
+        public ObservableCollection<PostaCim> PostaCimek
         {
             get => postaCimek;
             set => ErtekadasErtesites(ref postaCimek, value);

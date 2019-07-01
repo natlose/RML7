@@ -50,9 +50,9 @@ namespace Sajat.Partner
             (DataContext as PartnerModositas_NM).PostaCimFelveszkor();
         }
 
-        private void PostaCimModositaskor(object sender, object e)
+        private void PostaCimMegnyitaskor(object sender, object e)
         {
-            (DataContext as PartnerModositas_NM).PostaCimModositaskor(e as PostaCim);
+            (DataContext as PartnerModositas_NM).PostaCimMegnyitaskor(e as PostaCim);
         }
     }
 }

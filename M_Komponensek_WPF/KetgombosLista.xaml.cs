@@ -38,19 +38,32 @@ namespace Sajat.WPF
                 // A kiválasztógombok oszlopát csak akkor adom hozzá, ha van végrehajtójuk:
                 if (Kivalaszt != null)
                 {
-                    GridViewColumn bal = new GridViewColumn();
-                    bal.CellTemplate = FindResource("KivalasztOszlopTemplate") as DataTemplate;
-                    MyGridView.Columns.Add(bal);
+                    GridViewColumn oszlop = new GridViewColumn();
+                    oszlop.CellTemplate = FindResource("KivalasztOszlopTemplate") as DataTemplate;
+                    MyGridView.Columns.Add(oszlop);
                 }
                 foreach (var oszlop in buffer) MyGridView.Columns.Add(oszlop);
-                // A módosítógombok oszlopát csak akkor adom hozzá, ha van végrehajtójuk:
-                if (Modosit != null)
+                bool felveszKellhet = false; //Csak az utolsó oszlopra kell Felvesz gomb, de itt még nem tudom, mi lesz az utolsó oszlop
+                // A megnyitógombok oszlopát csak akkor adom hozzá, ha van végrehajtójuk:
+                if (Megnyit != null)
                 {
-                    GridViewColumn jobb = new GridViewColumn();
-                    jobb.CellTemplate = FindResource("ModositOszlopTemplate") as DataTemplate;
+                    GridViewColumn oszlop = new GridViewColumn();
+                    oszlop.CellTemplate = FindResource("MegnyitOszlopTemplate") as DataTemplate;
+                    MyGridView.Columns.Add(oszlop);
+                    felveszKellhet = true;
+                }
+                if (Modosit != null)
+                // A módosítógombok oszlopát csak akkor adom hozzá, ha van végrehajtójuk:
+                {
+                    GridViewColumn oszlop = new GridViewColumn();
+                    oszlop.CellTemplate = FindResource("ModositOszlopTemplate") as DataTemplate;
+                    MyGridView.Columns.Add(oszlop);
+                    felveszKellhet = true;
+                }
+                if (felveszKellhet)
+                {
                     // A Felvesz gombot csak akkor adom hozzá, ha van végrehajtója
-                    if (Felvesz != null) jobb.Header = FindResource("ModositHeader") as GridViewColumnHeader;
-                    MyGridView.Columns.Add(jobb);
+                    if (Felvesz != null) MyGridView.Columns.Last().Header = FindResource("FelveszHeader") as GridViewColumnHeader;
                 }
             }
         }
@@ -102,6 +115,29 @@ namespace Sajat.WPF
                 typeof(KetgombosLista)
             );
 
+        private void ModositClick(object sender, RoutedEventArgs e)
+        {
+            Modosit?.Invoke(this, (e.Source as Button).DataContext);
+        }
+
+        public EventHandler<object> Megnyit
+        {
+            get { return (EventHandler<object>)GetValue(MegnyitProperty); }
+            set { SetValue(MegnyitProperty, value); }
+        }
+
+        public static readonly DependencyProperty MegnyitProperty =
+            DependencyProperty.Register(
+                "Megnyit",
+                typeof(EventHandler<object>),
+                typeof(KetgombosLista)
+            );
+
+        private void MegnyitClick(object sender, RoutedEventArgs e)
+        {
+            Megnyit?.Invoke(this, (e.Source as Button).DataContext);
+        }
+
         public RoutedEventHandler Felvesz
         {
             get { return (RoutedEventHandler)GetValue(FelveszProperty); }
@@ -114,11 +150,6 @@ namespace Sajat.WPF
                 typeof(RoutedEventHandler),
                 typeof(KetgombosLista)
             );
-
-        private void ModositClick(object sender, RoutedEventArgs e)
-        {
-            Modosit?.Invoke(this, (e.Source as Button).DataContext);
-        }
 
         private void FelveszClick(object sender, RoutedEventArgs e)
         {

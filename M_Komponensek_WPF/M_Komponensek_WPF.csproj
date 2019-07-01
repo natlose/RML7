@@ -50,6 +50,9 @@
   <ItemGroup>
     <Compile Include="CharToCollapsedVisibilityConverter.cs" />
     <Compile Include="CharToHiddenVisibilityConverter.cs" />
+    <Compile Include="EgysegnyiMegnyitas.xaml.cs">
+      <DependentUpon>EgysegnyiMegnyitas.xaml</DependentUpon>
+    </Compile>
     <Compile Include="EgysegnyiValtozas.xaml.cs">
       <DependentUpon>EgysegnyiValtozas.xaml</DependentUpon>
     </Compile>
@@ -93,6 +96,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="EgysegnyiMegnyitas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="EgysegnyiValtozas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

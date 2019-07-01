@@ -54,6 +54,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Maganszemely.cs" />
     <Compile Include="Szotar_Partner_MJ.cs" />
+    <Compile Include="Szotar_PostaCim_Tipus.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\S_ObjektumModel\S_ObjektumModel.csproj">
