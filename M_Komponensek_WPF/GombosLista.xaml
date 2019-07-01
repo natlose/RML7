@@ -19,10 +19,19 @@
         <GridViewColumnHeader x:Key="FelveszHeader" >
             <Button Content="Felvesz" Click="FelveszClick" />
         </GridViewColumnHeader>
+        <local:EmptyStringToVisibilityConverter x:Key="EmptyStringToVisibilityConverter" NemLathatoVisibility="Collapsed"/>
     </UserControl.Resources>
-    <ListView ItemsSource="{Binding TetelForras, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}">
-        <ListView.View>
-            <GridView x:Name="MyGridView" />
-        </ListView.View>
-    </ListView>
+    <StackPanel>
+        <Label 
+            Content="{Binding Cimke, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:GombosLista}}}"
+            Visibility="{Binding Cimke, Converter={StaticResource EmptyStringToVisibilityConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:GombosLista}}}"
+            FontFamily="Arial Narrow"
+            FontSize="10"
+            Margin="0,0,0,-3"/>
+        <ListView ItemsSource="{Binding TetelForras, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:GombosLista}}}">
+            <ListView.View>
+                <GridView x:Name="MyGridView" />
+            </ListView.View>
+        </ListView>
+    </StackPanel>
 </UserControl>

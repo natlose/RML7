@@ -20,8 +20,6 @@ ketgomboslistán EventHandler<object> helyett RoutedEvent és RouteEventHandler ha
 
 keres gomb mellé kell megtekint is
 
-gridviewcolumn szótáras kifejtéssel 
-
 statikusszovegbe szótáras kifejtés képessége
 
 validátort országkódra, irányítószámra

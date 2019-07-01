@@ -41,8 +41,13 @@
             <sajatwpf:EllenorzottSzoveg Cimke="Telefon" Szoveg="{Binding Partner.Elerhetoseg.Telefon}"/>
             <sajatwpf:EllenorzottSzoveg Cimke="Mobil" Szoveg="{Binding Partner.Elerhetoseg.Mobil}"/>
             <sajatwpf:EllenorzottSzoveg Cimke="Email" Szoveg="{Binding Partner.Elerhetoseg.Email}"/>
-            <sajatwpf:GombosLista TetelForras="{Binding Partner.PostaCimek, Mode=OneWay}" Megnyit="PostaCimMegnyitaskor" Felvesz="PostaCimFelveszkor">
-                <GridViewColumn DisplayMemberBinding="{Binding Tipus, Converter={StaticResource szotarConverter}}" Header="Típus" Width="50" />
+            <sajatwpf:GombosLista 
+                Cimke="Címek"
+                TetelForras="{Binding Partner.PostaCimek, Mode=OneWay}" 
+                Megnyit="PostaCimMegnyitaskor" 
+                Felvesz="PostaCimFelveszkor"
+            >
+                <GridViewColumn DisplayMemberBinding="{Binding Tipus, Converter={StaticResource szotarConverter}}" Header="Típus" Width="80" />
                 <GridViewColumn DisplayMemberBinding="{Binding Orszag}" Header="Ország" Width="30" />
                 <GridViewColumn DisplayMemberBinding="{Binding Iranyitoszam}" Header="Irsz" Width="80" />
                 <GridViewColumn DisplayMemberBinding="{Binding Helyseg}" Header="Helység" Width="100" />

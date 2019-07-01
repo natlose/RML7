@@ -70,6 +70,20 @@ namespace Sajat.WPF
 
         public GridViewColumnCollection Oszlopok { get; set; } = new GridViewColumnCollection();
 
+        public static readonly DependencyProperty CimkeProperty =
+            DependencyProperty.Register(
+                "Cimke", 
+                typeof(string), 
+                typeof(GombosLista), 
+                new PropertyMetadata("")
+            );
+
+        public string Cimke
+        {
+            get { return (string)GetValue(CimkeProperty); }
+            set { SetValue(CimkeProperty, value); }
+        }
+
         public IEnumerable TetelForras
         {
             get { return (IEnumerable)GetValue(TetelForrasProperty); }

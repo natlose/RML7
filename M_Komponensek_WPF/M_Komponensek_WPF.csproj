@@ -59,6 +59,7 @@
     <Compile Include="EllenorzottSzoveg.xaml.cs">
       <DependentUpon>EllenorzottSzoveg.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EmptyStringToVisibilityConverter.cs" />
     <Compile Include="GombosLista.xaml.cs">
       <DependentUpon>GombosLista.xaml</DependentUpon>
     </Compile>
