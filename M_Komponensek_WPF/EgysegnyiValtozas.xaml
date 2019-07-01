@@ -20,11 +20,19 @@
         <StackPanel Grid.Row="0">
             <StackPanel Orientation="Horizontal">
                 <Button Content="Rögzít" Click="RogzitClick" />
-                <Button x:Name="ElvetGomb" Content="Elvet" Click="ElvetClick"/>
-                <StackPanel x:Name="ElvetesMegerositesePanel" Orientation="Horizontal" Visibility="Hidden">
+                <StackPanel x:Name="ElvetTorolGombPanel" Orientation="Horizontal">
+                    <Button Content="Elvet" Click="ElvetClick"/>
+                    <Button Content="Töröl" Click="TorolClick" Visibility="{Binding VanTorolVegrehajto, Converter={StaticResource BooleanToVisibilityConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:EgysegnyiValtozas}}}"/>
+                </StackPanel>
+                <StackPanel x:Name="ElvetesMegerositesePanel" Orientation="Horizontal" Visibility="Collapsed">
                     <TextBlock Text="Van változás! Elveti?" />
                     <Button Content="Elvetem" Click="ElvetesMegerositveClick"/>
                     <Button Content="Nem" Click="ElvetesMegszakitvaClick"/>
+                </StackPanel>
+                <StackPanel x:Name="TorlesMegerositesePanel" Orientation="Horizontal" Visibility="Collapsed">
+                    <TextBlock Text="A törlés visszavonhatatlan! Törli?" />
+                    <Button Content="Törlöm" Click="TorlesMegerositveClick"/>
+                    <Button Content="Nem" Click="TorlesMegszakitvaClick"/>
                 </StackPanel>
             </StackPanel>
             <Border Visibility="{Binding RogzitesEredmeny, Converter={StaticResource VersenyhelyzetVisible}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}">

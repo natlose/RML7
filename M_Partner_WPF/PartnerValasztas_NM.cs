@@ -39,7 +39,7 @@ namespace Sajat.Partner
                     "M_Partner_WPF", "Sajat.Partner.PartnerModositas_N",
                     new FEParameterek().Parameter("id", 0),
                     (eredmenyek) => {
-                        if (eredmenyek.As<bool>("rogzites"))
+                        if (eredmenyek.As<int>("rogzites") == 1)
                         {
                             Partner felvett = eredmenyek.As<Partner>("partner");
                             Lekerdezeskor();
@@ -59,7 +59,11 @@ namespace Sajat.Partner
 
         public void Kivalasztaskor(Partner partner)
         {
-
+            KapottFEKerelem.Eredmeny?.Invoke(
+                new FEEredmenyek()
+                    .Eredmeny("valasztas", true)
+                    .Eredmeny("id", partner.Id)
+            );
         }
 
         public void Modositaskor(Partner partner)
@@ -70,7 +74,8 @@ namespace Sajat.Partner
                     new FEParameterek().Parameter("id", partner.Id),
                     (eredmenyek) => {
                         Partner modositott = eredmenyek.As<Partner>("partner");
-                        tarolo.Frissit(partner);
+                        if (eredmenyek.As<int>("rogzites") == 1) tarolo.Frissit(partner);
+                        else if (eredmenyek.As<int>("rogzites") == -1) Lekerdezeskor();
                     }
                 )
             ); 

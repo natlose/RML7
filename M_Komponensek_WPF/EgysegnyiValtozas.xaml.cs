@@ -59,6 +59,21 @@ namespace Sajat.WPF
                 typeof(EgysegnyiValtozas)
             );
 
+        public RoutedEventHandler Torol
+        {
+            get { return (RoutedEventHandler)GetValue(TorolProperty); }
+            set { SetValue(TorolProperty, value); }
+        }
+
+        public static readonly DependencyProperty TorolProperty =
+            DependencyProperty.Register(
+                "Torol",
+                typeof(RoutedEventHandler),
+                typeof(EgysegnyiValtozas)
+            );
+
+        public bool VanTorolVegrehajto => Torol != null;
+
         public bool VanValtozas
         {
             get { return (bool)GetValue(VanValtozasProperty); }
@@ -82,7 +97,7 @@ namespace Sajat.WPF
             GetBindingExpression(VanValtozasProperty).UpdateTarget();
             if (VanValtozas)
             {
-                ElvetGomb.Visibility = Visibility.Hidden;
+                ElvetTorolGombPanel.Visibility = Visibility.Collapsed;
                 ElvetesMegerositesePanel.Visibility = Visibility.Visible;
             }
             else Elvet?.Invoke(this, new RoutedEventArgs());
@@ -95,9 +110,25 @@ namespace Sajat.WPF
 
         private void ElvetesMegszakitvaClick(object sender, RoutedEventArgs e)
         {
-            ElvetGomb.Visibility = Visibility.Visible;
-            ElvetesMegerositesePanel.Visibility = Visibility.Hidden;
+            ElvetTorolGombPanel.Visibility = Visibility.Visible;
+            ElvetesMegerositesePanel.Visibility = Visibility.Collapsed;
         }
 
+        private void TorolClick(object sender, RoutedEventArgs e)
+        {
+            ElvetTorolGombPanel.Visibility = Visibility.Collapsed;
+            TorlesMegerositesePanel.Visibility = Visibility.Visible;
+        }
+
+        private void TorlesMegerositveClick(object sender, RoutedEventArgs e)
+        {
+            Torol?.Invoke(this, new RoutedEventArgs());
+        }
+
+        private void TorlesMegszakitvaClick(object sender, RoutedEventArgs e)
+        {
+            ElvetTorolGombPanel.Visibility = Visibility.Visible;
+            TorlesMegerositesePanel.Visibility = Visibility.Collapsed;
+        }
     }
 }

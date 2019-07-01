@@ -25,11 +25,6 @@ namespace Sajat.Partner
 
         public object NezetModell => DataContext;
 
-        private void BetoltesBefejezesekor(object sender, RoutedEventArgs e)
-        {
-            (DataContext as PartnerModositas_NM).BetoltesBefejezesekor();
-        }
-
         private void Rogziteskor(object sender, RoutedEventArgs e)
         {
             (DataContext as PartnerModositas_NM).Rogziteskor();
@@ -38,6 +33,11 @@ namespace Sajat.Partner
         private void Elveteskor(object sender, RoutedEventArgs e)
         {
             (DataContext as PartnerModositas_NM).Elveteskor();
+        }
+
+        private void Torleskor(object sender, RoutedEventArgs e)
+        {
+            (DataContext as PartnerModositas_NM).Torleskor();
         }
 
         public void OrszagKereseskor(object sender, RoutedEventArgs e)

@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:Sajat.Partner"
              xmlns:sajatwpf="clr-namespace:Sajat.WPF;assembly=M_Komponensek_WPF"             
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800" Loaded="BetoltesBefejezesekor">
+             d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.DataContext>
         <local:OrszagModositas_NM/>
     </UserControl.DataContext>

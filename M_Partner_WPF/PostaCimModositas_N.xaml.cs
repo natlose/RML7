@@ -25,11 +25,6 @@ namespace Sajat.Partner
 
         public object NezetModell => DataContext;
 
-        private void BetoltesBefejezesekor(object sender, RoutedEventArgs e)
-        {
-            (DataContext as PostaCimModositas_NM).BetoltesBefejezesekor();
-        }
-
         public void OrszagKereseskor(object sender, RoutedEventArgs e)
         {
             (DataContext as PostaCimModositas_NM).OrszagKereseskor();

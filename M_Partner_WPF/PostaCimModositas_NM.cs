@@ -11,15 +11,19 @@ namespace Sajat.Partner
     public class PostaCimModositas_NM : Megfigyelheto, ICsatolhatoNezetModell
     {
         #region ICsatolhatoNezetModell
-        public FEKerelem KapottFEKerelem { get; set; }
+        private FEKerelem kapottFEKerelem;
+        public FEKerelem KapottFEKerelem
+        {
+            get { return kapottFEKerelem; }
+            set
+            {
+                kapottFEKerelem = value;
+                PostaCim = KapottFEKerelem.Parameterek.As<PostaCim>("postacim");
+            }
+        }
 
         public event FEKerelemEsemenyKezelo SajatFEKerelem;
         #endregion
-
-        public void BetoltesBefejezesekor()
-        {
-            PostaCim = KapottFEKerelem.Parameterek.As<PostaCim>("postacim");
-        }
 
         private PostaCim postacim;
         public PostaCim PostaCim

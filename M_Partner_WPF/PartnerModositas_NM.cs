@@ -18,25 +18,30 @@ namespace Sajat.Partner
     public class PartnerModositas_NM : Megfigyelheto, ICsatolhatoNezetModell
     {
         #region ICsatolhatoNezetModell
-        public FEKerelem KapottFEKerelem { get; set; }
+        private FEKerelem kapottFEKerelem;
+        public FEKerelem KapottFEKerelem
+        {
+            get => kapottFEKerelem;
+            set
+            {
+                kapottFEKerelem = value;
+                int id = value.Parameterek.As<int>("id");
+                if (id == 0)
+                {
+                    Partner = new Partner();
+                    valtozas.Partnerek.EgyetBetesz(Partner);
+                }
+                else Partner = valtozas.Partnerek.EgyetlenEsPostaCimek(id);
+            }
+        }
 
         public event FEKerelemEsemenyKezelo SajatFEKerelem; 
         #endregion
 
         IPartnerValtozas valtozas = new PartnerValtozas_EF(new PartnerContext()); //todo: IOC kell ide!Az M_Partner_WPF nem függhet a T_Partner_SQL-től!
 
-        public void BetoltesBefejezesekor()
-        {
-            int id = KapottFEKerelem.Parameterek.As<int>("id");
-            if (id == 0)
-            {
-                Partner = new Partner();
-                valtozas.Partnerek.EgyetBetesz(Partner);
-            }
-            else Partner = valtozas.Partnerek.EgyetlenEsPostaCimek(id);
-        }
-
         private Partner partner;
+
         public Partner Partner
         {
             get => partner; 
@@ -79,7 +84,7 @@ namespace Sajat.Partner
             {
                 KapottFEKerelem.Eredmeny?.Invoke(
                     new FEEredmenyek()
-                        .Eredmeny("rogzites", true)
+                        .Eredmeny("rogzites", 1)
                         .Eredmeny("partner", Partner)
                 );
             }
@@ -89,9 +94,23 @@ namespace Sajat.Partner
         {
             KapottFEKerelem.Eredmeny?.Invoke(
                 new FEEredmenyek()
-                    .Eredmeny("rogzites", false)
+                    .Eredmeny("rogzites", 0)
                     .Eredmeny("partner", Partner)
             );
+        }
+
+        internal void Torleskor()
+        {
+            valtozas.Partnerek.EgyetTorol(Partner);
+            RogzitesEredmeny = valtozas.ValtozasRogzitese();
+            if (RogzitesEredmeny == RogzitesEredmeny.Siker)
+            {
+                KapottFEKerelem.Eredmeny?.Invoke(
+                    new FEEredmenyek()
+                        .Eredmeny("rogzites", -1)
+                        .Eredmeny("partner", Partner)
+                );
+            }
         }
 
         public void PostaCimFelveszkor()

@@ -11,23 +11,27 @@ namespace Sajat.Partner
     public class OrszagModositas_NM : Megfigyelheto, ICsatolhatoNezetModell
     {
         #region ICsatolhatoNezetModell
-        public FEKerelem KapottFEKerelem { get; set; }
+        private FEKerelem kapottFEKerelem;
+        public FEKerelem KapottFEKerelem
+        {
+            get { return kapottFEKerelem; }
+            set
+            {
+                kapottFEKerelem = value;
+                int id = value.Parameterek.As<int>("id");
+                if (id == 0)
+                {
+                    Orszag = new Orszag();
+                    valtozas.Orszagok.EgyetBetesz(Orszag);
+                }
+                else Orszag = valtozas.Orszagok.Egyetlen(id);
+            }
+        }
 
         public event FEKerelemEsemenyKezelo SajatFEKerelem;
         #endregion
 
         IOrszagValtozas valtozas = new OrszagValtozas_EF(new PartnerContext());
-
-        public void BetoltesBefejezesekor()
-        {
-            int id = KapottFEKerelem.Parameterek.As<int>("id");
-            if (id == 0)
-            {
-                Orszag = new Orszag();
-                valtozas.Orszagok.EgyetBetesz(Orszag);
-            }
-            else Orszag = valtozas.Orszagok.Egyetlen(id);
-        }
 
         private Orszag orszag;
         public Orszag Orszag
