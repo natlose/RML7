@@ -48,8 +48,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CharToCollapsedVisibilityConverter.cs" />
-    <Compile Include="CharToHiddenVisibilityConverter.cs" />
+    <Compile Include="CharToVisibilityConverter.cs" />
     <Compile Include="EgysegnyiMegnyitas.xaml.cs">
       <DependentUpon>EgysegnyiMegnyitas.xaml</DependentUpon>
     </Compile>

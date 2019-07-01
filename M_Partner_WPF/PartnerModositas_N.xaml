@@ -9,8 +9,8 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
-        <sajatwpf:CharToCollapsedVisibilityConverter x:Key="maganszemely" VisibleChar="M" CollapsedChar="J"/>
-        <sajatwpf:CharToCollapsedVisibilityConverter x:Key="jogiszemely" VisibleChar="J" CollapsedChar="M"/>
+        <sajatwpf:CharToVisibilityConverter x:Key="maganszemely" LathatoChar="M" NemLathatoChar="J" NemLathatoVisibility="Collapsed"/>
+        <sajatwpf:CharToVisibilityConverter x:Key="jogiszemely" LathatoChar="J" NemLathatoChar="M" NemLathatoVisibility="Collapsed"/>
         <partner:Szotar_Partner_MJ x:Key="mjSzotar"/>
         <partner:Szotar_PostaCim_Tipus x:Key="cimtipusSzotar"/>
         <sajatwpf:SzotarConverter x:Key="szotarConverter" Szotar="{StaticResource cimtipusSzotar}"/>

@@ -24,8 +24,6 @@ statikusszovegbe szótáras kifejtés képessége
 
 validátort országkódra, irányítószámra
 
-gomboslistának is kellhet cimke
-
 ITarolo Egyetlen(id)-be hibakezelés kell, ha nincs id elem a tárolóban (valaki megszerezte az id-t, más törölte a tárolóból)
 
 a balmenu.xml-ben lehessen paramétereket is rögzíteni egy indítandó felhasználói esethez
