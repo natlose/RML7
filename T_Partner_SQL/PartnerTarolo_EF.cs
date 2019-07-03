@@ -12,7 +12,7 @@ namespace Sajat.Partner
     {
         public PartnerTarolo_EF(PartnerContext context) : base(context) { }
 
-        public Partner EgyetlenEsPostaCimek(int id)
+        public new Partner Egyetlen(int id)
         {
             return (context as PartnerContext).Partnerek.Include(p => p.PostaCimek).Single(p => p.Id == id);
         }

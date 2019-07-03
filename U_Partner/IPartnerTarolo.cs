@@ -9,8 +9,6 @@ namespace Sajat.Partner
 {
     public interface IPartnerTarolo : ITarolo<Partner>
     {
-        Partner EgyetlenEsPostaCimek(int id);
-
         IEnumerable<Partner> MindAholReszletek(
             string nev,
             string mobil,

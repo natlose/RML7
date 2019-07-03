@@ -10,11 +10,6 @@ using System.Threading.Tasks;
 
 namespace Sajat.Partner
 {
-    // Hívása:
-    //    int id - módosítandó partner azonosítója, 0: új partner
-    // Eredmények:
-    //    bool rogzites - false: rögzítés elvetve, true: rögzítve
-    //    Partner partner - a partner (módosítva vagy sem)
     public class PartnerModositas_NM : Megfigyelheto, ICsatolhatoNezetModell
     {
         #region ICsatolhatoNezetModell
@@ -31,7 +26,7 @@ namespace Sajat.Partner
                     Partner = new Partner();
                     valtozas.Partnerek.EgyetBetesz(Partner);
                 }
-                else Partner = valtozas.Partnerek.EgyetlenEsPostaCimek(id);
+                else Partner = valtozas.Partnerek.Egyetlen(id);
             }
         }
 

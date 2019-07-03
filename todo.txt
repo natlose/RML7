@@ -1,4 +1,3 @@
-lekérdezésbe szûrõfeltételek
 
 PartnerValasztas mutassa a számlázási címet is
 
