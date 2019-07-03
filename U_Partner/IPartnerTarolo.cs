@@ -10,5 +10,15 @@ namespace Sajat.Partner
     public interface IPartnerTarolo : ITarolo<Partner>
     {
         Partner EgyetlenEsPostaCimek(int id);
+
+        IEnumerable<Partner> MindAholReszletek(
+            string nev,
+            string mobil,
+            string telefon,
+            string email,
+            string cegjegyzekszam,
+            string adoszam,
+            string orszag
+            );
     }
 }

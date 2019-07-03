@@ -1,9 +1,11 @@
 ﻿using Sajat.Alkalmazas.API;
 using Sajat.ObjektumModel;
+using Sajat.WPF;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -19,6 +21,16 @@ namespace Sajat.Partner
 
         private IPartnerTarolo tarolo = new PartnerTarolo_EF(new PartnerContext());
 
+        public SzuromezoGyujtemeny Szuromezok { get; set; } =
+            new SzuromezoGyujtemeny()
+                    .Mezo("nev", new Szuromezo("Név"))
+                    .Mezo("mobil", new Szuromezo("Mobil"))
+                    .Mezo("telefon", new Szuromezo("Telefon"))
+                    .Mezo("email", new Szuromezo("Email"))
+                    .Mezo("cegjegyzekszam", new Szuromezo("Cégjegyzékszám"))
+                    .Mezo("adoszam", new Szuromezo("Adószám"))
+                    .Mezo("orszag", new Szuromezo("Bejegyzés országa"));
+
         private ObservableCollection<Partner> lista;
         public ObservableCollection<Partner> Lista
         {
@@ -28,8 +40,17 @@ namespace Sajat.Partner
 
         public void Lekerdezeskor()
         {
-            lista = new ObservableCollection<Partner>(tarolo.Mind());
-            Ertesites(nameof(Lista));
+            Lista = new ObservableCollection<Partner>(
+                tarolo.MindAholReszletek(
+                    Szuromezok["nev"].Ertek,
+                    Szuromezok["mobil"].Ertek,
+                    Szuromezok["telefon"].Ertek,
+                    Szuromezok["email"].Ertek,
+                    Szuromezok["cegjegyzekszam"].Ertek,
+                    Szuromezok["adoszam"].Ertek,
+                    Szuromezok["orszag"].Ertek
+                )
+            );
         }
 
         public void Felveszkor()

@@ -26,6 +26,23 @@ namespace Sajat.WPF
 
         public FrameworkElement Tartalom { get; set; }
 
+        public SzuromezoGyujtemeny Szuromezok
+        {
+            get { return (SzuromezoGyujtemeny)GetValue(SzuromezokProperty); }
+            set { SetValue(SzuromezokProperty, value); }
+        }
+
+        public static readonly DependencyProperty SzuromezokProperty =
+            DependencyProperty.Register(
+                "Szuromezok",
+                typeof(SzuromezoGyujtemeny),
+                typeof(Lekerdezes),
+                new PropertyMetadata((s, e) =>
+                {
+                    (s as Lekerdezes).SzuromezoRacs.Szuromezok = e.NewValue as SzuromezoGyujtemeny;
+                })
+            );
+
         public RoutedEventHandler Lekerdez
         {
             get { return (RoutedEventHandler)GetValue(LekerdezProperty); }

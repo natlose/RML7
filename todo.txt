@@ -27,3 +27,5 @@ validátort országkódra, irányítószámra
 ITarolo Egyetlen(id)-be hibakezelés kell, ha nincs id elem a tárolóban (valaki megszerezte az id-t, más törölte a tárolóból)
 
 a balmenu.xml-ben lehessen paramétereket is rögzíteni egy indítandó felhasználói esethez
+
+Nem kell IPartnerTarolo.EgyetlenEsCimek. Az IPartnerTarolo.Egyetlen hozza be a címeket is!

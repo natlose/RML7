@@ -9,7 +9,12 @@ namespace Sajat.Partner
 {
     public class PartnerContext : DbContext
     {
-        public PartnerContext() : base("DEV") {  }        
+        public PartnerContext() : base("DEV")
+        {
+            #if DEBUG
+            Database.Log = Console.Write;
+            #endif
+        }        
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

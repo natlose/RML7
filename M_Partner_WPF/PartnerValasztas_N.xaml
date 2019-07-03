@@ -10,7 +10,7 @@
     <UserControl.DataContext>
         <local:PartnerValasztas_NM/>
     </UserControl.DataContext>
-    <sajatwpf:Lekerdezes Lekerdez="Lekerdezeskor" Vissza="Visszakor">
+    <sajatwpf:Lekerdezes Szuromezok="{Binding Szuromezok}" Lekerdez="Lekerdezeskor" Vissza="Visszakor">
         <sajatwpf:GombosLista TetelForras="{Binding Lista, Mode=OneWay}" Kivalaszt="Kivalasztaskor" Modosit="Modositaskor" Felvesz="Felveszkor">
             <GridViewColumn DisplayMemberBinding="{Binding Id, StringFormat=\{0:D8\}}" Header="Id" Width="72" />
             <GridViewColumn DisplayMemberBinding="{Binding MJ}" Header="MJ" Width="50" />

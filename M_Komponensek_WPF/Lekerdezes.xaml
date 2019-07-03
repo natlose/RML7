@@ -29,16 +29,7 @@
             <Button DockPanel.Dock="Left" Content="Vissza" Click="VisszaClick" />
             <Button DockPanel.Dock="Right" Content="Lekérdez" Click="LekerdezClick" />
             <!--<local:GrafikasGomb DockPanel.Dock="Right" Grafika="{StaticResource cloud-download}" Click="LekerdezClick" Padding="5" />-->
-            <ItemsControl>
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <DockPanel>
-                            <ComboBox DockPanel.Dock="Left" />
-                            <TextBox DockPanel.Dock="Right" />
-                        </DockPanel>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
+            <local:SzuromezoRacs x:Name="SzuromezoRacs" />
         </DockPanel>
         <ContentPresenter Grid.Row="1" Content="{Binding Tartalom, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}" />
     </Grid>
