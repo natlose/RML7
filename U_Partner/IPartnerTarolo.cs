@@ -16,7 +16,8 @@ namespace Sajat.Partner
             string email,
             string cegjegyzekszam,
             string adoszam,
-            string orszag
+            string orszag,
+            int oldalmeret = 0, int oldal = 0
             );
     }
 }

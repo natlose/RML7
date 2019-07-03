@@ -17,7 +17,16 @@ namespace Sajat.Partner
             return (context as PartnerContext).Partnerek.Include(p => p.PostaCimek).Single(p => p.Id == id);
         }
 
-        public IEnumerable<Partner> MindAholReszletek(string nev, string mobil, string telefon, string email, string cegjegyzekszam, string adoszam, string orszag)
+        public IEnumerable<Partner> MindAholReszletek(
+            string nev, 
+            string mobil, 
+            string telefon, 
+            string email, 
+            string cegjegyzekszam, 
+            string adoszam, 
+            string orszag,
+            int oldalmeret = 0, int oldal = 0
+        )
         {
             StringMuveletek.UresbolLegyenNull(ref nev);
             StringMuveletek.UresbolLegyenNull(ref mobil);
@@ -26,8 +35,8 @@ namespace Sajat.Partner
             StringMuveletek.UresbolLegyenNull(ref cegjegyzekszam);
             StringMuveletek.UresbolLegyenNull(ref adoszam);
             StringMuveletek.UresbolLegyenNull(ref orszag);
-            return (context as PartnerContext).Partnerek.Where(
-                p => 
+            var kifejezes = (context as PartnerContext).Partnerek.Where(
+                p =>
                 (nev == null || p.Nev.Contains(nev))
                 && (mobil == null || p.Elerhetoseg.Mobil.Contains(mobil))
                 && (telefon == null || p.Elerhetoseg.Telefon.Contains(telefon))
@@ -35,7 +44,12 @@ namespace Sajat.Partner
                 && (cegjegyzekszam == null || p.MJ == "J" && p.Jogiszemely.Cegjegyzekszam.Contains(cegjegyzekszam))
                 && (adoszam == null || p.MJ == "J" && p.Jogiszemely.Adoszam.Contains(adoszam))
                 && (orszag == null || p.MJ == "J" && p.Jogiszemely.Orszag == orszag)
-                ).ToList();
+            );
+            if (oldalmeret > 0)
+            {
+                kifejezes = kifejezes.OrderBy(p => p.Id).Skip((oldal - 1) * oldalmeret).Take(oldalmeret);
+            }
+            return kifejezes.ToList();
         }
     }
 }

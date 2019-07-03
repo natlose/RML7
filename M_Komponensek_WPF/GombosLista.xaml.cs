@@ -70,6 +70,7 @@ namespace Sajat.WPF
 
         public GridViewColumnCollection Oszlopok { get; set; } = new GridViewColumnCollection();
 
+        #region Cimke
         public static readonly DependencyProperty CimkeProperty =
             DependencyProperty.Register(
                 "Cimke", 
@@ -83,13 +84,9 @@ namespace Sajat.WPF
             get { return (string)GetValue(CimkeProperty); }
             set { SetValue(CimkeProperty, value); }
         }
+        #endregion
 
-        public IEnumerable TetelForras
-        {
-            get { return (IEnumerable)GetValue(TetelForrasProperty); }
-            set { SetValue(TetelForrasProperty, value); }
-        }
-
+        #region TetelForras
         public static readonly DependencyProperty TetelForrasProperty =
             DependencyProperty.Register(
                 "TetelForras",
@@ -97,6 +94,62 @@ namespace Sajat.WPF
                 typeof(GombosLista)
             );
 
+        public IEnumerable TetelForras
+        {
+            get { return (IEnumerable)GetValue(TetelForrasProperty); }
+            set { SetValue(TetelForrasProperty, value); }
+        }
+        #endregion
+
+        #region Lapozo
+        public Lapozo Lapozo
+        {
+            get { return (Lapozo)GetValue(LapozoProperty); }
+            set { SetValue(LapozoProperty, value); }
+        }
+
+        public static readonly DependencyProperty LapozoProperty =
+            DependencyProperty.Register(
+                "Lapozo",
+                typeof(Lapozo),
+                typeof(GombosLista)
+            );
+        #endregion
+
+        #region Lapoz
+        public RoutedEventHandler Lapoz
+        {
+            get { return (RoutedEventHandler)GetValue(LapozProperty); }
+            set { SetValue(LapozProperty, value); }
+        }
+
+        public static readonly DependencyProperty LapozProperty =
+            DependencyProperty.Register(
+                "Lapoz",
+                typeof(RoutedEventHandler),
+                typeof(GombosLista)
+            );
+
+        private void EloreLapozClick(object sender, RoutedEventArgs e)
+        {
+            if (Lapozo.Oldal > 1)
+            {
+                Lapozo.Oldal--;
+                Lapoz?.Invoke(this, new RoutedEventArgs());
+            }
+        }
+
+        private void HatraLapozClick(object sender, RoutedEventArgs e)
+        {
+            if (Lapozo.SorokSzama < 0 || (Lapozo.Oldalmeret * Lapozo.Oldal < Lapozo.SorokSzama))
+            {
+                Lapozo.Oldal++;
+                Lapoz?.Invoke(this, new RoutedEventArgs());
+            }
+        }
+        #endregion
+
+        #region Kivalaszt
         public EventHandler<object> Kivalaszt
         {
             get { return (EventHandler<object>)GetValue(KivalasztProperty); }
@@ -114,8 +167,9 @@ namespace Sajat.WPF
         {
             Kivalaszt?.Invoke(this, (e.Source as Button).DataContext);
         }
+        #endregion
 
-
+        #region Modosit
         public EventHandler<object> Modosit
         {
             get { return (EventHandler<object>)GetValue(ModositProperty); }
@@ -133,7 +187,9 @@ namespace Sajat.WPF
         {
             Modosit?.Invoke(this, (e.Source as Button).DataContext);
         }
+        #endregion
 
+        #region Megnyit
         public EventHandler<object> Megnyit
         {
             get { return (EventHandler<object>)GetValue(MegnyitProperty); }
@@ -151,7 +207,9 @@ namespace Sajat.WPF
         {
             Megnyit?.Invoke(this, (e.Source as Button).DataContext);
         }
+        #endregion
 
+        #region Felvesz
         public RoutedEventHandler Felvesz
         {
             get { return (RoutedEventHandler)GetValue(FelveszProperty); }
@@ -169,5 +227,7 @@ namespace Sajat.WPF
         {
             Felvesz?.Invoke(this, new RoutedEventArgs());
         }
+        #endregion
+
     }
 }

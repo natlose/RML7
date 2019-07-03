@@ -1,4 +1,5 @@
 ﻿using Sajat.Alkalmazas.API;
+using Sajat.WPF;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,11 @@ namespace Sajat.Partner
         }
 
         public object NezetModell => DataContext;
+
+        private void Lapozaskor(object sender, RoutedEventArgs e)
+        {
+            (DataContext as PartnerValasztas_NM).Lapozaskor();
+        }
 
         private void Lekerdezeskor(object sender, RoutedEventArgs e)
         {

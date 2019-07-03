@@ -52,7 +52,14 @@ namespace Sajat.Partner
 
         private IPartnerTarolo tarolo = new PartnerTarolo_EF(new PartnerContext());
 
-        public SzuromezoGyujtemeny Szuromezok { get; set; } 
+        public SzuromezoGyujtemeny Szuromezok { get; set; }
+
+        private Lapozo lapozo = new Lapozo();
+        public Lapozo Lapozo
+        {
+            get => lapozo;
+            set => ErtekadasErtesites(ref lapozo, value);
+        }
 
         private ObservableCollection<Partner> lista;
         public ObservableCollection<Partner> Lista
@@ -61,7 +68,7 @@ namespace Sajat.Partner
             set => ErtekadasErtesites(ref lista, value);
         }
 
-        public void Lekerdezeskor()
+        internal void Lapozaskor()
         {
             Lista = new ObservableCollection<Partner>(
                 tarolo.MindAholReszletek(
@@ -71,9 +78,18 @@ namespace Sajat.Partner
                     Szuromezok["email"].Ertek,
                     Szuromezok["cegjegyzekszam"].Ertek,
                     Szuromezok["adoszam"].Ertek,
-                    Szuromezok["orszag"].Ertek
+                    Szuromezok["orszag"].Ertek,
+                    Lapozo.Oldalmeret,
+                    Lapozo.Oldal
                 )
             );
+        }
+
+        public void Lekerdezeskor()
+        {
+            Lapozo.Ujraindit();
+            Lapozo.Oldalmeret = 10;
+            Lapozaskor();
         }
 
         public void Felveszkor()

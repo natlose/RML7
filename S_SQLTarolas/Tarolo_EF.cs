@@ -23,12 +23,12 @@ namespace Sajat.SQLTarolas
             return context.Set<TEntitas>().Find(id);
         }
 
-        public IEnumerable<TEntitas> Mind()
+        public IEnumerable<TEntitas> Mind(int oldalmeret = 0, int oldal = 0)
         {
             return context.Set<TEntitas>().ToList();
         }
 
-        public IEnumerable<TEntitas> MindAhol(Expression<Func<TEntitas, bool>> feltetel)
+        public IEnumerable<TEntitas> MindAhol(Expression<Func<TEntitas, bool>> feltetel, int oldalmeret = 0, int oldal = 0)
         {
             return context.Set<TEntitas>().Where(feltetel);
         }
