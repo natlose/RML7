@@ -15,14 +15,47 @@ using System.Windows.Shapes;
 
 namespace Sajat.WPF
 {
-    /// <summary>
-    /// Interaction logic for SzuromezoSzoveg.xaml
-    /// </summary>
     public partial class SzuromezoSzoveg : UserControl
     {
         public SzuromezoSzoveg()
         {
             InitializeComponent();
+        }
+
+        public Visibility KeresLathato
+        {
+            get
+            {
+                Visibility visibility = Visibility.Collapsed;
+                BindingExpression binding = Text.GetBindingExpression(TextBox.TextProperty);
+                if (binding != null)
+                {
+                    Szuromezo mezo = binding.ResolvedSource as Szuromezo;
+                    if (mezo != null && mezo.Kereseskor != null) visibility = Visibility.Visible;
+                }
+                return visibility;
+            }
+        }
+
+        public bool CsakOlvashato
+        {
+            get
+            {
+                BindingExpression binding = Text.GetBindingExpression(TextBox.TextProperty);
+                return binding == null;
+            }
+        }
+
+        private void KeresClick(object sender, RoutedEventArgs e)
+        {
+            Szuromezo mezo = Text.GetBindingExpression(TextBox.TextProperty).ResolvedSource as Szuromezo;
+            mezo?.Kereseskor?.Invoke(mezo);
+        }
+
+        internal void BindingfuggokErtesitese()
+        {
+            KeresButton.GetBindingExpression(Button.VisibilityProperty)?.UpdateTarget();
+            Text.GetBindingExpression(TextBox.IsReadOnlyProperty)?.UpdateTarget();
         }
     }
 }

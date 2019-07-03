@@ -13,6 +13,37 @@ namespace Sajat.Partner
 {
     public class PartnerValasztas_NM : Megfigyelheto, ICsatolhatoNezetModell
     {
+        public PartnerValasztas_NM()
+        {
+            Szuromezok = new SzuromezoGyujtemeny()
+                .Mezo("nev", new Szuromezo("Név"))
+                .Mezo("mobil", new Szuromezo("Mobil"))
+                .Mezo("telefon", new Szuromezo("Telefon"))
+                .Mezo("email", new Szuromezo("Email"))
+                .Mezo("cegjegyzekszam", new Szuromezo("Cégjegyzékszám"))
+                .Mezo("adoszam", new Szuromezo("Adószám"))
+                .Mezo("orszag", new Szuromezo(
+                    "Bejegyzés országa",
+                    (szm) =>
+                    {
+                        SajatFEKerelem?.Invoke(
+                            new FEKerelem(
+                                "M_Partner_WPF", "Sajat.Partner.OrszagValasztas_N",
+                                null,
+                                (eredmenyek) => {
+                                    if (eredmenyek.As<bool>("valasztas", null))
+                                    {
+                                        Orszag valasztott = eredmenyek.As<Orszag>("orszag");
+                                        szm.Ertek = valasztott.Iso;
+                                    }
+                                }
+                            )
+                        );
+
+                    })
+                );
+        }
+
         #region ICsatolhatoNezetModell
         public FEKerelem KapottFEKerelem { get; set; }
 
@@ -21,15 +52,7 @@ namespace Sajat.Partner
 
         private IPartnerTarolo tarolo = new PartnerTarolo_EF(new PartnerContext());
 
-        public SzuromezoGyujtemeny Szuromezok { get; set; } =
-            new SzuromezoGyujtemeny()
-                    .Mezo("nev", new Szuromezo("Név"))
-                    .Mezo("mobil", new Szuromezo("Mobil"))
-                    .Mezo("telefon", new Szuromezo("Telefon"))
-                    .Mezo("email", new Szuromezo("Email"))
-                    .Mezo("cegjegyzekszam", new Szuromezo("Cégjegyzékszám"))
-                    .Mezo("adoszam", new Szuromezo("Adószám"))
-                    .Mezo("orszag", new Szuromezo("Bejegyzés országa"));
+        public SzuromezoGyujtemeny Szuromezok { get; set; } 
 
         private ObservableCollection<Partner> lista;
         public ObservableCollection<Partner> Lista

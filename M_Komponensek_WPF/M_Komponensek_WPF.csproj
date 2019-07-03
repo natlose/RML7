@@ -151,6 +151,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\M_AlkalmazasAPI\M_AlkalmazasAPI.csproj">
+      <Project>{4FC8D20F-86CF-4549-8D03-9FE4CE7E8093}</Project>
+      <Name>M_AlkalmazasAPI</Name>
+    </ProjectReference>
     <ProjectReference Include="..\S_ObjektumModel\S_ObjektumModel.csproj">
       <Project>{467A2FE7-82B3-4107-8DAC-1BD134D6B279}</Project>
       <Name>S_ObjektumModel</Name>

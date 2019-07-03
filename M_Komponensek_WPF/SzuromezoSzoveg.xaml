@@ -7,7 +7,16 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <DockPanel>
-        <Button DockPanel.Dock="Right" Content="Keres"/>
-        <TextBox x:Name="Text" />
+        <Button 
+            x:Name="KeresButton"
+            DockPanel.Dock="Right" 
+            Content="Keres" 
+            Click="KeresClick" 
+            Visibility="{Binding KeresLathato, Mode=OneWay, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:SzuromezoSzoveg}}}"
+        />
+        <TextBox 
+            x:Name="Text" 
+            IsReadOnly="{Binding CsakOlvashato, Mode=OneWay, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:SzuromezoSzoveg}}}"
+        />
     </DockPanel>
 </UserControl>

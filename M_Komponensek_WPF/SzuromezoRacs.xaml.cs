@@ -85,6 +85,7 @@ namespace Sajat.WPF
                         TextBox.TextProperty,
                         new Binding(nameof(mezo.Ertek)) { Source = mezo }
                         );
+                    szvg.BindingfuggokErtesitese();
                 }
                 if (e.RemovedItems.Count == 0 && e.AddedItems.Count == 1) UjRacsSorHozzaadasa();
             };
