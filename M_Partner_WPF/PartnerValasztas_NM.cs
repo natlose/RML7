@@ -88,7 +88,6 @@ namespace Sajat.Partner
         public void Lekerdezeskor()
         {
             Lapozo.Ujraindit();
-            Lapozo.Oldalmeret = 10;
             Lapozaskor();
         }
 

@@ -9,6 +9,7 @@ namespace Sajat.WPF
 {
     public class Lapozo : Megfigyelheto
     {
+        // -1 : ismeretlen
         private int sorokszama;
         public int SorokSzama
         {
@@ -20,7 +21,8 @@ namespace Sajat.WPF
             }
         }
 
-        private int oldalmeret;
+        // 0 : nincs lapozás, teljes eredmény lehívandó
+        private int oldalmeret = 20;
         public int Oldalmeret
         {
             get => oldalmeret;
@@ -50,10 +52,10 @@ namespace Sajat.WPF
             }
         }
 
-        public void Ujraindit(int sorokSzama = -1)
+        public void Ujraindit(int sorokSzama = -1, int oldalmeret = 20)
         {
             SorokSzama = sorokSzama;
-            Oldalmeret = 25;
+            Oldalmeret = oldalmeret;
             Oldal = 1;
         }
 

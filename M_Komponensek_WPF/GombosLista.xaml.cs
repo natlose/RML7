@@ -112,8 +112,12 @@ namespace Sajat.WPF
             DependencyProperty.Register(
                 "Lapozo",
                 typeof(Lapozo),
-                typeof(GombosLista)
+                typeof(GombosLista),
+                new PropertyMetadata((o, dp) => {
+                    (o as GombosLista).GetBindingExpression(GombosLista.LapozoProperty).UpdateTarget();
+                })
             );
+
         #endregion
 
         #region Lapoz
