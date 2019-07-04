@@ -30,6 +30,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SQL", "SQL", "{D56FB834-4B7
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "M_Komponensek_WPF", "M_Komponensek_WPF\M_Komponensek_WPF.csproj", "{9CD601A3-B9F4-442E-8912-B8B92E64FE9C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Design", "Design", "{CF8B1ABA-A2E2-4EFF-B6A8-F7E0BA800695}"
+	ProjectSection(SolutionItems) = preProject
+		Design\Szerkezet.md = Design\Szerkezet.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
