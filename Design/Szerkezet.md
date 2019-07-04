@@ -1,7 +1,9 @@
 # Rendszerterv
 
+A rendszer kialakítása során az alábbi megfontolásokat követjük.
+
 ## Rétegrend
-Az alkalmazás logikáit az objektumorientált (OOP) tervezési minta szerint 
+Az alkalmazott logikákat az objektumorientált (OOP) tervezési minta szerint 
 objektumokba foglaljuk.
 Az így kialakított objektumokat feladatuk és ismertségi viszonyaik szerint 
 a következő rétegekbe szervezzük:
@@ -119,6 +121,37 @@ Példák:
 |Sajat.PartnerKK|A Partner Korlátos Környezet objektumai tartoznak ide.
 
 ## Alkalmazáskeret
+Az objektumok feladatát megvalósító logikák gyakran igénylik más objektumok
+szolgálatait. A logika megalkotása közben azonban soha nem vélelmezhetjük,
+hogy a szolgáltatást pontosan melyik másik objektum fogja majd megvalósítani
+az éles rendszerben. Csak arra szabad számítani, hogy lesz ott olyan objektum,
+ami nyújtja majd a szükséges szolgáltatást.
+
+Az ilyen előrelátással megalkotott objektum-készlet olyan halmazt alkot, amelyből
+egy konkrét rendszer összeállításakor szabadon megválaszthatjuk az egyes 
+szükséges szolgáltatások teljesítésére a megfelelőket. Ha a szerelvények 
+határait megfelelően választottuk meg, akkor egy új rendszer összeállítása a
+szerelvények egyszerű összeválogatásával tud teljesülni.
+
+Az így kiválasztott objektumok azonban még nem alkotnak rendszert, hiszen nem
+is tudnak egymásról. Kell egy olyan logika, amely ismeri az adott összeállítás
+elemeit, és amikor az egyik objektumnak egy bizonyos szolgálatra szüksége van,
+akkor azt az objektumot nyújtja oda, amely erre ki lett választva.
+
+Ennek a logikának kell továbbá tartania a kapcsolatot a felhasználóval, annak 
+jelzései alapján indítania-befejeznie az egyes felhasználói eseteket.
+
+Ez a logika az AlkalmazásKeret.
+
+Az AlkalmazásKeret semmit nem tud az adott rendszer üzleti funkcióiról. Az ő
+feladata: 
+
+- számbavenni az összeválogatott felhasználói eseteket
+- a választékot a felhasználó elé tárni
+- a felhasználó jelzésére elindítani egy felhasználói esetet
+- annak az esetnek az igényeit kiszolgálni megfelelő objektumokkal
+- a felhasználó jelzése szerint további felhasználói esetet nyitni vagy az aktuálisat bezárni
+
 
 
 ![AlkalmazásKeret](AppFrame.svg)
