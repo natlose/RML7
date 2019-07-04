@@ -27,13 +27,13 @@
       ><path d="M0 0 L0 50 L140 50 L140 0 Z"
       /></clipPath
       ><clipPath clipPathUnits="userSpaceOnUse" id="clipPath8"
-      ><path d="M0 0 L0 270 L30 270 L30 0 Z"
+      ><path d="M0 0 L0 270 L50 270 L50 0 Z"
       /></clipPath
       ><clipPath clipPathUnits="userSpaceOnUse" id="clipPath9"
       ><path d="M0 0 L0 70 L30 70 L30 0 Z"
       /></clipPath
       ><clipPath clipPathUnits="userSpaceOnUse" id="clipPath10"
-      ><path d="M0 0 L0 70 L40 70 L40 0 Z"
+      ><path d="M0 0 L0 70 L60 70 L60 0 Z"
       /></clipPath
       ><clipPath clipPathUnits="userSpaceOnUse" id="clipPath11"
       ><path d="M0 0 L0 100 L30 100 L30 0 Z"
@@ -125,91 +125,91 @@
       /><text x="49" font-size="14px" y="27.1688" clip-path="url(#clipPath6)" font-family="sans-serif" stroke="none" xml:space="preserve"
       >Modell</text
     ></g
-    ><g fill="rgb(255,255,255)" fill-opacity="0" transform="translate(250,120)" stroke-opacity="0" stroke="rgb(255,255,255)"
+    ><g fill="rgb(255,255,255)" fill-opacity="0" transform="translate(310,120)" stroke-opacity="0" stroke="rgb(255,255,255)"
     ><rect x="0.5" width="138.5" height="48.5" y="0.5" clip-path="url(#clipPath7)" stroke="none"
     /></g
-    ><g transform="translate(250,120)"
+    ><g transform="translate(310,120)"
     ><rect fill="none" x="0.5" width="138.5" height="48.5" y="0.5" clip-path="url(#clipPath7)"
     /></g
-    ><g fill="rgb(255,255,255)" fill-opacity="0" transform="translate(250,120)" stroke-opacity="0" stroke="rgb(255,255,255)"
+    ><g fill="rgb(255,255,255)" fill-opacity="0" transform="translate(310,120)" stroke-opacity="0" stroke="rgb(255,255,255)"
     ><rect x="110.86" width="11.2" height="5.6" y="9.7" clip-path="url(#clipPath7)" stroke="none"
     /></g
-    ><g transform="translate(250,120)"
+    ><g transform="translate(310,120)"
     ><rect fill="none" x="110.86" width="11.2" height="5.6" y="9.7" clip-path="url(#clipPath7)"
     /></g
-    ><g fill="rgb(255,255,255)" fill-opacity="0" transform="translate(250,120)" stroke-opacity="0" stroke="rgb(255,255,255)"
+    ><g fill="rgb(255,255,255)" fill-opacity="0" transform="translate(310,120)" stroke-opacity="0" stroke="rgb(255,255,255)"
     ><rect x="110.86" width="11.2" height="5.6" y="19.5" clip-path="url(#clipPath7)" stroke="none"
     /></g
-    ><g transform="translate(250,120)"
+    ><g transform="translate(310,120)"
     ><rect fill="none" x="110.86" width="11.2" height="5.6" y="19.5" clip-path="url(#clipPath7)"
       /><path fill="none" d="M116.46 15.3 L116.46 19.5" clip-path="url(#clipPath7)"
       /><path fill="none" d="M116.46 9.7 L116.46 5.5 L135.5 5.5 L135.5 29.3 L116.46 29.3 L116.46 25.1" clip-path="url(#clipPath7)"
       /><text x="51" font-size="14px" y="27.1688" clip-path="url(#clipPath7)" font-family="sans-serif" stroke="none" xml:space="preserve"
       >Nézet</text
     ></g
-    ><g fill="rgb(255,255,255)" fill-opacity="0" transform="translate(250,220)" stroke-opacity="0" stroke="rgb(255,255,255)"
+    ><g fill="rgb(255,255,255)" fill-opacity="0" transform="translate(310,220)" stroke-opacity="0" stroke="rgb(255,255,255)"
     ><rect x="0.5" width="138.5" height="48.5" y="0.5" clip-path="url(#clipPath7)" stroke="none"
     /></g
-    ><g transform="translate(250,220)"
+    ><g transform="translate(310,220)"
     ><rect fill="none" x="0.5" width="138.5" height="48.5" y="0.5" clip-path="url(#clipPath7)"
     /></g
-    ><g fill="rgb(255,255,255)" fill-opacity="0" transform="translate(250,220)" stroke-opacity="0" stroke="rgb(255,255,255)"
+    ><g fill="rgb(255,255,255)" fill-opacity="0" transform="translate(310,220)" stroke-opacity="0" stroke="rgb(255,255,255)"
     ><rect x="110.86" width="11.2" height="5.6" y="9.7" clip-path="url(#clipPath7)" stroke="none"
     /></g
-    ><g transform="translate(250,220)"
+    ><g transform="translate(310,220)"
     ><rect fill="none" x="110.86" width="11.2" height="5.6" y="9.7" clip-path="url(#clipPath7)"
     /></g
-    ><g fill="rgb(255,255,255)" fill-opacity="0" transform="translate(250,220)" stroke-opacity="0" stroke="rgb(255,255,255)"
+    ><g fill="rgb(255,255,255)" fill-opacity="0" transform="translate(310,220)" stroke-opacity="0" stroke="rgb(255,255,255)"
     ><rect x="110.86" width="11.2" height="5.6" y="19.5" clip-path="url(#clipPath7)" stroke="none"
     /></g
-    ><g transform="translate(250,220)"
+    ><g transform="translate(310,220)"
     ><rect fill="none" x="110.86" width="11.2" height="5.6" y="19.5" clip-path="url(#clipPath7)"
       /><path fill="none" d="M116.46 15.3 L116.46 19.5" clip-path="url(#clipPath7)"
       /><path fill="none" d="M116.46 9.7 L116.46 5.5 L135.5 5.5 L135.5 29.3 L116.46 29.3 L116.46 25.1" clip-path="url(#clipPath7)"
       /><text x="31" font-size="14px" y="27.1688" clip-path="url(#clipPath7)" font-family="sans-serif" stroke="none" xml:space="preserve"
       >NézetModell</text
     ></g
-    ><g transform="translate(370,380)"
-    ><path fill="none" d="M10.5 250.5 L10.5 11.5" clip-path="url(#clipPath8)"
-      /><path d="M17 22.2583 L10.5 11 L4 22.2583 L10.5 33.0167 Z" clip-path="url(#clipPath8)" stroke="none"
-      /><path fill="none" d="M17 22.2583 L10.5 11 L4 22.2583 L10.5 33.0167 Z" clip-path="url(#clipPath8)"
+    ><g transform="translate(400,380)"
+    ><path fill="none" d="M30.5 250.5 L10.583 11.4965" clip-path="url(#clipPath8)"
+      /><path d="M17.954 21.6779 L10.5415 10.9983 L4.9989 22.7575 L12.3699 32.9389 Z" clip-path="url(#clipPath8)" stroke="none"
+      /><path fill="none" d="M17.954 21.6779 L10.5415 10.9983 L4.9989 22.7575 L12.3699 32.9389 Z" clip-path="url(#clipPath8)"
     /></g
     ><g transform="translate(250,460)"
     ><path fill="none" d="M10.5 50.5 L10.5 11.5" clip-path="url(#clipPath9)"
       /><path d="M17 22.2583 L10.5 11 L4 22.2583 L10.5 33.0167 Z" clip-path="url(#clipPath9)" stroke="none"
       /><path fill="none" d="M17 22.2583 L10.5 11 L4 22.2583 L10.5 33.0167 Z" clip-path="url(#clipPath9)"
     /></g
-    ><g transform="translate(250,380)"
-    ><path fill="none" d="M10.5 50.5 L20.2575 11.4701" clip-path="url(#clipPath10)"
-      /><path d="M23.9541 23.4837 L20.3787 10.9851 L11.3423 20.3308 L15.0389 32.3444 Z" clip-path="url(#clipPath10)" stroke="none"
-      /><path fill="none" d="M23.9541 23.4837 L20.3787 10.9851 L11.3423 20.3308 L15.0389 32.3444 Z" clip-path="url(#clipPath10)"
+    ><g transform="translate(290,380)"
+    ><path fill="none" d="M10.5 50.5 L39.9 11.3" clip-path="url(#clipPath10)"
+      /><path d="M38.645 23.8067 L40.2 10.9 L28.245 16.0067 L26.99 28.5133 Z" clip-path="url(#clipPath10)" stroke="none"
+      /><path fill="none" d="M38.645 23.8067 L40.2 10.9 L28.245 16.0067 L26.99 28.5133 Z" clip-path="url(#clipPath10)"
     /></g
-    ><g transform="translate(310,260)"
+    ><g transform="translate(370,260)"
     ><path fill="none" d="M10.5 80.5 L10.5 11.5" clip-path="url(#clipPath11)"
       /><path d="M17 22.2583 L10.5 11 L4 22.2583 L10.5 33.0167 Z" clip-path="url(#clipPath11)" stroke="none"
       /><path fill="none" d="M17 22.2583 L10.5 11 L4 22.2583 L10.5 33.0167 Z" clip-path="url(#clipPath11)"
     /></g
-    ><g transform="translate(310,160)"
+    ><g transform="translate(370,160)"
     ><path fill="none" d="M10.5 60.5 L10.5 11.5" clip-path="url(#clipPath12)"
       /><path d="M17 22.2583 L10.5 11 L4 22.2583 L10.5 33.0167 Z" clip-path="url(#clipPath12)" stroke="none"
       /><path fill="none" d="M17 22.2583 L10.5 11 L4 22.2583 L10.5 33.0167 Z" clip-path="url(#clipPath12)"
     /></g
-    ><g fill="rgb(255,255,255)" fill-opacity="0" transform="translate(320,630)" stroke-opacity="0" stroke="rgb(255,255,255)"
+    ><g fill="rgb(255,255,255)" fill-opacity="0" transform="translate(350,630)" stroke-opacity="0" stroke="rgb(255,255,255)"
     ><rect x="0.5" width="138.5" height="48.5" y="0.5" clip-path="url(#clipPath7)" stroke="none"
     /></g
-    ><g transform="translate(320,630)"
+    ><g transform="translate(350,630)"
     ><rect fill="none" x="0.5" width="138.5" height="48.5" y="0.5" clip-path="url(#clipPath7)"
     /></g
-    ><g fill="rgb(255,255,255)" fill-opacity="0" transform="translate(320,630)" stroke-opacity="0" stroke="rgb(255,255,255)"
+    ><g fill="rgb(255,255,255)" fill-opacity="0" transform="translate(350,630)" stroke-opacity="0" stroke="rgb(255,255,255)"
     ><rect x="110.86" width="11.2" height="5.6" y="9.7" clip-path="url(#clipPath7)" stroke="none"
     /></g
-    ><g transform="translate(320,630)"
+    ><g transform="translate(350,630)"
     ><rect fill="none" x="110.86" width="11.2" height="5.6" y="9.7" clip-path="url(#clipPath7)"
     /></g
-    ><g fill="rgb(255,255,255)" fill-opacity="0" transform="translate(320,630)" stroke-opacity="0" stroke="rgb(255,255,255)"
+    ><g fill="rgb(255,255,255)" fill-opacity="0" transform="translate(350,630)" stroke-opacity="0" stroke="rgb(255,255,255)"
     ><rect x="110.86" width="11.2" height="5.6" y="19.5" clip-path="url(#clipPath7)" stroke="none"
     /></g
-    ><g transform="translate(320,630)"
+    ><g transform="translate(350,630)"
     ><rect fill="none" x="110.86" width="11.2" height="5.6" y="19.5" clip-path="url(#clipPath7)"
       /><path fill="none" d="M116.46 15.3 L116.46 19.5" clip-path="url(#clipPath7)"
       /><path fill="none" d="M116.46 9.7 L116.46 5.5 L135.5 5.5 L135.5 29.3 L116.46 29.3 L116.46 25.1" clip-path="url(#clipPath7)"
@@ -218,22 +218,22 @@
       ><text x="43" font-size="14px" y="43.1375" clip-path="url(#clipPath7)" font-family="sans-serif" stroke="none" xml:space="preserve"
       >File, stb.</text
     ></g
-    ><g fill="rgb(255,255,255)" fill-opacity="0" transform="translate(230,340)" stroke-opacity="0" stroke="rgb(255,255,255)"
+    ><g fill="rgb(255,255,255)" fill-opacity="0" transform="translate(290,340)" stroke-opacity="0" stroke="rgb(255,255,255)"
     ><rect x="0.5" width="188.5" height="48.5" y="0.5" clip-path="url(#clipPath13)" stroke="none"
     /></g
-    ><g transform="translate(230,340)"
+    ><g transform="translate(290,340)"
     ><rect fill="none" x="0.5" width="188.5" height="48.5" y="0.5" clip-path="url(#clipPath13)"
     /></g
-    ><g fill="rgb(255,255,255)" fill-opacity="0" transform="translate(230,340)" stroke-opacity="0" stroke="rgb(255,255,255)"
+    ><g fill="rgb(255,255,255)" fill-opacity="0" transform="translate(290,340)" stroke-opacity="0" stroke="rgb(255,255,255)"
     ><rect x="160.86" width="11.2" height="5.6" y="9.7" clip-path="url(#clipPath13)" stroke="none"
     /></g
-    ><g transform="translate(230,340)"
+    ><g transform="translate(290,340)"
     ><rect fill="none" x="160.86" width="11.2" height="5.6" y="9.7" clip-path="url(#clipPath13)"
     /></g
-    ><g fill="rgb(255,255,255)" fill-opacity="0" transform="translate(230,340)" stroke-opacity="0" stroke="rgb(255,255,255)"
+    ><g fill="rgb(255,255,255)" fill-opacity="0" transform="translate(290,340)" stroke-opacity="0" stroke="rgb(255,255,255)"
     ><rect x="160.86" width="11.2" height="5.6" y="19.5" clip-path="url(#clipPath13)" stroke="none"
     /></g
-    ><g transform="translate(230,340)"
+    ><g transform="translate(290,340)"
     ><rect fill="none" x="160.86" width="11.2" height="5.6" y="19.5" clip-path="url(#clipPath13)"
       /><path fill="none" d="M166.46 15.3 L166.46 19.5" clip-path="url(#clipPath13)"
       /><path fill="none" d="M166.46 9.7 L166.46 5.5 L185.5 5.5 L185.5 29.3 L166.46 29.3 L166.46 25.1" clip-path="url(#clipPath13)"

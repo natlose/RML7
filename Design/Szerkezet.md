@@ -1,8 +1,8 @@
-
+# Rendszerterv
 
 ## Rétegrend
 Az alkalmazás logikáit az objektumorientált (OOP) tervezési minta szerint 
-objektumokba szervezzük.
+objektumokba foglaljuk.
 Az így kialakított objektumokat feladatuk és ismertségi viszonyaik szerint 
 a következő rétegekbe szervezzük:
 
@@ -52,6 +52,10 @@ követni a Modellekben a NézetModell vagy a Nézet vagy a Modell saját logiká
 által okozott változásokat (hozzáadás, módosítás, törlés) és kérésre azok állapotát 
 a tárolási réteg szolgáltatásaival rögzíteni.
 
+A Modell feladata tárolni az üzleti entitás adatait és megvédeni ezek összefüggéseit.
+A Modellek kialakítása során a SzakterületVezérelt (DDD) tervezési mintát követjük
+Korlátos Környezetek (Bounded Context) kialakításával.
+
 ### Tárolási réteg
 Ebben a rétegben laknak azok az objektumok, amelyek képesek a Modellek állapotának 
 rögzítésére és visszatöltésére. Ezek kötelesek elfedni az EgységnyiVáltozás és a 
@@ -65,4 +69,45 @@ azonosítás és feljogosítás, stb.)
 
 ![rétegrend](Retegrend.svg)
 
+## Névtér- és Szerelvény-szervezési stratégia
+Annak érdekében, hogy a kialakuló komponensek minél jobban újrafelhasználhatók
+legyenek más, később megalkotandó alkalmazásokhoz, a köztük levő függőségi
+viszonyokat csökkenteni kell.
+Továbbá, hogy az idővel változó technológiák (UI, ORM, stb.) követhetők legyenek,
+azok jellegzetességeinek átszivárgását más rétegekbe meg kell akadályozni.
+Ezen célok érdekében a névtereket a Megjelenítési Rétegben felhasználói-esetcsoportok
+köré szervezzük, az Üzleti- és a Tárolás Rétegben pedig a Korlátos Környezetek köré.
+A szerelvényeket ezeken a névtereken *belül*, a réteghatárok és az alkalmazott
+technológiák köré szervezzük.
 
+![szerelvények](Szerelvenyek.svg)
+
+### Szerelvények nevezéktana
+A szerelvények neve három tagból áll:
+- réteg (M-megjelenítési, U-üzleti, T-tárolás, S-szolgáltatási)
+- funkció (megjelenítési rétegben a felhasználói esetcsoport megnevezése, üzleti- és 
+tárolási rétegben a Korlátos Környezet megnevezése)
+- technológia (ha azonos funkcióra különböző technológiájú megoldások állnak rendelkezésre)
+A tagok között alávonás karaktert kell alkalmazni.
+Példák:
+|név|jelentés|
+|---|---|
+|M_Partner_WPF|A 'Partner' felhasználói esetcsoportba tartozó felhasználói esetek megjelenítését WPF technológiával megvalósító objektumokat tartalmazó szerelvény.
+|M_Partner_ASP|A 'Partner' felhasználói esetcsoportba tartozó felhasználói esetek megjelenítését ASP.NET technológiával megvalósító objektumokat tartalmazó szerelvény.
+|U_Partner|A 'Partner' Korlátos Környezetet alkotó üzleti objektumokat tartalmazó szerelvény
+|T_Partner_SQL|A 'Partner' Korlátos Környezetet alkotó üzleti objektumok rögzítését relációs adatkezelő technológiával megvalósító objektumokat tartalmazó szerelvény.
+|T_Partner_NoSQL|A 'Partner' Korlátos Környezetet alkotó üzleti objektumok rögzítését séma-mentes technológiával megvalósító objektumokat tartalmazó szerelvény.
+|S_Tarolas_SQL|A relációs adattároláshoz szolgáltatásokat nyújtó objektumokat tartalmazó szerelvény.
+
+### Névterek nevezéktana
+Az összes felvett névteret egyetlen, saját gyökér névtérbe foglaljuk (pl.: Sajat).
+A névterek két tagból állnak:
+- funkció neve
+- névtér típusa (FE-felhasználói eset, KK-korlátos környezet)
+Példák:
+|név|jelentés|
+|---|---|
+|PartnerFE|A partnerekkel kapcsolatos felhasználói eseteket megvalósító objektumok tartoznak ide
+|PartnerKK|A Partner Korlátos Környezet objektumai tartoznak ide.
+
+## Alkalmazáskeret
