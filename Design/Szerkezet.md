@@ -120,6 +120,31 @@ Példák:
 |Sajat.PartnerFE.WPF|A partnerekkel kapcsolatos felhasználói eseteket WPF technológiával megvalósító objektumok tartoznak ide.
 |Sajat.PartnerKK|A Partner Korlátos Környezet objektumai tartoznak ide.
 
+### Objektumok nevezéktana
+Az objektumok neve:
+- magyar nyelvű
+- főnév
+- ha összetett szó, akkor PascalCase alkalmazandó
+- ha Nézet, akkor _N a vége
+- ha NézetModell, akkor _NM a vége
+- ha entitás, egyes szám alkalmazandó
+- ha gyűjtemény, többes szám alkalmazandó
+
+A metódusok neve:
+- magyar nyelvű
+- ha összetett szó, akkor PascalCase alkalmazandó
+- ha nem eseménykezelő, akkor főnévi igenév -ás/-és alakja (pl.: PartnerRogzites)
+- ha eseménykezelő, akkor a főnévi igenév -kor végződéssel (pl.: PartnerRogziteskor)
+- `private` első karaktere kisbetű
+- `public` első karaktere nagybetű
+
+Mezők, tulajdonságok neve:
+- magyar nyelvű
+- főnév
+- ha összetett szó, akkor PascalCase alkalmazandó
+- `private` első karaktere kisbetű
+- `public` első karaktere nagybetű
+
 ## Alkalmazáskeret
 Az objektumok feladatát megvalósító logikák gyakran igénylik más objektumok
 szolgálatait. A logika megalkotása közben azonban soha nem vélelmezhetjük,
