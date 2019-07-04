@@ -58,6 +58,9 @@
     <Compile Include="KivetelesHelyzet.xaml.cs">
       <DependentUpon>KivetelesHelyzet.xaml</DependentUpon>
     </Compile>
+    <Compile Include="StilusMuhely.xaml.cs">
+      <DependentUpon>StilusMuhely.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Tortenetek_N.xaml.cs">
       <DependentUpon>Tortenetek_N.xaml</DependentUpon>
     </Compile>
@@ -80,7 +83,20 @@
     <Compile Include="TortenetValto_N.xaml.cs">
       <DependentUpon>TortenetValto_N.xaml</DependentUpon>
     </Compile>
+    <None Include="M_Alkalmazas_WPF_EgyeniStilus.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <Page Include="KivetelesHelyzet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StilusMuhely.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UresStilus.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

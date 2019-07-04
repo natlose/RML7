@@ -25,7 +25,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <DockPanel>
-            <Button DockPanel.Dock="Left" Content="Vissza" Click="VisszaClick" />
+            <Button DockPanel.Dock="Left" Content="Vissza" Style="{StaticResource VisszaGomb}" Click="VisszaClick" />
             <Button DockPanel.Dock="Right" Content="Lekérdez" Click="LekerdezClick" />
             <!--<local:GrafikasGomb DockPanel.Dock="Right" Grafika="{StaticResource cloud-download}" Click="LekerdezClick" Padding="5" />-->
             <local:SzuromezoRacs x:Name="SzuromezoRacs" />

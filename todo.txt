@@ -3,8 +3,6 @@ PartnerValasztas mutassa a számlázási címet is
 
 automata lekérdezés
 
-lapozható kétgombos lista
-
 lekérdezésbe rendezettségválasztó (még lekérdezés elõtt!)
 
 interfield validation
