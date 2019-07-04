@@ -90,6 +90,7 @@ tárolási rétegben a Korlátos Környezet megnevezése)
 - technológia (ha azonos funkcióra különböző technológiájú megoldások állnak rendelkezésre)
 A tagok között alávonás karaktert kell alkalmazni.
 Példák:
+
 |név|jelentés|
 |---|---|
 |M_Partner_WPF|A 'Partner' felhasználói esetcsoportba tartozó felhasználói esetek megjelenítését WPF technológiával megvalósító objektumokat tartalmazó szerelvény.
@@ -105,6 +106,7 @@ A névterek két tagból állnak:
 - funkció neve
 - névtér típusa (FE-felhasználói eset, KK-korlátos környezet)
 Példák:
+
 |név|jelentés|
 |---|---|
 |PartnerFE|A partnerekkel kapcsolatos felhasználói eseteket megvalósító objektumok tartoznak ide
