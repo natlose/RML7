@@ -88,7 +88,9 @@ A szerelvények neve három tagból áll:
 - funkció (megjelenítési rétegben a felhasználói esetcsoport megnevezése, üzleti- és 
 tárolási rétegben a Korlátos Környezet megnevezése)
 - technológia (ha azonos funkcióra különböző technológiájú megoldások állnak rendelkezésre)
+
 A tagok között alávonás karaktert kell alkalmazni.
+
 Példák:
 
 |név|jelentés|
@@ -102,14 +104,21 @@ Példák:
 
 ### Névterek nevezéktana
 Az összes felvett névteret egyetlen, saját gyökér névtérbe foglaljuk (pl.: Sajat).
+
 A névterek két tagból állnak:
 - funkció neve
 - névtér típusa (FE-felhasználói eset, KK-korlátos környezet)
+
+A technológiai függőséget alárendelt névtérrel fejezzük ki.
+
 Példák:
 
 |név|jelentés|
 |---|---|
-|PartnerFE|A partnerekkel kapcsolatos felhasználói eseteket megvalósító objektumok tartoznak ide
-|PartnerKK|A Partner Korlátos Környezet objektumai tartoznak ide.
+|Sajat.PartnerFE.WPF|A partnerekkel kapcsolatos felhasználói eseteket WPF technológiával megvalósító objektumok tartoznak ide.
+|Sajat.PartnerKK|A Partner Korlátos Környezet objektumai tartoznak ide.
 
 ## Alkalmazáskeret
+
+
+![AlkalmazásKeret](AppFrame.svg)
