@@ -1,128 +1,247 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:Sajat.Alkalmazas.WPF">
-    <Style x:Key="FEsetGomb" TargetType="Button">
-        <Setter Property="Width" Value="50"/>
-        <Setter Property="Height" Value="20"/>
+   
+    <!--LEKERDEZES-->    
+    
+    <Style x:Key="LekerdezesGomb" TargetType="Button">
+        <Setter Property="Width" Value="80"/>
+        <Setter Property="Height" Value="30"/>
         <Setter Property="Margin" Value="5"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
-                    <Grid x:Name="grid">
-                        <Border x:Name="border" CornerRadius="8" BorderBrush="Black" BorderThickness="2">
-                            <Border.Background>
-                                <RadialGradientBrush GradientOrigin="0.496,1.052">
-                                    <RadialGradientBrush.RelativeTransform>
-                                        <TransformGroup>
-                                            <ScaleTransform CenterX="0.5" CenterY="0.5" 
-                                                        ScaleX="1.5" ScaleY="1.5"/>
-                                            <TranslateTransform X="0.02" Y="0.3"/>
-                                        </TransformGroup>
-                                    </RadialGradientBrush.RelativeTransform>
-                                    <GradientStop Offset="1" Color="#00000000"/>
-                                    <GradientStop Offset="0.3" Color="#FFFFFFFF"/>
-                                </RadialGradientBrush>
-                            </Border.Background>
-                            <ContentPresenter HorizontalAlignment="Center"
-                                          VerticalAlignment="Center"
-                                          TextElement.FontWeight="Bold">
-                            </ContentPresenter>
-                        </Border>
-
-                    </Grid>
+                    <Border x:Name="border" 
+                            CornerRadius="3" 
+                            BorderBrush="LightGray" 
+                            BorderThickness="1"
+                            Background="{TemplateBinding Background}"
+                    >
+                        <ContentPresenter 
+                            HorizontalAlignment="Center" 
+                            VerticalAlignment="Center" 
+                            TextElement.Foreground="White"
+                            TextElement.FontSize="14"
+                        />
+                    </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Background" TargetName="border">
-                                <Setter.Value>
-                                    <RadialGradientBrush GradientOrigin="0.496,1.052">
-                                        <RadialGradientBrush.RelativeTransform>
-                                            <TransformGroup>
-                                                <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="1.5" ScaleY="1.5"/>
-                                                <TranslateTransform X="0.02" Y="0.3"/>
-                                            </TransformGroup>
-                                        </RadialGradientBrush.RelativeTransform>
-                                        <GradientStop Color="#00000000" Offset="1"/>
-                                        <GradientStop Color="#FF303030" Offset="0.3"/>
-                                    </RadialGradientBrush>
-                                </Setter.Value>
-                            </Setter>
+                            <Setter Property="BorderThickness" TargetName="border" Value="3"/>
+                            <Setter Property="BorderBrush" TargetName="border" Value="Black"/>
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="BorderBrush" TargetName="border" Value="#FF33962B"/>
+                            <Setter Property="BorderBrush" TargetName="border" Value="LightSteelBlue"/>
+                            <Setter Property="BorderThickness" TargetName="border" Value="3"/>
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter Property="Opacity" TargetName="grid" Value="0.25"/>
+                            <Setter Property="Opacity" TargetName="border" Value="0.5"/>
                         </Trigger>
-
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
-    <Style x:Key="VisszaGomb" TargetType="Button" BasedOn="{StaticResource FEsetGomb}">
-        <Setter Property="Background" Value="LightBlue"/>
+
+    <Style x:Key="VisszaGomb" TargetType="Button" BasedOn="{StaticResource LekerdezesGomb}">
+        <Setter Property="Background" Value="SteelBlue"/>
     </Style>
 
+    <Style x:Key="LekerdezGomb" TargetType="Button" BasedOn="{StaticResource LekerdezesGomb}">
+        <Setter Property="Background" Value="SteelBlue"/>
+    </Style>
 
-    <Style x:Key="RoundCorner" TargetType="{x:Type Button}">
-        <Setter Property="HorizontalContentAlignment" Value="Center"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="Padding" Value="1"/>
+    <Style x:Key="LekerdezesKeret" TargetType="Border">
+        <Setter Property="Background" Value="WhiteSmoke"/>
+        <Setter Property="CornerRadius" Value="5,5,0,0"/>
+        <Setter Property="Padding" Value="5"/>
+    </Style>
+
+    <Style x:Key="LekerdezesEredmenyKeret" TargetType="Border">
+        <Setter Property="Background" Value="WhiteSmoke"/>
+        <Setter Property="Margin" Value="0,5,0,0"/>
+        <Setter Property="CornerRadius" Value="0,0,5,5"/>
+        <Setter Property="Padding" Value="5"/>
+    </Style>
+
+    <!--GOMBOSLISTA-->
+    
+    <Style x:Key="ListaGomb" TargetType="Button">
+        <Setter Property="Width" Value="20"/>
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Margin" Value="0"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
-                    <Grid x:Name="grid">
-                        <Border x:Name="border" CornerRadius="8" BorderBrush="Black" BorderThickness="2">
-                            <Border.Background>
-                                <RadialGradientBrush GradientOrigin="0.496,1.052">
-                                    <RadialGradientBrush.RelativeTransform>
-                                        <TransformGroup>
-                                            <ScaleTransform CenterX="0.5" CenterY="0.5" 
-                                                        ScaleX="1.5" ScaleY="1.5"/>
-                                            <TranslateTransform X="0.02" Y="0.3"/>
-                                        </TransformGroup>
-                                    </RadialGradientBrush.RelativeTransform>
-                                    <GradientStop Offset="1" Color="#00000000"/>
-                                    <GradientStop Offset="0.3" Color="#FFFFFFFF"/>
-                                </RadialGradientBrush>
-                            </Border.Background>
-                            <ContentPresenter HorizontalAlignment="Center"
-                                          VerticalAlignment="Center"
-                                          TextElement.FontWeight="Bold">
-                            </ContentPresenter>
-                        </Border>
-
-                    </Grid>
+                    <Border x:Name="border" 
+                            CornerRadius="1" 
+                            Background="{TemplateBinding Background}"
+                    >
+                        <ContentPresenter 
+                            HorizontalAlignment="Center" 
+                            VerticalAlignment="Center" 
+                            TextElement.FontSize="14"
+                        />
+                    </Border>
                     <ControlTemplate.Triggers>
-                        <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Background" TargetName="border">
-                                <Setter.Value>
-                                    <RadialGradientBrush GradientOrigin="0.496,1.052">
-                                        <RadialGradientBrush.RelativeTransform>
-                                            <TransformGroup>
-                                                <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="1.5" ScaleY="1.5"/>
-                                                <TranslateTransform X="0.02" Y="0.3"/>
-                                            </TransformGroup>
-                                        </RadialGradientBrush.RelativeTransform>
-                                        <GradientStop Color="#00000000" Offset="1"/>
-                                        <GradientStop Color="#FF303030" Offset="0.3"/>
-                                    </RadialGradientBrush>
-                                </Setter.Value>
-                            </Setter>
-                        </Trigger>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="BorderBrush" TargetName="border" Value="#FF33962B"/>
-                        </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter Property="Opacity" TargetName="grid" Value="0.25"/>
+                            <Setter Property="Opacity" TargetName="border" Value="0.5"/>
                         </Trigger>
-
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
 
+    <Style x:Key="LapozoGomb" TargetType="Button" BasedOn="{StaticResource ListaGomb}">
+        <Setter Property="Background" Value="SteelBlue"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Width" Value="80"/>
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Margin" Value="5"/>
+    </Style>
+
+    <Style x:Key="ModositGomb" TargetType="Button" BasedOn="{StaticResource ListaGomb}">
+        <Setter Property="Background" Value="Orange"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="Content" Value="&#52;"/>
+        <Setter Property="FontFamily" Value="Webdings"/>
+    </Style>
+
+    <Style x:Key="MegnyitGomb" TargetType="Button" BasedOn="{StaticResource ListaGomb}" >
+        <Setter Property="Background" Value="SteelBlue"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Content" Value="&#52;"/>
+        <Setter Property="FontFamily" Value="Webdings"/>
+    </Style>
+
+    <Style x:Key="FelveszGomb" TargetType="Button" BasedOn="{StaticResource ListaGomb}">
+        <Setter Property="Background" Value="LawnGreen"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="Content" Value="&#203;"/>
+        <Setter Property="FontFamily" Value="Wingdings 2"/>
+    </Style>
+
+    <Style x:Key="KivalasztGomb" TargetType="Button" BasedOn="{StaticResource ListaGomb}" >
+        <Setter Property="Background" Value="SteelBlue"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Content" Value="&#51;"/>
+        <Setter Property="FontFamily" Value="Webdings"/>
+        <Setter Property="IsDefault" Value="True"/>
+    </Style>
+    
+    <!--EGYSEGNYIVALTOZAS-->
+
+    <Style x:Key="ValtozasGomb" TargetType="Button">
+        <Setter Property="Width" Value="80"/>
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="border" 
+                            CornerRadius="3" 
+                            BorderBrush="LightGray" 
+                            BorderThickness="1"
+                            Background="{TemplateBinding Background}"
+                    >
+                        <ContentPresenter 
+                            HorizontalAlignment="Center" 
+                            VerticalAlignment="Center" 
+                            TextElement.Foreground="White"
+                            TextElement.FontSize="14"
+                        />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="BorderThickness" TargetName="border" Value="3"/>
+                            <Setter Property="BorderBrush" TargetName="border" Value="Black"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="BorderBrush" TargetName="border" Value="LightSteelBlue"/>
+                            <Setter Property="BorderThickness" TargetName="border" Value="3"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Opacity" TargetName="border" Value="0.5"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="RogzitGomb" TargetType="Button" BasedOn="{StaticResource ValtozasGomb}">
+        <Setter Property="Background" Value="SteelBlue"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Content" Value="Rögzít"/>
+    </Style>
+
+    <Style x:Key="ElvetGomb" TargetType="Button" BasedOn="{StaticResource ValtozasGomb}">
+        <Setter Property="Background" Value="Orange"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="Content" Value="Elvet"/>
+    </Style>
+
+    <Style x:Key="ElvetestMegerositGomb" TargetType="Button" BasedOn="{StaticResource ValtozasGomb}">
+        <Setter Property="Background" Value="Orange"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="Content" Value="Elvetem"/>
+    </Style>
+
+    <Style x:Key="TorolGomb" TargetType="Button" BasedOn="{StaticResource ValtozasGomb}">
+        <Setter Property="Background" Value="OrangeRed"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Content" Value="Töröl"/>
+    </Style>
+
+    <Style x:Key="TorlestMegerositGomb" TargetType="Button" BasedOn="{StaticResource ValtozasGomb}">
+        <Setter Property="Background" Value="OrangeRed"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Content" Value="Törlöm"/>
+    </Style>
+
+    <Style x:Key="VisszavonGomb" TargetType="Button" BasedOn="{StaticResource ValtozasGomb}">
+        <Setter Property="Background" Value="SteelBlue"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Content" Value="Nem"/>
+    </Style>
+
+    <Style x:Key="MegerositesSzoveg" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="Arial Narrow"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Background" Value="OrangeRed"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Padding" Value="3,3"/>
+        <Setter Property="Margin" Value="3"/>
+    </Style>
+
+    <Style x:Key="MegerositesPanel" TargetType="Panel">
+        <Setter Property="Background" Value="WhiteSmoke"/>
+    </Style>
+
+    <Style x:Key="RogzitesEredmenyKeret" TargetType="Border">
+        <Setter Property="Background" Value="OrangeRed"/>
+        <Setter Property="Padding" Value="3,3"/>
+        <Setter Property="Margin" Value="3"/>
+        <Setter Property="CornerRadius" Value="5"/>
+    </Style>
+
+    <Style x:Key="RogzitesEredmenySzoveg" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="Arial Narrow"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Background" Value="OrangeRed"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Margin" Value="3,0"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+    </Style>
+
+    <!--EGYSEGNYIMEGNYITAS-->
+
+    <Style x:Key="BezarGomb" TargetType="Button" BasedOn="{StaticResource ValtozasGomb}">
+        <Setter Property="Background" Value="SteelBlue"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Content" Value="Bezár"/>
+    </Style>
 
 
 </ResourceDictionary>

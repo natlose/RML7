@@ -2,7 +2,60 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:Sajat.Alkalmazas.WPF">
 
-    <Style x:Key="VisszaGomb" TargetType="Button"/>
+    <Style x:Key="VisszaGomb" TargetType="Button">
+        <Setter Property="Content" Value="Vissza"/>
+    </Style>
+    <Style x:Key="LekerdezGomb" TargetType="Button">
+        <Setter Property="Content" Value="Lekérdez"/>
+    </Style>
+    <Style x:Key="LekerdezesKeret" TargetType="Border"/>
+    <Style x:Key="LekerdezesEredmenyKeret" TargetType="Border"/>
 
+    
+    <Style x:Key="KivalasztGomb" TargetType="Button">
+        <Setter Property="Content" Value="Kiválaszt"/>
+    </Style>
+    <Style x:Key="ModositGomb" TargetType="Button">
+        <Setter Property="Content" Value="Módosít"/>
+    </Style>
+    <Style x:Key="MegnyitGomb" TargetType="Button">
+        <Setter Property="Content" Value="Megnyit"/>
+    </Style>
+    <Style x:Key="FelveszGomb" TargetType="Button">
+        <Setter Property="Content" Value="Felvesz"/>
+    </Style>
+    <Style x:Key="LapozoGomb" TargetType="Button"/>
+
+    <Style x:Key="RogzitGomb" TargetType="Button">
+        <Setter Property="Content" Value="Rögzít"/>
+    </Style>
+
+    <Style x:Key="ElvetGomb" TargetType="Button">
+        <Setter Property="Content" Value="Elvet"/>
+    </Style>
+
+    <Style x:Key="ElvetestMegerositGomb" TargetType="Button">
+        <Setter Property="Content" Value="Elvetem"/>
+    </Style>
+
+    <Style x:Key="TorlestMegerositGomb" TargetType="Button">
+        <Setter Property="Content" Value="Törölöm"/>
+    </Style>
+
+    <Style x:Key="VisszavonGomb" TargetType="Button">
+        <Setter Property="Content" Value="Nem"/>
+    </Style>
+
+    <Style x:Key="MegerositesSzoveg" TargetType="TextBlock"/>
+
+    <Style x:Key="MegerositesPanel" TargetType="Panel"/>
+
+    <Style x:Key="RogzitesEredmenyKeret" TargetType="Border"/>
+
+    <Style x:Key="RogzitesEredmenySzoveg" TargetType="TextBlock"/>
+
+    <Style x:Key="BezarGomb" TargetType="Button">
+        <Setter Property="Content" Value="Bezár"/>
+    </Style>
 
 </ResourceDictionary>

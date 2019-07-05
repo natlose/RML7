@@ -12,7 +12,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal">
-            <Button Content="Bezár" Click="BezarClick" />
+            <Button Click="BezarClick" Style="{StaticResource BezarGomb}" />
         </StackPanel>
         <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
             <ContentPresenter Content="{Binding Tartalom, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}" />
