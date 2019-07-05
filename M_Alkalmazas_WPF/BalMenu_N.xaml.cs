@@ -29,19 +29,14 @@ namespace Sajat.Alkalmazas.WPF
 
         private void sorKivalasztasakor(object esemenyforras)
         {
-            BalMenuSor sor = (((ListBox)esemenyforras).SelectedItem as BalMenuSor);
+            //BalMenuSor sor = (((ItemsControl)esemenyforras).SelectedItem as BalMenuSor);
+            //if (sor != null) ((BalMenu_NM)DataContext).SorKivalasztasakor(sor);
+        }
+
+        private void SorMouseUp(object sender, MouseButtonEventArgs e)
+        {
+            BalMenuSor sor = BindingOperations.GetBindingExpression(sender as DependencyObject, TextBlock.TextProperty).DataItem as BalMenuSor;
             if (sor != null) ((BalMenu_NM)DataContext).SorKivalasztasakor(sor);
         }
-
-        private void ListBox_PreviewMouseUp(object sender, MouseButtonEventArgs e)
-        {
-            sorKivalasztasakor(e.Source);
-        }
-
-        private void ListBox_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Enter) sorKivalasztasakor(e.Source);
-        }
-
     }
 }

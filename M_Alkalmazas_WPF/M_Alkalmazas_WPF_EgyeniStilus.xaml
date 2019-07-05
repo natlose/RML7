@@ -1,7 +1,23 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:Sajat.Alkalmazas.WPF">
-   
+
+    <!--Alkalmazas-->
+
+    <Style x:Key="BalMenuSor" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="Arial"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Background" Value="Black"/>
+        <Setter Property="Foreground" Value="LightSkyBlue"/>
+        <Setter Property="Padding" Value="5"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="Black" />
+                <Setter Property="Background" Value="LightSkyBlue"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
     <!--LEKERDEZES-->    
     
     <Style x:Key="LekerdezesGomb" TargetType="Button">
