@@ -9,16 +9,16 @@
     <UserControl.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
         <DataTemplate x:Key="KivalasztOszlopTemplate">
-            <Button Click="KivalasztClick" Style="{StaticResource KivalasztGomb}"/>
+            <Button Click="KivalasztClick" Style="{StaticResource GombosLista_KivalasztGomb}"/>
         </DataTemplate>
         <DataTemplate x:Key="ModositOszlopTemplate">
-            <Button Click="ModositClick" Style="{StaticResource ModositGomb}"/>
+            <Button Click="ModositClick" Style="{StaticResource GombosLista_ModositGomb}"/>
         </DataTemplate>
         <DataTemplate x:Key="MegnyitOszlopTemplate">
-            <Button Click="MegnyitClick" Style="{StaticResource MegnyitGomb}"/>
+            <Button Click="MegnyitClick" Style="{StaticResource GombosLista_MegnyitGomb}"/>
         </DataTemplate>
         <GridViewColumnHeader x:Key="FelveszHeader" >
-            <Button Click="FelveszClick" Style="{StaticResource FelveszGomb}"/>
+            <Button Click="FelveszClick" Style="{StaticResource GombosLista_FelveszGomb}"/>
         </GridViewColumnHeader>
         <local:EmptyStringToVisibilityConverter x:Key="EmptyStringToVisibilityConverter" NemLathatoVisibility="Collapsed"/>
         <local:ReferenceToVisibilityConverter x:Key="ReferenceToVisibilityConverter" NemLathatoVisibility="Collapsed"/>
@@ -36,8 +36,8 @@
             FontSize="10"
             Margin="0,0,0,-3"/>
         <DockPanel Grid.Row="1" Visibility="{Binding Lapozo, Converter={StaticResource ReferenceToVisibilityConverter}, Mode=OneWay, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:GombosLista}}}">
-            <Button DockPanel.Dock="Left" Content="&lt;" Click="EloreLapozClick" Style="{StaticResource LapozoGomb}"/>
-            <Button DockPanel.Dock="Right" Content="&gt;" Click="HatraLapozClick" Style="{StaticResource LapozoGomb}"/>
+            <Button DockPanel.Dock="Left" Content="&lt;" Click="EloreLapozClick" Style="{StaticResource GombosLista_LapozoGomb}"/>
+            <Button DockPanel.Dock="Right" Content="&gt;" Click="HatraLapozClick" Style="{StaticResource GombosLista_LapozoGomb}"/>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <TextBlock Text="{Binding Lapozo.Oldal, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:GombosLista}}}"/>
                 <TextBlock Text="/"/>

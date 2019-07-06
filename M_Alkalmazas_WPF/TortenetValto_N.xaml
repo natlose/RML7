@@ -13,13 +13,13 @@
     <ItemsControl ItemsSource="{Binding Tortenetek}" >
         <ItemsControl.ItemsPanel>
             <ItemsPanelTemplate>
-                <WrapPanel Style="{StaticResource TortenetValtoPanel}"  MaxWidth="{Binding ActualWidth, Mode=OneWay, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ItemsControl}}}" />
+                <WrapPanel Style="{StaticResource Alkalmazas_TortenetValtoPanel}"  MaxWidth="{Binding ActualWidth, Mode=OneWay, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ItemsControl}}}" />
             </ItemsPanelTemplate>
         </ItemsControl.ItemsPanel>
         <ItemsControl.ItemTemplate>
             <DataTemplate>
-                <Border Style="{StaticResource TortenetValtoKeret}">
-                    <TextBlock Text="{Binding Azonosito, StringFormat=HH:mm:ss}" MouseUp="ItemMouseUp" Style="{StaticResource TortenetValtoSzoveg}"/>
+                <Border Style="{StaticResource Alkalmazas_TortenetValtoKeret}">
+                    <TextBlock Text="{Binding Azonosito, StringFormat=HH:mm:ss}" MouseUp="ItemMouseUp" Style="{StaticResource Alkalmazas_TortenetValtoSzoveg}"/>
                 </Border>
             </DataTemplate>
         </ItemsControl.ItemTemplate>

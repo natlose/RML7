@@ -19,50 +19,50 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0">
             <StackPanel Orientation="Horizontal">
-                <Button Click="RogzitClick" Style="{StaticResource RogzitGomb}"/>
+                <Button Click="RogzitClick" Style="{StaticResource Valtozas_RogzitGomb}"/>
                 <StackPanel x:Name="ElvetTorolGombPanel" Orientation="Horizontal">
-                    <Button Click="ElvetClick" Style="{StaticResource ElvetGomb}"/>
-                    <Button Click="TorolClick" Style="{StaticResource TorolGomb}" Visibility="{Binding VanTorolVegrehajto, Converter={StaticResource BooleanToVisibilityConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:EgysegnyiValtozas}}}"/>
+                    <Button Click="ElvetClick" Style="{StaticResource Valtozas_ElvetGomb}"/>
+                    <Button Click="TorolClick" Style="{StaticResource Valtozas_TorolGomb}" Visibility="{Binding VanTorolVegrehajto, Converter={StaticResource BooleanToVisibilityConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:EgysegnyiValtozas}}}"/>
                 </StackPanel>
-                <StackPanel x:Name="ElvetesMegerositesePanel" Orientation="Horizontal" Visibility="Collapsed" Style="{StaticResource MegerositesPanel}">
-                    <TextBlock Text="Van változás! Elveti?" Style="{StaticResource MegerositesSzoveg}"/>
-                    <Button Click="ElvetesMegerositveClick" Style="{StaticResource ElvetestMegerositGomb}"/>
-                    <Button Click="ElvetesMegszakitvaClick" Style="{StaticResource VisszavonGomb}"/>
+                <StackPanel x:Name="ElvetesMegerositesePanel" Orientation="Horizontal" Visibility="Collapsed" Style="{StaticResource Valtozas_MegerositesPanel}">
+                    <TextBlock Text="Van változás! Elveti?" Style="{StaticResource Valtozas_MegerositesSzoveg}"/>
+                    <Button Click="ElvetesMegerositveClick" Style="{StaticResource Valtozas_ElvetestMegerositGomb}"/>
+                    <Button Click="ElvetesMegszakitvaClick" Style="{StaticResource Valtozas_VisszavonGomb}"/>
                 </StackPanel>
-                <StackPanel x:Name="TorlesMegerositesePanel" Orientation="Horizontal" Visibility="Collapsed" Style="{StaticResource MegerositesPanel}">
-                    <TextBlock Text="A törlés visszavonhatatlan! Törli?" Style="{StaticResource MegerositesSzoveg}" />
-                    <Button Click="TorlesMegerositveClick" Style="{StaticResource TorlestMegerositGomb}"/>
-                    <Button Click="TorlesMegszakitvaClick" Style="{StaticResource VisszavonGomb}"/>
+                <StackPanel x:Name="TorlesMegerositesePanel" Orientation="Horizontal" Visibility="Collapsed" Style="{StaticResource Valtozas_MegerositesPanel}">
+                    <TextBlock Text="A törlés visszavonhatatlan! Törli?" Style="{StaticResource Valtozas_MegerositesSzoveg}" />
+                    <Button Click="TorlesMegerositveClick" Style="{StaticResource Valtozas_TorlestMegerositGomb}"/>
+                    <Button Click="TorlesMegszakitvaClick" Style="{StaticResource Valtozas_VisszavonGomb}"/>
                 </StackPanel>
             </StackPanel>
             <Border 
                 Visibility="{Binding RogzitesEredmeny, Converter={StaticResource VersenyhelyzetVisible}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}"
-                Style="{StaticResource RogzitesEredmenyKeret}"
+                Style="{StaticResource Valtozas_RogzitesEredmenyKeret}"
             >
                 <StackPanel>
-                    <TextBlock Text="FIGYELEM!" Style="{StaticResource RogzitesEredmenySzoveg}"/>
-                    <TextBlock Text="Az adatokat időközben más módosította az adatbázisban." Style="{StaticResource RogzitesEredmenySzoveg}"/>
-                    <TextBlock Text="A rögzítés NEM lehetséges!" Style="{StaticResource RogzitesEredmenySzoveg}"/>
+                    <TextBlock Text="FIGYELEM!" Style="{StaticResource Valtozas_RogzitesEredmenySzoveg}"/>
+                    <TextBlock Text="Az adatokat időközben más módosította az adatbázisban." Style="{StaticResource Valtozas_RogzitesEredmenySzoveg}"/>
+                    <TextBlock Text="A rögzítés NEM lehetséges!" Style="{StaticResource Valtozas_RogzitesEredmenySzoveg}"/>
                 </StackPanel>
             </Border>
             <Border 
                 Visibility="{Binding RogzitesEredmeny, Converter={StaticResource ErvenytelenAdatVisible}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}"
-                Style="{StaticResource RogzitesEredmenyKeret}"
+                Style="{StaticResource Valtozas_RogzitesEredmenyKeret}"
             >
                 <StackPanel>
-                    <TextBlock Text="FIGYELEM!" Style="{StaticResource RogzitesEredmenySzoveg}"/>
-                    <TextBlock Text="Érvénytelen tartalom van a mezőkben!" Style="{StaticResource RogzitesEredmenySzoveg}"/>
-                    <TextBlock Text="A rögzítés javítás után lehetséges!" Style="{StaticResource RogzitesEredmenySzoveg}"/>
+                    <TextBlock Text="FIGYELEM!" Style="{StaticResource Valtozas_RogzitesEredmenySzoveg}"/>
+                    <TextBlock Text="Érvénytelen tartalom van a mezőkben!" Style="{StaticResource Valtozas_RogzitesEredmenySzoveg}"/>
+                    <TextBlock Text="A rögzítés javítás után lehetséges!" Style="{StaticResource Valtozas_RogzitesEredmenySzoveg}"/>
                 </StackPanel>
             </Border>
             <Border 
                 Visibility="{Binding RogzitesEredmeny, Converter={StaticResource NemTarolhatoVisible}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}"
-                Style="{StaticResource RogzitesEredmenyKeret}"
+                Style="{StaticResource Valtozas_RogzitesEredmenyKeret}"
             >
                 <StackPanel>
-                    <TextBlock Text="FIGYELEM!" Style="{StaticResource RogzitesEredmenySzoveg}"/>
-                    <TextBlock Text="Az adat nem tárolható!" Style="{StaticResource RogzitesEredmenySzoveg}"/>
-                    <TextBlock Text="Lehet, hogy már létezik?" Style="{StaticResource RogzitesEredmenySzoveg}"/>
+                    <TextBlock Text="FIGYELEM!" Style="{StaticResource Valtozas_RogzitesEredmenySzoveg}"/>
+                    <TextBlock Text="Az adat nem tárolható!" Style="{StaticResource Valtozas_RogzitesEredmenySzoveg}"/>
+                    <TextBlock Text="Lehet, hogy már létezik?" Style="{StaticResource Valtozas_RogzitesEredmenySzoveg}"/>
                 </StackPanel>
             </Border>
         </StackPanel>

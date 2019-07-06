@@ -10,7 +10,7 @@
     <UserControl.DataContext>
         <local:BalMenu_NM/>
     </UserControl.DataContext>
-    <ItemsControl ItemsSource="{Binding LathatoSorok}" Background="Black">
+    <ItemsControl ItemsSource="{Binding LathatoSorok}" Style="{StaticResource Alkalmazas_BalMenu}">
         <ItemsControl.ItemTemplate>
             <DataTemplate>
                 <Grid>
@@ -18,7 +18,7 @@
                         <ColumnDefinition Width="{Binding BehuzottMargo}"/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="1" Text="{Binding Szoveg}" MouseUp="SorMouseUp" Style="{StaticResource BalMenuSor}"/>
+                    <TextBlock Grid.Column="1" Text="{Binding Szoveg}" MouseUp="SorMouseUp" Style="{StaticResource Alkalmazas_BalMenuSor}"/>
                 </Grid>
             </DataTemplate>
         </ItemsControl.ItemTemplate>

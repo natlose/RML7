@@ -14,14 +14,14 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Border Style="{StaticResource LekerdezesKeret}">
+        <Border Style="{StaticResource Lekerdezes_Keret}">
             <DockPanel>
-                <Button DockPanel.Dock="Left" Content="Vissza" Click="VisszaClick" Style="{StaticResource VisszaGomb}" />
-                <Button DockPanel.Dock="Right" Content="Lekérdez" Click="LekerdezClick" Style="{StaticResource LekerdezGomb}" />
+                <Button DockPanel.Dock="Left" Content="Vissza" Click="VisszaClick" Style="{StaticResource Lekerdezes_VisszaGomb}" />
+                <Button DockPanel.Dock="Right" Content="Lekérdez" Click="LekerdezClick" Style="{StaticResource Lekerdezes_LekerdezGomb}" />
                 <local:SzuromezoRacs x:Name="SzuromezoRacs" />
             </DockPanel>
         </Border>
-        <Border Grid.Row="1" Style="{StaticResource LekerdezesEredmenyKeret}">
+        <Border Grid.Row="1" Style="{StaticResource Lekerdezes_EredmenyKeret}">
             <ContentPresenter Content="{Binding Tartalom, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}" />
         </Border>
     </Grid>
