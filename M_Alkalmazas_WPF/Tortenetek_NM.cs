@@ -20,6 +20,9 @@ namespace Sajat.Alkalmazas.WPF
             set
             {
                 ErtekadasErtesites(ref aktiv, value);
+                // Hogy tudja a történet is magáról, hogy ő az aktív:
+                foreach (var t in Tortenetek) t.AktivVagyok = false;
+                if (AktivTortenet != null) AktivTortenet.AktivVagyok = true; // Igy meg tudja változtatni a küllemét.
                 Ertesites(nameof(AktivTortenet));
             }
         }

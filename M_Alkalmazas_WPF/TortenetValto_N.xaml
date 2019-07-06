@@ -8,20 +8,20 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <!--
         Ne példányosíts itt Tortenetek_NM nézetmodellt!
-        Azt már létrehozta a Tortenetek_N, a FoAblak_N köti majd hozzá a DataContext-et!
+        Azt már létrehozta a Tortenetek_N, a FoAblak_N köti majd hozzá a DataContext-et!    
     -->
-    <ListBox ItemsSource="{Binding Tortenetek}" SelectedValuePath="Azonosito" SelectedValue="{Binding Aktiv, Mode=TwoWay}">
-        <ListBox.ItemsPanel>
+    <ItemsControl ItemsSource="{Binding Tortenetek}" >
+        <ItemsControl.ItemsPanel>
             <ItemsPanelTemplate>
-                <WrapPanel MaxWidth="{Binding ActualWidth, Mode=OneWay, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBox}}}" />
+                <WrapPanel Style="{StaticResource TortenetValtoPanel}"  MaxWidth="{Binding ActualWidth, Mode=OneWay, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ItemsControl}}}" />
             </ItemsPanelTemplate>
-        </ListBox.ItemsPanel>
-        <ListBox.ItemTemplate>
+        </ItemsControl.ItemsPanel>
+        <ItemsControl.ItemTemplate>
             <DataTemplate>
-                <Border BorderThickness="1" CornerRadius="2" BorderBrush="Black">
-                    <TextBlock Text="{Binding Azonosito, StringFormat=HH:mm:ss}"/>
+                <Border Style="{StaticResource TortenetValtoKeret}">
+                    <TextBlock Text="{Binding Azonosito, StringFormat=HH:mm:ss}" MouseUp="ItemMouseUp" Style="{StaticResource TortenetValtoSzoveg}"/>
                 </Border>
             </DataTemplate>
-        </ListBox.ItemTemplate>
-    </ListBox>
+        </ItemsControl.ItemTemplate>
+    </ItemsControl>
 </UserControl>

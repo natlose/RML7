@@ -6,14 +6,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using Sajat.Alkalmazas.API;
+using Sajat.ObjektumModel;
 
 namespace Sajat.Alkalmazas.WPF
 {
-    public class Tortenet
+    public class Tortenet : Megfigyelheto
     {
         public DateTime Azonosito { get; private set; }
 
         public ObservableCollection<FEset_N> Nezetek { get; private set; }
+
+        private bool aktivVagyok;
+        public bool AktivVagyok
+        {
+            get => aktivVagyok;
+            set => ErtekadasErtesites(ref aktivVagyok, value);
+        }
 
         public Tortenet(FEKerelem kerelem, Action<Tortenet> valtozaskor)
         {

@@ -15,14 +15,17 @@ using System.Windows.Shapes;
 
 namespace Sajat.Alkalmazas.WPF
 {
-    /// <summary>
-    /// Interaction logic for TortenetValto_N.xaml
-    /// </summary>
     public partial class TortenetValto_N : UserControl
     {
         public TortenetValto_N()
         {
             InitializeComponent();
+        }
+
+        private void ItemMouseUp(object sender, MouseButtonEventArgs e)
+        {
+            Tortenet tortenet = BindingOperations.GetBindingExpression(sender as DependencyObject, TextBlock.TextProperty).DataItem as Tortenet;
+            if (tortenet != null) (DataContext as Tortenetek_NM).Aktiv = tortenet.Azonosito;
         }
     }
 }

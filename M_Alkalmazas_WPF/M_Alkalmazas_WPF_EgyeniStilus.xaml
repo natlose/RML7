@@ -18,6 +18,37 @@
         </Style.Triggers>
     </Style>
 
+    <Style x:Key="TortenetValtoPanel" TargetType="Panel">
+        <Setter Property="Background" Value="Black"/>
+    </Style>
+
+
+    <Style x:Key="TortenetValtoKeret" TargetType="Border">
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="CornerRadius" Value="2"/>
+        <Setter Property="BorderBrush" Value="LightSkyBlue"/>
+        <Setter Property="Background" Value="Black"/>
+        <Setter Property="Margin" Value="2"/>
+        <Setter Property="Padding" Value="2"/>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding Path=AktivVagyok}" Value="True">
+                <Setter Property="Background" Value="LightSkyBlue" />
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="TortenetValtoSzoveg" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="Arial"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="Foreground" Value="LightSkyBlue"/>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding Path=AktivVagyok}" Value="True">
+                <Setter Property="Foreground" Value="Black" />
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+
     <!--LEKERDEZES-->    
     
     <Style x:Key="LekerdezesGomb" TargetType="Button">

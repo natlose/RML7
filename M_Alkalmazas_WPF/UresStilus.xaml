@@ -4,6 +4,9 @@
 
     <Style x:Key="BalMenuSor" TargetType="TextBlock"/>
 
+    <Style x:Key="TortenetValtoPanel" TargetType="Panel"/>
+    <Style x:Key="TortenetValtoKeret" TargetType="Border"/>
+    <Style x:Key="TortenetValtoSzoveg" TargetType="TextBlock"/>
 
     <Style x:Key="VisszaGomb" TargetType="Button">
         <Setter Property="Content" Value="Vissza"/>
