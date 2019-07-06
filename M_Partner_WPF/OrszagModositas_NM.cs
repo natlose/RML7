@@ -29,6 +29,8 @@ namespace Sajat.Partner
         }
 
         public event FEKerelemEsemenyKezelo SajatFEKerelem;
+
+        public bool Megszakithato { get => !valtozas.VanValtozas; }
         #endregion
 
         IOrszagValtozas valtozas = new OrszagValtozas_EF(new PartnerContext());

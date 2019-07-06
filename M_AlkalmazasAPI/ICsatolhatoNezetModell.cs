@@ -11,5 +11,7 @@ namespace Sajat.Alkalmazas.API
         FEKerelem KapottFEKerelem { get; set; }
 
         event FEKerelemEsemenyKezelo SajatFEKerelem;
+
+        bool Megszakithato { get; }
     }
 }

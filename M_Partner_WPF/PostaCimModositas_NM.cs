@@ -23,6 +23,8 @@ namespace Sajat.Partner
         }
 
         public event FEKerelemEsemenyKezelo SajatFEKerelem;
+
+        public bool Megszakithato { get => true; }
         #endregion
 
         private PostaCim postacim;

@@ -30,7 +30,9 @@ namespace Sajat.Partner
             }
         }
 
-        public event FEKerelemEsemenyKezelo SajatFEKerelem; 
+        public event FEKerelemEsemenyKezelo SajatFEKerelem;
+
+        public bool Megszakithato { get => !valtozas.VanValtozas; }
         #endregion
 
         IPartnerValtozas valtozas = new PartnerValtozas_EF(new PartnerContext()); //todo: IOC kell ide!Az M_Partner_WPF nem függhet a T_Partner_SQL-től!

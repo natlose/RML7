@@ -5,35 +5,50 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Sajat.Alkalmazas.WPF"
         mc:Ignorable="d"
-        Title="FoAblak" Height="450" Width="800" Loaded="FeluletBetoltesenekBefejezesekor">
+        Title="FoAblak" Height="450" Width="800" Loaded="FeluletBetoltesenekBefejezesekor" Closing="Window_Closing">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    </Window.Resources>
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal">
-            <local:FelsoMenuFoglalat/>
-        </StackPanel>
-        <Grid Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-                <local:BalMenu_N x:Name="BalMenu_N"/>
-                <local:TortenetValto_N x:Name="TortenetValto_N" Grid.Row="1"/>
+        <Grid x:Name="Grid" Visibility="{Binding KilepesMegerositesNemZajlik, Converter={StaticResource BooleanToVisibilityConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:FoAblak_N}}}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal">
+                <local:FelsoMenuFoglalat/>
+            </StackPanel>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <local:BalMenu_N x:Name="BalMenu_N"/>
+                    <local:TortenetValto_N x:Name="TortenetValto_N" Grid.Row="1"/>
+                </Grid>
+                <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" Width="5"/>
+                <ScrollViewer Grid.Column="2" x:Name="Tortenetek_ScrollViewer" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" Background="LightGray" >
+                    <local:Tortenetek_N x:Name="Tortenetek_N"/>
+                </ScrollViewer>
             </Grid>
-            <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" Width="5"/>
-            <ScrollViewer Grid.Column="2" x:Name="Tortenetek_ScrollViewer" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" Background="LightGray" >
-                <local:Tortenetek_N x:Name="Tortenetek_N"/>
-            </ScrollViewer>
+            <local:AllapotjelzoFoglalat Grid.Row="2"/>
         </Grid>
-        <local:AllapotjelzoFoglalat Grid.Row="2"/>
+        <Border Visibility="{Binding KilepesMegerositesZajlik, Converter={StaticResource BooleanToVisibilityConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:FoAblak_N}}}">
+            <Border>
+                <StackPanel>
+                    <TextBlock Text="Figyelem!"/>
+                    <TextBlock Text="Rögzítetlen adatok vannak! Kilép?"/>
+                    <Button Content="Nem" Click="KilepesElvetveClick" />
+                    <Button Content="Igen" Click="KilepesMegerositveClick" />
+                </StackPanel>
+            </Border>
+        </Border>        
     </Grid>
 </Window>

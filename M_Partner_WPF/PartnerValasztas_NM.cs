@@ -14,7 +14,7 @@ namespace Sajat.Partner
     public class PartnerValasztas_NM : Megfigyelheto, ICsatolhatoNezetModell
     {
         public PartnerValasztas_NM()
-        {
+        {            
             Szuromezok = new SzuromezoGyujtemeny()
                 .Mezo("nev", new Szuromezo("Név"))
                 .Mezo("mobil", new Szuromezo("Mobil"))
@@ -48,6 +48,8 @@ namespace Sajat.Partner
         public FEKerelem KapottFEKerelem { get; set; }
 
         public event FEKerelemEsemenyKezelo SajatFEKerelem;
+
+        public bool Megszakithato { get => true; }
         #endregion
 
         private IPartnerTarolo tarolo = new PartnerTarolo_EF(new PartnerContext());

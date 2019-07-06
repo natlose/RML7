@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using Sajat.Alkalmazas.API;
 using Sajat.ObjektumModel;
 
@@ -30,6 +31,14 @@ namespace Sajat.Alkalmazas.WPF
         public Tortenet AktivTortenet
         {
             get => Tortenetek.SingleOrDefault(t => t.Azonosito == aktiv);
+        }
+        public bool FoAblakBezarhato
+        {
+            get
+            {
+                //Ha bármelyik nézetmodell azt mondja, hogy nem megszakítható, akkor a főablak nem zárható be:
+                return !Tortenetek.SelectMany(t => t.Nezetek).Any(fe => !((fe.NezetHelye.Child as ICsatolhatoNezet).NezetModell as ICsatolhatoNezetModell).Megszakithato);
+            }
         }
 
         public void UjTortenetKerelemkor(object sender, FEKerelem kerelem)

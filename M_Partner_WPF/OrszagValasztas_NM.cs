@@ -15,6 +15,8 @@ namespace Sajat.Partner
         public FEKerelem KapottFEKerelem { get; set; }
 
         public event FEKerelemEsemenyKezelo SajatFEKerelem;
+
+        public bool Megszakithato { get => true; }
         #endregion
 
         private IOrszagTarolo tarolo = new OrszagTarolo_EF(new PartnerContext());
