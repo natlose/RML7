@@ -30,7 +30,7 @@ namespace Sajat.Alkalmazas.WPF
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(tulajdonsagNeve));
         }
 
-        // Lusta voltam IConvertert írni not bool - Visibility-re,
+        // Lusta voltam IConvertert írni not bool - Visibility-re, ezért a két tulajdonság...
         private bool kilepesMegerositesZajlik = false;
         public bool KilepesMegerositesZajlik
         {

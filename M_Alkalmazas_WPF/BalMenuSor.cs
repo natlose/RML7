@@ -44,9 +44,7 @@ namespace Sajat.Alkalmazas.WPF
 
         public string Szoveg { get; set; }
 
-        public string SzerelvenyNeve { get; set; }
-
-        public string OsztalyNeve { get; set; }
+        public string FEsetId { get; set; }
 
         public int BehuzasSzint { get; set; }
 

@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<FEsetek>
+  <FEset id="Partner-PartnerValasztas" szerelveny="M_Partner_WPF" osztaly="Sajat.Partner.PartnerValasztas_N" />
+  <FEset id="Partner-PartnerModositas" szerelveny="M_Partner_WPF" osztaly="Sajat.Partner.PartnerModositas_N" />
+  <FEset id="Partner-OrszagValasztas" szerelveny="M_Partner_WPF" osztaly="Sajat.Partner.OrszagValasztas_N" />
+  <FEset id="Partner-OrszagModositas" szerelveny="M_Partner_WPF" osztaly="Sajat.Partner.OrszagModositas_N" />
+  <FEset id="Partner-PostaCimModositas" szerelveny="M_Partner_WPF" osztaly="Sajat.Partner.PostaCimModositas_N" />
+</FEsetek>

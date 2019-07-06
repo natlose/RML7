@@ -28,7 +28,7 @@ namespace Sajat.Partner
                     {
                         SajatFEKerelem?.Invoke(
                             new FEKerelem(
-                                "M_Partner_WPF", "Sajat.Partner.OrszagValasztas_N",
+                                "Partner-OrszagValasztas",
                                 null,
                                 (eredmenyek) => {
                                     if (eredmenyek.As<bool>("valasztas", null))
@@ -97,7 +97,7 @@ namespace Sajat.Partner
         {
             SajatFEKerelem?.Invoke(
                 new FEKerelem(
-                    "M_Partner_WPF", "Sajat.Partner.PartnerModositas_N",
+                    "Partner-PartnerModositas",
                     new FEParameterek().Parameter("id", 0),
                     (eredmenyek) => {
                         if (eredmenyek.As<int>("rogzites") == 1)
@@ -131,7 +131,7 @@ namespace Sajat.Partner
         {
             SajatFEKerelem?.Invoke(
                 new FEKerelem(
-                    "M_Partner_WPF", "Sajat.Partner.PartnerModositas_N", 
+                    "Partner-PartnerModositas", 
                     new FEParameterek().Parameter("id", partner.Id),
                     (eredmenyek) => {
                         Partner modositott = eredmenyek.As<Partner>("partner");

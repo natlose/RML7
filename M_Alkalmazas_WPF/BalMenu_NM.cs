@@ -38,8 +38,7 @@ namespace Sajat.Alkalmazas.WPF
                     {
                         SzuloSor = szuloSor,
                         Szoveg = gyermekElem.Attribute("szoveg")?.Value,
-                        SzerelvenyNeve = gyermekElem.Attribute("szerelveny")?.Value,
-                        OsztalyNeve = gyermekElem.Attribute("osztaly")?.Value,
+                        FEsetId = gyermekElem.Attribute("id")?.Value,
                         BehuzasSzint = behuzasSzint
                     };
                     if (szuloSor != null) szuloSor.LathatosagValtozas += gyermekSor.SzuloLathatosagValtozasakor;
@@ -86,7 +85,7 @@ namespace Sajat.Alkalmazas.WPF
             }
             else
             {
-                UjTortenetKerelem?.Invoke(this, new FEKerelem(sor.SzerelvenyNeve, sor.OsztalyNeve));
+                UjTortenetKerelem?.Invoke(this, new FEKerelem(sor.FEsetId));
             }
         }
 

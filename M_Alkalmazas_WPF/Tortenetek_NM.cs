@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,8 @@ namespace Sajat.Alkalmazas.WPF
     public class Tortenetek_NM : Megfigyelheto
     {
         public ObservableCollection<Tortenet> Tortenetek { get; set; } = new ObservableCollection<Tortenet>();
+
+        private Regiszter regiszter = new Regiszter(Path.Combine(Directory.GetCurrentDirectory(), "M_Alkalmazas_WPF_FEsetek.xml"));
 
         private DateTime aktiv;
         public DateTime Aktiv
@@ -43,15 +46,20 @@ namespace Sajat.Alkalmazas.WPF
 
         public void UjTortenetKerelemkor(object sender, FEKerelem kerelem)
         {
-            Tortenet tortenet = new Tortenet(kerelem, (t) => {
-                TortenetValtozott?.Invoke(t, null);
-                // Ha kiürült a történet, akkor kidobom a listából is:
-                if (t.Nezetek.Count == 0)
+            Tortenet tortenet = new Tortenet(
+                kerelem, 
+                (t) => 
                 {
-                    Aktiv = DateTime.MinValue;
-                    Tortenetek.Remove(t);
-                }
-            });
+                    TortenetValtozott?.Invoke(t, null);
+                    // Ha kiürült a történet, akkor kidobom a listából is:
+                    if (t.Nezetek.Count == 0)
+                    {
+                        Aktiv = DateTime.MinValue;
+                        Tortenetek.Remove(t);
+                    }
+                },
+                (id) => regiszter.Felismeres(id)
+                );
             Tortenetek.Add(tortenet);
             Aktiv = tortenet.Azonosito;
         }

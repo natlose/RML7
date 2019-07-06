@@ -27,9 +27,9 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
+    <DebugType>none</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>..\bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -58,6 +58,7 @@
     <Compile Include="KivetelesHelyzet.xaml.cs">
       <DependentUpon>KivetelesHelyzet.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Regiszter.cs" />
     <Compile Include="StilusMuhely.xaml.cs">
       <DependentUpon>StilusMuhely.xaml</DependentUpon>
     </Compile>
@@ -177,6 +178,11 @@
       <Project>{467a2fe7-82b3-4107-8dac-1bd134d6b279}</Project>
       <Name>S_ObjektumModel</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="M_Alkalmazas_WPF_FEsetek.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

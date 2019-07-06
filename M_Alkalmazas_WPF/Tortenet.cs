@@ -12,6 +12,9 @@ namespace Sajat.Alkalmazas.WPF
 {
     public class Tortenet : Megfigyelheto
     {
+        //Ide teszem annak delegáltnak a címét, ami fel tudja oldani a felhasználói eset azonosítókat szerelvényre és osztályra
+        private Func<string, RegiszterBejegyzes> fesetIdFelismeres;
+
         public DateTime Azonosito { get; private set; }
 
         public ObservableCollection<FEset_N> Nezetek { get; private set; }
@@ -23,8 +26,9 @@ namespace Sajat.Alkalmazas.WPF
             set => ErtekadasErtesites(ref aktivVagyok, value);
         }
 
-        public Tortenet(FEKerelem kerelem, Action<Tortenet> valtozaskor)
+        public Tortenet(FEKerelem kerelem, Action<Tortenet> valtozaskor, Func<string, RegiszterBejegyzes> fesetIdFelismeres)
         {
+            this.fesetIdFelismeres = fesetIdFelismeres;
             Azonosito = DateTime.Now;
             Nezetek = new ObservableCollection<FEset_N>();
             Nezetek.CollectionChanged += (s, e) => {
@@ -37,8 +41,11 @@ namespace Sajat.Alkalmazas.WPF
         {
             try
             {
+                RegiszterBejegyzes regiszter = fesetIdFelismeres(kerelem.Id);
+                if (regiszter == null)
+                    throw new ArgumentException($"A {kerelem.Id} felhasználói esetre nincs regisztrált osztály!");
                 FEset_N nezet = new FEset_N();
-                Type type = Type.GetType(kerelem.OsztalyNeve + ", " + kerelem.SzerelvenyNeve, true);
+                Type type = Type.GetType(regiszter.Osztaly + ", " + regiszter.Szerelveny, true);
                 object ismeretlenN = Activator.CreateInstance(type);
                 if (!((ismeretlenN is UserControl) && (ismeretlenN is ICsatolhatoNezet)))
                     throw new ArgumentException($"A {ismeretlenN.GetType().AssemblyQualifiedName} UserControl és ICsatolhatoNezet kell legyen!");

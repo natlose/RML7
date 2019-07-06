@@ -14,14 +14,12 @@ namespace Sajat.Alkalmazas.API
         /// <summary>
         /// Felhasználói eset indítása FEParameterek megadásával
         /// </summary>
-        /// <param name="szerelvenyNeve">A felhasználói esetet tartalmazó szerelvény neve (.dll nélkül)</param>
-        /// <param name="osztalyNeve">A felhasználói esetet megvalósító osztály neve (névtérrel együtt)</param>
+        /// <param name="id">A felhasználói eset azonosítója</param>
         /// <param name="parameterek">A felhasználói esetnek átadandó paraméterek</param>
         /// <param name="eredmeny">Az eredményt feldolgozó rutin</param>
-        public FEKerelem(string szerelvenyNeve, string osztalyNeve, FEParameterek parameterek, Action<FEEredmenyek> eredmeny)
+        public FEKerelem(string id, FEParameterek parameterek, Action<FEEredmenyek> eredmeny)
         {
-            SzerelvenyNeve = szerelvenyNeve;
-            OsztalyNeve = osztalyNeve;
+            Id = id;
             if (parameterek != null) Parameterek = parameterek;
             Eredmeny = eredmeny;
         }
@@ -29,27 +27,20 @@ namespace Sajat.Alkalmazas.API
         /// <summary>
         /// Felhasználói eset indítása parameterek megadása nélkül
         /// </summary>
-        /// <param name="szerelvenyNeve">A felhasználói esetet tartalmazó szerelvény neve (.dll nélkül)</param>
-        /// <param name="osztalyNeve">A felhasználói esetet megvalósító osztály neve (névtérrel együtt)</param>
+        /// <param name="id">A felhasználói eset azonosítója</param>
         /// <param name="eredmeny">Az eredményt feldolgozó rutin</param>
-        public FEKerelem(string szerelvenyNeve, string osztalyNeve, Action<FEEredmenyek> eredmeny) : this(szerelvenyNeve, osztalyNeve, null, eredmeny) { }
+        public FEKerelem(string id, Action<FEEredmenyek> eredmeny) : this(id, null, eredmeny) { }
 
         /// <summary>
         /// Felhasználói eset indítása parameterek és feldolgozó megadása nélkül
         /// </summary>
-        /// <param name="szerelvenyNeve">A felhasználói esetet tartalmazó szerelvény neve (.dll nélkül)</param>
-        /// <param name="osztalyNeve">A felhasználói esetet megvalósító osztály neve (névtérrel együtt)</param>
-        public FEKerelem(string szerelvenyNeve, string osztalyNeve) : this(szerelvenyNeve, osztalyNeve, null, null) { }
+        /// <param name="id">A felhasználói eset azonosítója</param>
+        public FEKerelem(string id) : this(id, null, null) { }
 
         /// <summary>
-        /// A felhasználói esetet tartalmazó szerelvény neve
+        /// A felhasználói esetet azonosítója
         /// </summary>
-        public string SzerelvenyNeve { get; private set; }
-
-        /// <summary>
-        /// A felhasználói esetet megvalósító osztály neve (névtérrel együtt)
-        /// </summary>
-        public string OsztalyNeve { get; private set; }
+        public string Id { get; private set; }
 
         /// <summary>
         /// A felhasználói esetnek átadandó paraméterek

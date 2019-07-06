@@ -38,7 +38,7 @@ namespace Sajat.Partner
         {
             SajatFEKerelem?.Invoke(
                 new FEKerelem(
-                    "M_Partner_WPF", "Sajat.Partner.OrszagValasztas_N",
+                    "Partner-OrszagValasztas",
                     null,
                     (eredmenyek) => {
                         if (eredmenyek.As<bool>("valasztas", null))
