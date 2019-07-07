@@ -11,8 +11,6 @@ reload button on concurrency
 
 appframe exit intention vs unsaved data
 
-IOC
-
 internal, ahova kell
 
 ketgomboslistán EventHandler<object> helyett RoutedEvent és RouteEventHandler használata
@@ -27,4 +25,6 @@ ITarolo Egyetlen(id)-be hibakezelés kell, ha nincs id elem a tárolóban (valaki m
 
 a balmenu.xml-ben lehessen paramétereket is rögzíteni egy indítandó felhasználói esethez
 
-stilusokat 'névterekbe' szervezni
+Frissen felvett sor mutatása Lekerdezes-ben gyenge!
+
+A Tarolo_EF nem jól valósítja meg a lapozást, de ehhez rendeznie kellene vmi elv szerint
