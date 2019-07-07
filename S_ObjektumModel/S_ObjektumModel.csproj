@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Ellenorizheto.cs" />
     <Compile Include="IEgysegnyiValtozas.cs" />
+    <Compile Include="ILapozhatoTarolo.cs" />
     <Compile Include="ITarolo.cs" />
     <Compile Include="Megfigyelheto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

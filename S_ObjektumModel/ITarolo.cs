@@ -10,8 +10,8 @@ namespace Sajat.ObjektumModel
     public interface ITarolo<TEntitas> where TEntitas : class
     {
         TEntitas Egyetlen(int id);
-        IEnumerable<TEntitas> Mind(int oldalmeret = 0, int oldal = 0);
-        IEnumerable<TEntitas> MindAhol(Expression<Func<TEntitas, bool>> feltetel, int oldalmeret = 0, int oldal = 0);
+        IEnumerable<TEntitas> Mind();
+        IEnumerable<TEntitas> MindAhol(Expression<Func<TEntitas, bool>> feltetel);
 
         void EgyetBetesz(TEntitas entitas);
         void SokatBetesz(IEnumerable<TEntitas> entitasok);
