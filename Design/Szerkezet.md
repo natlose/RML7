@@ -172,10 +172,24 @@ Az AlkalmazásKeret semmit nem tud az adott rendszer üzleti funkcióiról. Az �
 feladata: 
 
 - számbavenni az összeválogatott felhasználói eseteket
-- a választékot a felhasználó elé tárni
+- a választékból az indulópontokat a felhasználó elé tárni menü formájában
 - a felhasználó jelzésére elindítani egy felhasználói esetet
 - annak az esetnek az igényeit kiszolgálni megfelelő objektumokkal
 - a felhasználó jelzése szerint további felhasználói esetet nyitni vagy az aktuálisat bezárni
+- kezelni a párhuzamos modalitási láncokat
+
+# Megvalósítás
+
+## M_Alkalmazas_WPF
+
+**Feladat** Megvalósítani az AlkalmazásKeretet.
+
+### App
+
+Az alkalmazás az `App` osztály példányosításával indul.
+
+Az `App` felveszi az erőforrás-gyűjteményébe a `UresStilus.xaml`-ban
+leírt stílusokat, mert a vizuális komponensek erre hivatkoznak.
 
 
 

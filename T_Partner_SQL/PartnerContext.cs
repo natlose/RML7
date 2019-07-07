@@ -83,6 +83,17 @@ namespace Sajat.Partner
                 .HasColumnName("Nev")
                 .IsUnicode();
             #endregion
+
+            #region Irszam
+            modelBuilder.Entity<Irszam>().ToTable("Irszam");
+            modelBuilder.Entity<Irszam>().Property(p => p.Orszagkod)
+                .HasColumnName("orszagkod");
+            modelBuilder.Entity<Irszam>().Property(p => p.Iranyitoszam)
+                .HasColumnName("irszam");
+            modelBuilder.Entity<Irszam>().Property(p => p.Helyseg)
+                .HasColumnName("helyseg");
+            #endregion
+
         }
 
         public DbSet<Partner> Partnerek { get; set; }
@@ -90,5 +101,7 @@ namespace Sajat.Partner
         public DbSet<PostaCim> PostaCimek { get; set; }
 
         public DbSet<Orszag> Orszagok { get; set; }
+
+        public DbSet<Irszam> Irszamok { get; set; }
     }
 }

@@ -48,6 +48,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IrszamTarolo_EF.cs" />
+    <Compile Include="IrszamValtozas_EF.cs" />
     <Compile Include="OrszagTarolo_EF.cs" />
     <Compile Include="OrszagValtozas_EF.cs" />
     <Compile Include="PartnerContext.cs" />

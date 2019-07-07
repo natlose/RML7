@@ -5,4 +5,6 @@
   <FEset id="Partner-OrszagValasztas" szerelveny="M_Partner_WPF" osztaly="Sajat.Partner.OrszagValasztas_N" />
   <FEset id="Partner-OrszagModositas" szerelveny="M_Partner_WPF" osztaly="Sajat.Partner.OrszagModositas_N" />
   <FEset id="Partner-PostaCimModositas" szerelveny="M_Partner_WPF" osztaly="Sajat.Partner.PostaCimModositas_N" />
+  <FEset id="Partner-IrszamValasztas" szerelveny="M_Partner_WPF" osztaly="Sajat.Partner.IrszamValasztas_N" />
+  <!--comment-->
 </FEsetek>

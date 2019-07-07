@@ -43,10 +43,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Elerhetoseg.cs" />
+    <Compile Include="IIrszamTarolo.cs" />
+    <Compile Include="IIrszamValtozas.cs" />
     <Compile Include="IOrszagTarolo.cs" />
     <Compile Include="IOrszagValtozas.cs" />
     <Compile Include="IPartnerTarolo.cs" />
     <Compile Include="IPartnerValtozas.cs" />
+    <Compile Include="Irszam.cs" />
     <Compile Include="Jogiszemely.cs" />
     <Compile Include="Orszag.cs" />
     <Compile Include="Partner.cs" />

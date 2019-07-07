@@ -48,6 +48,10 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IrszamValasztas_N.xaml.cs">
+      <DependentUpon>IrszamValasztas_N.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="IrszamValasztas_NM.cs" />
     <Compile Include="OrszagModositas_N.xaml.cs">
       <DependentUpon>OrszagModositas_N.xaml</DependentUpon>
     </Compile>
@@ -91,6 +95,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="IrszamValasztas_N.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="OrszagModositas_N.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

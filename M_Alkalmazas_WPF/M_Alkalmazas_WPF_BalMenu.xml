@@ -3,7 +3,7 @@
   <Sor szoveg="Partnerek">
     <Sor szoveg="Partnerek" id="Partner-PartnerValasztas"/>
     <Sor szoveg="Országok" id="Partner-OrszagValasztas"/>
-    <Sor szoveg="Irányítószámok" />
+    <Sor szoveg="Irányítószámok" id="Partner-IrszamValasztas" />
     <Sor szoveg="Szállítók" />
     <Sor szoveg="Képviselők" />
     <Sor szoveg="Kezelők" />
