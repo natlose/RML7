@@ -21,5 +21,10 @@ namespace Sajat.Alkalmazas.WPF
         {
             InitializeComponent();
         }
+
+        private void SorMouseUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
     }
 }

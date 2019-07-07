@@ -4,6 +4,28 @@
 
     <!--Alkalmazas-->
 
+    <Style x:Key="Alkalmazas_FelsoMenuKeret" TargetType="Border">
+        <Setter Property="Background" Value="Black"/>
+        <Setter Property="BorderBrush" Value="LightSkyBlue"/>
+        <Setter Property="BorderThickness" Value="0,0,0,1"/>
+        <Setter Property="Padding" Value="3,3"/>
+    </Style>
+
+    <Style x:Key="Alkalmazas_FelsoMenuElem" TargetType="TextBlock">
+        <Setter Property="Background" Value="Black"/>
+        <Setter Property="Foreground" Value="LightSkyBlue"/>
+        <Setter Property="FontFamily" Value="Arial"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="Padding" Value="5"/>
+        <Setter Property="Margin" Value="1"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="Black" />
+                <Setter Property="Background" Value="LightSkyBlue"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
     <Style x:Key="Alkalmazas_BalMenu" TargetType="ItemsControl">
         <Setter Property="Background" Value="Black"/>
     </Style>
@@ -14,6 +36,7 @@
         <Setter Property="Background" Value="Black"/>
         <Setter Property="Foreground" Value="LightSkyBlue"/>
         <Setter Property="Padding" Value="5"/>
+        <Setter Property="Margin" Value="1"/>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Foreground" Value="Black" />

@@ -2,7 +2,10 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:Sajat.Alkalmazas.WPF">
 
-    <!--ALKALMAZAS-->   
+    <!--ALKALMAZAS-->
+
+    <Style x:Key="Alkalmazas_FelsoMenuKeret" TargetType="Border"/>
+    <Style x:Key="Alkalmazas_FelsoMenuElem" TargetType="TextBlock"/>
     <Style x:Key="Alkalmazas_BalMenu" TargetType="ItemsControl"/>
     <Style x:Key="Alkalmazas_BalMenuSor" TargetType="TextBlock"/>
     <Style x:Key="Alkalmazas_TortenetValtoPanel" TargetType="Panel"/>

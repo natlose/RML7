@@ -30,7 +30,6 @@ namespace Sajat.Alkalmazas.WPF
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(tulajdonsagNeve));
         }
 
-        // Lusta voltam IConvertert írni not bool - Visibility-re, ezért a két tulajdonság...
         private bool kilepesMegerositesZajlik = false;
         public bool KilepesMegerositesZajlik
         {
@@ -39,17 +38,6 @@ namespace Sajat.Alkalmazas.WPF
             {
                 kilepesMegerositesZajlik = value;
                 Ertesites(nameof(KilepesMegerositesZajlik));
-                Ertesites(nameof(KilepesMegerositesNemZajlik));
-            }
-        }
-        public bool KilepesMegerositesNemZajlik
-        {
-            get => !kilepesMegerositesZajlik;
-            set
-            {
-                kilepesMegerositesZajlik = !value;
-                Ertesites(nameof(KilepesMegerositesZajlik));
-                Ertesites(nameof(KilepesMegerositesNemZajlik));
             }
         }
 
