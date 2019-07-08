@@ -181,16 +181,75 @@ feladata:
 # Megvalósítás
 
 ## M_Alkalmazas_WPF
-
-**Feladat** Megvalósítani az AlkalmazásKeretet.
+Megvalósítja az AlkalmazásKeretet.
 
 ### App
-
 Az alkalmazás az `App` osztály példányosításával indul.
 
 Az `App` felveszi az erőforrás-gyűjteményébe a `UresStilus.xaml`-ban
-leírt stílusokat, mert a vizuális komponensek erre hivatkoznak.
+leírt stílusokat.
 
+> Minden hivatkozott stílust fel kell venni a `UresStilus.xaml` erőforrás-gyűjteménybe
+> üres tartalommal, hogy futási időben ne keletkezzen hivatkozási kivétel
+> a XAML tartalmak felépítésekor.
+
+Ezt követően feldolgozza az `M_Alkalmazas_WPF_EgyenStilus.xaml` tartalmát és
+felveszi másodikként az erőforrás-gyűjteményébe. A WPF fordított sorrendben
+oldja fel a stílushivatkozásokat, így az egyéni stílus kerül hatályba a
+felülbírált esetekben.
+
+Példányosítja a `FoAblak` objektumot.
+
+### FoAblak
+Létrehozza a
+- `BalMenu_N` és `BalMenu_NM` 
+- `Tortenetek_N` és `Tortenetek_NM`
+- `TortenetValto_N`
+
+objektumokat. 
+
+Hozzáköti a `BalMenu_NM` objektum `UjTortenetKerelem` eseményét a `Tortenetek_NM`-hez,
+hogy a menüpontok kiválasztása új történet indulását eredményezhesse.
+
+Feliratkozik a `Tortenetek_NM` `TortenetValtozott` eseményére, hogy felhasználói eset
+létrejöttekor vagy megszüntekor el tudja gördíteni az ablakot az esetlánc új végéhez.
+
+A `TortenetValto_N` `DataContext`-ét a `Tortenetek_NM`-re irányítja. Ez már
+létrejött a `Tortenetek_N`-el együtt, de itt egy nézetmodellt két nézet is fogyaszt,
+a másodikat már csak rá kellett kötni.
+
+Beékelődik az ablakbezárás folyamatába. Bezáráskor megkérdezi a `Tortenetek_NM`-től, 
+hogy a főablak bezárható-e (van-e bármelyik történetben rögzítetlen adatot tartalmazó
+felhasználó eset). Megerősítést kér a felhasználótól a kilépéshez.
+
+### BalMenu_NM
+Felolvassa a `M_Alkalmazas_WPF_BalMenu.xml`-ből a megjelenítendő menüpontokat
+(bennük az indítandó felhasználói eset azonosítójával)
+
+Láncolt adatszerkezetet épít a menüpontok harmonika-elvű kezelésének támogatásához.
+A felhasználói jelzések alapján újraképzi a látható menüpontokat.
+
+Menüpont kiválasztásakor a `FEKerelem` objektumba csomagolja az eset azonosítót és
+`UjTortenetKerelem` eseményt kelt.
+
+### Tortenetek_NM
+Létrehozza a `Regiszter` objektumot.
+
+Gyűjteményt hoz létre a párhuzamosan futó történetek nyilvántartásához.
+
+Kérelemre új `Tortenet` objektumot hoz létre, gyűjteményébe felveszi, ha befejeződött,
+gyűjteményéből eltávolítja.
+
+Őrzi, hogy melyik az aktív történet.
+
+Kérelemre végigkérdezi az összes történet összes felhasználói esetét, hogy a főablak
+bezárható-e (van-e rögzítetlen adat).
+
+### Regiszter
+Felolvassa a `M_Alkalmazas_WPF_FEsetek.xml`-ből, hogy melyik felhasználói
+eset azonosítóhoz melyik szerelvény melyik osztálya tartozik.
+
+Kérésre feloldja az azonosítót szerelvény+osztály párosra.
 
 
 ![AlkalmazásKeret](AppFrame.svg)
