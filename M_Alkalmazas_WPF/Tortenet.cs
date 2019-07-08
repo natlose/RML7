@@ -19,6 +19,9 @@ namespace Sajat.Alkalmazas.WPF
 
         public ObservableCollection<FEset_N> Nezetek { get; private set; }
 
+        // Ezt kívülről a Tortenetek_NM fogja állítgatni.
+        // Csak az a célja, hogy a TortenetValto_N legyen képes eltérően
+        // megjeleníteni az aktív történetet.
         private bool aktivVagyok;
         public bool AktivVagyok
         {

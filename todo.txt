@@ -28,3 +28,5 @@ a balmenu.xml-ben lehessen paramétereket is rögzíteni egy indítandó felhasználói
 Frissen felvett sor mutatása Lekerdezes-ben gyenge!
 
 A Tarolo_EF nem jól valósítja meg a lapozást, de ehhez rendeznie kellene vmi elv szerint
+
+FEEredmenybe tegyünk metódust az feset végének jelzésére. Olvashatóbb lenne úgy a felhasználói kód.

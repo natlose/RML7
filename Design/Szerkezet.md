@@ -224,7 +224,7 @@ felhasználó eset). Megerősítést kér a felhasználótól a kilépéshez.
 
 ### BalMenu_NM
 Felolvassa a `M_Alkalmazas_WPF_BalMenu.xml`-ből a megjelenítendő menüpontokat
-(bennük az indítandó felhasználói eset azonosítójával)
+(bennük az indítandó felhasználóieset-azonosítójával)
 
 Láncolt adatszerkezetet épít a menüpontok harmonika-elvű kezelésének támogatásához.
 A felhasználói jelzések alapján újraképzi a látható menüpontokat.
@@ -237,10 +237,13 @@ Létrehozza a `Regiszter` objektumot.
 
 Gyűjteményt hoz létre a párhuzamosan futó történetek nyilvántartásához.
 
-Kérelemre új `Tortenet` objektumot hoz létre, gyűjteményébe felveszi, ha befejeződött,
+Kérelemre új `Tortenet` objektumot hoz létre átadva a kapott `FEKerelem` objektumot.
+A létrejött `Tortenet`-et gyűjteményébe felveszi, ha befejeződött,
 gyűjteményéből eltávolítja.
 
-Őrzi, hogy melyik az aktív történet.
+Őrzi, hogy melyik az aktív történet. Történetváltáskor gondozza a gyűjteményében
+levő `Tortenet` objektumok `AktivVagyok` tulajdonságát (ami alapján a 
+`TortenetValto_N` eltérő küllemel tudja majd megjeleníteni)
 
 Kérelemre végigkérdezi az összes történet összes felhasználói esetét, hogy a főablak
 bezárható-e (van-e rögzítetlen adat).
@@ -251,5 +254,40 @@ eset azonosítóhoz melyik szerelvény melyik osztálya tartozik.
 
 Kérésre feloldja az azonosítót szerelvény+osztály párosra.
 
+### Tortenet
+Gyűjteményt hoz létre az egy modális láncot alkotó felhasználói esetek tárolásához.
+
+Kérelemre (illetve példányosuláskor) létrehozza a felhasználói esetet megvalósító,
+Nézet és NézetModell szerepkört betöltő objektumokat. Ehhez:
+- a kapott `FEKerelem` objektumban található felhasználóieset-azonosítót feloldatja 
+szerelvény+osztály párosra a `Tortenetek_NM`-től kapott metódussal
+- létrehoz egy `FEset_N` objektumot (ez egy üres panel a tartalom befogadásához)
+- példányosítja a szerelvény+osztály szerint hivatkozott objektumot
+- megvizsgálja, hogy az `UserControl` és `ICsatolhatoNezet`-e (továbbiakban: *Nézet*)
+- beilleszti a `FEset`-be
+- elkéri az így létrejött *Nézet*től a `NezetModell`-en keresztül elérhető objektumot
+- megvizsgálja, hogy az `ICsatolhatoNezetModell`-e (továbbiakban: *NézetModell*)
+- feliratkozik a *NézetModell* `SajatFEKerelem` eseményére, hogy ki tudja szolgálni
+a majd érkező felhasználóieset-indítási kérelmeket
+- úgy módosítja a kapott `FEKerelem` objektumot, hogy lecseréli benne az `Eredmeny`
+metódust a sajátjára. Ezzel beékelődik a felhasználói esetek közötti párbeszédbe és
+lehetőséget ad magának az eredménnyel végződött felhasználó esettel kapcsolatos
+teendők ellátására (leiratkozni az eseményeiről, kivezetni a gyűjteményből és persze
+ténylegesen továbbadni a kapott `FEEredmeny`-t a kérést eredetileg indító felhasználói
+esetnek és levenni róla a tiltást)
+- beteszi a *NézetModell* `KapottFEKerelem` tulajdonságába a módosított `FEKerelem`
+objektumot
+- a lánc előző elemének *Nézet*ében átállítja az `IsEnabled` tulajdonságot
+`false` értékre, hogy megakadályozza a felhasználó további érintkezését az előző, 'félbeszakított'
+felhasználói esettel
+> A felhasználói esetek *Nézet*eiben a vizuális megjelenést biztosító objektumgráf
+> `UIElement` tagjai az `IsEnabled` tulajdonság gyökértől öröklődő értékét ne írják felül!
+> Ha ezt teszik, akkor kötelesek az ős tulajdonságát is figyelembe venni és megfelelően
+> biztosítani, hogy a tiltás rajtuk is bekövetkezzen, a felhasználó csak az engedélyezett
+> (utolsó) felhasználói eset vizuális komponenseivel tudjon érintkezni.
+- beilleszti `FEset_N` objektumot a gyűjteményébe, hogy az megjelenjen vizuálisan is
+
+Ha a fenti folyamatban hiba keletkezik, a hiba leírását egy `KivetelesHelyzet` objektumba
+foglalja, és egy `FEset`-el ezt jeleníti meg.
 
 ![AlkalmazásKeret](AppFrame.svg)
