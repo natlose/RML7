@@ -193,7 +193,7 @@ leírt stílusokat.
 > üres tartalommal, hogy futási időben ne keletkezzen hivatkozási kivétel
 > a XAML tartalmak felépítésekor.
 
-Ezt követően feldolgozza az `M_Alkalmazas_WPF_EgyenStilus.xaml` tartalmát és
+Ezt követően feldolgozza (ha létezik) az `M_Alkalmazas_WPF_EgyenStilus.xaml` tartalmát és
 felveszi másodikként az erőforrás-gyűjteményébe. A WPF fordított sorrendben
 oldja fel a stílushivatkozásokat, így az egyéni stílus kerül hatályba a
 felülbírált esetekben.
@@ -224,10 +224,10 @@ felhasználó eset). Megerősítést kér a felhasználótól a kilépéshez.
 
 ### BalMenu_NM
 Felolvassa a `M_Alkalmazas_WPF_BalMenu.xml`-ből a megjelenítendő menüpontokat
-(bennük az indítandó felhasználóieset-azonosítójával)
+(bennük az indítandó felhasználóieset-azonosítókkal)
 
 Láncolt adatszerkezetet épít a menüpontok harmonika-elvű kezelésének támogatásához.
-A felhasználói jelzések alapján újraképzi a látható menüpontokat.
+A felhasználói választások alapján újraképzi a látható menüpontokat.
 
 Menüpont kiválasztásakor a `FEKerelem` objektumba csomagolja az eset azonosítót és
 `UjTortenetKerelem` eseményt kelt.
