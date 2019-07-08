@@ -288,6 +288,6 @@ felhasználói esettel
 - beilleszti `FEset_N` objektumot a gyűjteményébe, hogy az megjelenjen vizuálisan is
 
 Ha a fenti folyamatban hiba keletkezik, a hiba leírását egy `KivetelesHelyzet` objektumba
-foglalja, és egy `FEset`-el ezt jeleníti meg.
+foglalja, és egy `FEset_N`-el ezt jeleníti meg.
 
 ![AlkalmazásKeret](AppFrame.svg)

@@ -149,11 +149,12 @@ m2=1..n</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>1190</x>
-      <y>590</y>
+      <y>580</y>
       <w>210</w>
-      <h>30</h>
+      <h>40</h>
     </coordinates>
-    <panel_attributes>&lt;&lt;UserControl&gt;&gt;</panel_attributes>
+    <panel_attributes>&lt;&lt;ICsatolhatoNezet&gt;&gt;
+&lt;&lt;UserControl&gt;&gt;</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -162,10 +163,10 @@ m2=1..n</panel_attributes>
       <x>1280</x>
       <y>530</y>
       <w>30</w>
-      <h>80</h>
+      <h>70</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;&gt;&gt;&gt;</panel_attributes>
-    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;50.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
@@ -189,7 +190,7 @@ KapottFEKerelem : FEKerelem</panel_attributes>
       <h>110</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
-m1=DataContext</panel_attributes>
+m1=NezetModell</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
   </element>
   <element>
