@@ -16,14 +16,12 @@ using System.Windows.Shapes;
 
 namespace Sajat.Partner
 {
-    public partial class PartnerModositas_N : UserControl, ICsatolhatoNezet
+    public partial class PartnerModositas_N : UserControl
     {
         public PartnerModositas_N()
         {
             InitializeComponent();
         }
-
-        public object NezetModell => DataContext;
 
         private void Rogziteskor(object sender, RoutedEventArgs e)
         {

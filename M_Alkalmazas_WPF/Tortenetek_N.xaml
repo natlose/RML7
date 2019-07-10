@@ -9,11 +9,16 @@
     <UserControl.DataContext>
         <local:Tortenetek_NM/>
     </UserControl.DataContext>
-    <ItemsControl ItemsSource="{Binding AktivTortenet.Nezetek}">
+    <ItemsControl ItemsSource="{Binding AktivTortenet.FEsetek}">
         <ItemsControl.ItemsPanel>
             <ItemsPanelTemplate>
                 <StackPanel Orientation="Horizontal"/>
             </ItemsPanelTemplate>
         </ItemsControl.ItemsPanel>
+        <ItemsControl.ItemTemplate>
+            <DataTemplate>
+                <ContentPresenter Content="{Binding Nezet}"/>
+            </DataTemplate>
+        </ItemsControl.ItemTemplate>
     </ItemsControl>
 </UserControl>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sajat.Alkalmazas.API;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -12,6 +13,7 @@ namespace Sajat.Alkalmazas.WPF
 {
     public partial class App : Application
     {
+
         private void Application_Startup(object sender, StartupEventArgs e)
         {
             StilusBetoltese(@"M_Alkalmazas_WPF_EgyeniStilus.xaml");

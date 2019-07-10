@@ -8,13 +8,15 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Sajat.Partner
 {
     public class PartnerValasztas_NM : Megfigyelheto, ICsatolhatoNezetModell
     {
-        public PartnerValasztas_NM()
-        {            
+        public PartnerValasztas_NM(IPartnerTarolo tarolo)
+        {
+            this.tarolo = tarolo;
             Szuromezok = new SzuromezoGyujtemeny()
                 .Mezo("nev", new Szuromezo("Név"))
                 .Mezo("mobil", new Szuromezo("Mobil"))
@@ -45,6 +47,8 @@ namespace Sajat.Partner
         }
 
         #region ICsatolhatoNezetModell
+        public string NezetOsztaly => typeof(PartnerValasztas_N).AssemblyQualifiedName;
+
         public FEKerelem KapottFEKerelem { get; set; }
 
         public event FEKerelemEsemenyKezelo SajatFEKerelem;
@@ -52,7 +56,7 @@ namespace Sajat.Partner
         public bool Megszakithato { get => true; }
         #endregion
 
-        private IPartnerTarolo tarolo = new PartnerTarolo_EF(new PartnerContext());
+        private IPartnerTarolo tarolo;
 
         public SzuromezoGyujtemeny Szuromezok { get; set; }
 

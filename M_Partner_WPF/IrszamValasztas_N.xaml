@@ -11,7 +11,7 @@
         <local:IrszamValasztas_NM/>
     </UserControl.DataContext>
     <sajatwpf:Lekerdezes Vissza="Visszakor" Lekerdez="Lekerdezeskor" Szuromezok="{Binding Szuromezok}">
-        <sajatwpf:GombosLista TetelForras="{Binding Lista, Mode=OneWay}" >
+        <sajatwpf:GombosLista TetelForras="{Binding Lista, Mode=OneWay}" Modosit="Modositaskor"  Felvesz="Felveszkor"  Kivalaszt="Kivalasztaskor" >
             <GridViewColumn DisplayMemberBinding="{Binding Orszagkod}" Header="ISO" Width="50" />
             <GridViewColumn DisplayMemberBinding="{Binding Iranyitoszam}" Header="Irányítószám" Width="200" />
             <GridViewColumn DisplayMemberBinding="{Binding Helyseg}" Header="Helység" Width="200" />

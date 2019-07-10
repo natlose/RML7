@@ -1,10 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <FEsetek>
-  <FEset id="Partner-PartnerValasztas" szerelveny="M_Partner_WPF" osztaly="Sajat.Partner.PartnerValasztas_N" />
-  <FEset id="Partner-PartnerModositas" szerelveny="M_Partner_WPF" osztaly="Sajat.Partner.PartnerModositas_N" />
-  <FEset id="Partner-OrszagValasztas" szerelveny="M_Partner_WPF" osztaly="Sajat.Partner.OrszagValasztas_N" />
-  <FEset id="Partner-OrszagModositas" szerelveny="M_Partner_WPF" osztaly="Sajat.Partner.OrszagModositas_N" />
-  <FEset id="Partner-PostaCimModositas" szerelveny="M_Partner_WPF" osztaly="Sajat.Partner.PostaCimModositas_N" />
-  <FEset id="Partner-IrszamValasztas" szerelveny="M_Partner_WPF" osztaly="Sajat.Partner.IrszamValasztas_N" />
+  <FEset id="Partner-PartnerValasztas" szerelveny="M_Partner_WPF" osztaly="Sajat.Partner.PartnerValasztas_NM" />
+  <FEset id="Partner-PartnerModositas" szerelveny="M_Partner_WPF" osztaly="Sajat.Partner.PartnerModositas_NM" />
+  <FEset id="Partner-OrszagValasztas" szerelveny="M_Partner_WPF" osztaly="Sajat.Partner.OrszagValasztas_NM" />
+  <FEset id="Partner-OrszagModositas" szerelveny="M_Partner_WPF" osztaly="Sajat.Partner.OrszagModositas_NM" />
+  <FEset id="Partner-PostaCimModositas" szerelveny="M_Partner_WPF" osztaly="Sajat.Partner.PostaCimModositas_NM" />
+  <FEset id="Partner-IrszamValasztas" szerelveny="M_Partner_WPF" osztaly="Sajat.Partner.IrszamValasztas_NM" />
+  <FEset id="Partner-IrszamModositas" szerelveny="M_Partner_WPF" osztaly="Sajat.Partner.IrszamModositas_NM" />
   <!--comment-->
 </FEsetek>

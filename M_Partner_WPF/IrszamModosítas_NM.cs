@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace Sajat.Partner
 {
-    public class OrszagModositas_NM : Megfigyelheto, ICsatolhatoNezetModell
+    public class IrszamModositas_NM : Megfigyelheto, ICsatolhatoNezetModell
     {
         #region ICsatolhatoNezetModell
-        public string NezetOsztaly => typeof(OrszagModositas_N).AssemblyQualifiedName;
+        public string NezetOsztaly => typeof(IrszamModositas_N).AssemblyQualifiedName;
 
         private FEKerelem kapottFEKerelem;
         public FEKerelem KapottFEKerelem
@@ -23,10 +23,10 @@ namespace Sajat.Partner
                 int id = value.Parameterek.As<int>("id");
                 if (id == 0)
                 {
-                    Orszag = new Orszag();
-                    valtozas.Orszagok.EgyetBetesz(Orszag);
+                    Irszam = new Irszam();
+                    valtozas.Irszamok.EgyetBetesz(Irszam);
                 }
-                else Orszag = valtozas.Orszagok.Egyetlen(id);
+                else Irszam = valtozas.Irszamok.Egyetlen(id);
             }
         }
 
@@ -35,13 +35,13 @@ namespace Sajat.Partner
         public bool Megszakithato { get => !valtozas.VanValtozas; }
         #endregion
 
-        IOrszagValtozas valtozas = new OrszagValtozas_EF(new PartnerContext());
+        IIrszamValtozas valtozas = new IrszamValtozas_EF(new PartnerContext());
 
-        private Orszag orszag;
-        public Orszag Orszag
+        private Irszam irszam;
+        public Irszam Irszam
         {
-            get => orszag;
-            set => ErtekadasErtesites(ref orszag, value);
+            get => irszam;
+            set => ErtekadasErtesites(ref irszam, value);
         }
 
         public bool VanValtozas
@@ -64,7 +64,7 @@ namespace Sajat.Partner
                 KapottFEKerelem.Eredmeny?.Invoke(
                     new FEEredmenyek()
                         .Eredmeny("rogzites", true)
-                        .Eredmeny("orszag", Orszag)
+                        .Eredmeny("irszam", Irszam)
                 );
             }
         }
@@ -74,7 +74,24 @@ namespace Sajat.Partner
             KapottFEKerelem.Eredmeny?.Invoke(
                 new FEEredmenyek()
                     .Eredmeny("rogzites", false)
-                    .Eredmeny("orszag", Orszag)
+                    .Eredmeny("irszam", Irszam)
+            );
+        }
+
+        public void OrszagKereseskor()
+        {
+            SajatFEKerelem?.Invoke(
+                new FEKerelem(
+                    "Partner-OrszagValasztas",
+                    null,
+                    (eredmenyek) => {
+                        if (eredmenyek.As<bool>("valasztas", null))
+                        {
+                            Orszag valasztott = eredmenyek.As<Orszag>("orszag");
+                            Irszam.Orszagkod = valasztott.Iso;
+                        }
+                    }
+                )
             );
         }
 

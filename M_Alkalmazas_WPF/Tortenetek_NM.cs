@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using Ninject;
 using Sajat.Alkalmazas.API;
 using Sajat.ObjektumModel;
 
@@ -16,6 +17,14 @@ namespace Sajat.Alkalmazas.WPF
         public ObservableCollection<Tortenet> Tortenetek { get; set; } = new ObservableCollection<Tortenet>();
 
         private Regiszter regiszter = new Regiszter(Path.Combine(Directory.GetCurrentDirectory(), "M_Alkalmazas_WPF_FEsetek.xml"));
+
+        private IKernel ninjectKernel = new StandardKernel(
+            new NinjectSettings()
+            {
+                ExtensionSearchPatterns = new[] { "T_Partner_SQL.dll" },
+                LoadExtensions = true
+            }
+        );
 
         private DateTime aktiv;
         public DateTime Aktiv
@@ -40,7 +49,7 @@ namespace Sajat.Alkalmazas.WPF
             get
             {
                 //Ha bármelyik nézetmodell azt mondja, hogy nem megszakítható, akkor a főablak nem zárható be:
-                return !Tortenetek.SelectMany(t => t.Nezetek).Any(fe => !((fe.NezetHelye.Child as ICsatolhatoNezet).NezetModell as ICsatolhatoNezetModell).Megszakithato);
+                return !Tortenetek.SelectMany(t => t.FEsetek).Any(fe => !fe.NezetModell.Megszakithato);
             }
         }
 
@@ -52,18 +61,20 @@ namespace Sajat.Alkalmazas.WPF
                 {
                     TortenetValtozott?.Invoke(t, null);
                     // Ha kiürült a történet, akkor kidobom a listából is:
-                    if (t.Nezetek.Count == 0)
+                    if (t.FEsetek.Count == 0)
                     {
                         Aktiv = DateTime.MinValue;
                         Tortenetek.Remove(t);
                     }
                 },
-                (id) => regiszter.Felismeres(id)
+                (id) => regiszter.Felismeres(id),
+                ninjectKernel
                 );
             Tortenetek.Add(tortenet);
             Aktiv = tortenet.Azonosito;
         }
 
         public event EventHandler TortenetValtozott;
+
     }
 }

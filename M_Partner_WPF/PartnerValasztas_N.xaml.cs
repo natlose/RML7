@@ -17,14 +17,12 @@ using System.Windows.Shapes;
 
 namespace Sajat.Partner
 {
-    public partial class PartnerValasztas_N : UserControl, ICsatolhatoNezet
+    public partial class PartnerValasztas_N : UserControl
     {
         public PartnerValasztas_N()
         {
             InitializeComponent();
         }
-
-        public object NezetModell => DataContext;
 
         private void Lapozaskor(object sender, RoutedEventArgs e)
         {

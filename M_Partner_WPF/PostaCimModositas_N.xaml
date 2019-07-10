@@ -18,7 +18,7 @@
         <StackPanel >
             <sajatwpf:LenyiloSzoveg Cimke="Típus" Kod="{Binding PostaCim.Tipus}" Szotar="{StaticResource tipusSzotar}"/>
             <sajatwpf:EllenorzottSzoveg Cimke="Ország" Szoveg="{Binding PostaCim.Orszag}" Keres="OrszagKereseskor"/>
-            <sajatwpf:EllenorzottSzoveg Cimke="Irányítószám" Szoveg="{Binding PostaCim.Iranyitoszam}"/>
+            <sajatwpf:EllenorzottSzoveg Cimke="Irányítószám" Szoveg="{Binding PostaCim.Iranyitoszam}" Keres="IranyitoszamKereseskor"/>
             <sajatwpf:EllenorzottSzoveg Cimke="Helység" Szoveg="{Binding PostaCim.Helyseg}"/>
             <sajatwpf:EllenorzottSzoveg Cimke="Címsor 1" Szoveg="{Binding PostaCim.Sor1}"/>
             <sajatwpf:EllenorzottSzoveg Cimke="Címsor 2" Szoveg="{Binding PostaCim.Sor2}"/>

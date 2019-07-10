@@ -19,14 +19,12 @@ namespace Sajat.Partner
     /// <summary>
     /// Interaction logic for IrszamValasztas.xaml
     /// </summary>
-    public partial class IrszamValasztas_N : UserControl, ICsatolhatoNezet
+    public partial class IrszamValasztas_N : UserControl
     {
         public IrszamValasztas_N()
         {
             InitializeComponent();
         }
-
-        public object NezetModell => DataContext;
 
         private void Visszakor(object sender, RoutedEventArgs e)
         {
@@ -35,6 +33,19 @@ namespace Sajat.Partner
         private void Lekerdezeskor(object sender, RoutedEventArgs e)
         {
             (DataContext as IrszamValasztas_NM).Lekerdezeskor();
+        }
+        private void Modositaskor(object sender, object e)
+        {
+            (DataContext as IrszamValasztas_NM).Modositaskor(e as Irszam);
+        }
+        private void Felveszkor(object sender, RoutedEventArgs e)
+        {
+            (DataContext as IrszamValasztas_NM).Felveszkor();
+        }
+
+        private void Kivalasztaskor(object sender, object e)
+        {
+            (DataContext as IrszamValasztas_NM).Kivalasztaskor(e as Irszam);
         }
     }
 }

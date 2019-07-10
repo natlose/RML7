@@ -19,6 +19,9 @@ namespace Sajat.Partner
 
             Lekerdezeskor();
         }
+
+        public string NezetOsztaly => typeof(IrszamValasztas_N).AssemblyQualifiedName;
+
         public FEKerelem KapottFEKerelem { get; set; }
 
         public bool Megszakithato { get => true; }
@@ -42,6 +45,36 @@ namespace Sajat.Partner
             
         }
 
+        internal void Modositaskor(Irszam irszam)
+        {
+            SajatFEKerelem?.Invoke(
+                new FEKerelem(
+                    "Partner-IrszamModositas",
+                    new FEParameterek().Parameter("id", irszam.Id),
+                    (eredmenyek) => {
+                        Irszam modositott = eredmenyek.As<Irszam>("irszam");
+                        tarolo.Frissit(irszam);
+                    }
+                )
+            );
+        }
+        public void Felveszkor()
+        {
+            SajatFEKerelem?.Invoke(
+                new FEKerelem(
+                    "Partner-IrszamModositas",
+                    new FEParameterek().Parameter("id", 0),
+                    (eredmenyek) => {
+                        if (eredmenyek.As<bool>("rogzites"))
+                        {
+                            Irszam felvett = eredmenyek.As<Irszam>("irszam");
+                            Lekerdezeskor();
+                        }
+                    }
+                )
+            );
+        }
+
         internal void Visszakor()
         {
             KapottFEKerelem.Eredmeny?.Invoke(
@@ -50,6 +83,16 @@ namespace Sajat.Partner
              );
         }
 
+        internal void Kivalasztaskor(Irszam irszam)
+        {
+            KapottFEKerelem.Eredmeny?.Invoke(
+                 new FEEredmenyek()
+                     .Eredmeny("valasztas", true)
+                     .Eredmeny("irszam", irszam)
+             );
+        }
+
         public SzuromezoGyujtemeny Szuromezok { get; set; }
+
     }
 }

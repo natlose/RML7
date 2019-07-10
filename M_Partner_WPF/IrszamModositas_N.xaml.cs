@@ -1,5 +1,4 @@
-﻿using Sajat.Alkalmazas.API;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,21 +15,27 @@ using System.Windows.Shapes;
 
 namespace Sajat.Partner
 {
-    public partial class OrszagModositas_N : UserControl
+    /// <summary>
+    /// Interaction logic for IrszamModositas_N.xaml
+    /// </summary>
+    public partial class IrszamModositas_N : UserControl
     {
-        public OrszagModositas_N()
+        public IrszamModositas_N()
         {
             InitializeComponent();
         }
-
         private void Rogziteskor(object sender, RoutedEventArgs e)
         {
-            (DataContext as OrszagModositas_NM).Rogziteskor();
+            (DataContext as IrszamModositas_NM).Rogziteskor();
         }
 
         private void Elveteskor(object sender, RoutedEventArgs e)
         {
-            (DataContext as OrszagModositas_NM).Elveteskor();
+            (DataContext as IrszamModositas_NM).Elveteskor();
+        }
+        public void OrszagKereseskor(object sender, RoutedEventArgs e)
+        {
+            (DataContext as IrszamModositas_NM).OrszagKereseskor();
         }
     }
 }

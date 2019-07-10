@@ -16,14 +16,12 @@ using System.Windows.Shapes;
 
 namespace Sajat.Partner
 {
-    public partial class PostaCimModositas_N : UserControl, ICsatolhatoNezet
+    public partial class PostaCimModositas_N : UserControl
     {
         public PostaCimModositas_N()
         {
             InitializeComponent();
         }
-
-        public object NezetModell => DataContext;
 
         public void OrszagKereseskor(object sender, RoutedEventArgs e)
         {
@@ -33,6 +31,11 @@ namespace Sajat.Partner
         private void Bezaraskor(object sender, RoutedEventArgs e)
         {
             (DataContext as PostaCimModositas_NM).Bezaraskor();
+        }
+
+        public void IranyitoszamKereseskor(object sender, RoutedEventArgs e)
+        {
+            (DataContext as PostaCimModositas_NM).IrszamKereseskor();
         }
     }
 }

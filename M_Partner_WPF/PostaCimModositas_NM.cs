@@ -11,6 +11,8 @@ namespace Sajat.Partner
     public class PostaCimModositas_NM : Megfigyelheto, ICsatolhatoNezetModell
     {
         #region ICsatolhatoNezetModell
+        public string NezetOsztaly => typeof(PostaCimModositas_N).AssemblyQualifiedName;
+
         private FEKerelem kapottFEKerelem;
         public FEKerelem KapottFEKerelem
         {
@@ -45,6 +47,24 @@ namespace Sajat.Partner
                         {
                             Orszag valasztott = eredmenyek.As<Orszag>("orszag");
                             PostaCim.Orszag = valasztott.Iso;
+                        }
+                    }
+                )
+            );
+        }
+
+        internal void IrszamKereseskor()
+        {
+            SajatFEKerelem?.Invoke(
+                new FEKerelem(
+                    "Partner-IrszamValasztas",
+                    null,
+                    (eredmenyek) => {
+                        if (eredmenyek.As<bool>("valasztas", null))
+                        {
+                            Irszam valasztott = eredmenyek.As<Irszam>("irszam");
+                            PostaCim.Orszag = valasztott.Orszagkod;
+                            PostaCim.Iranyitoszam = valasztott.Iranyitoszam;
                         }
                     }
                 )

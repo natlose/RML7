@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using Ninject;
 using Sajat.Alkalmazas.API;
 using Sajat.ObjektumModel;
 
@@ -15,9 +16,27 @@ namespace Sajat.Alkalmazas.WPF
         //Ide teszem annak delegáltnak a címét, ami fel tudja oldani a felhasználói eset azonosítókat szerelvényre és osztályra
         private Func<string, RegiszterBejegyzes> fesetIdFelismeres;
 
+        private IKernel ninjectKernel;
+
+        public Tortenet(
+            FEKerelem kerelem,
+            Action<Tortenet> valtozaskor,
+            Func<string, RegiszterBejegyzes> fesetIdFelismeres,
+            IKernel ninjectKernel)
+        {
+            this.fesetIdFelismeres = fesetIdFelismeres;
+            this.ninjectKernel = ninjectKernel;
+            Azonosito = DateTime.Now;
+            FEsetek = new ObservableCollection<FEset>();
+            FEsetek.CollectionChanged += (s, e) => {
+                valtozaskor?.Invoke(this);
+            };
+            FEKerelemkor(kerelem);
+        }
+
         public DateTime Azonosito { get; private set; }
 
-        public ObservableCollection<FEset_N> Nezetek { get; private set; }
+        public ObservableCollection<FEset> FEsetek { get; private set; }
 
         // Ezt kívülről a Tortenetek_NM fogja állítgatni.
         // Csak az a célja, hogy a TortenetValto_N legyen képes eltérően
@@ -29,16 +48,6 @@ namespace Sajat.Alkalmazas.WPF
             set => ErtekadasErtesites(ref aktivVagyok, value);
         }
 
-        public Tortenet(FEKerelem kerelem, Action<Tortenet> valtozaskor, Func<string, RegiszterBejegyzes> fesetIdFelismeres)
-        {
-            this.fesetIdFelismeres = fesetIdFelismeres;
-            Azonosito = DateTime.Now;
-            Nezetek = new ObservableCollection<FEset_N>();
-            Nezetek.CollectionChanged += (s, e) => {
-                valtozaskor?.Invoke(this);
-            };
-            FEKerelemkor(kerelem);
-        }
 
         public void FEKerelemkor(FEKerelem kerelem)
         {
@@ -46,18 +55,15 @@ namespace Sajat.Alkalmazas.WPF
             {
                 RegiszterBejegyzes regiszter = fesetIdFelismeres(kerelem.Id);
                 if (regiszter == null)
-                    throw new ArgumentException($"A {kerelem.Id} felhasználói esetre nincs regisztrált osztály!");
-                FEset_N nezet = new FEset_N();
-                Type type = Type.GetType(regiszter.Osztaly + ", " + regiszter.Szerelveny, true);
-                object ismeretlenN = Activator.CreateInstance(type);
-                if (!((ismeretlenN is UserControl) && (ismeretlenN is ICsatolhatoNezet)))
-                    throw new ArgumentException($"A {ismeretlenN.GetType().AssemblyQualifiedName} UserControl és ICsatolhatoNezet kell legyen!");
-                nezet.NezetHelye.Child = ismeretlenN as UserControl;
-                object ismeretlenNM = (ismeretlenN as ICsatolhatoNezet).NezetModell;
+                    throw new ArgumentException($"A {kerelem.Id} felhasználói esetre nincsenek regisztrált osztályok!");
+                FEset eset = new FEset();
+                // Példányosítjuk a NézetModellt
+                Type t = Type.GetType(regiszter.Osztaly + ", " + regiszter.Szerelveny, true);
+                object ismeretlenNM = ninjectKernel.GetService(t);
                 if (!(ismeretlenNM is ICsatolhatoNezetModell))
                     throw new ArgumentException($"A {ismeretlenNM.GetType().AssemblyQualifiedName} ICsatolhatoNezetModell kell legyen!");
-                ICsatolhatoNezetModell csatolhatoNM = ismeretlenNM as ICsatolhatoNezetModell;
-                csatolhatoNM.SajatFEKerelem += this.FEKerelemkor;
+                eset.NezetModell = ismeretlenNM as ICsatolhatoNezetModell;
+                eset.NezetModell.SajatFEKerelem += this.FEKerelemkor;
                 // Lecserélem a kérelemben az eredményfeldolgozót a sajátomra,
                 // amiben azért meghívom az eredetit is, de közben el tudom intézni
                 // a saját dolgaimat:
@@ -66,26 +72,36 @@ namespace Sajat.Alkalmazas.WPF
                 {
                     eredmenyfeldolgozo?.Invoke(eredmenyek);
                     // Majd a GC szépen mindent felszabadít, ha sehogy nem hivatkozom tovább semmire:
-                    csatolhatoNM.SajatFEKerelem -= this.FEKerelemkor;
-                    Nezetek.Remove(Nezetek.Last());
+                    eset.NezetModell.SajatFEKerelem -= this.FEKerelemkor;
+                    FEsetek.Remove(FEsetek.Last());
                     // Ha még maradt korábbi eset, az lesz az aktív:
-                    if (Nezetek.Count > 0) Nezetek.Last().IsEnabled = true;
+                    if (FEsetek.Count > 0) FEsetek.Last().Nezet.IsEnabled = true;
                 };
-                csatolhatoNM.KapottFEKerelem = kerelem;
-                if (Nezetek.Count > 0) Nezetek.Last().IsEnabled = false;
-                Nezetek.Add(nezet);
+                eset.NezetModell.KapottFEKerelem = kerelem;
+                // Példányosítjuk a Nézetet
+                eset.Nezet = new FEset_N();
+                object ismeretlenN = Activator.CreateInstance(Type.GetType(eset.NezetModell.NezetOsztaly, true));
+                if (!(ismeretlenN is UserControl))
+                    throw new ArgumentException($"A {ismeretlenN.GetType().AssemblyQualifiedName} UserControl kell legyen!");
+                UserControl nezetBelso = ismeretlenN as UserControl;
+                nezetBelso.DataContext = eset.NezetModell;
+                eset.Nezet.NezetHelye.Child = nezetBelso;
+                // Betesszük a lista végére
+                if (FEsetek.Count > 0) FEsetek.Last().Nezet.IsEnabled = false;
+                FEsetek.Add(eset);
             }
             catch (Exception e)
             {
-                FEset_N nezet = new FEset_N();
+                FEset eset = new FEset();
+                eset.Nezet = new FEset_N();
                 KivetelesHelyzet kivetel = new KivetelesHelyzet();
                 kivetel.Uzenet = e.Message;
                 kivetel.Vissza += (s, n) =>
                 {
-                    Nezetek.Remove(Nezetek.Last());
+                    FEsetek.Remove(FEsetek.Last());
                 };
-                nezet.NezetHelye.Child = kivetel;
-                Nezetek.Add(nezet);
+                eset.Nezet.NezetHelye.Child = kivetel;
+                FEsetek.Add(eset);
             }
         }
 
