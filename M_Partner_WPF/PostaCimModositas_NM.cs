@@ -41,7 +41,7 @@ namespace Sajat.Partner
                     "Partner-OrszagValasztas",
                     null,
                     (eredmenyek) => {
-                        if (eredmenyek.As<bool>("valasztas", null))
+                        if (eredmenyek.As<bool>("valasztas"))
                         {
                             Orszag valasztott = eredmenyek.As<Orszag>("orszag");
                             PostaCim.Orszag = valasztott.Iso;
@@ -58,7 +58,7 @@ namespace Sajat.Partner
                     "Partner-IrszamValasztas",
                     null,
                     (eredmenyek) => {
-                        if (eredmenyek.As<bool>("valasztas", null))
+                        if (eredmenyek.As<bool>("valasztas"))
                         {
                             Irszam valasztott = eredmenyek.As<Irszam>("irszam");
                             PostaCim.Orszag = valasztott.Orszagkod;

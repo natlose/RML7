@@ -17,7 +17,7 @@ namespace Sajat.Alkalmazas.API
             return this;
         }
 
-        public T As<T>(string kulcs, Action<string> kivetelkor = null)
+        public T As<T>(string kulcs)
         {
             try
             {
@@ -25,8 +25,7 @@ namespace Sajat.Alkalmazas.API
             }
             catch (Exception e)
             {
-                if (kivetelkor != null) kivetelkor.Invoke(kulcs + ":\n" + e.Message);
-                return default;
+                throw new InvalidCastException(kulcs + ":\n" + e.Message);
             }
         }
     }

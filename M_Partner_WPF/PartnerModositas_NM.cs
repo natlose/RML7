@@ -69,7 +69,7 @@ namespace Sajat.Partner
                     "Partner-OrszagValasztas",
                     null,
                     (eredmenyek) => {
-                        if (eredmenyek.As<bool>("valasztas", null))
+                        if (eredmenyek.As<bool>("valasztas"))
                         {
                             Orszag valasztott = eredmenyek.As<Orszag>("orszag");
                             Partner.Jogiszemely.Orszag = valasztott.Iso;
@@ -122,10 +122,7 @@ namespace Sajat.Partner
             SajatFEKerelem?.Invoke(
                 new FEKerelem(
                     "Partner-PostaCimModositas",
-                    new FEParameterek()
-                        .Parameter("valtozaspeldany", "kapott")
-                        .Parameter("valtozas", valtozas)
-                        .Parameter("postacim", postacim),
+                    new FEParameterek().Parameter("postacim", postacim),
                     //Szabad elhagyni az eredményfeldolgozót ha nincs mit csinálni benne.
                     //A Sajat.Alkalmazas.WPF.Tortenet elég okos, hogy ne hívja, ha nincs.
                     null
@@ -138,10 +135,7 @@ namespace Sajat.Partner
             SajatFEKerelem?.Invoke(
                 new FEKerelem(
                     "Partner-PostaCimModositas",
-                    new FEParameterek()
-                        .Parameter("valtozaspeldany", "kapott")
-                        .Parameter("valtozas", valtozas)
-                        .Parameter("postacim", postaCim),
+                    new FEParameterek().Parameter("postacim", postaCim),
                     null
                 )
             );
