@@ -11,6 +11,11 @@ namespace Sajat.Partner
 {
     public class OrszagValasztas_NM : Megfigyelheto, ICsatolhatoNezetModell
     {
+        public OrszagValasztas_NM(IOrszagTarolo tarolo)
+        {
+            this.tarolo = tarolo;
+        }
+
         #region ICsatolhatoNezetModell
         public FEKerelem KapottFEKerelem { get; set; }
 
@@ -19,7 +24,7 @@ namespace Sajat.Partner
         public bool Megszakithato { get => true; }
         #endregion
 
-        private IOrszagTarolo tarolo = new OrszagTarolo_EF(new PartnerContext());
+        private IOrszagTarolo tarolo;
 
         private ObservableCollection<Orszag> lista;
         public ObservableCollection<Orszag> Lista

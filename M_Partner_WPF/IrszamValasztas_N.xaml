@@ -7,9 +7,6 @@
              xmlns:sajatwpf="clr-namespace:Sajat.WPF;assembly=M_Komponensek_WPF"  
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <UserControl.DataContext>
-        <local:IrszamValasztas_NM/>
-    </UserControl.DataContext>
     <sajatwpf:Lekerdezes Vissza="Visszakor" Lekerdez="Lekerdezeskor" Szuromezok="{Binding Szuromezok}">
         <sajatwpf:GombosLista TetelForras="{Binding Lista, Mode=OneWay}" Modosit="Modositaskor"  Felvesz="Felveszkor"  Kivalaszt="Kivalasztaskor" >
             <GridViewColumn DisplayMemberBinding="{Binding Orszagkod}" Header="ISO" Width="50" />

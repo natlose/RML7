@@ -12,8 +12,9 @@ namespace Sajat.Partner
 {
     public class IrszamValasztas_NM : Megfigyelheto, ICsatolhatoNezetModell
     {
-        public IrszamValasztas_NM()
+        public IrszamValasztas_NM(IIrszamTarolo tarolo)
         {
+            this.tarolo = tarolo;
             Szuromezok = new SzuromezoGyujtemeny()
                 .Mezo("irsz", new Szuromezo("Irányítószám"));
 
@@ -26,7 +27,7 @@ namespace Sajat.Partner
 
         public event FEKerelemEsemenyKezelo SajatFEKerelem;
 
-        private IIrszamTarolo tarolo = new IrszamTarolo_EF(new PartnerContext());
+        private IIrszamTarolo tarolo;
 
         private ObservableCollection<Irszam> lista;
         public ObservableCollection<Irszam> Lista

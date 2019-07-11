@@ -11,9 +11,6 @@
     <UserControl.Resources>
         <partner:Szotar_PostaCim_Tipus x:Key="tipusSzotar"/>
     </UserControl.Resources>
-    <UserControl.DataContext>
-        <local:PostaCimModositas_NM/>
-    </UserControl.DataContext>
     <sajatwpf:EgysegnyiMegnyitas Bezar="Bezaraskor" MinWidth="300">
         <StackPanel >
             <sajatwpf:LenyiloSzoveg Cimke="Típus" Kod="{Binding PostaCim.Tipus}" Szotar="{StaticResource tipusSzotar}"/>

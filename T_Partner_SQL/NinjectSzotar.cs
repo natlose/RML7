@@ -12,6 +12,11 @@ namespace Sajat.Partner
         public override void Load()
         {
             Bind<IPartnerTarolo>().To<PartnerTarolo_EF>();
+            Bind<IPartnerValtozas>().To<PartnerValtozas_EF>();
+            Bind<IOrszagTarolo>().To<OrszagTarolo_EF>();
+            Bind<IOrszagValtozas>().To<OrszagValtozas_EF>();
+            Bind<IIrszamTarolo>().To<IrszamTarolo_EF>();
+            Bind<IIrszamValtozas>().To<IrszamValtozas_EF>();
         }
     }
 }

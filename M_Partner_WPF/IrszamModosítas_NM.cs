@@ -10,6 +10,11 @@ namespace Sajat.Partner
 {
     public class IrszamModositas_NM : Megfigyelheto, ICsatolhatoNezetModell
     {
+        public IrszamModositas_NM(IIrszamValtozas valtozas)
+        {
+            this.valtozas = valtozas;
+        }
+
         #region ICsatolhatoNezetModell
         private FEKerelem kapottFEKerelem;
         public FEKerelem KapottFEKerelem
@@ -33,7 +38,7 @@ namespace Sajat.Partner
         public bool Megszakithato { get => !valtozas.VanValtozas; }
         #endregion
 
-        IIrszamValtozas valtozas = new IrszamValtozas_EF(new PartnerContext());
+        private IIrszamValtozas valtozas;
 
         private Irszam irszam;
         public Irszam Irszam

@@ -7,9 +7,6 @@
              xmlns:sajatwpf="clr-namespace:Sajat.WPF;assembly=M_Komponensek_WPF"             
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <!--<UserControl.DataContext>
-        <local:PartnerValasztas_NM/>
-    </UserControl.DataContext>-->
     <sajatwpf:Lekerdezes Szuromezok="{Binding Szuromezok}" Lekerdez="Lekerdezeskor" Vissza="Visszakor">
         <sajatwpf:GombosLista 
             TetelForras="{Binding Lista, Mode=OneWay}" 

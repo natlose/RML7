@@ -7,10 +7,6 @@
              xmlns:sajatwpf="clr-namespace:Sajat.WPF;assembly=M_Komponensek_WPF"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <UserControl.DataContext>
-        <local:IrszamModositas_NM/>
-    </UserControl.DataContext>
-    
     <sajatwpf:EgysegnyiValtozas 
         Rogzit="Rogziteskor" 
         Elvet="Elveteskor" 

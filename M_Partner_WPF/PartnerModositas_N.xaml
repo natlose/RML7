@@ -15,9 +15,6 @@
         <partner:Szotar_PostaCim_Tipus x:Key="cimtipusSzotar"/>
         <sajatwpf:SzotarConverter x:Key="szotarConverter" Szotar="{StaticResource cimtipusSzotar}"/>
     </UserControl.Resources>
-    <UserControl.DataContext>
-        <local:PartnerModositas_NM/>
-    </UserControl.DataContext>
     <sajatwpf:EgysegnyiValtozas 
         Rogzit="Rogziteskor" 
         Elvet="Elveteskor" 

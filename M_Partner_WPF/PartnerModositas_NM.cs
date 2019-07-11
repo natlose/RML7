@@ -12,6 +12,11 @@ namespace Sajat.Partner
 {
     public class PartnerModositas_NM : Megfigyelheto, ICsatolhatoNezetModell
     {
+        public PartnerModositas_NM(IPartnerValtozas valtozas)
+        {
+            this.valtozas = valtozas;
+        }
+
         #region ICsatolhatoNezetModell
         private FEKerelem kapottFEKerelem;
         public FEKerelem KapottFEKerelem
@@ -35,7 +40,7 @@ namespace Sajat.Partner
         public bool Megszakithato { get => !valtozas.VanValtozas; }
         #endregion
 
-        IPartnerValtozas valtozas = new PartnerValtozas_EF(new PartnerContext()); //todo: IOC kell ide!Az M_Partner_WPF nem függhet a T_Partner_SQL-től!
+        IPartnerValtozas valtozas;
 
         private Partner partner;
 
