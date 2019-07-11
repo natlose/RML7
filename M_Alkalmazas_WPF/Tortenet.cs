@@ -58,8 +58,7 @@ namespace Sajat.Alkalmazas.WPF
                     throw new ArgumentException($"A {kerelem.Id} felhasználói esetre nincsenek regisztrált osztályok!");
                 FEset eset = new FEset();
                 // Példányosítjuk a NézetModellt
-                Type t = Type.GetType(regiszter.Osztaly + ", " + regiszter.Szerelveny, true);
-                object ismeretlenNM = ninjectKernel.GetService(t);
+                object ismeretlenNM = ninjectKernel.GetService(Type.GetType(regiszter.NezetModellOsztaly, true));
                 if (!(ismeretlenNM is ICsatolhatoNezetModell))
                     throw new ArgumentException($"A {ismeretlenNM.GetType().AssemblyQualifiedName} ICsatolhatoNezetModell kell legyen!");
                 eset.NezetModell = ismeretlenNM as ICsatolhatoNezetModell;
@@ -80,7 +79,7 @@ namespace Sajat.Alkalmazas.WPF
                 eset.NezetModell.KapottFEKerelem = kerelem;
                 // Példányosítjuk a Nézetet
                 eset.Nezet = new FEset_N();
-                object ismeretlenN = Activator.CreateInstance(Type.GetType(eset.NezetModell.NezetOsztaly, true));
+                object ismeretlenN = Activator.CreateInstance(Type.GetType(regiszter.NezetOsztaly, true));
                 if (!(ismeretlenN is UserControl))
                     throw new ArgumentException($"A {ismeretlenN.GetType().AssemblyQualifiedName} UserControl kell legyen!");
                 UserControl nezetBelso = ismeretlenN as UserControl;

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Xml.Linq;
 using Ninject;
 using Sajat.Alkalmazas.API;
 using Sajat.ObjektumModel;
@@ -18,10 +19,33 @@ namespace Sajat.Alkalmazas.WPF
 
         private Regiszter regiszter = new Regiszter(Path.Combine(Directory.GetCurrentDirectory(), "M_Alkalmazas_WPF_FEsetek.xml"));
 
+        private static string[] KonfiguraltModulok(string konfigFajlUtvonal)
+        {
+            List<string> eredmeny = new List<string>();
+            try
+            {
+                foreach (var elem in XElement.Load(konfigFajlUtvonal).Elements())
+                {
+                    if (elem.Name.LocalName == "Modul")
+                    {
+                        string nev = elem.Attribute("nev")?.Value;
+                        if (String.IsNullOrEmpty(nev)) throw new ArgumentNullException("A 'nev' attribútum hiányzik");
+                        eredmeny.Add(nev);
+                    }
+                }
+                return eredmeny.ToArray();
+            }
+            catch (Exception)
+            {
+                //todo: hibakezelés kéne
+                throw;
+            }
+        }
+
         private IKernel ninjectKernel = new StandardKernel(
             new NinjectSettings()
             {
-                ExtensionSearchPatterns = new[] { "T_Partner_SQL.dll" },
+                ExtensionSearchPatterns = KonfiguraltModulok(Path.Combine(Directory.GetCurrentDirectory(), "M_Alkalmazas_WPF_Modulok.xml")),
                 LoadExtensions = true
             }
         );

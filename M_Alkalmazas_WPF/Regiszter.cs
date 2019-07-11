@@ -11,8 +11,8 @@ namespace Sajat.Alkalmazas.WPF
 {
     public class RegiszterBejegyzes
     {
-        public string Szerelveny { get; set; }
-        public string Osztaly { get; set; }
+        public string NezetOsztaly { get; set; }
+        public string NezetModellOsztaly { get; set; }
     }
 
     public class Regiszter
@@ -34,11 +34,11 @@ namespace Sajat.Alkalmazas.WPF
                     {
                         string id = elem.Attribute("id")?.Value;
                         if (String.IsNullOrEmpty(id)) throw new ArgumentNullException("Az 'id' attribútum hiányzik");
-                        string szerelveny = elem.Attribute("szerelveny")?.Value;
-                        if (String.IsNullOrEmpty(id)) throw new ArgumentNullException("A 'szerelveny' attribútum hiányzik");
-                        string osztaly = elem.Attribute("osztaly")?.Value;
-                        if (String.IsNullOrEmpty(id)) throw new ArgumentNullException("Az 'osztaly' attribútum hiányzik");
-                        nezetek.Add(id, new RegiszterBejegyzes() { Szerelveny = szerelveny, Osztaly = osztaly });
+                        string nezet = elem.Attribute("n")?.Value;
+                        if (String.IsNullOrEmpty(nezet)) throw new ArgumentNullException("Az 'n' attribútum hiányzik");
+                        string nezetmodell = elem.Attribute("nm")?.Value;
+                        if (String.IsNullOrEmpty(nezetmodell)) throw new ArgumentNullException("Az 'nm' attribútum hiányzik");
+                        nezetek.Add(id, new RegiszterBejegyzes() { NezetOsztaly = nezet, NezetModellOsztaly = nezetmodell });
                     }
                 }
             }

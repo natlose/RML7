@@ -13,8 +13,6 @@ namespace Sajat.Partner
     public class PartnerModositas_NM : Megfigyelheto, ICsatolhatoNezetModell
     {
         #region ICsatolhatoNezetModell
-        public string NezetOsztaly => typeof(PartnerModositas_N).AssemblyQualifiedName;
-
         private FEKerelem kapottFEKerelem;
         public FEKerelem KapottFEKerelem
         {

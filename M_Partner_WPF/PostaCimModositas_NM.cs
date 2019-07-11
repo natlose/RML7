@@ -11,8 +11,6 @@ namespace Sajat.Partner
     public class PostaCimModositas_NM : Megfigyelheto, ICsatolhatoNezetModell
     {
         #region ICsatolhatoNezetModell
-        public string NezetOsztaly => typeof(PostaCimModositas_N).AssemblyQualifiedName;
-
         private FEKerelem kapottFEKerelem;
         public FEKerelem KapottFEKerelem
         {

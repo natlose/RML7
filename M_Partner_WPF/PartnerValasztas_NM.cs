@@ -47,8 +47,6 @@ namespace Sajat.Partner
         }
 
         #region ICsatolhatoNezetModell
-        public string NezetOsztaly => typeof(PartnerValasztas_N).AssemblyQualifiedName;
-
         public FEKerelem KapottFEKerelem { get; set; }
 
         public event FEKerelemEsemenyKezelo SajatFEKerelem;

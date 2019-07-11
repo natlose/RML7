@@ -8,8 +8,6 @@ namespace Sajat.Alkalmazas.API
 {
     public interface ICsatolhatoNezetModell
     {
-        string NezetOsztaly { get; } // typeof(<nézetosztály>).AssemblyQualifiedName
-
         FEKerelem KapottFEKerelem { get; set; }
 
         event FEKerelemEsemenyKezelo SajatFEKerelem;

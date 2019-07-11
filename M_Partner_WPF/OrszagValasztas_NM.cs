@@ -12,8 +12,6 @@ namespace Sajat.Partner
     public class OrszagValasztas_NM : Megfigyelheto, ICsatolhatoNezetModell
     {
         #region ICsatolhatoNezetModell
-        public string NezetOsztaly => typeof(OrszagValasztas_N).AssemblyQualifiedName;
-
         public FEKerelem KapottFEKerelem { get; set; }
 
         public event FEKerelemEsemenyKezelo SajatFEKerelem;

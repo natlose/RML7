@@ -20,8 +20,6 @@ namespace Sajat.Partner
             Lekerdezeskor();
         }
 
-        public string NezetOsztaly => typeof(IrszamValasztas_N).AssemblyQualifiedName;
-
         public FEKerelem KapottFEKerelem { get; set; }
 
         public bool Megszakithato { get => true; }
