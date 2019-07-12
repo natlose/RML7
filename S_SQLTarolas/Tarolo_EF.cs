@@ -31,7 +31,7 @@ namespace Sajat.SQLTarolas
 
         public IEnumerable<TEntitas> MindAhol(Expression<Func<TEntitas, bool>> feltetel)
         {
-            return context.Set<TEntitas>().Where(feltetel);
+            return context.Set<TEntitas>().Where(feltetel).ToList();
         }
 
         public void EgyetBetesz(TEntitas entitas)

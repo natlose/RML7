@@ -26,3 +26,10 @@ a balmenu.xml-ben lehessen paramétereket is rögzíteni egy indítandó felhasználói
 Frissen felvett sor mutatása Lekerdezes-ben gyenge!
 
 FEEredmenybe tegyünk metódust az feset végének jelzésére. Olvashatóbb lenne úgy a felhasználói kód.
+
+Az EgyeniStilus tartalmazzon saját erõforrásokban FontFamily, FontSize, Background, stb értékeket, ezekre alapozzanak
+a stílusok. Az erõforrás értékek szerkesztésére legyen UI
+
+StringMuveletek költözzön át a Sajat.ObjektumModel-be
+
+PartnerTarolo_EF.MindAholReszletek felesleges, át kell alakítani MindAhol használatára

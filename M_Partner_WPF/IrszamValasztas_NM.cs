@@ -1,10 +1,12 @@
 ﻿using Sajat.Alkalmazas.API;
 using Sajat.ObjektumModel;
+using Sajat.SQLTarolas;
 using Sajat.WPF;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -16,16 +18,18 @@ namespace Sajat.Partner
         {
             this.tarolo = tarolo;
             Szuromezok = new SzuromezoGyujtemeny()
-                .Mezo("irsz", new Szuromezo("Irányítószám"));
-
+                .Mezo("orszag", new Szuromezo("Ország") { Elore = 1, Ertek = "HU"})
+                .Mezo("helyseg", new Szuromezo("Helység") { Elore = 2 });
             Lekerdezeskor();
         }
 
+        #region ICsatolhatoNezetModell
         public FEKerelem KapottFEKerelem { get; set; }
 
         public bool Megszakithato { get => true; }
 
         public event FEKerelemEsemenyKezelo SajatFEKerelem;
+        #endregion
 
         private IIrszamTarolo tarolo;
 
@@ -38,10 +42,13 @@ namespace Sajat.Partner
 
         internal void Lekerdezeskor()
         {
-            string irsz = Szuromezok["irsz"].Ertek==null ? "" : Szuromezok["irsz"].Ertek;
-            
-            Lista = new ObservableCollection<Irszam>(tarolo.MindAhol(i => i.Iranyitoszam.Contains(irsz)));
-            
+            string orszag = StringMuveletek.NullHaUres(Szuromezok["orszag"].Ertek);
+            string helyseg = StringMuveletek.NullHaUres(Szuromezok["helyseg"].Ertek);
+            Lista = new ObservableCollection<Irszam>(tarolo.MindAhol(
+                irsz =>
+                (orszag == null || irsz.Orszagkod == orszag)
+                && (helyseg == null || irsz.Helyseg.Contains(helyseg))
+            ));
         }
 
         internal void Modositaskor(Irszam irszam)

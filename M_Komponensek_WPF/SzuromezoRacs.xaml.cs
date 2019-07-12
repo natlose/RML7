@@ -30,7 +30,8 @@ namespace Sajat.WPF
             set
             {
                 szuromezok = value;
-                UjRacsSorHozzaadasa();
+                foreach (var sz in szuromezok.Where(szm => szm.Value.Elore > 0).OrderBy(szm => szm.Value.Elore)) UjRacsSorHozzaadasa(sz);
+                UjRacsSorHozzaadasa(null);
             }
         }
 
@@ -52,14 +53,20 @@ namespace Sajat.WPF
             foreach (SzuromezoLenyilo regiLenyilo in Grid.Children.OfType<SzuromezoLenyilo>()) regiLenyilo.LathatosagFrissitese();
         }
 
-        public void UjRacsSorHozzaadasa()
+        public void UjRacsSorHozzaadasa(params KeyValuePair<string, Szuromezo>[] kvp)
         {
+            // Kell egy új lenyíló
             SzuromezoLenyilo lenyilo = new SzuromezoLenyilo();
-            lenyilo.Button.Tag = this;
+            lenyilo.Button.Tag = this;  //HACK Az X gombok így találnak ide vissza, hogy a láthatóságukat ki tudják számítani. Lehetne-e ez inkább DataContext alapon?
             lenyilo.Combo.SetBinding(
                 ComboBox.ItemsSourceProperty, 
                 new Binding(nameof(Szuromezok)) { Source = this }
             );
+            if (kvp != null)
+            {
+                lenyilo.Combo.SelectedItem = kvp[0];
+            }
+            // Hozzáadok a Gridhez egy újabb sort és legutolsónak rakom be az új lenyilót
             Grid.RowDefinitions.Add(new RowDefinition()
                 {
                     Height = new GridLength(1, GridUnitType.Auto)
@@ -87,14 +94,25 @@ namespace Sajat.WPF
                         );
                     szvg.BindingfuggokErtesitese();
                 }
-                if (e.RemovedItems.Count == 0 && e.AddedItems.Count == 1) UjRacsSorHozzaadasa();
+                if (e.RemovedItems.Count == 0 && e.AddedItems.Count == 1) UjRacsSorHozzaadasa(null);
             };
             Grid.Children.Add(lenyilo);
+            // Kell egy új SzuromezoSzoveg is mellé
             SzuromezoSzoveg szoveg = new SzuromezoSzoveg();
+            if (kvp != null)
+            {
+                szoveg.Text.Text = kvp[0].Value.Ertek;
+                Szuromezo mezo = kvp[0].Value;
+                szoveg.Text.SetBinding(
+                    TextBox.TextProperty,
+                    new Binding(nameof(mezo.Ertek)) { Source = mezo }
+                    );
+                szoveg.BindingfuggokErtesitese();
+            }
             Grid.SetColumn(szoveg, 2);
             Grid.SetRow(szoveg, sorLetszam - 1);
             Grid.Children.Add(szoveg);
-            lenyilo.Combo.Tag = szoveg;
+            lenyilo.Combo.Tag = szoveg; //HACK A SelectionChanged így talál vissza a SzuromezoSzoveghez
         }
 
     }

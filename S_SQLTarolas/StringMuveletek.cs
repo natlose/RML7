@@ -12,5 +12,11 @@ namespace Sajat.SQLTarolas
         {
             if (String.IsNullOrWhiteSpace(s)) s = null;
         }
+
+        public static string NullHaUres(string s)
+        {
+            if (String.IsNullOrWhiteSpace(s)) return null;
+            else return s;
+        }
     }
 }

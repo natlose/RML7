@@ -26,6 +26,8 @@ namespace Sajat.WPF
             set => ErtekadasErtesites(ref ertek, value);
         }
 
+        public int Elore { get; set; }
+
         public Action<Szuromezo> Kereseskor { get; set; }
     }
 }
