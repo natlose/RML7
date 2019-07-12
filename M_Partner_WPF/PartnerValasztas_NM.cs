@@ -18,7 +18,7 @@ namespace Sajat.Partner
         {
             this.tarolo = tarolo;
             Szuromezok = new SzuromezoGyujtemeny()
-                .Mezo("nev", new Szuromezo("Név"))
+                .Mezo("nev", new Szuromezo("Név") { Elore = 1})
                 .Mezo("mobil", new Szuromezo("Mobil"))
                 .Mezo("telefon", new Szuromezo("Telefon"))
                 .Mezo("email", new Szuromezo("Email"))

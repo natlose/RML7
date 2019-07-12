@@ -7,7 +7,7 @@
              xmlns:sajatwpf="clr-namespace:Sajat.WPF;assembly=M_Komponensek_WPF"             
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <sajatwpf:Lekerdezes Lekerdez="Lekerdezeskor" Vissza="Visszakor">
+    <sajatwpf:Lekerdezes Lekerdez="Lekerdezeskor" Vissza="Visszakor" Szuromezok="{Binding Szuromezok}">
         <sajatwpf:GombosLista TetelForras="{Binding Lista, Mode=OneWay}" Kivalaszt="Kivalasztaskor" Modosit="Modositaskor" Felvesz="Felveszkor">
             <GridViewColumn DisplayMemberBinding="{Binding Iso}" Header="ISO" Width="50" />
             <GridViewColumn DisplayMemberBinding="{Binding Nev}" Header="Név" Width="200" />

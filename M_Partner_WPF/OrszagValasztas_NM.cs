@@ -1,5 +1,7 @@
 ﻿using Sajat.Alkalmazas.API;
 using Sajat.ObjektumModel;
+using Sajat.SQLTarolas;
+using Sajat.WPF;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -14,6 +16,8 @@ namespace Sajat.Partner
         public OrszagValasztas_NM(IOrszagTarolo tarolo)
         {
             this.tarolo = tarolo;
+            Szuromezok = new SzuromezoGyujtemeny()
+                .Mezo("nev", new Szuromezo("Név") { Elore = 1 });
         }
 
         #region ICsatolhatoNezetModell
@@ -33,9 +37,15 @@ namespace Sajat.Partner
             set => ErtekadasErtesites(ref lista, value);
         }
 
+        public SzuromezoGyujtemeny Szuromezok { get; set; }
+
         public void Lekerdezeskor()
         {
-            lista = new ObservableCollection<Orszag>(tarolo.Mind());
+            string nev = StringMuveletek.NullHaUres(Szuromezok["nev"].Ertek);
+            lista = new ObservableCollection<Orszag>(tarolo.MindAhol(
+                orszag =>
+                (nev == null || orszag.Nev.Contains(nev))
+            ));
             Ertesites(nameof(Lista));
         }
 
