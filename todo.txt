@@ -9,8 +9,6 @@ interfield validation
 
 reload button on concurrency
 
-appframe exit intention vs unsaved data
-
 internal, ahova kell
 
 ketgomboslistán EventHandler<object> helyett RoutedEvent és RouteEventHandler használata
@@ -26,7 +24,5 @@ ITarolo Egyetlen(id)-be hibakezelés kell, ha nincs id elem a tárolóban (valaki m
 a balmenu.xml-ben lehessen paramétereket is rögzíteni egy indítandó felhasználói esethez
 
 Frissen felvett sor mutatása Lekerdezes-ben gyenge!
-
-A Tarolo_EF nem jól valósítja meg a lapozást, de ehhez rendeznie kellene vmi elv szerint
 
 FEEredmenybe tegyünk metódust az feset végének jelzésére. Olvashatóbb lenne úgy a felhasználói kód.

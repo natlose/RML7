@@ -21,7 +21,7 @@ namespace Sajat.Partner
             base.OnModelCreating(modelBuilder);
 
             #region Partner
-            modelBuilder.Entity<Partner>().ToTable("Partner");
+            modelBuilder.Entity<Partner>().ToTable("Partner", "Partner");
 
             modelBuilder.Entity<Partner>().Property(p => p.MJ)
                 .HasColumnName("MJ");
@@ -57,7 +57,7 @@ namespace Sajat.Partner
             #endregion
 
             #region PostaCim
-            modelBuilder.Entity<PostaCim>().ToTable("PostaCim");
+            modelBuilder.Entity<PostaCim>().ToTable("PostaCim", "Partner");
             modelBuilder.Entity<PostaCim>().Property(p => p.Tipus)
                 .HasColumnName("Tipus");
             modelBuilder.Entity<PostaCim>().Property(p => p.Orszag)
@@ -76,7 +76,7 @@ namespace Sajat.Partner
             #endregion
 
             #region Orszag
-            modelBuilder.Entity<Orszag>().ToTable("Orszag");
+            modelBuilder.Entity<Orszag>().ToTable("Orszag", "Partner");
             modelBuilder.Entity<Orszag>().Property(p => p.Iso)
                 .HasColumnName("Iso");
             modelBuilder.Entity<Orszag>().Property(p => p.Nev)
@@ -85,7 +85,7 @@ namespace Sajat.Partner
             #endregion
 
             #region Irszam
-            modelBuilder.Entity<Irszam>().ToTable("Irszam");
+            modelBuilder.Entity<Irszam>().ToTable("Irszam", "Partner");
             modelBuilder.Entity<Irszam>().Property(p => p.Orszagkod)
                 .HasColumnName("orszagkod");
             modelBuilder.Entity<Irszam>().Property(p => p.Iranyitoszam)
