@@ -17,7 +17,7 @@ namespace Sajat.Partner
 
         #region ICsatolhatoNezetModell
         private FEKerelem kapottFEKerelem;
-        public FEKerelem KapottFEKerelem
+        public FEKerelem FEKerelem
         {
             get { return kapottFEKerelem; }
             set
@@ -33,7 +33,7 @@ namespace Sajat.Partner
             }
         }
 
-        public event FEKerelemEsemenyKezelo SajatFEKerelem;
+        public FEIndito FEIndito { get; set; }
 
         public bool Megszakithato { get => !valtozas.VanValtozas; }
         #endregion
@@ -64,7 +64,7 @@ namespace Sajat.Partner
             RogzitesEredmeny = valtozas.ValtozasRogzitese();
             if (RogzitesEredmeny == RogzitesEredmeny.Siker)
             {
-                KapottFEKerelem.Befejezes(
+                FEKerelem.Befejezes(
                     new FEEredmenyek()
                         .Eredmeny("rogzites", true)
                         .Eredmeny("orszag", Orszag)
@@ -74,7 +74,7 @@ namespace Sajat.Partner
 
         public void Elveteskor()
         {
-            KapottFEKerelem.Befejezes(
+            FEKerelem.Befejezes(
                 new FEEredmenyek()
                     .Eredmeny("rogzites", false)
                     .Eredmeny("orszag", Orszag)

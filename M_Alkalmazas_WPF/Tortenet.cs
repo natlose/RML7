@@ -62,21 +62,23 @@ namespace Sajat.Alkalmazas.WPF
                 if (!(ismeretlenNM is ICsatolhatoNezetModell))
                     throw new ArgumentException($"A {ismeretlenNM.GetType().AssemblyQualifiedName} ICsatolhatoNezetModell kell legyen!");
                 eset.NezetModell = ismeretlenNM as ICsatolhatoNezetModell;
-                eset.NezetModell.SajatFEKerelem += this.FEKerelemkor;
+                // Adok a nézetmodellnek egy kérelemindítót, hogy kérhesse felhasználói esetek indítását tőlem
+                eset.NezetModell.FEIndito = new FEIndito(this.FEKerelemkor);
                 // Lecserélem a kérelemben az eredményfeldolgozót a sajátomra,
                 // amiben azért meghívom az eredetit is, de közben el tudom intézni
                 // a saját dolgaimat:
                 Action<FEEredmenyek> eredmenyfeldolgozo = kerelem.Eredmeny;
                 kerelem.Eredmeny = (eredmenyek) =>
                 {
+                    // Tehát meghívom az eredeti eseménykezelőt
                     eredmenyfeldolgozo?.Invoke(eredmenyek);
-                    // Majd a GC szépen mindent felszabadít, ha sehogy nem hivatkozom tovább semmire:
-                    eset.NezetModell.SajatFEKerelem -= this.FEKerelemkor;
+                    // Majd felszámolok minden hivatkozást a befejezett FEsetre, jöhet a GC 
+                    eset.NezetModell.FEIndito.Dispose();
                     FEsetek.Remove(FEsetek.Last());
                     // Ha még maradt korábbi eset, az lesz az aktív:
                     if (FEsetek.Count > 0) FEsetek.Last().Nezet.IsEnabled = true;
                 };
-                eset.NezetModell.KapottFEKerelem = kerelem;
+                eset.NezetModell.FEKerelem = kerelem;
                 // Példányosítjuk a Nézetet
                 eset.Nezet = new FEset_N();
                 object ismeretlenN = Activator.CreateInstance(Type.GetType(regiszter.NezetOsztaly, true));

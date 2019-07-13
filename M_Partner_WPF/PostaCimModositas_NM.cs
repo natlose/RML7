@@ -12,17 +12,17 @@ namespace Sajat.Partner
     {
         #region ICsatolhatoNezetModell
         private FEKerelem kapottFEKerelem;
-        public FEKerelem KapottFEKerelem
+        public FEKerelem FEKerelem
         {
             get { return kapottFEKerelem; }
             set
             {
                 kapottFEKerelem = value;
-                PostaCim = KapottFEKerelem.Parameterek.As<PostaCim>("postacim");
+                PostaCim = FEKerelem.Parameterek.As<PostaCim>("postacim");
             }
         }
 
-        public event FEKerelemEsemenyKezelo SajatFEKerelem;
+        public FEIndito FEIndito { get; set; }
 
         public bool Megszakithato { get => true; }
         #endregion
@@ -36,7 +36,7 @@ namespace Sajat.Partner
 
         public void OrszagKereseskor()
         {
-            SajatFEKerelem?.Invoke(
+            FEIndito.Inditas(
                 new FEKerelem(
                     "Partner-OrszagValasztas",
                     null,
@@ -53,7 +53,7 @@ namespace Sajat.Partner
 
         internal void IrszamKereseskor()
         {
-            SajatFEKerelem?.Invoke(
+            FEIndito.Inditas(
                 new FEKerelem(
                     "Partner-IrszamValasztas",
                     null,
@@ -73,7 +73,7 @@ namespace Sajat.Partner
         {
             //Akkor is meg kell hívni az eredményfeldolgozót, ha nincs mit visszaadnunk.
             //A Sajat.Alkalmazas.WPF.Tortenet ebből érzi, hogy a felhasználói esetnek vége. 
-            KapottFEKerelem.Befejezes(null); 
+            FEKerelem.Befejezes(null); 
         }
 
     }

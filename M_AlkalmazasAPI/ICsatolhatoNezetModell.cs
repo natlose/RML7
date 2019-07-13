@@ -8,9 +8,9 @@ namespace Sajat.Alkalmazas.API
 {
     public interface ICsatolhatoNezetModell
     {
-        FEKerelem KapottFEKerelem { get; set; }
+        FEKerelem FEKerelem { get; set; }
 
-        event FEKerelemEsemenyKezelo SajatFEKerelem;
+        FEIndito FEIndito { get; set; }
 
         bool Megszakithato { get; }
     }

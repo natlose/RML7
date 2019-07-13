@@ -21,9 +21,9 @@ namespace Sajat.Partner
         }
 
         #region ICsatolhatoNezetModell
-        public FEKerelem KapottFEKerelem { get; set; }
+        public FEKerelem FEKerelem { get; set; }
 
-        public event FEKerelemEsemenyKezelo SajatFEKerelem;
+        public FEIndito FEIndito { get; set; }
 
         public bool Megszakithato { get => true; }
         #endregion
@@ -51,7 +51,7 @@ namespace Sajat.Partner
 
         public void Felveszkor()
         {
-            SajatFEKerelem?.Invoke(
+            FEIndito.Inditas(
                 new FEKerelem(
                     "Partner-OrszagModositas",
                     new FEParameterek().Parameter("id", 0),
@@ -68,7 +68,7 @@ namespace Sajat.Partner
 
         public void Visszakor()
         {
-            KapottFEKerelem.Befejezes(
+            FEKerelem.Befejezes(
                 new FEEredmenyek()
                     .Eredmeny("valasztas", false)
             );
@@ -76,7 +76,7 @@ namespace Sajat.Partner
 
         public void Kivalasztaskor(Orszag orszag)
         {
-            KapottFEKerelem.Befejezes(
+            FEKerelem.Befejezes(
                 new FEEredmenyek()
                     .Eredmeny("valasztas", true)
                     .Eredmeny("orszag", orszag)
@@ -85,7 +85,7 @@ namespace Sajat.Partner
 
         public void Modositaskor(Orszag orszag)
         {
-            SajatFEKerelem?.Invoke(
+            FEIndito.Inditas(
                 new FEKerelem(
                     "Partner-OrszagModositas",
                     new FEParameterek().Parameter("id", orszag.Id),

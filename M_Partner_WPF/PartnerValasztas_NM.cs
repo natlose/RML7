@@ -29,7 +29,7 @@ namespace Sajat.Partner
                     "Bejegyzés országa",
                     (szm) =>
                     {
-                        SajatFEKerelem?.Invoke(
+                        FEIndito.Inditas(
                             new FEKerelem(
                                 "Partner-OrszagValasztas",
                                 null,
@@ -48,9 +48,9 @@ namespace Sajat.Partner
         }
 
         #region ICsatolhatoNezetModell
-        public FEKerelem KapottFEKerelem { get; set; }
+        public FEKerelem FEKerelem { get; set; }
 
-        public event FEKerelemEsemenyKezelo SajatFEKerelem;
+        public FEIndito FEIndito { get; set; }
 
         public bool Megszakithato { get => true; }
         #endregion
@@ -107,7 +107,7 @@ namespace Sajat.Partner
 
         public void Felveszkor()
         {
-            SajatFEKerelem?.Invoke(
+            FEIndito.Inditas(
                 new FEKerelem(
                     "Partner-PartnerModositas",
                     new FEParameterek().Parameter("id", 0),
@@ -124,7 +124,7 @@ namespace Sajat.Partner
 
         public void Visszakor()
         {
-            KapottFEKerelem.Befejezes(
+            FEKerelem.Befejezes(
                 new FEEredmenyek()
                     .Eredmeny("valasztas", false)
             );
@@ -132,7 +132,7 @@ namespace Sajat.Partner
 
         public void Kivalasztaskor(Partner partner)
         {
-            KapottFEKerelem.Befejezes(
+            FEKerelem.Befejezes(
                 new FEEredmenyek()
                     .Eredmeny("valasztas", true)
                     .Eredmeny("id", partner.Id)
@@ -141,7 +141,7 @@ namespace Sajat.Partner
 
         public void Modositaskor(Partner partner)
         {
-            SajatFEKerelem?.Invoke(
+            FEIndito.Inditas(
                 new FEKerelem(
                     "Partner-PartnerModositas", 
                     new FEParameterek().Parameter("id", partner.Id),

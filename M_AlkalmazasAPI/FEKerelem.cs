@@ -57,7 +57,4 @@ namespace Sajat.Alkalmazas.API
             Eredmeny?.Invoke(eredmenyek);
         }
     }
-
-    public delegate void FEKerelemEsemenyKezelo(FEKerelem kerelem);
-
 }

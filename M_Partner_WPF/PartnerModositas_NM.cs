@@ -19,7 +19,7 @@ namespace Sajat.Partner
 
         #region ICsatolhatoNezetModell
         private FEKerelem kapottFEKerelem;
-        public FEKerelem KapottFEKerelem
+        public FEKerelem FEKerelem
         {
             get => kapottFEKerelem;
             set
@@ -35,7 +35,7 @@ namespace Sajat.Partner
             }
         }
 
-        public event FEKerelemEsemenyKezelo SajatFEKerelem;
+        public FEIndito FEIndito { get; set; }
 
         public bool Megszakithato { get => !valtozas.VanValtozas; }
         #endregion
@@ -64,7 +64,7 @@ namespace Sajat.Partner
 
         public void OrszagKereseskor()
         {
-            SajatFEKerelem?.Invoke(
+            FEIndito.Inditas(
                 new FEKerelem(
                     "Partner-OrszagValasztas",
                     null,
@@ -84,7 +84,7 @@ namespace Sajat.Partner
             RogzitesEredmeny = valtozas.ValtozasRogzitese();
             if (RogzitesEredmeny == RogzitesEredmeny.Siker)
             {
-                KapottFEKerelem.Befejezes(
+                FEKerelem.Befejezes(
                     new FEEredmenyek()
                         .Eredmeny("rogzites", 1)
                         .Eredmeny("partner", Partner)
@@ -94,7 +94,7 @@ namespace Sajat.Partner
 
         public void Elveteskor()
         {
-            KapottFEKerelem.Befejezes(
+            FEKerelem.Befejezes(
                 new FEEredmenyek()
                     .Eredmeny("rogzites", 0)
                     .Eredmeny("partner", Partner)
@@ -107,7 +107,7 @@ namespace Sajat.Partner
             RogzitesEredmeny = valtozas.ValtozasRogzitese();
             if (RogzitesEredmeny == RogzitesEredmeny.Siker)
             {
-                KapottFEKerelem.Eredmeny?.Invoke(
+                FEKerelem.Befejezes(
                     new FEEredmenyek()
                         .Eredmeny("rogzites", -1)
                         .Eredmeny("partner", Partner)
@@ -119,7 +119,7 @@ namespace Sajat.Partner
         {
             PostaCim postacim = new PostaCim();
             Partner.PostaCimek.Add(postacim);
-            SajatFEKerelem?.Invoke(
+            FEIndito.Inditas(
                 new FEKerelem(
                     "Partner-PostaCimModositas",
                     new FEParameterek().Parameter("postacim", postacim),
@@ -132,7 +132,7 @@ namespace Sajat.Partner
 
         internal void PostaCimMegnyitaskor(PostaCim postaCim)
         {
-            SajatFEKerelem?.Invoke(
+            FEIndito.Inditas(
                 new FEKerelem(
                     "Partner-PostaCimModositas",
                     new FEParameterek().Parameter("postacim", postaCim),
