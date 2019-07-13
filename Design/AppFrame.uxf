@@ -4,7 +4,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>630</x>
+      <x>390</x>
       <y>210</y>
       <w>180</w>
       <h>190</h>
@@ -19,8 +19,8 @@ FoAblakBezarhato : bool
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>90</x>
-      <y>40</y>
+      <x>70</x>
+      <y>20</y>
       <w>150</w>
       <h>40</h>
     </coordinates>
@@ -31,7 +31,7 @@ FoAblakBezarhato : bool
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>60</x>
+      <x>40</x>
       <y>210</y>
       <w>210</w>
       <h>90</h>
@@ -42,37 +42,37 @@ FoAblakBezarhato : bool
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>150</x>
-      <y>70</y>
+      <x>130</x>
+      <y>50</y>
       <w>110</w>
-      <h>160</h>
+      <h>180</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;&gt;&gt;&gt;
 m2=DataContext</panel_attributes>
-    <additional_attributes>10.0;140.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;160.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>260</x>
-      <y>260</y>
-      <w>390</w>
-      <h>50</h>
+      <x>180</x>
+      <y>290</y>
+      <w>230</w>
+      <h>110</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 &lt;&lt;event&gt;&gt;
 m1=UjTortenetKerelemkor
 m2=UjTortenetKerelem
 fg=blue</panel_attributes>
-    <additional_attributes>370.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>210.0;80.0;10.0;80.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>650</x>
+      <x>30</x>
       <y>460</y>
       <w>140</w>
-      <h>350</h>
+      <h>400</h>
     </coordinates>
     <panel_attributes>Tortenet
 -
@@ -82,19 +82,19 @@ AktivVagyok : bool</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>710</x>
+      <x>90</x>
       <y>390</y>
-      <w>50</w>
+      <w>360</w>
       <h>90</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;&gt;&gt;&gt;
 m1=0..n</panel_attributes>
-    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;70.0;10.0;40.0;340.0;40.0;340.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1120</x>
+      <x>530</x>
       <y>460</y>
       <w>120</w>
       <h>40</h>
@@ -106,31 +106,31 @@ m1=0..n</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>780</x>
+      <x>160</x>
       <y>460</y>
-      <w>360</w>
+      <w>390</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
 m2=1..n</panel_attributes>
-    <additional_attributes>10.0;10.0;340.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;370.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>230</x>
-      <y>50</y>
-      <w>170</w>
+      <x>210</x>
+      <y>30</y>
+      <w>110</w>
       <h>30</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>150.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>90.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>640</x>
-      <y>40</y>
+      <x>540</x>
+      <y>20</y>
       <w>120</w>
       <h>40</h>
     </coordinates>
@@ -141,82 +141,80 @@ m2=1..n</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>470</x>
-      <y>50</y>
-      <w>190</w>
+      <x>390</x>
+      <y>30</y>
+      <w>170</w>
       <h>30</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;170.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;150.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1080</x>
+      <x>520</x>
       <y>540</y>
-      <w>210</w>
+      <w>150</w>
       <h>40</h>
     </coordinates>
-    <panel_attributes>&lt;&lt;ICsatolhatoNezet&gt;&gt;
-&lt;&lt;UserControl&gt;&gt;</panel_attributes>
+    <panel_attributes>&lt;&lt;UserControl&gt;&gt;</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1170</x>
+      <x>580</x>
       <y>490</y>
-      <w>30</w>
+      <w>100</w>
       <h>70</h>
     </coordinates>
-    <panel_attributes>lt=-&gt;&gt;&gt;&gt;&gt;</panel_attributes>
+    <panel_attributes>lt=&lt;-
+m1=NezetHelye</panel_attributes>
     <additional_attributes>10.0;50.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1050</x>
-      <y>660</y>
-      <w>300</w>
-      <h>150</h>
+      <x>510</x>
+      <y>620</y>
+      <w>200</w>
+      <h>110</h>
     </coordinates>
     <panel_attributes>&lt;&lt;ICsatolhatoNezetModell&gt;&gt;
 --
-KapottFEKerelem : FEKerelem
 Megszakithato : bool</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1170</x>
+      <x>580</x>
       <y>570</y>
       <w>110</w>
-      <h>110</h>
+      <h>70</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
-m1=NezetModell</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+    <panel_attributes>lt=-&gt;
+m1=DataContext</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>780</x>
-      <y>670</y>
-      <w>290</w>
-      <h>50</h>
+      <x>160</x>
+      <y>700</y>
+      <w>180</w>
+      <h>60</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 &lt;&lt;event&gt;&gt;
 m1=FEKerelemkor
-m2=SajatFEKerelem
 fg=blue</panel_attributes>
-    <additional_attributes>10.0;20.0;270.0;20.0</additional_attributes>
+    <additional_attributes>10.0;30.0;160.0;30.0;160.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>530</x>
+      <x>380</x>
       <y>120</y>
       <w>150</w>
       <h>40</h>
@@ -228,20 +226,20 @@ fg=blue</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>690</x>
-      <y>70</y>
+      <x>540</x>
+      <y>50</y>
       <w>110</w>
-      <h>160</h>
+      <h>180</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
 m1=DataContext</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;140.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;160.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>380</x>
-      <y>40</y>
+      <x>300</x>
+      <y>20</y>
       <w>100</w>
       <h>50</h>
     </coordinates>
@@ -253,32 +251,32 @@ m1=DataContext</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>380</x>
-      <y>80</y>
-      <w>270</w>
-      <h>170</h>
+      <x>260</x>
+      <y>60</y>
+      <w>150</w>
+      <h>190</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 &lt;&lt;event&gt;&gt;
 m2=TortenetValtozott
 fg=blue</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;140.0;250.0;140.0</additional_attributes>
+    <additional_attributes>50.0;10.0;50.0;160.0;130.0;160.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>460</x>
-      <y>80</y>
-      <w>100</w>
-      <h>60</h>
+      <x>380</x>
+      <y>60</y>
+      <w>30</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;80.0;40.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>650</x>
+      <x>500</x>
       <y>150</y>
       <w>110</w>
       <h>80</h>
@@ -290,7 +288,7 @@ m1=DataContext</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>860</x>
+      <x>620</x>
       <y>270</y>
       <w>120</w>
       <h>40</h>
@@ -302,8 +300,131 @@ m1=DataContext</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>800</x>
+      <x>560</x>
       <y>280</y>
+      <w>80</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;60.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>280</x>
+      <y>660</y>
+      <w>140</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>FEIndito
+-
+Inditas(FEKerelem)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>160</x>
+      <y>660</y>
+      <w>140</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m2=1..n</panel_attributes>
+    <additional_attributes>10.0;10.0;120.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>160</x>
+      <y>620</y>
+      <w>370</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m2=1..n</panel_attributes>
+    <additional_attributes>10.0;10.0;350.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>160</x>
+      <y>540</y>
+      <w>380</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m2=1..n</panel_attributes>
+    <additional_attributes>10.0;10.0;360.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>510</x>
+      <y>810</y>
+      <w>190</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>FEKerelem
+-
+Befejezes(FEEredmenyek)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>410</x>
+      <y>680</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m2=FEIndito</panel_attributes>
+    <additional_attributes>10.0;10.0;100.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>540</x>
+      <y>720</y>
+      <w>40</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m2=n</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>580</x>
+      <y>720</y>
+      <w>100</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=n+1
+m2=FEKerelem</panel_attributes>
+    <additional_attributes>10.0;90.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>620</x>
+      <y>330</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Ninject
+StandardKernel
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>560</x>
+      <y>340</y>
       <w>80</w>
       <h>30</h>
     </coordinates>

@@ -10,24 +10,24 @@ namespace Sajat.Alkalmazas.API
 
     public class FEIndito : IDisposable
     {
-        private event FEKerelemEsemenyKezelo SajatFEKerelem;
+        private event FEKerelemEsemenyKezelo kerelemErkezett;
 
         private FEKerelemEsemenyKezelo esemenykezelo;
 
         public FEIndito(FEKerelemEsemenyKezelo esemenykezelo)
         {
             this.esemenykezelo = esemenykezelo;
-            SajatFEKerelem += esemenykezelo;
+            kerelemErkezett += esemenykezelo;
         }
 
         public void Dispose()
         {
-            SajatFEKerelem -= esemenykezelo;
+            kerelemErkezett -= esemenykezelo;
         }
 
         public void Inditas(FEKerelem kerelem)
         {
-            SajatFEKerelem?.Invoke(kerelem);
+            kerelemErkezett?.Invoke(kerelem);
         }
     }
 }

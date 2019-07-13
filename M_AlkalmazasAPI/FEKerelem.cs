@@ -16,20 +16,20 @@ namespace Sajat.Alkalmazas.API
         /// </summary>
         /// <param name="id">A felhasználói eset azonosítója</param>
         /// <param name="parameterek">A felhasználói esetnek átadandó paraméterek</param>
-        /// <param name="eredmeny">Az eredményt feldolgozó rutin</param>
-        public FEKerelem(string id, FEParameterek parameterek, Action<FEEredmenyek> eredmeny)
+        /// <param name="eredmenykor">Az eredményt feldolgozó rutin</param>
+        public FEKerelem(string id, FEParameterek parameterek, Action<FEEredmenyek> eredmenykor)
         {
             Id = id;
             if (parameterek != null) Parameterek = parameterek;
-            Eredmeny = eredmeny;
+            Eredmenykor = eredmenykor;
         }
 
         /// <summary>
         /// Felhasználói eset indítása parameterek megadása nélkül
         /// </summary>
         /// <param name="id">A felhasználói eset azonosítója</param>
-        /// <param name="eredmeny">Az eredményt feldolgozó rutin</param>
-        public FEKerelem(string id, Action<FEEredmenyek> eredmeny) : this(id, null, eredmeny) { }
+        /// <param name="eredmenykor">Az eredményt feldolgozó rutin</param>
+        public FEKerelem(string id, Action<FEEredmenyek> eredmenykor) : this(id, null, eredmenykor) { }
 
         /// <summary>
         /// Felhasználói eset indítása parameterek és feldolgozó megadása nélkül
@@ -50,11 +50,11 @@ namespace Sajat.Alkalmazas.API
         /// <summary>
         /// A kért felhasználói eset itt fogja (köteles) visszaadni az eredményét.
         /// </summary>
-        public Action<FEEredmenyek> Eredmeny { get; set; }
+        public Action<FEEredmenyek> Eredmenykor { get; set; }
 
         public void Befejezes(FEEredmenyek eredmenyek)
         {
-            Eredmeny?.Invoke(eredmenyek);
+            Eredmenykor?.Invoke(eredmenyek);
         }
     }
 }

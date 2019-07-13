@@ -67,8 +67,8 @@ namespace Sajat.Alkalmazas.WPF
                 // Lecserélem a kérelemben az eredményfeldolgozót a sajátomra,
                 // amiben azért meghívom az eredetit is, de közben el tudom intézni
                 // a saját dolgaimat:
-                Action<FEEredmenyek> eredmenyfeldolgozo = kerelem.Eredmeny;
-                kerelem.Eredmeny = (eredmenyek) =>
+                Action<FEEredmenyek> eredmenyfeldolgozo = kerelem.Eredmenykor;
+                kerelem.Eredmenykor = (eredmenyek) =>
                 {
                     // Tehát meghívom az eredeti eseménykezelőt
                     eredmenyfeldolgozo?.Invoke(eredmenyek);

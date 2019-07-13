@@ -235,7 +235,13 @@ Menüpont kiválasztásakor a `FEKerelem` objektumba csomagolja az eset azonosí
 ### Tortenetek_NM
 Létrehozza a `Regiszter` objektumot.
 
-Gyűjteményt hoz létre a párhuzamosan futó történetek nyilvántartásához.
+Felolvassa a `M_Alkalmazas_WPF_Modulok.xml` fájlból az IOC modulok listáját.
+Létrehozza a Ninject `StandardKernel` objektumot átadva a modulok listáját. Az IOC
+példányosítást majd a `Tortenet`-ek végzik, de a StandardKernel életciklusa
+hosszabb, mint egy `Tortenet`-é, ezért itt kerül egyszer létrehozásra és minden
+`Tortenet` megkapja használatra.
+
+Gyűjteményt hoz létre a párhuzamosan futó `Tortenet`-ek nyilvántartásához.
 
 Kérelemre új `Tortenet` objektumot hoz létre átadva a kapott `FEKerelem` objektumot.
 A létrejött `Tortenet`-et gyűjteményébe felveszi, ha befejeződött,
@@ -250,33 +256,43 @@ bezárható-e (van-e rögzítetlen adat).
 
 ### Regiszter
 Felolvassa a `M_Alkalmazas_WPF_FEsetek.xml`-ből, hogy melyik felhasználói
-eset azonosítóhoz melyik szerelvény melyik osztálya tartozik.
+eset azonosítóhoz mely szerelvények mely osztályai tartoznak.
 
-Kérésre feloldja az azonosítót szerelvény+osztály párosra.
+Kérésre feloldja az azonosítót nézet és nézetmodell osztályhivatkozásokra.
+
+### Ninject StandardKernel
+IOC konténer feladatot lát el: nyilvántartja, hogy milyen interfészt milyen osztállyal
+kell megvalósítani. Kérésre az igényelt interfész típusa alapján példányosít egy
+megfelelő osztályú objektumot és minden olyan további objektumot, amitől az függ.
 
 ### Tortenet
 Gyűjteményt hoz létre az egy modális láncot alkotó felhasználói esetek tárolásához.
 
 Kérelemre (illetve példányosuláskor) létrehozza a felhasználói esetet megvalósító,
-Nézet és NézetModell szerepkört betöltő objektumokat. Ehhez:
+*Nézet* és *NézetModell* szerepkört betöltő objektumokat. Ehhez:
 - a kapott `FEKerelem` objektumban található felhasználóieset-azonosítót feloldatja 
-szerelvény+osztály párosra a `Tortenetek_NM`-től kapott metódussal
-- létrehoz egy `FEset_N` objektumot (ez egy üres panel a tartalom befogadásához)
-- példányosítja a szerelvény+osztály szerint hivatkozott objektumot
-- megvizsgálja, hogy az `UserControl` és `ICsatolhatoNezet`-e (továbbiakban: *Nézet*)
-- beilleszti a `FEset`-be
-- elkéri az így létrejött *Nézet*től a `NezetModell`-en keresztül elérhető objektumot
-- megvizsgálja, hogy az `ICsatolhatoNezetModell`-e (továbbiakban: *NézetModell*)
-- feliratkozik a *NézetModell* `SajatFEKerelem` eseményére, hogy ki tudja szolgálni
-a majd érkező felhasználóieset-indítási kérelmeket
+nézetosztály és nézetmodell-osztály megnevezésre (ehhez kapott egy metódust a
+`Tortenetek_NM`-től, amivel hozzáfér annak `Regiszter`-éhez)
+- példányosíttatja a *NézetModell* objektumot (és mindent, amitől az függ) a
+`Tortenetek_NM`-től kapott Ninject `StandardKernel`-el
+- megvizsgálja, hogy az így létejött objektum `ICsatolhatoNezetModell`-e
+- ad egy olyan `FEIndito` objektumot a *NézetModell*-nek, melynek `FEKerelem`
+eseményére feliratkozott. Igy a *NézetModell* a `FEIndito.Inditas()` metódusával
+kérheti újabb felhasználói eset létrehozását
 - úgy módosítja a kapott `FEKerelem` objektumot, hogy lecseréli benne az `Eredmeny`
 metódust a sajátjára. Ezzel beékelődik a felhasználói esetek közötti párbeszédbe és
 lehetőséget ad magának az eredménnyel végződött felhasználó esettel kapcsolatos
 teendők ellátására (leiratkozni az eseményeiről, kivezetni a gyűjteményből és persze
 ténylegesen továbbadni a kapott `FEEredmeny`-t a kérést eredetileg indító felhasználói
-esetnek és levenni róla a tiltást)
-- beteszi a *NézetModell* `KapottFEKerelem` tulajdonságába a módosított `FEKerelem`
-objektumot
+esetnek, levenni róla a tiltást)
+- beteszi a *NézetModell* `FEKerelem` tulajdonságába a módosított `FEKerelem`
+objektumot. Ezzel a *NézetModell* hozzájut a neki szánt paraméterekhez, ami alapján
+megfelelően vezérli a belső logikáját.
+- létrehoz egy `FEset_N` objektumot (ez egy üres panel a tartalom befogadásához)
+- példányosítja a *Nézet* objektumot
+- megvizsgálja, hogy az `UserControl`-e
+- összeköti a *Nézet* `DataContext`-ét a *NézetModell*el.
+- beilleszti a `FEset_N`-be a *Nézet*et
 - a lánc előző elemének *Nézet*ében átállítja az `IsEnabled` tulajdonságot
 `false` értékre, hogy megakadályozza a felhasználó további érintkezését az előző, 'félbeszakított'
 felhasználói esettel
@@ -289,5 +305,50 @@ felhasználói esettel
 
 Ha a fenti folyamatban hiba keletkezik, a hiba leírását egy `KivetelesHelyzet` objektumba
 foglalja, és egy `FEset_N`-el ezt jeleníti meg.
-
+ 
 ![AlkalmazásKeret](AppFrame.svg)
+
+#### Kommunikáció a felhasználói esetek között
+Amikor egy történet n. felhasználói esete szeretne egy n+1-ik felhasználói esetet
+indítani, akkor létre kell hozzon egy `FEKerelem` objektumot.
+
+Az `Id`-ben meg kell adja az indítandó felhasználói eset azonosítóját.
+
+> Az azonosítónak szerepelnie kell a `Regiszter` által felolvasott `M_Alkalmazas_WPF_FEsetek.xml`
+> fájlban, különben az alkalmazáskeret nem tudja létrehozni.
+
+A `Parameterek`-ben átadhatja azokat az értékeket, melyek szükségesek az indítandó
+felhasználói eset belső logikájához.
+
+Az `Eredmenykor`-ban egy olyan metódust kell adnia, amelyben majd fogadja az elindított
+majd befejeződött felhasználói eset eredményét.
+
+Ezzel az `FEKerelem` objektummal kell meghívja az alkalmazáskerettől kapott `FEIndito` 
+objektum `Inditas()` metódusát. 
+
+```csharp
+FEIndito.Inditas(
+    new FEKerelem(
+        "<felhasználóieset_azonosító>",
+        new FEParameterek().Parameter("<paraméter_neve>", <paraméter_értéke>),
+        (eredmenyek) => {
+            // eredményfeldolgozó logika
+        }
+    )
+);
+```
+
+Az alkalmazáskeret erre létrehozza az n+1-ik felhasználói esetet és az `FEKerelem`
+objektumot átadja neki. A felhasználói eset a feladata befejezését ennek `Befejezes()`
+metódusának hívásával kell jelezze. Ekkor egy `FEEredmenyek` objektumban értékeket
+is adhat vissza az őt hívó felhasználói esetnek.
+
+```csharp
+FEKerelem.Befejezes(
+    new FEEredmenyek()
+        .Eredmeny("<eredmény_neve>", <eredmény_értéke>)
+);
+```
+
+Az alkalmazáskeret erre megszünteti az elindított felhasználói esetet és az `FEEredmenyek`
+objektumot átadja az előző felhasználói eset eredménykezelő metódusának.
