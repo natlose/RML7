@@ -83,5 +83,12 @@ namespace Sajat.Partner
             set => ErtekadasErtesites(ref postaCimek, value);
         }
 
+        [NotMapped]
+        public PostaCim SzamlazasiCim
+        {
+            get => PostaCimek.FirstOrDefault(pc => pc.Tipus == "S");
+        }
+
+
     }
 }

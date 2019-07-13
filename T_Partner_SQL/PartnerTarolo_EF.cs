@@ -16,5 +16,6 @@ namespace Sajat.Partner
         {
             return (context as PartnerContext).Partnerek.Include(p => p.PostaCimek).Single(p => p.Id == id);
         }
+
     }
 }

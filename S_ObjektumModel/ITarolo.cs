@@ -12,6 +12,8 @@ namespace Sajat.ObjektumModel
         TEntitas Egyetlen(int id);
         IEnumerable<TEntitas> Mind();
         IEnumerable<TEntitas> MindAhol(Expression<Func<TEntitas, bool>> feltetel);
+        IEnumerable<TEntitas> KiterjesztettMindAhol(Expression<Func<TEntitas, bool>> feltetel, params Expression<Func<TEntitas, object>>[] kiterjesztesek);
+
 
         void EgyetBetesz(TEntitas entitas);
         void SokatBetesz(IEnumerable<TEntitas> entitasok);

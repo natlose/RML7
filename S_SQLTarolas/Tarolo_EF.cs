@@ -34,6 +34,16 @@ namespace Sajat.SQLTarolas
             return context.Set<TEntitas>().Where(feltetel).ToList();
         }
 
+        public IEnumerable<TEntitas> KiterjesztettMindAhol(
+            Expression<Func<TEntitas, bool>> feltetel, 
+            params Expression<Func<TEntitas, object>>[] kiterjesztesek
+        )
+        {
+            var lekerdezes = context.Set<TEntitas>().Where(feltetel);
+            return kiterjesztesek.Aggregate(lekerdezes, (iteracio, kiterjesztes) => iteracio.Include(kiterjesztes)).ToList();
+        }
+
+
         public void EgyetBetesz(TEntitas entitas)
         {
             context.Set<TEntitas>().Add(entitas);
@@ -61,7 +71,7 @@ namespace Sajat.SQLTarolas
         #endregion
 
         #region ILapozhatoTarolo<>
-        public IEnumerable<TEntitas> MindbolEgyLapnyi<TKey>(Expression<Func<TEntitas, TKey>> rendezesElve, int oldalmeret = 0, int oldal = 0)
+        public IEnumerable<TEntitas> EgyLapnyiMind<TKey>(Expression<Func<TEntitas, TKey>> rendezesElve, int oldalmeret = 0, int oldal = 0)
         {
             return context.Set<TEntitas>()
                 .OrderBy(rendezesElve)
@@ -70,7 +80,7 @@ namespace Sajat.SQLTarolas
                 .ToList();
         }
 
-        public IEnumerable<TEntitas> MindAholbolEgyLapnyi<TKey>(Expression<Func<TEntitas, TKey>> rendezesElve, Expression<Func<TEntitas, bool>> feltetel, int oldalmeret = 0, int oldal = 0)
+        public IEnumerable<TEntitas> EgyLapnyiMindAhol<TKey>(Expression<Func<TEntitas, TKey>> rendezesElve, Expression<Func<TEntitas, bool>> feltetel, int oldalmeret = 0, int oldal = 0)
         {
             return context.Set<TEntitas>()
                 .Where(feltetel)
@@ -78,6 +88,17 @@ namespace Sajat.SQLTarolas
                 .Skip((oldal - 1) * oldalmeret)
                 .Take(oldalmeret)
                 .ToList();
+        }
+
+        public IEnumerable<TEntitas> EgyLapnyiKiterjesztettMindAhol<TKey>(Expression<Func<TEntitas, TKey>> rendezesElve, Expression<Func<TEntitas, bool>> feltetel, int oldalmeret = 0, int oldal = 0, params Expression<Func<TEntitas, object>>[] kiterjesztesek)
+        {
+            var lekerdezes = context.Set<TEntitas>().Where(feltetel);
+            lekerdezes = kiterjesztesek.Aggregate(lekerdezes, (iteracio, kiterjesztes) => iteracio.Include(kiterjesztes));
+            lekerdezes = lekerdezes
+                .OrderBy(rendezesElve)
+                .Skip((oldal - 1) * oldalmeret)
+                .Take(oldalmeret);
+            return lekerdezes.ToList();
         }
         #endregion
 

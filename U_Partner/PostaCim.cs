@@ -24,7 +24,7 @@ namespace Sajat.Partner
         private string tipus;
         [Required(ErrorMessage = "kötelező")]
         [MaxLength(1, ErrorMessage = "hossz>1")]
-        public string Tipus // számlázási, levelezési, szállítási
+        public string Tipus // S-számlázási, L-levelezési, D-szállítási
         {
             get => tipus;
             set => ErtekadasErtesitesEllenorzes(ref tipus, value);

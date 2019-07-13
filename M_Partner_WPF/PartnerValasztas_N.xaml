@@ -19,7 +19,11 @@
             <GridViewColumn DisplayMemberBinding="{Binding Id, StringFormat=\{0:D8\}}" Header="Id" Width="72" />
             <GridViewColumn DisplayMemberBinding="{Binding MJ}" Header="MJ" Width="50" />
             <GridViewColumn DisplayMemberBinding="{Binding Nev}" Header="Név" Width="200" />
-            <GridViewColumn DisplayMemberBinding="{Binding Elerhetoseg.Mobil}" Header="Mobil" Width="200" />
+            <GridViewColumn DisplayMemberBinding="{Binding Elerhetoseg.Mobil}" Header="Mobil" Width="95" />
+            <GridViewColumn DisplayMemberBinding="{Binding SzamlazasiCim.Orszag}" Header="Orsz" Width="40" />
+            <GridViewColumn DisplayMemberBinding="{Binding SzamlazasiCim.Iranyitoszam}" Header="Irsz" Width="45" />
+            <GridViewColumn DisplayMemberBinding="{Binding SzamlazasiCim.Helyseg}" Header="Helység" Width="100" />
+            <GridViewColumn DisplayMemberBinding="{Binding SzamlazasiCim.Sor1}" Header="Cím" Width="150" />
         </sajatwpf:GombosLista>
     </sajatwpf:Lekerdezes>
 </UserControl>

@@ -83,7 +83,7 @@ namespace Sajat.Partner
             string adoszam = StringMuveletek.NullHaUres(Szuromezok["adoszam"].Ertek);
             string orszag = StringMuveletek.NullHaUres(Szuromezok["orszag"].Ertek);
             Lista = new ObservableCollection<Partner>(
-                tarolo.MindAholbolEgyLapnyi(
+                tarolo.EgyLapnyiKiterjesztettMindAhol(
                     p => p.Nev, 
                     p =>
                         (nev == null || p.Nev.Contains(nev))
@@ -94,7 +94,8 @@ namespace Sajat.Partner
                         && (adoszam == null || p.MJ == "J" && p.Jogiszemely.Adoszam.Contains(adoszam))
                         && (orszag == null || p.MJ == "J" && p.Jogiszemely.Orszag == orszag),
                     Lapozo.Oldalmeret,
-                    Lapozo.Oldal
+                    Lapozo.Oldal,
+                    p => p.PostaCimek
                 )
             );
         }
