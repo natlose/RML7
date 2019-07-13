@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sajat.SQLTarolas
+namespace Sajat.ObjektumModel
 {
     public static class StringMuveletek
     {

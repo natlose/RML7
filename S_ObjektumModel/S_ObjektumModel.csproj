@@ -48,6 +48,7 @@
     <Compile Include="ITarolo.cs" />
     <Compile Include="Megfigyelheto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StringMuveletek.cs" />
     <Compile Include="Szotar.cs" />
     <Compile Include="TiltottKarakterekAttribute.cs" />
   </ItemGroup>
