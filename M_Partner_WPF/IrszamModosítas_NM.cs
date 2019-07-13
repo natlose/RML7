@@ -64,7 +64,7 @@ namespace Sajat.Partner
             RogzitesEredmeny = valtozas.ValtozasRogzitese();
             if (RogzitesEredmeny == RogzitesEredmeny.Siker)
             {
-                KapottFEKerelem.Eredmeny?.Invoke(
+                KapottFEKerelem.Befejezes(
                     new FEEredmenyek()
                         .Eredmeny("rogzites", true)
                         .Eredmeny("irszam", Irszam)
@@ -74,7 +74,7 @@ namespace Sajat.Partner
 
         public void Elveteskor()
         {
-            KapottFEKerelem.Eredmeny?.Invoke(
+            KapottFEKerelem.Befejezes(
                 new FEEredmenyek()
                     .Eredmeny("rogzites", false)
                     .Eredmeny("irszam", Irszam)

@@ -73,7 +73,7 @@ namespace Sajat.Partner
         {
             //Akkor is meg kell hívni az eredményfeldolgozót, ha nincs mit visszaadnunk.
             //A Sajat.Alkalmazas.WPF.Tortenet ebből érzi, hogy a felhasználói esetnek vége. 
-            KapottFEKerelem.Eredmeny?.Invoke(null); 
+            KapottFEKerelem.Befejezes(null); 
         }
 
     }

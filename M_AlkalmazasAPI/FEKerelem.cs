@@ -51,6 +51,11 @@ namespace Sajat.Alkalmazas.API
         /// A kért felhasználói eset itt fogja (köteles) visszaadni az eredményét.
         /// </summary>
         public Action<FEEredmenyek> Eredmeny { get; set; }
+
+        public void Befejezes(FEEredmenyek eredmenyek)
+        {
+            Eredmeny?.Invoke(eredmenyek);
+        }
     }
 
     public delegate void FEKerelemEsemenyKezelo(FEKerelem kerelem);

@@ -68,7 +68,7 @@ namespace Sajat.Partner
 
         public void Visszakor()
         {
-            KapottFEKerelem.Eredmeny?.Invoke(
+            KapottFEKerelem.Befejezes(
                 new FEEredmenyek()
                     .Eredmeny("valasztas", false)
             );
@@ -76,7 +76,7 @@ namespace Sajat.Partner
 
         public void Kivalasztaskor(Orszag orszag)
         {
-            KapottFEKerelem.Eredmeny?.Invoke(
+            KapottFEKerelem.Befejezes(
                 new FEEredmenyek()
                     .Eredmeny("valasztas", true)
                     .Eredmeny("orszag", orszag)

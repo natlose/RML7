@@ -83,7 +83,7 @@ namespace Sajat.Partner
 
         internal void Visszakor()
         {
-            KapottFEKerelem.Eredmeny?.Invoke(
+            KapottFEKerelem.Befejezes(
                  new FEEredmenyek()
                      .Eredmeny("valasztas", false)
              );
@@ -91,7 +91,7 @@ namespace Sajat.Partner
 
         internal void Kivalasztaskor(Irszam irszam)
         {
-            KapottFEKerelem.Eredmeny?.Invoke(
+            KapottFEKerelem.Befejezes(
                  new FEEredmenyek()
                      .Eredmeny("valasztas", true)
                      .Eredmeny("irszam", irszam)
