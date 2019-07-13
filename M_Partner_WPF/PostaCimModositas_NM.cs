@@ -63,6 +63,7 @@ namespace Sajat.Partner
                             Irszam valasztott = eredmenyek.As<Irszam>("irszam");
                             PostaCim.Orszag = valasztott.Orszagkod;
                             PostaCim.Iranyitoszam = valasztott.Iranyitoszam;
+                            PostaCim.Helyseg = valasztott.Helyseg;
                         }
                     }
                 )

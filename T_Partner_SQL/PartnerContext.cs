@@ -14,6 +14,7 @@ namespace Sajat.Partner
             #if DEBUG
             Database.Log = Console.Write;
             #endif
+            Database.SetInitializer<PartnerContext>(null);
         }        
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

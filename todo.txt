@@ -1,6 +1,4 @@
 
-PartnerValasztas mutassa a számlázási címet is
-
 lekérdezésbe rendezettségválasztó (még lekérdezés elõtt!)
 
 interfield validation
