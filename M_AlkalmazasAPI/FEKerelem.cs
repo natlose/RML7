@@ -9,7 +9,7 @@ namespace Sajat.Alkalmazas.API
     /// <summary>
     /// Felhasználói eset indítására irányuló kérelem 
     /// </summary>
-    public class FEKerelem : EventArgs
+    public class FEKerelem 
     {
         /// <summary>
         /// Felhasználói eset indítása FEParameterek megadásával
