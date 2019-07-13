@@ -61,7 +61,7 @@ namespace Sajat.SQLTarolas
         #endregion
 
         #region ILapozhatoTarolo<>
-        public IEnumerable<TEntitas> Mind<TKey>(Expression<Func<TEntitas, TKey>> rendezesElve, int oldalmeret = 0, int oldal = 0)
+        public IEnumerable<TEntitas> MindbolEgyLapnyi<TKey>(Expression<Func<TEntitas, TKey>> rendezesElve, int oldalmeret = 0, int oldal = 0)
         {
             return context.Set<TEntitas>()
                 .OrderBy(rendezesElve)
@@ -70,7 +70,7 @@ namespace Sajat.SQLTarolas
                 .ToList();
         }
 
-        public IEnumerable<TEntitas> MindAhol<TKey>(Expression<Func<TEntitas, TKey>> rendezesElve, Expression<Func<TEntitas, bool>> feltetel, int oldalmeret = 0, int oldal = 0)
+        public IEnumerable<TEntitas> MindAholbolEgyLapnyi<TKey>(Expression<Func<TEntitas, TKey>> rendezesElve, Expression<Func<TEntitas, bool>> feltetel, int oldalmeret = 0, int oldal = 0)
         {
             return context.Set<TEntitas>()
                 .Where(feltetel)

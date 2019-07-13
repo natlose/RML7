@@ -9,7 +9,7 @@ namespace Sajat.ObjektumModel
 {
     public interface ILapozhatoTarolo<TEntitas> : ITarolo<TEntitas> where TEntitas : class
     {
-        IEnumerable<TEntitas> Mind<TKey>(Expression<Func<TEntitas, TKey>> rendezesElve, int oldalmeret = 0, int oldal = 0);
-        IEnumerable<TEntitas> MindAhol<TKey>(Expression<Func<TEntitas, TKey>> rendezesElve, Expression<Func<TEntitas, bool>> feltetel, int oldalmeret = 0, int oldal = 0);
+        IEnumerable<TEntitas> MindbolEgyLapnyi<TKey>(Expression<Func<TEntitas, TKey>> rendezesElve, int oldalmeret = 0, int oldal = 0);
+        IEnumerable<TEntitas> MindAholbolEgyLapnyi<TKey>(Expression<Func<TEntitas, TKey>> rendezesElve, Expression<Func<TEntitas, bool>> feltetel, int oldalmeret = 0, int oldal = 0);
     }
 }

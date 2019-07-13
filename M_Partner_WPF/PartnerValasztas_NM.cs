@@ -1,5 +1,6 @@
 ﻿using Sajat.Alkalmazas.API;
 using Sajat.ObjektumModel;
+using Sajat.SQLTarolas;
 using Sajat.WPF;
 using System;
 using System.Collections.Generic;
@@ -74,15 +75,24 @@ namespace Sajat.Partner
 
         internal void Lapozaskor()
         {
+            string nev = StringMuveletek.NullHaUres(Szuromezok["nev"].Ertek);
+            string mobil = StringMuveletek.NullHaUres(Szuromezok["mobil"].Ertek);
+            string telefon = StringMuveletek.NullHaUres(Szuromezok["telefon"].Ertek);
+            string email = StringMuveletek.NullHaUres(Szuromezok["email"].Ertek);
+            string cegjegyzekszam = StringMuveletek.NullHaUres(Szuromezok["cegjegyzekszam"].Ertek);
+            string adoszam = StringMuveletek.NullHaUres(Szuromezok["adoszam"].Ertek);
+            string orszag = StringMuveletek.NullHaUres(Szuromezok["orszag"].Ertek);
             Lista = new ObservableCollection<Partner>(
-                tarolo.MindAholReszletek(
-                    Szuromezok["nev"].Ertek,
-                    Szuromezok["mobil"].Ertek,
-                    Szuromezok["telefon"].Ertek,
-                    Szuromezok["email"].Ertek,
-                    Szuromezok["cegjegyzekszam"].Ertek,
-                    Szuromezok["adoszam"].Ertek,
-                    Szuromezok["orszag"].Ertek,
+                tarolo.MindAholbolEgyLapnyi(
+                    p => p.Nev, 
+                    p =>
+                        (nev == null || p.Nev.Contains(nev))
+                        && (mobil == null || p.Elerhetoseg.Mobil.Contains(mobil))
+                        && (telefon == null || p.Elerhetoseg.Telefon.Contains(telefon))
+                        && (email == null || p.Elerhetoseg.Email.Contains(email))
+                        && (cegjegyzekszam == null || p.MJ == "J" && p.Jogiszemely.Cegjegyzekszam.Contains(cegjegyzekszam))
+                        && (adoszam == null || p.MJ == "J" && p.Jogiszemely.Adoszam.Contains(adoszam))
+                        && (orszag == null || p.MJ == "J" && p.Jogiszemely.Orszag == orszag),
                     Lapozo.Oldalmeret,
                     Lapozo.Oldal
                 )
