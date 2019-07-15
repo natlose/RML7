@@ -12,5 +12,6 @@
   </Sor>
   <Sor szoveg="Készlet">
     <Sor szoveg="Raktárak" id="Keszlet-RaktarValasztas"/>
+    <Sor szoveg="Polcok" id="Keszlet-PolcValasztas"/>
   </Sor>
 </Menu>

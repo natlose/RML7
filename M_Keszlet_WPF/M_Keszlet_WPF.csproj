@@ -48,6 +48,14 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PolcModositas_N.xaml.cs">
+      <DependentUpon>PolcModositas_N.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PolcModositas_NM.cs" />
+    <Compile Include="PolcValasztas_N.xaml.cs">
+      <DependentUpon>PolcValasztas_N.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PolcValasztas_NM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -79,6 +87,14 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="PolcModositas_N.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PolcValasztas_N.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="RaktarModositas_N.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
