@@ -30,6 +30,8 @@ namespace Sajat.Keszlet
                 {
                     Polc = new Polc();
                     valtozas.Tarolo.Polcok.EgyetBetesz(Polc);
+                    int raktarid = value.Parameterek.As<int>("raktarid");
+                    if (raktarid != 0) Polc.Raktar = valtozas.Tarolo.Raktarak.Egyetlen(raktarid);
                 }
                 else Polc = valtozas.Tarolo.Polcok.KiterjesztettEgyetlen(e => e.Id == id, e => e.Raktar);
             }

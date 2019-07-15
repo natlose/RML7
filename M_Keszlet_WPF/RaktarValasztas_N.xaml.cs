@@ -46,5 +46,10 @@ namespace Sajat.Keszlet
         {
             (DataContext as RaktarValasztas_NM).Modositaskor(e as Raktar);
         }
+
+        private void Megnyitaskor(object sender, object e)
+        {
+            (DataContext as RaktarValasztas_NM).Megnyitaskor(e as Raktar);
+        }
     }
 }

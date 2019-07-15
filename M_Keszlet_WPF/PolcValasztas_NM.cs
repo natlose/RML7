@@ -89,10 +89,7 @@ namespace Sajat.Keszlet
                     "Keszlet-PolcModositas",
                     new FEParameterek().Parameter("id", 0),
                     (eredmenyek) => {
-                        if (eredmenyek.As<bool>("rogzites"))
-                        {
-                            Lekerdezeskor();
-                        }
+                        if (eredmenyek.As<bool>("rogzites")) Lekerdezeskor();
                     }
                 )
             );
@@ -116,6 +113,17 @@ namespace Sajat.Keszlet
                     (eredmenyek) => {
                         tarolo.Polcok.Frissit(polc);
                     }
+                )
+            );
+        }
+
+        public void Megnyitaskor(Polc polc)
+        {
+            FEIndito.Inditas(
+                new FEKerelem(
+                    "Keszlet-PolcMegtekintes",
+                    new FEParameterek().Parameter("id", polc.Id),
+                    null
                 )
             );
         }

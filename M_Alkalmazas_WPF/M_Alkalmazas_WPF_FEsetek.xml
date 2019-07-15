@@ -20,7 +20,9 @@
   <!--Keszlet-->
   <FEset id="Keszlet-RaktarValasztas" n="Sajat.Keszlet.RaktarValasztas_N, M_Keszlet_WPF" nm="Sajat.Keszlet.RaktarValasztas_NM, M_Keszlet_WPF" />
   <FEset id="Keszlet-RaktarModositas" n="Sajat.Keszlet.RaktarModositas_N, M_Keszlet_WPF" nm="Sajat.Keszlet.RaktarModositas_NM, M_Keszlet_WPF" />
+  <FEset id="Keszlet-RaktarMegtekintes" n="Sajat.Keszlet.RaktarMegtekintes_N, M_Keszlet_WPF" nm="Sajat.Keszlet.RaktarMegtekintes_NM, M_Keszlet_WPF" />
   <FEset id="Keszlet-PolcValasztas" n="Sajat.Keszlet.PolcValasztas_N, M_Keszlet_WPF" nm="Sajat.Keszlet.PolcValasztas_NM, M_Keszlet_WPF" />
   <FEset id="Keszlet-PolcModositas" n="Sajat.Keszlet.PolcModositas_N, M_Keszlet_WPF" nm="Sajat.Keszlet.PolcModositas_NM, M_Keszlet_WPF" />
+  <FEset id="Keszlet-PolcMegtekintes" n="Sajat.Keszlet.PolcMegtekintes_N, M_Keszlet_WPF" nm="Sajat.Keszlet.PolcMegtekintes_NM, M_Keszlet_WPF" />
 
 </FEsetek>

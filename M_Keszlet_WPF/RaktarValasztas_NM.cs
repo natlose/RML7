@@ -55,6 +55,17 @@ namespace Sajat.Keszlet
             );
         }
 
+        internal void Megnyitaskor(Raktar raktar)
+        {
+            FEIndito.Inditas(
+                new FEKerelem(
+                    "Keszlet-RaktarMegtekintes",
+                    new FEParameterek().Parameter("id", raktar.Id),
+                    null
+                )
+            );
+        }
+
         public void Felveszkor()
         {
             FEIndito.Inditas(
