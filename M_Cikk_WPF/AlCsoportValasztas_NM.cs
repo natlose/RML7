@@ -16,7 +16,26 @@ namespace Sajat.Cikk
         {
             this.tarolo = tarolo;
             Szuromezok = new SzuromezoGyujtemeny()
-                .Mezo("nev", new Szuromezo("Név") { Elore = 1 });
+                .Mezo("nev", new Szuromezo("Név") { Elore = 1 })
+                .Mezo("focsoport", new Szuromezo(
+                    "Főcsoport", 
+                    szm => 
+                    {
+                        FEIndito.Inditas(
+                            new FEKerelem(
+                                "Cikk-FoCsoportValasztas",
+                                null,
+                                (eredmenyek) => {
+                                    if (eredmenyek.As<bool>("valasztas"))
+                                    {
+                                        int id = eredmenyek.As<int>("id");
+                                        szm.Ertek = tarolo.FoCsoportok.Egyetlen(id).Nev;
+                                    }
+                                }
+                            )
+                        );
+                    }))
+                ;
             Lekerdezeskor();
         }
 
@@ -41,9 +60,12 @@ namespace Sajat.Cikk
         public void Lekerdezeskor()
         {
             string nev = StringMuveletek.NullHaUres(Szuromezok["nev"].Ertek);
-            lista = new ObservableCollection<AlCsoport>(tarolo.AlCsoportok.MindAhol(
+            string focsoport = StringMuveletek.NullHaUres(Szuromezok["focsoport"].Ertek);
+            lista = new ObservableCollection<AlCsoport>(tarolo.AlCsoportok.KiterjesztettMindAhol(
                 AlCsoport =>
-                (nev == null || AlCsoport.Nev.Contains(nev))
+                    (nev == null || AlCsoport.Nev.Contains(nev))
+                    && (focsoport == null || AlCsoport.FoCsoport.Nev.Contains(focsoport)),
+                e => e.FoCsoport
             ));
             Ertesites(nameof(Lista));
         }

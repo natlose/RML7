@@ -11,6 +11,7 @@
         <sajatwpf:GombosLista TetelForras="{Binding Lista, Mode=OneWay}" Kivalaszt="Kivalasztaskor" Modosit="Modositaskor" Felvesz="Felveszkor">
             <GridViewColumn DisplayMemberBinding="{Binding Id}" Header="Id" Width="50" />
             <GridViewColumn DisplayMemberBinding="{Binding Nev}" Header="Név" Width="200" />
+            <GridViewColumn DisplayMemberBinding="{Binding FoCsoport.Nev}" Header="Főcsoport" Width="200" />
         </sajatwpf:GombosLista>
     </sajatwpf:Lekerdezes>
 </UserControl>
