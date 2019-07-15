@@ -31,7 +31,7 @@ namespace Sajat.Cikk
                     AlCsoport = new AlCsoport();
                     valtozas.AlCsoportok.EgyetBetesz(AlCsoport);
                 }
-                else AlCsoport = valtozas.AlCsoportok.Egyetlen(id);
+                else AlCsoport = valtozas.AlCsoportok.KiterjesztettEgyetlen(e => e.Id == id, e => e.FoCsoport);
             }
         }
 
@@ -56,6 +56,23 @@ namespace Sajat.Cikk
         {
             get => rogzitesEredmeny;
             set => ErtekadasErtesites(ref rogzitesEredmeny, value);
+        }
+
+        internal void FoCsoportKereseskor()
+        {
+            FEIndito.Inditas(
+                new FEKerelem(
+                    "Cikk-FoCsoportValasztas",
+                    null,
+                    (eredmenyek) => {
+                        if (eredmenyek.As<bool>("valasztas"))
+                        {
+                            FoCsoport valasztott = eredmenyek.As<FoCsoport>("focsoport");
+                            AlCsoport.FiFoCsoport = valasztott.Id;
+                        }
+                    }
+                )
+            );
         }
 
         public void Rogziteskor()

@@ -31,5 +31,10 @@ namespace Sajat.Cikk
         {
             (DataContext as AlCsoportModositas_NM).Elveteskor();
         }
+
+        private void FoCsoportKereseskor(object sender, RoutedEventArgs e)
+        {
+            (DataContext as AlCsoportModositas_NM).FoCsoportKereseskor();
+        }
     }
 }

@@ -14,8 +14,9 @@
         RogzitesEredmeny="{Binding RogzitesEredmeny, Mode=OneWay}" 
     >
         <StackPanel >
-            <sajatwpf:StatikusSzoveg Cimke="ID" Szoveg="{Binding FoCsoport.Id}"/>
-            <sajatwpf:EllenorzottSzoveg Cimke="Név" Szoveg="{Binding FoCsoport.Nev}"/>
+            <sajatwpf:StatikusSzoveg Cimke="ID" Szoveg="{Binding AlCsoport.Id}"/>
+            <sajatwpf:IdegenKulcs Cimke="Főcsoport" Kulcs="{Binding AlCsoport.FoCsoport.Id}" Szoveg="{Binding AlCsoport.FoCsoport.Nev}" Keres="FoCsoportKereseskor"/>
+            <sajatwpf:EllenorzottSzoveg Cimke="Név" Szoveg="{Binding AlCsoport.Nev}"/>
         </StackPanel>
     </sajatwpf:EgysegnyiValtozas>
 </UserControl>

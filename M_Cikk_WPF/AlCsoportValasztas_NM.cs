@@ -65,7 +65,7 @@ namespace Sajat.Cikk
                     (eredmenyek) => {
                         if (eredmenyek.As<bool>("rogzites"))
                         {
-                            AlCsoport felvett = eredmenyek.As<AlCsoport>("AlCsoport");
+                            AlCsoport felvett = eredmenyek.As<AlCsoport>("alcsoport");
                             Lekerdezeskor();
                         }
                     }
@@ -89,7 +89,7 @@ namespace Sajat.Cikk
                     "Cikk-AlCsoportModositas",
                     new FEParameterek().Parameter("id", AlCsoport.Id),
                     (eredmenyek) => {
-                        AlCsoport modositott = eredmenyek.As<AlCsoport>("AlCsoport");
+                        AlCsoport modositott = eredmenyek.As<AlCsoport>("alcsoport");
                         tarolo.Frissit(AlCsoport);
                     }
                 )

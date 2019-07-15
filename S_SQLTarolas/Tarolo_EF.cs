@@ -24,6 +24,12 @@ namespace Sajat.SQLTarolas
             return context.Set<TEntitas>().Find(id);
         }
 
+        public TEntitas KiterjesztettEgyetlen(Expression<Func<TEntitas, bool>> idfeltetel, params Expression<Func<TEntitas, object>>[] kiterjesztesek)
+        {
+            var lekerdezes = context.Set<TEntitas>().Where(idfeltetel);
+            return kiterjesztesek.Aggregate(lekerdezes, (iteracio, kiterjesztes) => iteracio.Include(kiterjesztes)).SingleOrDefault();
+        }
+
         public IEnumerable<TEntitas> Mind()
         {
             return context.Set<TEntitas>().ToList();

@@ -63,6 +63,9 @@
       <DependentUpon>GombosLista.xaml</DependentUpon>
     </Compile>
     <Compile Include="GrafikasGomb.cs" />
+    <Compile Include="IdegenKulcs.xaml.cs">
+      <DependentUpon>IdegenKulcs.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Lapozo.cs" />
     <Compile Include="Lekerdezes.xaml.cs">
       <DependentUpon>Lekerdezes.xaml</DependentUpon>
@@ -124,6 +127,10 @@
       <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>
     <Page Include="GombosLista.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="IdegenKulcs.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
