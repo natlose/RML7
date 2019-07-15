@@ -25,6 +25,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "S_SQLTarolas", "S_SQLTarola
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SQL", "SQL", "{D56FB834-4B7B-4761-AA75-9F3B0769D6E9}"
 	ProjectSection(SolutionItems) = preProject
+		SQL\cikk_create.sql = SQL\cikk_create.sql
 		SQL\partner_create.sql = SQL\partner_create.sql
 	EndProjectSection
 EndProject
