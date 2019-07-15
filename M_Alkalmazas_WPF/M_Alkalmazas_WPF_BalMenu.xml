@@ -8,6 +8,9 @@
     <Sor szoveg="Képviselők" />
     <Sor szoveg="Kezelők" />
   </Sor>
+  <Sor szoveg="Cikkek">
+    <Sor szoveg="Főcsoportok" id="Cikk-FoCsoportValasztas"/>
+  </Sor>
   <Sor szoveg="Pénzügy">
     <Sor szoveg="Vevői számlák" />
     <Sor szoveg="Szállítói számlák" />

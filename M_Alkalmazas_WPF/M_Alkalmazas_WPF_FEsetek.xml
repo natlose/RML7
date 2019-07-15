@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <FEsetek>
+  <!--Partner-->
   <FEset id="Partner-PartnerValasztas" n="Sajat.Partner.PartnerValasztas_N, M_Partner_WPF" nm="Sajat.Partner.PartnerValasztas_NM, M_Partner_WPF" />
   <FEset id="Partner-PartnerModositas" n="Sajat.Partner.PartnerModositas_N, M_Partner_WPF" nm="Sajat.Partner.PartnerModositas_NM, M_Partner_WPF" />
   <FEset id="Partner-OrszagValasztas" n="Sajat.Partner.OrszagValasztas_N, M_Partner_WPF" nm="Sajat.Partner.OrszagValasztas_NM, M_Partner_WPF" />
@@ -7,4 +8,9 @@
   <FEset id="Partner-IrszamValasztas" n="Sajat.Partner.IrszamValasztas_N, M_Partner_WPF" nm="Sajat.Partner.IrszamValasztas_NM, M_Partner_WPF" />
   <FEset id="Partner-IrszamModositas" n="Sajat.Partner.IrszamModositas_N, M_Partner_WPF" nm="Sajat.Partner.IrszamModositas_NM, M_Partner_WPF" />
   <FEset id="Partner-PostaCimModositas" n="Sajat.Partner.PostaCimModositas_N, M_Partner_WPF" nm="Sajat.Partner.PostaCimModositas_NM, M_Partner_WPF" />
+
+  <!--Cikk-->
+  <FEset id="Cikk-FoCsoportValasztas" n="Sajat.Cikk.FoCsoportValasztas_N, M_Cikk_WPF" nm="Sajat.Cikk.FoCsoportValasztas_NM, M_Cikk_WPF" />
+  <FEset id="Cikk-FoCsoportModositas" n="Sajat.Cikk.FoCsoportModositas_N, M_Cikk_WPF" nm="Sajat.Cikk.FoCsoportModositas_NM, M_Cikk_WPF" />
+
 </FEsetek>

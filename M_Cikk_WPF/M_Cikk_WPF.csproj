@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{14DFADDD-4EAD-4BFB-910D-B6A3ADF8AC52}</ProjectGuid>
+    <ProjectGuid>{59728DEF-5F75-4011-9646-23E13CCDEB23}</ProjectGuid>
     <OutputType>library</OutputType>
-    <RootNamespace>Sajat.Partner</RootNamespace>
-    <AssemblyName>M_Partner_WPF</AssemblyName>
+    <RootNamespace>Sajat.Cikk</RootNamespace>
+    <AssemblyName>M_Cikk_WPF</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -48,26 +48,14 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IrszamModositas_N.xaml.cs">
-      <DependentUpon>IrszamModositas_N.xaml</DependentUpon>
+    <Compile Include="FoCsoportModositas_N.xaml.cs">
+      <DependentUpon>FoCsoportModositas_N.xaml</DependentUpon>
     </Compile>
-    <Compile Include="IrszamModosítas_NM.cs" />
-    <Compile Include="IrszamValasztas_N.xaml.cs">
-      <DependentUpon>IrszamValasztas_N.xaml</DependentUpon>
+    <Compile Include="FoCsoportModositas_NM.cs" />
+    <Compile Include="FoCsoportValasztas_N.xaml.cs">
+      <DependentUpon>FoCsoportValasztas_N.xaml</DependentUpon>
     </Compile>
-    <Compile Include="IrszamValasztas_NM.cs" />
-    <Compile Include="OrszagModositas_N.xaml.cs">
-      <DependentUpon>OrszagModositas_N.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="OrszagModositas_NM.cs" />
-    <Compile Include="OrszagValasztas_N.xaml.cs">
-      <DependentUpon>OrszagValasztas_N.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="OrszagValasztas_NM.cs" />
-    <Compile Include="PostaCimModositas_N.xaml.cs">
-      <DependentUpon>PostaCimModositas_N.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="PostaCimModositas_NM.cs" />
+    <Compile Include="FoCsoportValasztas_NM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -81,14 +69,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="PartnerModositas_N.xaml.cs">
-      <DependentUpon>PartnerModositas_N.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="PartnerModositas_NM.cs" />
-    <Compile Include="PartnerValasztas_N.xaml.cs">
-      <DependentUpon>PartnerValasztas_N.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="PartnerValasztas_NM.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -99,60 +79,32 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="IrszamModositas_N.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="IrszamValasztas_N.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="OrszagModositas_N.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="OrszagValasztas_N.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="PartnerModositas_N.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="PartnerValasztas_N.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="PostaCimModositas_N.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\M_AlkalmazasAPI\M_AlkalmazasAPI.csproj">
-      <Project>{4fc8d20f-86cf-4549-8d03-9fe4ce7e8093}</Project>
+      <Project>{4FC8D20F-86CF-4549-8D03-9FE4CE7E8093}</Project>
       <Name>M_AlkalmazasAPI</Name>
     </ProjectReference>
     <ProjectReference Include="..\M_Komponensek_WPF\M_Komponensek_WPF.csproj">
-      <Project>{9cd601a3-b9f4-442e-8912-b8b92e64fe9c}</Project>
+      <Project>{9CD601A3-B9F4-442E-8912-B8B92E64FE9C}</Project>
       <Name>M_Komponensek_WPF</Name>
     </ProjectReference>
     <ProjectReference Include="..\S_ObjektumModel\S_ObjektumModel.csproj">
-      <Project>{467a2fe7-82b3-4107-8dac-1bd134d6b279}</Project>
+      <Project>{467A2FE7-82B3-4107-8DAC-1BD134D6B279}</Project>
       <Name>S_ObjektumModel</Name>
     </ProjectReference>
-    <ProjectReference Include="..\S_SQLTarolas\S_SQLTarolas.csproj">
-      <Project>{72cc60eb-2f55-4e12-bb92-c21ab96735da}</Project>
-      <Name>S_SQLTarolas</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\U_Partner\U_Partner.csproj">
-      <Project>{643a210f-39a9-4844-806c-0f5497021ba4}</Project>
-      <Name>U_Partner</Name>
+    <ProjectReference Include="..\U_Cikk\U_Cikk.csproj">
+      <Project>{f4a1c580-f2c1-491c-9f44-33a25935b1b7}</Project>
+      <Name>U_Cikk</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Page Include="FoCsoportModositas_N.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FoCsoportValasztas_N.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <PostBuildEvent>
-    </PostBuildEvent>
-  </PropertyGroup>
 </Project>

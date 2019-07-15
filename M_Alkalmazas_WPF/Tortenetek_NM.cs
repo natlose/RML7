@@ -73,7 +73,7 @@ namespace Sajat.Alkalmazas.WPF
             get
             {
                 //Ha bármelyik nézetmodell azt mondja, hogy nem megszakítható, akkor a főablak nem zárható be:
-                return !Tortenetek.SelectMany(t => t.FEsetek).Any(fe => !fe.NezetModell.Megszakithato);
+                return !Tortenetek.SelectMany(t => t.FEsetek).Any(fe => (fe.NezetModell != null) && (!fe.NezetModell.Megszakithato));
             }
         }
 
