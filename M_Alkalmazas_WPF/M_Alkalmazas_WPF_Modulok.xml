@@ -2,4 +2,5 @@
 <Modulok>
   <Modul nev="T_Partner_SQL.dll"/>
   <Modul nev="T_Cikk_SQL.dll"/>
+  <Modul nev="T_Keszlet_SQL.dll"/>
 </Modulok>

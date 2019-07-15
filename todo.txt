@@ -1,6 +1,8 @@
 
 Tarolo és Valtozas átalakítása a Partner környezetben is
 
+a sok Contextnek kéne közös kapcsolat, most mindenhol be van égetve a DEV
+
 lekérdezésbe rendezettségválasztó (még lekérdezés elõtt!)
 
 interfield validation

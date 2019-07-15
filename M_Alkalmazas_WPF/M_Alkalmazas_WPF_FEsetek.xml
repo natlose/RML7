@@ -17,4 +17,8 @@
   <FEset id="Cikk-CikkValasztas" n="Sajat.Cikk.CikkValasztas_N, M_Cikk_WPF" nm="Sajat.Cikk.CikkValasztas_NM, M_Cikk_WPF" />
   <FEset id="Cikk-CikkModositas" n="Sajat.Cikk.CikkModositas_N, M_Cikk_WPF" nm="Sajat.Cikk.CikkModositas_NM, M_Cikk_WPF" />
 
+  <!--Keszlet-->
+  <FEset id="Keszlet-RaktarValasztas" n="Sajat.Keszlet.RaktarValasztas_N, M_Keszlet_WPF" nm="Sajat.Keszlet.RaktarValasztas_NM, M_Keszlet_WPF" />
+  <FEset id="Keszlet-RaktarModositas" n="Sajat.Keszlet.RaktarModositas_N, M_Keszlet_WPF" nm="Sajat.Keszlet.RaktarModositas_NM, M_Keszlet_WPF" />
+
 </FEsetek>
