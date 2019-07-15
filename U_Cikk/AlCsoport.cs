@@ -1,6 +1,7 @@
 ﻿using Sajat.ObjektumModel;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
@@ -31,10 +32,18 @@ namespace Sajat.Cikk
         }
 
         private FoCsoport focsoport;
+        [Required(ErrorMessage = "kötelező")]
         public FoCsoport FoCsoport
         {
             get => focsoport;
             set => ErtekadasErtesitesEllenorzes(ref focsoport, value);
+        }
+
+        private ObservableCollection<Cikk> cikkek;
+        public ObservableCollection<Cikk> Cikkek
+        {
+            get => cikkek;
+            set => ErtekadasErtesitesEllenorzes(ref cikkek, value);
         }
 
     }

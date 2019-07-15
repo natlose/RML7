@@ -1,4 +1,6 @@
 
+Tarolo és Valtozas átalakítása a Partner környezetben is
+
 lekérdezésbe rendezettségválasztó (még lekérdezés elõtt!)
 
 interfield validation

@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="Sajat.Cikk.CikkValasztas_N"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Sajat.Cikk"
+             xmlns:sajatwpf="clr-namespace:Sajat.WPF;assembly=M_Komponensek_WPF"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <sajatwpf:Lekerdezes Lekerdez="Lekerdezeskor" Vissza="Visszakor" Szuromezok="{Binding Szuromezok}">
+        <sajatwpf:GombosLista TetelForras="{Binding Lista, Mode=OneWay}" Kivalaszt="Kivalasztaskor" Modosit="Modositaskor" Felvesz="Felveszkor">
+            <GridViewColumn DisplayMemberBinding="{Binding Cikkszam}" Header="Cikkszám" Width="90" />
+            <GridViewColumn DisplayMemberBinding="{Binding GyartoiCikkszam}" Header="Gyártói" Width="90" />
+            <GridViewColumn DisplayMemberBinding="{Binding Nev}" Header="Név" Width="200" />
+        </sajatwpf:GombosLista>
+    </sajatwpf:Lekerdezes>
+</UserControl>

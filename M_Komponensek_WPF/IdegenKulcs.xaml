@@ -19,19 +19,19 @@
             FontSize="10"
             Margin="0,0,0,-3"/>
         <DockPanel>
-            <TextBox
+            <TextBlock
                 DockPanel.Dock="Left"
                 Text="{Binding Path=Kulcs}" 
                 FontFamily="Consolas" 
                 FontSize="18"
                 Margin="0, 0, 5, 0"/>
             <Button 
-                DockPanel.Dock="Left" 
+                DockPanel.Dock="Right" 
                 Content="Keres" 
                 Click="KeresClick"
                 Visibility="{Binding VanKeres, Converter={StaticResource BooleanToVisibilityConverter}}"/>
             <TextBlock
-                DockPanel.Dock="Right"
+                DockPanel.Dock="Left"
                 Text="{Binding Path=Szoveg}" 
                 FontFamily="Consolas" 
                 FontSize="18"

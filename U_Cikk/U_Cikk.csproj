@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AlCsoport.cs" />
+    <Compile Include="Cikk.cs" />
     <Compile Include="ITarolo.cs" />
     <Compile Include="FoCsoport.cs" />
     <Compile Include="IValtozas.cs" />

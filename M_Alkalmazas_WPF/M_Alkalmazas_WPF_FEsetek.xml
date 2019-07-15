@@ -14,5 +14,7 @@
   <FEset id="Cikk-FoCsoportModositas" n="Sajat.Cikk.FoCsoportModositas_N, M_Cikk_WPF" nm="Sajat.Cikk.FoCsoportModositas_NM, M_Cikk_WPF" />
   <FEset id="Cikk-AlCsoportValasztas" n="Sajat.Cikk.AlCsoportValasztas_N, M_Cikk_WPF" nm="Sajat.Cikk.AlCsoportValasztas_NM, M_Cikk_WPF" />
   <FEset id="Cikk-AlCsoportModositas" n="Sajat.Cikk.AlCsoportModositas_N, M_Cikk_WPF" nm="Sajat.Cikk.AlCsoportModositas_NM, M_Cikk_WPF" />
+  <FEset id="Cikk-CikkValasztas" n="Sajat.Cikk.CikkValasztas_N, M_Cikk_WPF" nm="Sajat.Cikk.CikkValasztas_NM, M_Cikk_WPF" />
+  <FEset id="Cikk-CikkModositas" n="Sajat.Cikk.CikkModositas_N, M_Cikk_WPF" nm="Sajat.Cikk.CikkModositas_NM, M_Cikk_WPF" />
 
 </FEsetek>

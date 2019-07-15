@@ -12,5 +12,7 @@ namespace Sajat.Cikk
         ITarolo<FoCsoport> FoCsoportok { get; }
 
         ITarolo<AlCsoport> AlCsoportok { get; }
+
+        ITarolo<Cikk> Cikkek { get; }
     }
 }

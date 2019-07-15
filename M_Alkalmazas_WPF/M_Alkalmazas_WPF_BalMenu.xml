@@ -9,6 +9,7 @@
     <Sor szoveg="Kezelők" />
   </Sor>
   <Sor szoveg="Cikkek">
+    <Sor szoveg="Cikkek" id="Cikk-CikkValasztas"/>
     <Sor szoveg="Főcsoportok" id="Cikk-FoCsoportValasztas"/>
     <Sor szoveg="Alcsoportok" id="Cikk-AlCsoportValasztas"/>
   </Sor>
