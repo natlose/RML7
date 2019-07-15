@@ -12,7 +12,7 @@ namespace Sajat.Cikk
 {
     public class AlCsoportValasztas_NM : Megfigyelheto, ICsatolhatoNezetModell
     {
-        public AlCsoportValasztas_NM(IAlCsoportTarolo tarolo)
+        public AlCsoportValasztas_NM(ITarolo tarolo)
         {
             this.tarolo = tarolo;
             Szuromezok = new SzuromezoGyujtemeny()
@@ -27,7 +27,7 @@ namespace Sajat.Cikk
         public bool Megszakithato => true;
         #endregion
 
-        private IAlCsoportTarolo tarolo;
+        private ITarolo tarolo;
 
         public SzuromezoGyujtemeny Szuromezok { get; set; }
 
@@ -41,7 +41,7 @@ namespace Sajat.Cikk
         public void Lekerdezeskor()
         {
             string nev = StringMuveletek.NullHaUres(Szuromezok["nev"].Ertek);
-            lista = new ObservableCollection<AlCsoport>(tarolo.MindAhol(
+            lista = new ObservableCollection<AlCsoport>(tarolo.AlCsoportok.MindAhol(
                 AlCsoport =>
                 (nev == null || AlCsoport.Nev.Contains(nev))
             ));
@@ -65,7 +65,6 @@ namespace Sajat.Cikk
                     (eredmenyek) => {
                         if (eredmenyek.As<bool>("rogzites"))
                         {
-                            AlCsoport felvett = eredmenyek.As<AlCsoport>("alcsoport");
                             Lekerdezeskor();
                         }
                     }
@@ -78,19 +77,18 @@ namespace Sajat.Cikk
             FEKerelem.Befejezes(
                 new FEEredmenyek()
                     .Eredmeny("valasztas", true)
-                    .Eredmeny("AlCsoport", AlCsoport)
+                    .Eredmeny("id", AlCsoport.Id)
             );
         }
 
-        public void Modositaskor(AlCsoport AlCsoport)
+        public void Modositaskor(AlCsoport alcsoport)
         {
             FEIndito.Inditas(
                 new FEKerelem(
                     "Cikk-AlCsoportModositas",
-                    new FEParameterek().Parameter("id", AlCsoport.Id),
+                    new FEParameterek().Parameter("id", alcsoport.Id),
                     (eredmenyek) => {
-                        AlCsoport modositott = eredmenyek.As<AlCsoport>("alcsoport");
-                        tarolo.Frissit(AlCsoport);
+                        tarolo.AlCsoportok.Frissit(alcsoport);
                     }
                 )
             );

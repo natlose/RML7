@@ -7,7 +7,10 @@ using System.Threading.Tasks;
 
 namespace Sajat.Cikk
 {
-    public interface IAlCsoportTarolo : ITarolo<AlCsoport>
+    public interface ITarolo
     {
+        ITarolo<FoCsoport> FoCsoportok { get; }
+
+        ITarolo<AlCsoport> AlCsoportok { get; }
     }
 }

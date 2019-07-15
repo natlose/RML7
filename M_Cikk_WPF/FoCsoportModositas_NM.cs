@@ -10,12 +10,12 @@ namespace Sajat.Cikk
 {
     public class FoCsoportModositas_NM : Megfigyelheto, ICsatolhatoNezetModell
     {
-        public FoCsoportModositas_NM(IFoCsoportValtozas valtozas)
+        public FoCsoportModositas_NM(IValtozas valtozas)
         {
             this.valtozas = valtozas;
         }
 
-        private IFoCsoportValtozas valtozas;
+        private IValtozas valtozas;
 
         #region ICsatolhatoNezetModell
         private FEKerelem feKerelem;
@@ -29,9 +29,9 @@ namespace Sajat.Cikk
                 if (id == 0)
                 {
                     FoCsoport = new FoCsoport();
-                    valtozas.FoCsoportok.EgyetBetesz(FoCsoport);
+                    valtozas.Tarolo.FoCsoportok.EgyetBetesz(FoCsoport);
                 }
-                else FoCsoport = valtozas.FoCsoportok.Egyetlen(id);
+                else FoCsoport = valtozas.Tarolo.FoCsoportok.Egyetlen(id);
             }
         }
 
@@ -66,7 +66,7 @@ namespace Sajat.Cikk
                 FEKerelem.Befejezes(
                     new FEEredmenyek()
                         .Eredmeny("rogzites", true)
-                        .Eredmeny("focsoport", FoCsoport)
+                        .Eredmeny("id", FoCsoport.Id)
                 );
             }
         }
@@ -74,9 +74,7 @@ namespace Sajat.Cikk
         public void Elveteskor()
         {
             FEKerelem.Befejezes(
-                new FEEredmenyek()
-                    .Eredmeny("rogzites", false)
-                    .Eredmeny("focsoport", FoCsoport)
+                new FEEredmenyek().Eredmeny("rogzites", false)
             );
         }
     }

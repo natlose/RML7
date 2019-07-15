@@ -11,10 +11,8 @@ namespace Sajat.Cikk
     {
         public override void Load()
         {
-            Bind<IFoCsoportTarolo>().To<FoCsoportTarolo_EF>();
-            Bind<IFoCsoportValtozas>().To<FoCsoportValtozas_EF>();
-            Bind<IAlCsoportTarolo>().To<AlCsoportTarolo_EF>();
-            Bind<IAlCsoportValtozas>().To<AlCsoportValtozas_EF>();
+            Bind<ITarolo>().To<Tarolo_EF>();
+            Bind<IValtozas>().To<Valtozas_EF>();
         }
     }
 }

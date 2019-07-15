@@ -12,7 +12,7 @@ namespace Sajat.Cikk
 {
     public class FoCsoportValasztas_NM : Megfigyelheto, ICsatolhatoNezetModell
     {
-        public FoCsoportValasztas_NM(IFoCsoportTarolo tarolo)
+        public FoCsoportValasztas_NM(ITarolo tarolo)
         {
             this.tarolo = tarolo;
             Szuromezok = new SzuromezoGyujtemeny()
@@ -27,7 +27,7 @@ namespace Sajat.Cikk
         public bool Megszakithato => true;
         #endregion
 
-        private IFoCsoportTarolo tarolo;
+        private ITarolo tarolo;
 
         public SzuromezoGyujtemeny Szuromezok { get; set; }
 
@@ -41,7 +41,7 @@ namespace Sajat.Cikk
         public void Lekerdezeskor()
         {
             string nev = StringMuveletek.NullHaUres(Szuromezok["nev"].Ertek);
-            lista = new ObservableCollection<FoCsoport>(tarolo.MindAhol(
+            lista = new ObservableCollection<FoCsoport>(tarolo.FoCsoportok.MindAhol(
                 focsoport =>
                 (nev == null || focsoport.Nev.Contains(nev))
             ));
@@ -51,8 +51,7 @@ namespace Sajat.Cikk
         public void Visszakor()
         {
             FEKerelem.Befejezes(
-                new FEEredmenyek()
-                    .Eredmeny("valasztas", false)
+                new FEEredmenyek().Eredmeny("valasztas", false)
             );
         }
 
@@ -65,7 +64,6 @@ namespace Sajat.Cikk
                     (eredmenyek) => {
                         if (eredmenyek.As<bool>("rogzites"))
                         {
-                            FoCsoport felvett = eredmenyek.As<FoCsoport>("focsoport");
                             Lekerdezeskor();
                         }
                     }
@@ -78,7 +76,7 @@ namespace Sajat.Cikk
             FEKerelem.Befejezes(
                 new FEEredmenyek()
                     .Eredmeny("valasztas", true)
-                    .Eredmeny("focsoport", focsoport)
+                    .Eredmeny("id", focsoport.Id)
             );
         }
 
@@ -89,8 +87,7 @@ namespace Sajat.Cikk
                     "Cikk-FoCsoportModositas",
                     new FEParameterek().Parameter("id", focsoport.Id),
                     (eredmenyek) => {
-                        FoCsoport modositott = eredmenyek.As<FoCsoport>("focsoport");
-                        tarolo.Frissit(focsoport);
+                        tarolo.FoCsoportok.Frissit(focsoport);
                     }
                 )
             );

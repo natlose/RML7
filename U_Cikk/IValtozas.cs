@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace Sajat.Cikk
 {
-    public interface IFoCsoportValtozas : IEgysegnyiValtozas
+    public interface IValtozas : IEgysegnyiValtozas
     {
-        IFoCsoportTarolo FoCsoportok { get; set; }
+        ITarolo Tarolo { get; }
     }
 }

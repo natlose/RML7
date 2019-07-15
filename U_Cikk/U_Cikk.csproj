@@ -43,11 +43,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AlCsoport.cs" />
+    <Compile Include="ITarolo.cs" />
     <Compile Include="FoCsoport.cs" />
-    <Compile Include="IAlCsoportTarolo.cs" />
-    <Compile Include="IAlCsoportValtozas.cs" />
-    <Compile Include="IFoCsoportTarolo.cs" />
-    <Compile Include="IFoCsoportValtozas.cs" />
+    <Compile Include="IValtozas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

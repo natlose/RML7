@@ -10,12 +10,12 @@ namespace Sajat.Cikk
 {
     public class AlCsoportModositas_NM : Megfigyelheto, ICsatolhatoNezetModell
     {
-        public AlCsoportModositas_NM(IAlCsoportValtozas valtozas)
+        public AlCsoportModositas_NM(IValtozas valtozas)
         {
             this.valtozas = valtozas;
         }
 
-        private IAlCsoportValtozas valtozas;
+        private IValtozas valtozas;
 
         #region ICsatolhatoNezetModell
         private FEKerelem feKerelem;
@@ -29,9 +29,9 @@ namespace Sajat.Cikk
                 if (id == 0)
                 {
                     AlCsoport = new AlCsoport();
-                    valtozas.AlCsoportok.EgyetBetesz(AlCsoport);
+                    valtozas.Tarolo.AlCsoportok.EgyetBetesz(AlCsoport);
                 }
-                else AlCsoport = valtozas.AlCsoportok.KiterjesztettEgyetlen(e => e.Id == id, e => e.FoCsoport);
+                else AlCsoport = valtozas.Tarolo.AlCsoportok.KiterjesztettEgyetlen(e => e.Id == id, e => e.FoCsoport);
             }
         }
 
@@ -67,8 +67,8 @@ namespace Sajat.Cikk
                     (eredmenyek) => {
                         if (eredmenyek.As<bool>("valasztas"))
                         {
-                            FoCsoport valasztott = eredmenyek.As<FoCsoport>("focsoport");
-                            AlCsoport.FiFoCsoport = valasztott.Id;
+                            FoCsoport valasztott = valtozas.Tarolo.FoCsoportok.Egyetlen(eredmenyek.As<int>("id"));
+                            AlCsoport.FoCsoport = valasztott;
                         }
                     }
                 )
@@ -83,7 +83,7 @@ namespace Sajat.Cikk
                 FEKerelem.Befejezes(
                     new FEEredmenyek()
                         .Eredmeny("rogzites", true)
-                        .Eredmeny("alcsoport", AlCsoport)
+                        .Eredmeny("id", AlCsoport.Id)
                 );
             }
         }
@@ -91,9 +91,7 @@ namespace Sajat.Cikk
         public void Elveteskor()
         {
             FEKerelem.Befejezes(
-                new FEEredmenyek()
-                    .Eredmeny("rogzites", false)
-                    .Eredmeny("alcsoport", AlCsoport)
+                new FEEredmenyek().Eredmeny("rogzites", false)
             );
         }
     }
