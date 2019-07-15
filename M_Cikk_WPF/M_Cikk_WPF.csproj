@@ -48,6 +48,14 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlCsoportModositas_N.xaml.cs">
+      <DependentUpon>AlCsoportModositas_N.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AlCsoportModositas_NM.cs" />
+    <Compile Include="AlCsoportValasztas_N.xaml.cs">
+      <DependentUpon>AlCsoportValasztas_N.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AlCsoportValasztas_NM.cs" />
     <Compile Include="FoCsoportModositas_N.xaml.cs">
       <DependentUpon>FoCsoportModositas_N.xaml</DependentUpon>
     </Compile>
@@ -97,6 +105,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="AlCsoportModositas_N.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AlCsoportValasztas_N.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="FoCsoportModositas_N.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

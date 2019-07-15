@@ -13,6 +13,8 @@ namespace Sajat.Cikk
         {
             Bind<IFoCsoportTarolo>().To<FoCsoportTarolo_EF>();
             Bind<IFoCsoportValtozas>().To<FoCsoportValtozas_EF>();
+            Bind<IAlCsoportTarolo>().To<AlCsoportTarolo_EF>();
+            Bind<IAlCsoportValtozas>().To<AlCsoportValtozas_EF>();
         }
     }
 }

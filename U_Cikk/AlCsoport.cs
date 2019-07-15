@@ -1,7 +1,6 @@
 ﻿using Sajat.ObjektumModel;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
@@ -9,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Sajat.Cikk
 {
-    public class FoCsoport : Ellenorizheto
+    public class AlCsoport : Ellenorizheto
     {
         private int id;
         [Key]
@@ -31,11 +30,11 @@ namespace Sajat.Cikk
             set => ErtekadasErtesitesEllenorzes(ref nev, value);
         }
 
-        private ObservableCollection<AlCsoport> alcsoportok;
-        public ObservableCollection<AlCsoport> AlCsoportok
+        private FoCsoport focsoport;
+        public FoCsoport FoCsoport
         {
-            get => alcsoportok;
-            set => ErtekadasErtesitesEllenorzes(ref alcsoportok, value);
+            get => focsoport;
+            set => ErtekadasErtesitesEllenorzes(ref focsoport, value);
         }
 
     }

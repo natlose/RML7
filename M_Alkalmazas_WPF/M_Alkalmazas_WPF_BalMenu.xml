@@ -10,6 +10,7 @@
   </Sor>
   <Sor szoveg="Cikkek">
     <Sor szoveg="Főcsoportok" id="Cikk-FoCsoportValasztas"/>
+    <Sor szoveg="Alcsoportok" id="Cikk-AlCsoportValasztas"/>
   </Sor>
   <Sor szoveg="Pénzügy">
     <Sor szoveg="Vevői számlák" />

@@ -51,6 +51,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlCsoportTarolo_EF.cs" />
+    <Compile Include="AlCsoportValtozas_EF.cs" />
     <Compile Include="CikkContext.cs" />
     <Compile Include="FoCsoportTarolo_EF.cs" />
     <Compile Include="FoCsoportValtozas_EF.cs" />
