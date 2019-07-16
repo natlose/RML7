@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Sajat.Keszlet
 {
-    public class NinjectSzotar : NinjectModule
+    public class T_NinjectSzotar : NinjectModule
     {
         public override void Load()
         {

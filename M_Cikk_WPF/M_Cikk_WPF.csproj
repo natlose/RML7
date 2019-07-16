@@ -107,6 +107,10 @@
       <Project>{9CD601A3-B9F4-442E-8912-B8B92E64FE9C}</Project>
       <Name>M_Komponensek_WPF</Name>
     </ProjectReference>
+    <ProjectReference Include="..\S_ModulKapcsolatok\S_ModulKapcsolatok.csproj">
+      <Project>{F663B4BF-032E-4677-9DB3-B8329D77E4CF}</Project>
+      <Name>S_ModulKapcsolatok</Name>
+    </ProjectReference>
     <ProjectReference Include="..\S_ObjektumModel\S_ObjektumModel.csproj">
       <Project>{467A2FE7-82B3-4107-8DAC-1BD134D6B279}</Project>
       <Name>S_ObjektumModel</Name>

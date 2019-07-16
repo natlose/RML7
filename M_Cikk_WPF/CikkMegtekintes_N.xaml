@@ -15,6 +15,17 @@
             <sajatwpf:IdegenKulcs Cimke="Alcsoport" Kulcs="{Binding Cikk.AlCsoport.Id}" Szoveg="{Binding Cikk.AlCsoport.Nev}"/>
             <sajatwpf:StatikusSzoveg Cimke="Gyártói cikkszám" Szoveg="{Binding Cikk.GyartoiCikkszam}"/>
             <sajatwpf:StatikusSzoveg Cimke="Angol név" Szoveg="{Binding Cikk.AngolNev}"/>
+            <sajatwpf:GombosLista TetelForras="{Binding KeszletLista, Mode=OneWay}" Cimke="Készletek">
+                <GridViewColumn DisplayMemberBinding="{Binding RaktarNev}" Header="Raktár" Width="100" />
+                <GridViewColumn DisplayMemberBinding="{Binding PolcKod}" Header="Polc" Width="80" />
+                <GridViewColumn Header="Készlet">
+                    <GridViewColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Keszlet, StringFormat={}{0:#,0.0}}" TextAlignment="Right" Width="80" />
+                        </DataTemplate>
+                    </GridViewColumn.CellTemplate>
+                </GridViewColumn>
+            </sajatwpf:GombosLista>
         </StackPanel>
     </sajatwpf:EgysegnyiMegnyitas>
 </UserControl>

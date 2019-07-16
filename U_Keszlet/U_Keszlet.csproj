@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -45,15 +48,24 @@
     <Compile Include="ITarolo.cs" />
     <Compile Include="IValtozas.cs" />
     <Compile Include="Keszlet.cs" />
+    <Compile Include="KeszletReszletezo.cs" />
     <Compile Include="Polc.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Raktar.cs" />
+    <Compile Include="U_NinjectSzotar.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\S_ModulKapcsolatok\S_ModulKapcsolatok.csproj">
+      <Project>{F663B4BF-032E-4677-9DB3-B8329D77E4CF}</Project>
+      <Name>S_ModulKapcsolatok</Name>
+    </ProjectReference>
     <ProjectReference Include="..\S_ObjektumModel\S_ObjektumModel.csproj">
       <Project>{467A2FE7-82B3-4107-8DAC-1BD134D6B279}</Project>
       <Name>S_ObjektumModel</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

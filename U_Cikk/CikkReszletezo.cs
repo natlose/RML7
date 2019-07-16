@@ -10,23 +10,23 @@ namespace Sajat.Cikk
 
     public class CikkReszletezo : ICikkReszletezo
     {
+        private readonly ITarolo tarolo;
+
         public CikkReszletezo(ITarolo tarolo)
         {
             this.tarolo = tarolo;
         }
 
-        private ITarolo tarolo;
-
-        public CikkReszletek[] Reszletezes(int[] azonositok)
+        public IEnumerable<CikkReszletek> Reszletezes(IEnumerable<int> azonositok)
         {
-            Cikk[] cikkek = tarolo.Cikkek.MindAhol(c => azonositok.Contains(c.Id)).ToArray();
+            IEnumerable<Cikk> cikkek = tarolo.Cikkek.MindAhol(c => azonositok.Contains(c.Id)).ToList();
             var result = azonositok.Zip(cikkek, 
                 (azonosito, cikk) => 
                 {
-                    return new CikkReszletek() { Id = azonosito, Cikkszam = cikk.Cikkszam, Nev = cikk.Nev, MEgys = cikk.MEgys };
+                    return new CikkReszletek(azonosito, cikk.Cikkszam, cikk.Nev, cikk.MEgys);
                 } 
             );
-            return result.ToArray();
+            return result.ToList();
         }
     }
 }

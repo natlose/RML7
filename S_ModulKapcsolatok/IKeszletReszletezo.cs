@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Sajat.Modul
 {
-    public interface ICikkReszletezo
+    public interface IKeszletReszletezo
     {
-        IEnumerable<CikkReszletek> Reszletezes(IEnumerable<int> azonositok);
+        IEnumerable<KeszletReszletek> Reszletezes(IEnumerable<int> cikkAzonositok);
+
     }
 }

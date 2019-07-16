@@ -45,7 +45,7 @@ namespace Sajat.Keszlet
                     e => e.Keszletek,
                     e => e.Raktar
                 );
-                CikkReszletek[] reszletek = cikkReszletezo.Reszletezes(Polc.Keszletek.Select(k => k.CikkID).ToArray());
+                IEnumerable<CikkReszletek> reszletek = cikkReszletezo.Reszletezes(Polc.Keszletek.Select(k => k.CikkID).ToList());
                 keszletlista = Polc.Keszletek.Zip(reszletek, (k, r) => new KeszletListaSor()
                 {
                     Id = r.Id,

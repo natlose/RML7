@@ -1,4 +1,5 @@
 ﻿using Sajat.Alkalmazas.API;
+using Sajat.Modul;
 using Sajat.ObjektumModel;
 using System;
 using System.Collections.Generic;
@@ -10,12 +11,14 @@ namespace Sajat.Cikk
 {
     public class CikkMegtekintes_NM : Megfigyelheto, ICsatolhatoNezetModell
     {
-        public CikkMegtekintes_NM(ITarolo tarolo)
+        public CikkMegtekintes_NM(ITarolo tarolo, IKeszletReszletezo keszletReszletezo)
         {
             this.tarolo = tarolo;
+            this.keszletReszletezo = keszletReszletezo;
         }
 
-        private ITarolo tarolo;
+        private readonly ITarolo tarolo;
+        private readonly IKeszletReszletezo keszletReszletezo;
 
         #region ICsatolhatoNezetModell
         private FEKerelem feKerelem;
@@ -26,12 +29,8 @@ namespace Sajat.Cikk
             {
                 feKerelem = value;
                 int id = value.Parameterek.As<int>("id");
-                if (id == 0)
-                {
-                    Cikk = new Cikk();
-                    tarolo.Cikkek.EgyetBetesz(Cikk);
-                }
-                else Cikk = tarolo.Cikkek.KiterjesztettEgyetlen(e => e.Id == id, e => e.AlCsoport);
+                Cikk = tarolo.Cikkek.KiterjesztettEgyetlen(e => e.Id == id, e => e.AlCsoport);
+                KeszletLista = keszletReszletezo.Reszletezes(new[] { Cikk.Id });                
             }
         }
 
@@ -45,6 +44,14 @@ namespace Sajat.Cikk
             get => cikk;
             set => ErtekadasErtesites(ref cikk, value);
         }
+
+        private IEnumerable<KeszletReszletek> keszletlista;
+        public IEnumerable<KeszletReszletek> KeszletLista
+        {
+            get => keszletlista;
+            set => ErtekadasErtesites(ref keszletlista, value);
+        }
+
 
         public void Bezaraskor()
         {

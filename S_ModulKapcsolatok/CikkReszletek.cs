@@ -8,13 +8,18 @@ namespace Sajat.Modul
 {
     public class CikkReszletek
     {
-        public int Id { get; set; }
+        public CikkReszletek(int id, string cikkszam, string nev, string megys)
+        {
+            Id = id;
+            Cikkszam = cikkszam;
+            Nev = nev;
+            MEgys = megys;
+        }
 
-        public string Cikkszam { get; set; }
-
-        public string Nev { get; set; }
-
-        public string MEgys { get; set; }
+        public int Id { get; }
+        public string Cikkszam { get; }
+        public string Nev { get; }
+        public string MEgys { get; }
     }
 
 }
