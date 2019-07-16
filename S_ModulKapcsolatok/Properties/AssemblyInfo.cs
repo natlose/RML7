@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("S_CikkModell")]
+[assembly: AssemblyTitle("S_ModulKapcsolatok")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("S_CikkModell")]
+[assembly: AssemblyProduct("S_ModulKapcsolatok")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("2cce649e-d2c4-4f3d-bd47-03963ba3bca7")]
+[assembly: Guid("f663b4bf-032e-4677-9db3-b8329d77e4cf")]
 
 // Version information for an assembly consists of the following four values:
 //

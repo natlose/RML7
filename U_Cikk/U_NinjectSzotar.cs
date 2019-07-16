@@ -1,4 +1,5 @@
 ﻿using Ninject.Modules;
+using Sajat.Modul;
 using System;
 using System.Collections.Generic;
 using System.Linq;

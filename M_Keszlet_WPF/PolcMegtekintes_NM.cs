@@ -1,5 +1,5 @@
 ﻿using Sajat.Alkalmazas.API;
-using Sajat.Cikk;
+using Sajat.Modul;
 using Sajat.ObjektumModel;
 using System;
 using System.Collections;

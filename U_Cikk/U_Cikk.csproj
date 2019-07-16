@@ -55,9 +55,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\S_CikkModell\S_CikkModell.csproj">
-      <Project>{2cce649e-d2c4-4f3d-bd47-03963ba3bca7}</Project>
-      <Name>S_CikkModell</Name>
+    <ProjectReference Include="..\S_ModulKapcsolatok\S_ModulKapcsolatok.csproj">
+      <Project>{f663b4bf-032e-4677-9db3-b8329d77e4cf}</Project>
+      <Name>S_ModulKapcsolatok</Name>
     </ProjectReference>
     <ProjectReference Include="..\S_ObjektumModel\S_ObjektumModel.csproj">
       <Project>{467A2FE7-82B3-4107-8DAC-1BD134D6B279}</Project>
