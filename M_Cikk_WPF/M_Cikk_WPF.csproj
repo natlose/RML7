@@ -56,6 +56,10 @@
       <DependentUpon>AlCsoportValasztas_N.xaml</DependentUpon>
     </Compile>
     <Compile Include="AlCsoportValasztas_NM.cs" />
+    <Compile Include="CikkMegtekintes_N.xaml.cs">
+      <DependentUpon>CikkMegtekintes_N.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CikkMegtekintes_NM.cs" />
     <Compile Include="CikkModositas_N.xaml.cs">
       <DependentUpon>CikkModositas_N.xaml</DependentUpon>
     </Compile>
@@ -118,6 +122,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AlCsoportValasztas_N.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CikkMegtekintes_N.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

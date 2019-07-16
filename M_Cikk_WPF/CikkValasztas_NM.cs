@@ -101,5 +101,16 @@ namespace Sajat.Cikk
                 )
             );
         }
+
+        public void Megnyitaskor(Cikk cikk)
+        {
+            FEIndito.Inditas(
+                new FEKerelem(
+                    "Cikk-CikkMegtekintes",
+                    new FEParameterek().Parameter("id", cikk.Id),
+                    null
+                )
+            );
+        }
     }
 }

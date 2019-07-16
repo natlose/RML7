@@ -78,7 +78,7 @@ namespace Sajat.Keszlet
         internal void KeszletMegnyitaskor(object e)
         {
             FEIndito.Inditas(new FEKerelem(
-                "Cikk-CikkModositas",
+                "Cikk-CikkMegtekintes",
                 new FEParameterek().Parameter("id", ((KeszletListaSor)e).Id ),
                 null)
             );

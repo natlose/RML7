@@ -46,5 +46,10 @@ namespace Sajat.Cikk
         {
             (DataContext as CikkValasztas_NM).Modositaskor(e as Cikk);
         }
+
+        private void Megnyitaskor(object sender, object e)
+        {
+            (DataContext as CikkValasztas_NM).Megnyitaskor(e as Cikk);
+        }
     }
 }

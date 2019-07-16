@@ -8,7 +8,13 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <sajatwpf:Lekerdezes Lekerdez="Lekerdezeskor" Vissza="Visszakor" Szuromezok="{Binding Szuromezok}">
-        <sajatwpf:GombosLista TetelForras="{Binding Lista, Mode=OneWay}" Kivalaszt="Kivalasztaskor" Modosit="Modositaskor" Felvesz="Felveszkor">
+        <sajatwpf:GombosLista 
+            TetelForras="{Binding Lista, Mode=OneWay}" 
+            Kivalaszt="Kivalasztaskor" 
+            Modosit="Modositaskor" 
+            Felvesz="Felveszkor"
+            Megnyit="Megnyitaskor"
+        >
             <GridViewColumn DisplayMemberBinding="{Binding Cikkszam}" Header="Cikkszám" Width="90" />
             <GridViewColumn DisplayMemberBinding="{Binding GyartoiCikkszam}" Header="Gyártói" Width="90" />
             <GridViewColumn DisplayMemberBinding="{Binding Nev}" Header="Név" Width="200" />
