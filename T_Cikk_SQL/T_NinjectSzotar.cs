@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Sajat.Cikk
 {
-    public class NinjectSzotar : NinjectModule
+    public class T_NinjectSzotar : NinjectModule
     {
         public override void Load()
         {

@@ -52,7 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CikkContext.cs" />
-    <Compile Include="NinjectSzotar.cs" />
+    <Compile Include="T_NinjectSzotar.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tarolo_EF.cs" />
     <Compile Include="Valtozas_EF.cs" />

@@ -48,6 +48,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "T_Keszlet_SQL", "T_Keszlet_
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "M_Keszlet_WPF", "M_Keszlet_WPF\M_Keszlet_WPF.csproj", "{DBB8BBD5-42C6-4633-8009-ED0F0734DF0F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "S_CikkModell", "S_CikkModell\S_CikkModell.csproj", "{2CCE649E-D2C4-4F3D-BD47-03963BA3BCA7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -110,6 +112,10 @@ Global
 		{DBB8BBD5-42C6-4633-8009-ED0F0734DF0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DBB8BBD5-42C6-4633-8009-ED0F0734DF0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DBB8BBD5-42C6-4633-8009-ED0F0734DF0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CCE649E-D2C4-4F3D-BD47-03963BA3BCA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CCE649E-D2C4-4F3D-BD47-03963BA3BCA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CCE649E-D2C4-4F3D-BD47-03963BA3BCA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CCE649E-D2C4-4F3D-BD47-03963BA3BCA7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

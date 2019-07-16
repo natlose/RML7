@@ -27,5 +27,9 @@ namespace Sajat.Keszlet
             (DataContext as PolcMegtekintes_NM).Bezaraskor();
         }
 
+        private void KeszletMegnyitaskor(object sender, object e)
+        {
+            (DataContext as PolcMegtekintes_NM).KeszletMegnyitaskor(e);
+        }
     }
 }

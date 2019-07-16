@@ -1,6 +1,8 @@
 ﻿using Sajat.Alkalmazas.API;
+using Sajat.Cikk;
 using Sajat.ObjektumModel;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,12 +12,24 @@ namespace Sajat.Keszlet
 {
     public class PolcMegtekintes_NM : Megfigyelheto, ICsatolhatoNezetModell
     {
-        public PolcMegtekintes_NM(ITarolo tarolo)
+        public struct KeszletListaSor
         {
-            this.tarolo = tarolo;
+            public int Id { get; set; }
+            public string Cikkszam { get; set; }
+            public string Nev { get; set; }
+            public string MEgys { get; set; }
+            public decimal Keszlet { get; set; }
         }
 
-        private ITarolo tarolo;
+        public PolcMegtekintes_NM(ITarolo tarolo, ICikkReszletezo cikkReszletezo)
+        {
+            this.tarolo = tarolo;
+            this.cikkReszletezo = cikkReszletezo;
+        }
+
+        private readonly ITarolo tarolo;
+        private readonly ICikkReszletezo cikkReszletezo;
+
 
         #region ICsatolhatoNezetModell
         private FEKerelem feKerelem;
@@ -28,8 +42,18 @@ namespace Sajat.Keszlet
                 int id = value.Parameterek.As<int>("id");
                 Polc = tarolo.Polcok.KiterjesztettEgyetlen(
                     e => e.Id == id,
-                    e => e.Keszletek
+                    e => e.Keszletek,
+                    e => e.Raktar
                 );
+                CikkReszletek[] reszletek = cikkReszletezo.Reszletezes(Polc.Keszletek.Select(k => k.CikkID).ToArray());
+                keszletlista = Polc.Keszletek.Zip(reszletek, (k, r) => new KeszletListaSor()
+                {
+                    Id = r.Id,
+                    Cikkszam = r.Cikkszam,
+                    Nev = r.Nev,
+                    MEgys = r.MEgys,
+                    Keszlet = k.Meny
+                });
             }
         }
 
@@ -42,6 +66,22 @@ namespace Sajat.Keszlet
         {
             get => polc;
             set => ErtekadasErtesites(ref polc, value);
+        }
+
+        private IEnumerable keszletlista;
+        public IEnumerable KeszletLista
+        {
+            get => keszletlista;
+            private set => ErtekadasErtesites(ref keszletlista, value);
+        }
+
+        internal void KeszletMegnyitaskor(object e)
+        {
+            FEIndito.Inditas(new FEKerelem(
+                "Cikk-CikkModositas",
+                new FEParameterek().Parameter("id", ((KeszletListaSor)e).Id ),
+                null)
+            );
         }
 
         public void Bezaraskor()
