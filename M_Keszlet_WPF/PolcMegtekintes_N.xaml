@@ -13,13 +13,13 @@
             <sajatwpf:StatikusSzoveg Cimke="Kód" Szoveg="{Binding Polc.Kod}" />
             <sajatwpf:StatikusSzoveg Cimke="Megjegyzés" Szoveg="{Binding Polc.Megjegyzes}" />
             <sajatwpf:GombosLista TetelForras="{Binding KeszletLista, Mode=OneWay}" Cimke="Készletek" Megnyit="KeszletMegnyitaskor">
-                <GridViewColumn DisplayMemberBinding="{Binding Cikkszam}" Header="Cikkszám" Width="100" />
-                <GridViewColumn DisplayMemberBinding="{Binding Nev}" Header="Név" Width="200" />
-                <GridViewColumn DisplayMemberBinding="{Binding MEgys}" Header="ME" Width="80" />
+                <GridViewColumn DisplayMemberBinding="{Binding Cikkszam}" Header="Cikkszám" Width="Auto" />
+                <GridViewColumn DisplayMemberBinding="{Binding Nev}" Header="Név" Width="Auto" />
+                <GridViewColumn DisplayMemberBinding="{Binding MEgys}" Header="ME" Width="Auto" />
                 <GridViewColumn Header="Készlet">
                     <GridViewColumn.CellTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{Binding Keszlet, StringFormat={}{0:#,0.0}}" TextAlignment="Right" Width="80" />
+                            <TextBlock Text="{Binding Keszlet, StringFormat={}{0:#,0.0}}" TextAlignment="Right" Width="Auto" />
                         </DataTemplate>
                     </GridViewColumn.CellTemplate>
                 </GridViewColumn>
