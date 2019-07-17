@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Sajat.Partner
+namespace Sajat.Megjelenites
 {
     public partial class OrszagModositas_N : UserControl
     {

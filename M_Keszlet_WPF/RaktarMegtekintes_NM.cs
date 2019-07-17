@@ -1,21 +1,22 @@
 ﻿using Sajat.Alkalmazas.API;
 using Sajat.ObjektumModel;
+using Sajat.Uzlet;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sajat.Keszlet
+namespace Sajat.Megjelenites
 {
     public class RaktarMegtekintes_NM : Megfigyelheto, ICsatolhatoNezetModell
     {
-        public RaktarMegtekintes_NM(ITarolo tarolo)
+        public RaktarMegtekintes_NM(ITarolok tarolok)
         {
-            this.tarolo = tarolo;
+            this.tarolok = tarolok;
         }
 
-        private ITarolo tarolo;
+        private ITarolok tarolok;
 
         #region ICsatolhatoNezetModell
         private FEKerelem feKerelem;
@@ -26,7 +27,7 @@ namespace Sajat.Keszlet
             {
                 feKerelem = value;
                 int id = value.Parameterek.As<int>("id");
-                Raktar = tarolo.Raktarak.KiterjesztettEgyetlen(
+                Raktar = tarolok.Raktarak.KiterjesztettEgyetlen(
                     e => e.Id == id, 
                     e => e.Polcok
                 );
@@ -51,7 +52,7 @@ namespace Sajat.Keszlet
                     "Keszlet-PolcModositas",
                     new FEParameterek().Parameter("id", polc.Id),
                     (eredmenyek) => {
-                        tarolo.Polcok.Frissit(polc);
+                        tarolok.Polcok.Frissit(polc);
                     }
                 )
             );
@@ -79,7 +80,7 @@ namespace Sajat.Keszlet
                     (eredmenyek) => {
                         if (eredmenyek.As<bool>("rogzites"))
                         {
-                            Raktar = tarolo.Raktarak.KiterjesztettEgyetlen(
+                            Raktar = tarolok.Raktarak.KiterjesztettEgyetlen(
                                 e => e.Id == Raktar.Id,
                                 e => e.Polcok
                             );

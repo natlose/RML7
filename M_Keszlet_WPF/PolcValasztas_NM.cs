@@ -1,5 +1,6 @@
 ﻿using Sajat.Alkalmazas.API;
 using Sajat.ObjektumModel;
+using Sajat.Uzlet;
 using Sajat.WPF;
 using System;
 using System.Collections.Generic;
@@ -8,13 +9,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sajat.Keszlet
+namespace Sajat.Megjelenites
 {
     public class PolcValasztas_NM : Megfigyelheto, ICsatolhatoNezetModell
     {
-        public PolcValasztas_NM(ITarolo tarolo)
+        public PolcValasztas_NM(ITarolok tarolok)
         {
-            this.tarolo = tarolo;
+            this.tarolok = tarolok;
             Szuromezok = new SzuromezoGyujtemeny()
                 .Mezo("raktar", new Szuromezo(
                     "Raktár",
@@ -28,7 +29,7 @@ namespace Sajat.Keszlet
                                     if (eredmenyek.As<bool>("valasztas"))
                                     {
                                         int id = eredmenyek.As<int>("id");
-                                        szm.Ertek = tarolo.Raktarak.Egyetlen(id).Nev;
+                                        szm.Ertek = tarolok.Raktarak.Egyetlen(id).Nev;
                                     }
                                 }
                             )
@@ -48,7 +49,7 @@ namespace Sajat.Keszlet
         public bool Megszakithato => true;
         #endregion
 
-        private ITarolo tarolo;
+        private ITarolok tarolok;
 
         public SzuromezoGyujtemeny Szuromezok { get; set; }
 
@@ -64,7 +65,7 @@ namespace Sajat.Keszlet
             string kod = StringMuveletek.NullHaUres(Szuromezok["kod"].Ertek);
             string raktar = StringMuveletek.NullHaUres(Szuromezok["raktar"].Ertek);
             string megj = StringMuveletek.NullHaUres(Szuromezok["megj"].Ertek);
-            lista = new ObservableCollection<Polc>(tarolo.Polcok.KiterjesztettMindAhol(
+            lista = new ObservableCollection<Polc>(tarolok.Polcok.KiterjesztettMindAhol(
                 Polc =>
                     (kod == null || Polc.Kod.Contains(kod))
                     && (raktar == null || Polc.Raktar.Nev.Contains(raktar))
@@ -111,7 +112,7 @@ namespace Sajat.Keszlet
                     "Keszlet-PolcModositas",
                     new FEParameterek().Parameter("id", polc.Id),
                     (eredmenyek) => {
-                        tarolo.Polcok.Frissit(polc);
+                        tarolok.Polcok.Frissit(polc);
                     }
                 )
             );

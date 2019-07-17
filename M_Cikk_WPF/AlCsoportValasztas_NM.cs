@@ -1,5 +1,6 @@
 ﻿using Sajat.Alkalmazas.API;
 using Sajat.ObjektumModel;
+using Sajat.Uzlet;
 using Sajat.WPF;
 using System;
 using System.Collections.Generic;
@@ -8,13 +9,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sajat.Cikk
+namespace Sajat.Megjelenites
 {
     public class AlCsoportValasztas_NM : Megfigyelheto, ICsatolhatoNezetModell
     {
-        public AlCsoportValasztas_NM(ITarolo tarolo)
+        public AlCsoportValasztas_NM(ITarolok tarolok)
         {
-            this.tarolo = tarolo;
+            this.tarolok = tarolok;
             Szuromezok = new SzuromezoGyujtemeny()
                 .Mezo("nev", new Szuromezo("Név") { Elore = 1 })
                 .Mezo("focsoport", new Szuromezo(
@@ -29,7 +30,7 @@ namespace Sajat.Cikk
                                     if (eredmenyek.As<bool>("valasztas"))
                                     {
                                         int id = eredmenyek.As<int>("id");
-                                        szm.Ertek = tarolo.FoCsoportok.Egyetlen(id).Nev;
+                                        szm.Ertek = tarolok.FoCsoportok.Egyetlen(id).Nev;
                                     }
                                 }
                             )
@@ -46,7 +47,7 @@ namespace Sajat.Cikk
         public bool Megszakithato => true;
         #endregion
 
-        private ITarolo tarolo;
+        private ITarolok tarolok;
 
         public SzuromezoGyujtemeny Szuromezok { get; set; }
 
@@ -61,7 +62,7 @@ namespace Sajat.Cikk
         {
             string nev = StringMuveletek.NullHaUres(Szuromezok["nev"].Ertek);
             string focsoport = StringMuveletek.NullHaUres(Szuromezok["focsoport"].Ertek);
-            lista = new ObservableCollection<AlCsoport>(tarolo.AlCsoportok.KiterjesztettMindAhol(
+            lista = new ObservableCollection<AlCsoport>(tarolok.AlCsoportok.KiterjesztettMindAhol(
                 AlCsoport =>
                     (nev == null || AlCsoport.Nev.Contains(nev))
                     && (focsoport == null || AlCsoport.FoCsoport.Nev.Contains(focsoport)),
@@ -110,7 +111,7 @@ namespace Sajat.Cikk
                     "Cikk-AlCsoportModositas",
                     new FEParameterek().Parameter("id", alcsoport.Id),
                     (eredmenyek) => {
-                        tarolo.AlCsoportok.Frissit(alcsoport);
+                        tarolok.AlCsoportok.Frissit(alcsoport);
                     }
                 )
             );

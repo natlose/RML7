@@ -1,12 +1,13 @@
 ﻿using Sajat.Alkalmazas.API;
 using Sajat.ObjektumModel;
+using Sajat.Uzlet;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sajat.Keszlet
+namespace Sajat.Megjelenites
 {
     public class RaktarModositas_NM : Megfigyelheto, ICsatolhatoNezetModell
     {
@@ -29,9 +30,9 @@ namespace Sajat.Keszlet
                 if (id == 0)
                 {
                     Raktar = new Raktar();
-                    valtozas.Tarolo.Raktarak.EgyetBetesz(Raktar);
+                    valtozas.Tarolok.Raktarak.EgyetBetesz(Raktar);
                 }
-                else Raktar = valtozas.Tarolo.Raktarak.Egyetlen(id);
+                else Raktar = valtozas.Tarolok.Raktarak.Egyetlen(id);
             }
         }
 

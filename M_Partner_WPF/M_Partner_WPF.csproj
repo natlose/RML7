@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{14DFADDD-4EAD-4BFB-910D-B6A3ADF8AC52}</ProjectGuid>
     <OutputType>library</OutputType>
-    <RootNamespace>Sajat.Partner</RootNamespace>
+    <RootNamespace>Sajat.Megjelenites</RootNamespace>
     <AssemblyName>M_Partner_WPF</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -141,13 +141,9 @@
       <Project>{467a2fe7-82b3-4107-8dac-1bd134d6b279}</Project>
       <Name>S_ObjektumModel</Name>
     </ProjectReference>
-    <ProjectReference Include="..\S_SQLTarolas\S_SQLTarolas.csproj">
-      <Project>{72cc60eb-2f55-4e12-bb92-c21ab96735da}</Project>
-      <Name>S_SQLTarolas</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\U_Partner\U_Partner.csproj">
-      <Project>{643a210f-39a9-4844-806c-0f5497021ba4}</Project>
-      <Name>U_Partner</Name>
+    <ProjectReference Include="..\UzletiLogika\UzletiLogika.csproj">
+      <Project>{a660a00c-2e2a-4f58-a050-afbef17d0a36}</Project>
+      <Name>UzletiLogika</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,12 +1,13 @@
 ﻿using Sajat.Alkalmazas.API;
 using Sajat.ObjektumModel;
+using Sajat.Uzlet;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sajat.Cikk
+namespace Sajat.Megjelenites
 {
     public class AlCsoportModositas_NM : Megfigyelheto, ICsatolhatoNezetModell
     {
@@ -29,9 +30,9 @@ namespace Sajat.Cikk
                 if (id == 0)
                 {
                     AlCsoport = new AlCsoport();
-                    valtozas.Tarolo.AlCsoportok.EgyetBetesz(AlCsoport);
+                    valtozas.Tarolok.AlCsoportok.EgyetBetesz(AlCsoport);
                 }
-                else AlCsoport = valtozas.Tarolo.AlCsoportok.KiterjesztettEgyetlen(e => e.Id == id, e => e.FoCsoport);
+                else AlCsoport = valtozas.Tarolok.AlCsoportok.KiterjesztettEgyetlen(e => e.Id == id, e => e.FoCsoport);
             }
         }
 
@@ -67,7 +68,7 @@ namespace Sajat.Cikk
                     (eredmenyek) => {
                         if (eredmenyek.As<bool>("valasztas"))
                         {
-                            FoCsoport valasztott = valtozas.Tarolo.FoCsoportok.Egyetlen(eredmenyek.As<int>("id"));
+                            FoCsoport valasztott = valtozas.Tarolok.FoCsoportok.Egyetlen(eredmenyek.As<int>("id"));
                             AlCsoport.FoCsoport = valasztott;
                         }
                     }

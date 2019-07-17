@@ -1,5 +1,6 @@
 ﻿using Sajat.Alkalmazas.API;
 using Sajat.ObjektumModel;
+using Sajat.Uzlet;
 using Sajat.WPF;
 using System;
 using System.Collections.Generic;
@@ -8,13 +9,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sajat.Keszlet
+namespace Sajat.Megjelenites
 {
     public class RaktarValasztas_NM : Megfigyelheto, ICsatolhatoNezetModell
     {
-        public RaktarValasztas_NM(ITarolo tarolo)
+        public RaktarValasztas_NM(ITarolok tarolok)
         {
-            this.tarolo = tarolo;
+            this.tarolok = tarolok;
             Szuromezok = new SzuromezoGyujtemeny()
                 .Mezo("nev", new Szuromezo("Név") { Elore = 1 });
             Lekerdezeskor();
@@ -27,7 +28,7 @@ namespace Sajat.Keszlet
         public bool Megszakithato => true;
         #endregion
 
-        private ITarolo tarolo;
+        private ITarolok tarolok;
 
         public SzuromezoGyujtemeny Szuromezok { get; set; }
 
@@ -41,7 +42,7 @@ namespace Sajat.Keszlet
         public void Lekerdezeskor()
         {
             string nev = StringMuveletek.NullHaUres(Szuromezok["nev"].Ertek);
-            lista = new ObservableCollection<Raktar>(tarolo.Raktarak.MindAhol(
+            lista = new ObservableCollection<Raktar>(tarolok.Raktarak.MindAhol(
                 raktar =>
                 (nev == null || raktar.Nev.Contains(nev))
             ));
@@ -98,7 +99,7 @@ namespace Sajat.Keszlet
                     "Keszlet-RaktarModositas",
                     new FEParameterek().Parameter("id", raktar.Id),
                     (eredmenyek) => {
-                        tarolo.Raktarak.Frissit(raktar);
+                        tarolok.Raktarak.Frissit(raktar);
                     }
                 )
             );

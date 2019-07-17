@@ -1,4 +1,5 @@
 ﻿using Sajat.Alkalmazas.API;
+using Sajat.Uzlet;
 using Sajat.WPF;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Sajat.Partner
+namespace Sajat.Megjelenites
 {
     public partial class PartnerValasztas_N : UserControl
     {

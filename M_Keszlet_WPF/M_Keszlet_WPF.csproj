@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{DBB8BBD5-42C6-4633-8009-ED0F0734DF0F}</ProjectGuid>
     <OutputType>library</OutputType>
-    <RootNamespace>Sajat.Keszlet</RootNamespace>
+    <RootNamespace>Sajat.Megjelenites</RootNamespace>
     <AssemblyName>M_Keszlet_WPF</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -129,17 +129,13 @@
       <Project>{9cd601a3-b9f4-442e-8912-b8b92e64fe9c}</Project>
       <Name>M_Komponensek_WPF</Name>
     </ProjectReference>
-    <ProjectReference Include="..\S_ModulKapcsolatok\S_ModulKapcsolatok.csproj">
-      <Project>{f663b4bf-032e-4677-9db3-b8329d77e4cf}</Project>
-      <Name>S_ModulKapcsolatok</Name>
-    </ProjectReference>
     <ProjectReference Include="..\S_ObjektumModel\S_ObjektumModel.csproj">
       <Project>{467A2FE7-82B3-4107-8DAC-1BD134D6B279}</Project>
       <Name>S_ObjektumModel</Name>
     </ProjectReference>
-    <ProjectReference Include="..\U_Keszlet\U_Keszlet.csproj">
-      <Project>{b4be8578-1512-45f2-a135-455dd2ec74ed}</Project>
-      <Name>U_Keszlet</Name>
+    <ProjectReference Include="..\UzletiLogika\UzletiLogika.csproj">
+      <Project>{A660A00C-2E2A-4F58-A050-AFBEF17D0A36}</Project>
+      <Name>UzletiLogika</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

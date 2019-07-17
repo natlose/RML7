@@ -1,5 +1,6 @@
 ﻿using Sajat.Alkalmazas.API;
 using Sajat.ObjektumModel;
+using Sajat.Uzlet;
 using Sajat.WPF;
 using System;
 using System.Collections.Generic;
@@ -8,13 +9,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sajat.Cikk
+namespace Sajat.Megjelenites
 {
     public class FoCsoportValasztas_NM : Megfigyelheto, ICsatolhatoNezetModell
     {
-        public FoCsoportValasztas_NM(ITarolo tarolo)
+        public FoCsoportValasztas_NM(ITarolok tarolok)
         {
-            this.tarolo = tarolo;
+            this.tarolok = tarolok;
             Szuromezok = new SzuromezoGyujtemeny()
                 .Mezo("nev", new Szuromezo("Név") { Elore = 1 });
             Lekerdezeskor();
@@ -27,7 +28,7 @@ namespace Sajat.Cikk
         public bool Megszakithato => true;
         #endregion
 
-        private ITarolo tarolo;
+        private ITarolok tarolok;
 
         public SzuromezoGyujtemeny Szuromezok { get; set; }
 
@@ -41,7 +42,7 @@ namespace Sajat.Cikk
         public void Lekerdezeskor()
         {
             string nev = StringMuveletek.NullHaUres(Szuromezok["nev"].Ertek);
-            lista = new ObservableCollection<FoCsoport>(tarolo.FoCsoportok.MindAhol(
+            lista = new ObservableCollection<FoCsoport>(tarolok.FoCsoportok.MindAhol(
                 focsoport =>
                 (nev == null || focsoport.Nev.Contains(nev))
             ));
@@ -87,7 +88,7 @@ namespace Sajat.Cikk
                     "Cikk-FoCsoportModositas",
                     new FEParameterek().Parameter("id", focsoport.Id),
                     (eredmenyek) => {
-                        tarolo.FoCsoportok.Frissit(focsoport);
+                        tarolok.FoCsoportok.Frissit(focsoport);
                     }
                 )
             );

@@ -1,6 +1,6 @@
 ﻿using Sajat.Alkalmazas.API;
 using Sajat.ObjektumModel;
-using Sajat.SQLTarolas;
+using Sajat.Uzlet;
 using Sajat.WPF;
 using System;
 using System.Collections.Generic;
@@ -10,13 +10,13 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sajat.Partner
+namespace Sajat.Megjelenites
 {
     public class IrszamValasztas_NM : Megfigyelheto, ICsatolhatoNezetModell
     {
-        public IrszamValasztas_NM(IIrszamTarolo tarolo)
+        public IrszamValasztas_NM(ITarolok tarolok)
         {
-            this.tarolo = tarolo;
+            this.tarolok = tarolok;
             Szuromezok = new SzuromezoGyujtemeny()
                 .Mezo("orszag", new Szuromezo("Ország") { Elore = 1, Ertek = "HU"})
                 .Mezo("helyseg", new Szuromezo("Helység") { Elore = 2 });
@@ -31,7 +31,7 @@ namespace Sajat.Partner
         public FEIndito FEIndito { get; set; }
         #endregion
 
-        private IIrszamTarolo tarolo;
+        private ITarolok tarolok;
 
         private ObservableCollection<Irszam> lista;
         public ObservableCollection<Irszam> Lista
@@ -44,7 +44,7 @@ namespace Sajat.Partner
         {
             string orszag = StringMuveletek.NullHaUres(Szuromezok["orszag"].Ertek);
             string helyseg = StringMuveletek.NullHaUres(Szuromezok["helyseg"].Ertek);
-            Lista = new ObservableCollection<Irszam>(tarolo.MindAhol(
+            Lista = new ObservableCollection<Irszam>(tarolok.Irszamok.MindAhol(
                 irsz =>
                 (orszag == null || irsz.Orszagkod == orszag)
                 && (helyseg == null || irsz.Helyseg.Contains(helyseg))
@@ -59,7 +59,7 @@ namespace Sajat.Partner
                     new FEParameterek().Parameter("id", irszam.Id),
                     (eredmenyek) => {
                         Irszam modositott = eredmenyek.As<Irszam>("irszam");
-                        tarolo.Frissit(irszam);
+                        tarolok.Irszamok.Frissit(irszam);
                     }
                 )
             );

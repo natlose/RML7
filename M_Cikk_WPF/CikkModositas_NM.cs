@@ -1,12 +1,13 @@
 ﻿using Sajat.Alkalmazas.API;
 using Sajat.ObjektumModel;
+using Sajat.Uzlet;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sajat.Cikk
+namespace Sajat.Megjelenites
 {
     public class CikkModositas_NM : Megfigyelheto, ICsatolhatoNezetModell
     {
@@ -29,9 +30,9 @@ namespace Sajat.Cikk
                 if (id == 0)
                 {
                     Cikk = new Cikk();
-                    valtozas.Tarolo.Cikkek.EgyetBetesz(Cikk);
+                    valtozas.Tarolok.Cikkek.EgyetBetesz(Cikk);
                 }
-                else Cikk = valtozas.Tarolo.Cikkek.KiterjesztettEgyetlen(e => e.Id == id, e => e.AlCsoport);
+                else Cikk = valtozas.Tarolok.Cikkek.KiterjesztettEgyetlen(e => e.Id == id, e => e.AlCsoport);
             }
         }
 
@@ -67,7 +68,7 @@ namespace Sajat.Cikk
                     (eredmenyek) => {
                         if (eredmenyek.As<bool>("valasztas"))
                         {
-                            AlCsoport valasztott = valtozas.Tarolo.AlCsoportok.Egyetlen(eredmenyek.As<int>("id"));
+                            AlCsoport valasztott = valtozas.Tarolok.AlCsoportok.Egyetlen(eredmenyek.As<int>("id"));
                             Cikk.AlCsoport = valasztott;
                         }
                     }

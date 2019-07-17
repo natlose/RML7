@@ -1,12 +1,13 @@
 ﻿using Sajat.Alkalmazas.API;
 using Sajat.ObjektumModel;
+using Sajat.Uzlet;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sajat.Keszlet
+namespace Sajat.Megjelenites
 {
     public class PolcModositas_NM : Megfigyelheto, ICsatolhatoNezetModell
     {
@@ -29,11 +30,11 @@ namespace Sajat.Keszlet
                 if (id == 0)
                 {
                     Polc = new Polc();
-                    valtozas.Tarolo.Polcok.EgyetBetesz(Polc);
+                    valtozas.Tarolok.Polcok.EgyetBetesz(Polc);
                     int raktarid = value.Parameterek.As<int>("raktarid");
-                    if (raktarid != 0) Polc.Raktar = valtozas.Tarolo.Raktarak.Egyetlen(raktarid);
+                    if (raktarid != 0) Polc.Raktar = valtozas.Tarolok.Raktarak.Egyetlen(raktarid);
                 }
-                else Polc = valtozas.Tarolo.Polcok.KiterjesztettEgyetlen(e => e.Id == id, e => e.Raktar);
+                else Polc = valtozas.Tarolok.Polcok.KiterjesztettEgyetlen(e => e.Id == id, e => e.Raktar);
             }
         }
 
@@ -69,7 +70,7 @@ namespace Sajat.Keszlet
                     (eredmenyek) => {
                         if (eredmenyek.As<bool>("valasztas"))
                         {
-                            Raktar valasztott = valtozas.Tarolo.Raktarak.Egyetlen(eredmenyek.As<int>("id"));
+                            Raktar valasztott = valtozas.Tarolok.Raktarak.Egyetlen(eredmenyek.As<int>("id"));
                             Polc.Raktar = valasztott;
                         }
                     }

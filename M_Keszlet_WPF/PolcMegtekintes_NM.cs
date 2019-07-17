@@ -1,6 +1,6 @@
 ﻿using Sajat.Alkalmazas.API;
-using Sajat.Modul;
 using Sajat.ObjektumModel;
+using Sajat.Uzlet;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sajat.Keszlet
+namespace Sajat.Megjelenites
 {
     public class PolcMegtekintes_NM : Megfigyelheto, ICsatolhatoNezetModell
     {
@@ -21,14 +21,12 @@ namespace Sajat.Keszlet
             public decimal Keszlet { get; set; }
         }
 
-        public PolcMegtekintes_NM(ITarolo tarolo, ICikkReszletezo cikkReszletezo)
+        public PolcMegtekintes_NM(ITarolok tarolok)
         {
-            this.tarolo = tarolo;
-            this.cikkReszletezo = cikkReszletezo;
+            this.tarolok = tarolok;
         }
 
-        private readonly ITarolo tarolo;
-        private readonly ICikkReszletezo cikkReszletezo;
+        private readonly ITarolok tarolok;
 
 
         #region ICsatolhatoNezetModell
@@ -40,20 +38,20 @@ namespace Sajat.Keszlet
             {
                 feKerelem = value;
                 int id = value.Parameterek.As<int>("id");
-                Polc = tarolo.Polcok.KiterjesztettEgyetlen(
+                Polc = tarolok.Polcok.KiterjesztettEgyetlen(
                     e => e.Id == id,
                     e => e.Keszletek,
                     e => e.Raktar
                 );
-                IEnumerable<CikkReszletek> reszletek = cikkReszletezo.Reszletezes(Polc.Keszletek.Select(k => k.CikkID).ToList());
-                keszletlista = Polc.Keszletek.Zip(reszletek, (k, r) => new KeszletListaSor()
-                {
-                    Id = r.Id,
-                    Cikkszam = r.Cikkszam,
-                    Nev = r.Nev,
-                    MEgys = r.MEgys,
-                    Keszlet = k.Meny
-                });
+                //IEnumerable<CikkReszletek> reszletek = cikkReszletezo.Reszletezes(Polc.Keszletek.Select(k => k.CikkID).ToList());
+                //keszletlista = Polc.Keszletek.Zip(reszletek, (k, r) => new KeszletListaSor()
+                //{
+                //    Id = r.Id,
+                //    Cikkszam = r.Cikkszam,
+                //    Nev = r.Nev,
+                //    MEgys = r.MEgys,
+                //    Keszlet = k.Meny
+                //});
             }
         }
 

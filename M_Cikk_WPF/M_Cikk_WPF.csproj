@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{59728DEF-5F75-4011-9646-23E13CCDEB23}</ProjectGuid>
     <OutputType>library</OutputType>
-    <RootNamespace>Sajat.Cikk</RootNamespace>
+    <RootNamespace>Sajat.Megjelenites</RootNamespace>
     <AssemblyName>M_Cikk_WPF</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -107,17 +107,13 @@
       <Project>{9CD601A3-B9F4-442E-8912-B8B92E64FE9C}</Project>
       <Name>M_Komponensek_WPF</Name>
     </ProjectReference>
-    <ProjectReference Include="..\S_ModulKapcsolatok\S_ModulKapcsolatok.csproj">
-      <Project>{F663B4BF-032E-4677-9DB3-B8329D77E4CF}</Project>
-      <Name>S_ModulKapcsolatok</Name>
-    </ProjectReference>
     <ProjectReference Include="..\S_ObjektumModel\S_ObjektumModel.csproj">
       <Project>{467A2FE7-82B3-4107-8DAC-1BD134D6B279}</Project>
       <Name>S_ObjektumModel</Name>
     </ProjectReference>
-    <ProjectReference Include="..\U_Cikk\U_Cikk.csproj">
-      <Project>{f4a1c580-f2c1-491c-9f44-33a25935b1b7}</Project>
-      <Name>U_Cikk</Name>
+    <ProjectReference Include="..\UzletiLogika\UzletiLogika.csproj">
+      <Project>{A660A00C-2E2A-4F58-A050-AFBEF17D0A36}</Project>
+      <Name>UzletiLogika</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

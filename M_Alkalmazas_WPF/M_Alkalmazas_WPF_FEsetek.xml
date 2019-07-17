@@ -1,29 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <FEsetek>
   <!--Partner-->
-  <FEset id="Partner-PartnerValasztas" n="Sajat.Partner.PartnerValasztas_N, M_Partner_WPF" nm="Sajat.Partner.PartnerValasztas_NM, M_Partner_WPF" />
-  <FEset id="Partner-PartnerModositas" n="Sajat.Partner.PartnerModositas_N, M_Partner_WPF" nm="Sajat.Partner.PartnerModositas_NM, M_Partner_WPF" />
-  <FEset id="Partner-OrszagValasztas" n="Sajat.Partner.OrszagValasztas_N, M_Partner_WPF" nm="Sajat.Partner.OrszagValasztas_NM, M_Partner_WPF" />
-  <FEset id="Partner-OrszagModositas" n="Sajat.Partner.OrszagModositas_N, M_Partner_WPF" nm="Sajat.Partner.OrszagModositas_NM, M_Partner_WPF" />
-  <FEset id="Partner-IrszamValasztas" n="Sajat.Partner.IrszamValasztas_N, M_Partner_WPF" nm="Sajat.Partner.IrszamValasztas_NM, M_Partner_WPF" />
-  <FEset id="Partner-IrszamModositas" n="Sajat.Partner.IrszamModositas_N, M_Partner_WPF" nm="Sajat.Partner.IrszamModositas_NM, M_Partner_WPF" />
-  <FEset id="Partner-PostaCimModositas" n="Sajat.Partner.PostaCimModositas_N, M_Partner_WPF" nm="Sajat.Partner.PostaCimModositas_NM, M_Partner_WPF" />
+  <FEset id="Partner-PartnerValasztas" n="Sajat.Megjelenites.PartnerValasztas_N, M_Partner_WPF" nm="Sajat.Megjelenites.PartnerValasztas_NM, M_Partner_WPF" />
+  <FEset id="Partner-PartnerModositas" n="Sajat.Megjelenites.PartnerModositas_N, M_Partner_WPF" nm="Sajat.Megjelenites.PartnerModositas_NM, M_Partner_WPF" />
+  <FEset id="Partner-OrszagValasztas" n="Sajat.Megjelenites.OrszagValasztas_N, M_Partner_WPF" nm="Sajat.Megjelenites.OrszagValasztas_NM, M_Partner_WPF" />
+  <FEset id="Partner-OrszagModositas" n="Sajat.Megjelenites.OrszagModositas_N, M_Partner_WPF" nm="Sajat.Megjelenites.OrszagModositas_NM, M_Partner_WPF" />
+  <FEset id="Partner-IrszamValasztas" n="Sajat.Megjelenites.IrszamValasztas_N, M_Partner_WPF" nm="Sajat.Megjelenites.IrszamValasztas_NM, M_Partner_WPF" />
+  <FEset id="Partner-IrszamModositas" n="Sajat.Megjelenites.IrszamModositas_N, M_Partner_WPF" nm="Sajat.Megjelenites.IrszamModositas_NM, M_Partner_WPF" />
+  <FEset id="Partner-PostaCimModositas" n="Sajat.Megjelenites.PostaCimModositas_N, M_Partner_WPF" nm="Sajat.Megjelenites.PostaCimModositas_NM, M_Partner_WPF" />
 
   <!--Cikk-->
-  <FEset id="Cikk-FoCsoportValasztas" n="Sajat.Cikk.FoCsoportValasztas_N, M_Cikk_WPF" nm="Sajat.Cikk.FoCsoportValasztas_NM, M_Cikk_WPF" />
-  <FEset id="Cikk-FoCsoportModositas" n="Sajat.Cikk.FoCsoportModositas_N, M_Cikk_WPF" nm="Sajat.Cikk.FoCsoportModositas_NM, M_Cikk_WPF" />
-  <FEset id="Cikk-AlCsoportValasztas" n="Sajat.Cikk.AlCsoportValasztas_N, M_Cikk_WPF" nm="Sajat.Cikk.AlCsoportValasztas_NM, M_Cikk_WPF" />
-  <FEset id="Cikk-AlCsoportModositas" n="Sajat.Cikk.AlCsoportModositas_N, M_Cikk_WPF" nm="Sajat.Cikk.AlCsoportModositas_NM, M_Cikk_WPF" />
-  <FEset id="Cikk-CikkValasztas" n="Sajat.Cikk.CikkValasztas_N, M_Cikk_WPF" nm="Sajat.Cikk.CikkValasztas_NM, M_Cikk_WPF" />
-  <FEset id="Cikk-CikkModositas" n="Sajat.Cikk.CikkModositas_N, M_Cikk_WPF" nm="Sajat.Cikk.CikkModositas_NM, M_Cikk_WPF" />
-  <FEset id="Cikk-CikkMegtekintes" n="Sajat.Cikk.CikkMegtekintes_N, M_Cikk_WPF" nm="Sajat.Cikk.CikkMegtekintes_NM, M_Cikk_WPF" />
+  <FEset id="Cikk-FoCsoportValasztas" n="Sajat.Megjelenites.FoCsoportValasztas_N, M_Cikk_WPF" nm="Sajat.Megjelenites.FoCsoportValasztas_NM, M_Cikk_WPF" />
+  <FEset id="Cikk-FoCsoportModositas" n="Sajat.Megjelenites.FoCsoportModositas_N, M_Cikk_WPF" nm="Sajat.Megjelenites.FoCsoportModositas_NM, M_Cikk_WPF" />
+  <FEset id="Cikk-AlCsoportValasztas" n="Sajat.Megjelenites.AlCsoportValasztas_N, M_Cikk_WPF" nm="Sajat.Megjelenites.AlCsoportValasztas_NM, M_Cikk_WPF" />
+  <FEset id="Cikk-AlCsoportModositas" n="Sajat.Megjelenites.AlCsoportModositas_N, M_Cikk_WPF" nm="Sajat.Megjelenites.AlCsoportModositas_NM, M_Cikk_WPF" />
+  <FEset id="Cikk-CikkValasztas" n="Sajat.Megjelenites.CikkValasztas_N, M_Cikk_WPF" nm="Sajat.Megjelenites.CikkValasztas_NM, M_Cikk_WPF" />
+  <FEset id="Cikk-CikkModositas" n="Sajat.Megjelenites.CikkModositas_N, M_Cikk_WPF" nm="Sajat.Megjelenites.CikkModositas_NM, M_Cikk_WPF" />
+  <FEset id="Cikk-CikkMegtekintes" n="Sajat.Megjelenites.CikkMegtekintes_N, M_Cikk_WPF" nm="Sajat.Megjelenites.CikkMegtekintes_NM, M_Cikk_WPF" />
 
   <!--Keszlet-->
-  <FEset id="Keszlet-RaktarValasztas" n="Sajat.Keszlet.RaktarValasztas_N, M_Keszlet_WPF" nm="Sajat.Keszlet.RaktarValasztas_NM, M_Keszlet_WPF" />
-  <FEset id="Keszlet-RaktarModositas" n="Sajat.Keszlet.RaktarModositas_N, M_Keszlet_WPF" nm="Sajat.Keszlet.RaktarModositas_NM, M_Keszlet_WPF" />
-  <FEset id="Keszlet-RaktarMegtekintes" n="Sajat.Keszlet.RaktarMegtekintes_N, M_Keszlet_WPF" nm="Sajat.Keszlet.RaktarMegtekintes_NM, M_Keszlet_WPF" />
-  <FEset id="Keszlet-PolcValasztas" n="Sajat.Keszlet.PolcValasztas_N, M_Keszlet_WPF" nm="Sajat.Keszlet.PolcValasztas_NM, M_Keszlet_WPF" />
-  <FEset id="Keszlet-PolcModositas" n="Sajat.Keszlet.PolcModositas_N, M_Keszlet_WPF" nm="Sajat.Keszlet.PolcModositas_NM, M_Keszlet_WPF" />
-  <FEset id="Keszlet-PolcMegtekintes" n="Sajat.Keszlet.PolcMegtekintes_N, M_Keszlet_WPF" nm="Sajat.Keszlet.PolcMegtekintes_NM, M_Keszlet_WPF" />
+  <FEset id="Keszlet-RaktarValasztas" n="Sajat.Megjelenites.RaktarValasztas_N, M_Keszlet_WPF" nm="Sajat.Megjelenites.RaktarValasztas_NM, M_Keszlet_WPF" />
+  <FEset id="Keszlet-RaktarModositas" n="Sajat.Megjelenites.RaktarModositas_N, M_Keszlet_WPF" nm="Sajat.Megjelenites.RaktarModositas_NM, M_Keszlet_WPF" />
+  <FEset id="Keszlet-RaktarMegtekintes" n="Sajat.Megjelenites.RaktarMegtekintes_N, M_Keszlet_WPF" nm="Sajat.Megjelenites.RaktarMegtekintes_NM, M_Keszlet_WPF" />
+  <FEset id="Keszlet-PolcValasztas" n="Sajat.Megjelenites.PolcValasztas_N, M_Keszlet_WPF" nm="Sajat.Megjelenites.PolcValasztas_NM, M_Keszlet_WPF" />
+  <FEset id="Keszlet-PolcModositas" n="Sajat.Megjelenites.PolcModositas_N, M_Keszlet_WPF" nm="Sajat.Megjelenites.PolcModositas_NM, M_Keszlet_WPF" />
+  <FEset id="Keszlet-PolcMegtekintes" n="Sajat.Megjelenites.PolcMegtekintes_N, M_Keszlet_WPF" nm="Sajat.Megjelenites.PolcMegtekintes_NM, M_Keszlet_WPF" />
 
 </FEsetek>

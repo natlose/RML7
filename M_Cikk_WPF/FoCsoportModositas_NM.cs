@@ -1,12 +1,13 @@
 ﻿using Sajat.Alkalmazas.API;
 using Sajat.ObjektumModel;
+using Sajat.Uzlet;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sajat.Cikk
+namespace Sajat.Megjelenites
 {
     public class FoCsoportModositas_NM : Megfigyelheto, ICsatolhatoNezetModell
     {
@@ -29,9 +30,9 @@ namespace Sajat.Cikk
                 if (id == 0)
                 {
                     FoCsoport = new FoCsoport();
-                    valtozas.Tarolo.FoCsoportok.EgyetBetesz(FoCsoport);
+                    valtozas.Tarolok.FoCsoportok.EgyetBetesz(FoCsoport);
                 }
-                else FoCsoport = valtozas.Tarolo.FoCsoportok.Egyetlen(id);
+                else FoCsoport = valtozas.Tarolok.FoCsoportok.Egyetlen(id);
             }
         }
 

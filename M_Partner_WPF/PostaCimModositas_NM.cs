@@ -1,12 +1,13 @@
 ﻿using Sajat.Alkalmazas.API;
 using Sajat.ObjektumModel;
+using Sajat.Uzlet;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sajat.Partner
+namespace Sajat.Megjelenites
 {
     public class PostaCimModositas_NM : Megfigyelheto, ICsatolhatoNezetModell
     {

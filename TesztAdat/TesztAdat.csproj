@@ -54,25 +54,13 @@
       <Project>{467A2FE7-82B3-4107-8DAC-1BD134D6B279}</Project>
       <Name>S_ObjektumModel</Name>
     </ProjectReference>
-    <ProjectReference Include="..\S_SQLTarolas\S_SQLTarolas.csproj">
-      <Project>{72CC60EB-2F55-4E12-BB92-C21AB96735DA}</Project>
-      <Name>S_SQLTarolas</Name>
+    <ProjectReference Include="..\Tarolas\Tarolas.csproj">
+      <Project>{4cd6ecc8-c42c-48f0-9f92-e41afec99afe}</Project>
+      <Name>Tarolas</Name>
     </ProjectReference>
-    <ProjectReference Include="..\T_Cikk_SQL\T_Cikk_SQL.csproj">
-      <Project>{5d2a151c-3e55-452b-a11c-c66f066cda6e}</Project>
-      <Name>T_Cikk_SQL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\T_Keszlet_SQL\T_Keszlet_SQL.csproj">
-      <Project>{8e70c12a-7832-401c-847e-4602b75480f5}</Project>
-      <Name>T_Keszlet_SQL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\U_Cikk\U_Cikk.csproj">
-      <Project>{f4a1c580-f2c1-491c-9f44-33a25935b1b7}</Project>
-      <Name>U_Cikk</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\U_Keszlet\U_Keszlet.csproj">
-      <Project>{b4be8578-1512-45f2-a135-455dd2ec74ed}</Project>
-      <Name>U_Keszlet</Name>
+    <ProjectReference Include="..\UzletiLogika\UzletiLogika.csproj">
+      <Project>{a660a00c-2e2a-4f58-a050-afbef17d0a36}</Project>
+      <Name>UzletiLogika</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

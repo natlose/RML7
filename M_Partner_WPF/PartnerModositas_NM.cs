@@ -1,18 +1,17 @@
 ﻿using Sajat.Alkalmazas.API;
 using Sajat.ObjektumModel;
-using Sajat.Partner;
-using Sajat.SQLTarolas;
+using Sajat.Uzlet;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sajat.Partner
+namespace Sajat.Megjelenites
 {
     public class PartnerModositas_NM : Megfigyelheto, ICsatolhatoNezetModell
     {
-        public PartnerModositas_NM(IPartnerValtozas valtozas)
+        public PartnerModositas_NM(IValtozas valtozas)
         {
             this.valtozas = valtozas;
         }
@@ -29,9 +28,9 @@ namespace Sajat.Partner
                 if (id == 0)
                 {
                     Partner = new Partner();
-                    valtozas.Partnerek.EgyetBetesz(Partner);
+                    valtozas.Tarolok.Partnerek.EgyetBetesz(Partner);
                 }
-                else Partner = valtozas.Partnerek.Egyetlen(id);
+                else Partner = valtozas.Tarolok.Partnerek.KiterjesztettEgyetlen(e => e.Id == id, e => e.PostaCimek);
             }
         }
 
@@ -40,7 +39,7 @@ namespace Sajat.Partner
         public bool Megszakithato { get => !valtozas.VanValtozas; }
         #endregion
 
-        IPartnerValtozas valtozas;
+        IValtozas valtozas;
 
         private Partner partner;
 
@@ -103,7 +102,7 @@ namespace Sajat.Partner
 
         internal void Torleskor()
         {
-            valtozas.Partnerek.EgyetTorol(Partner);
+            valtozas.Tarolok.Partnerek.EgyetTorol(Partner);
             RogzitesEredmeny = valtozas.ValtozasRogzitese();
             if (RogzitesEredmeny == RogzitesEredmeny.Siker)
             {

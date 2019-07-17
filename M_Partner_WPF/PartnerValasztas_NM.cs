@@ -1,6 +1,6 @@
 ﻿using Sajat.Alkalmazas.API;
 using Sajat.ObjektumModel;
-using Sajat.SQLTarolas;
+using Sajat.Uzlet;
 using Sajat.WPF;
 using System;
 using System.Collections.Generic;
@@ -11,13 +11,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace Sajat.Partner
+namespace Sajat.Megjelenites
 {
     public class PartnerValasztas_NM : Megfigyelheto, ICsatolhatoNezetModell
     {
-        public PartnerValasztas_NM(IPartnerTarolo tarolo)
+        public PartnerValasztas_NM(ITarolok tarolok)
         {
-            this.tarolo = tarolo;
+            this.tarolok = tarolok;
             Szuromezok = new SzuromezoGyujtemeny()
                 .Mezo("nev", new Szuromezo("Név") { Elore = 1})
                 .Mezo("mobil", new Szuromezo("Mobil"))
@@ -55,7 +55,7 @@ namespace Sajat.Partner
         public bool Megszakithato { get => true; }
         #endregion
 
-        private IPartnerTarolo tarolo;
+        private ITarolok tarolok;
 
         public SzuromezoGyujtemeny Szuromezok { get; set; }
 
@@ -83,7 +83,7 @@ namespace Sajat.Partner
             string adoszam = StringMuveletek.NullHaUres(Szuromezok["adoszam"].Ertek);
             string orszag = StringMuveletek.NullHaUres(Szuromezok["orszag"].Ertek);
             Lista = new ObservableCollection<Partner>(
-                tarolo.EgyLapnyiKiterjesztettMindAhol(
+                tarolok.Partnerek.EgyLapnyiKiterjesztettMindAhol(
                     p => p.Nev, 
                     p =>
                         (nev == null || p.Nev.Contains(nev))
@@ -148,7 +148,7 @@ namespace Sajat.Partner
                     new FEParameterek().Parameter("id", partner.Id),
                     (eredmenyek) => {
                         Partner modositott = eredmenyek.As<Partner>("partner");
-                        if (eredmenyek.As<int>("rogzites") == 1) tarolo.Frissit(partner);
+                        if (eredmenyek.As<int>("rogzites") == 1) tarolok.Partnerek.Frissit(partner);
                         else if (eredmenyek.As<int>("rogzites") == -1) Lekerdezeskor();
                     }
                 )

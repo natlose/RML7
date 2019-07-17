@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Sajat.Tarolas;
+using Sajat.Uzlet;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,87 +24,85 @@ namespace TesztAdat
                 if (alapertekek.ContainsKey(p.Key)) alapertekek[p.Key] = p.Value;
 
             var rnd = new Random();
+            Valtozas_EF valtozas = new Valtozas_EF(new SajatContext());
 
             Console.WriteLine("FoCsoport");
-            Sajat.Cikk.Valtozas_EF cikkValtozas = new Sajat.Cikk.Valtozas_EF(new Sajat.Cikk.CikkContext());
             for (int i = 0; i<alapertekek["FOCSOPORT"]; i++)
             {
-                cikkValtozas.Tarolo.FoCsoportok.EgyetBetesz( new Sajat.Cikk.FoCsoport() {
+                valtozas.Tarolok.FoCsoportok.EgyetBetesz( new FoCsoport() {
                     Nev = Guid.NewGuid().ToString()
                 });
             }
-            cikkValtozas.ValtozasRogzitese();
+            valtozas.ValtozasRogzitese();
 
             Console.WriteLine("AlCsoport");
-            var mindenId = cikkValtozas.Tarolo.FoCsoportok.Mind().Select(e => e.Id).ToArray();
+            var mindenId = valtozas.Tarolok.FoCsoportok.Mind().Select(e => e.Id).ToArray();
             for (int i = 0; i < alapertekek["ALCSOPORT"]; i++)
             {
                 int veletlen = rnd.Next(mindenId.Count());
-                cikkValtozas.Tarolo.AlCsoportok.EgyetBetesz(new Sajat.Cikk.AlCsoport()
+                valtozas.Tarolok.AlCsoportok.EgyetBetesz(new AlCsoport()
                 {
                     Nev = Guid.NewGuid().ToString(),
-                    FoCsoport = cikkValtozas.Tarolo.FoCsoportok.Egyetlen(mindenId[veletlen])
+                    FoCsoport = valtozas.Tarolok.FoCsoportok.Egyetlen(mindenId[veletlen])
                 }); 
             }
-            cikkValtozas.ValtozasRogzitese();
+            valtozas.ValtozasRogzitese();
 
             Console.WriteLine("Cikk");
-            var mindenAlCsop = cikkValtozas.Tarolo.AlCsoportok.Mind().Select(e => e.Id).ToArray();
+            var mindenAlCsop = valtozas.Tarolok.AlCsoportok.Mind().Select(e => e.Id).ToArray();
             for (int i = 0; i < alapertekek["CIKK"]; i++)
             {
                 int veletlen = rnd.Next(mindenAlCsop.Count());
-                cikkValtozas.Tarolo.Cikkek.EgyetBetesz(new Sajat.Cikk.Cikk()
+                valtozas.Tarolok.Cikkek.EgyetBetesz(new Cikk()
                 {
                     Cikkszam = Guid.NewGuid().ToString(),
                     GyartoiCikkszam = Guid.NewGuid().ToString(),
                     Nev = Guid.NewGuid().ToString(),
                     MEgys = Guid.NewGuid().ToString().Substring(0, 10),
-                    AlCsoport = cikkValtozas.Tarolo.AlCsoportok.Egyetlen(mindenAlCsop[veletlen]),
+                    AlCsoport = valtozas.Tarolok.AlCsoportok.Egyetlen(mindenAlCsop[veletlen]),
                     
                 }); 
             }
-            cikkValtozas.ValtozasRogzitese();
-
-            Sajat.Keszlet.Valtozas_EF keszletValtozas = new Sajat.Keszlet.Valtozas_EF(new Sajat.Keszlet.KeszletContext());
+            valtozas.ValtozasRogzitese();
 
             Console.WriteLine("Raktar");
             for (int i = 0; i < alapertekek["RAKTAR"]; i++)
             {
-                keszletValtozas.Tarolo.Raktarak.EgyetBetesz(new Sajat.Keszlet.Raktar()
+                valtozas.Tarolok.Raktarak.EgyetBetesz(new Raktar()
                 {
                     Nev = Guid.NewGuid().ToString().Substring(0, 30)
                 }); ;
             }
-            keszletValtozas.ValtozasRogzitese();
+            valtozas.ValtozasRogzitese();
 
             Console.WriteLine("Polc");
-            var mindenRaktar = keszletValtozas.Tarolo.Raktarak.Mind().Select(e => e.Id).ToArray();
+            var mindenRaktar = valtozas.Tarolok.Raktarak.Mind().Select(e => e.Id).ToArray();
             for (int i = 0; i < alapertekek["POLC"]; i++)
             {
                 int veletlen = rnd.Next(mindenRaktar.Count());
-                keszletValtozas.Tarolo.Polcok.EgyetBetesz(new Sajat.Keszlet.Polc()
+                valtozas.Tarolok.Polcok.EgyetBetesz(new Polc()
                 {
                     Kod = Guid.NewGuid().ToString().Substring(0, 15),
                     Megjegyzes = Guid.NewGuid().ToString(),
-                    Raktar = keszletValtozas.Tarolo.Raktarak.Egyetlen(mindenRaktar[veletlen])
+                    Raktar = valtozas.Tarolok.Raktarak.Egyetlen(mindenRaktar[veletlen])
                 });
             }
-            keszletValtozas.ValtozasRogzitese();
+            valtozas.ValtozasRogzitese();
 
             Console.WriteLine("Keszlet");
-            var mindenPolc = keszletValtozas.Tarolo.Polcok.Mind().Select(e => e.Id).ToArray();
-            var mindenCikk = cikkValtozas.Tarolo.Cikkek.Mind().Select(e => e.Id).ToArray();
+            var mindenPolc = valtozas.Tarolok.Polcok.Mind().Select(e => e.Id).ToArray();
+            var mindenCikk = valtozas.Tarolok.Cikkek.Mind().Select(e => e.Id).ToArray();
             for (int i = 0; i < alapertekek["KESZLET"]; i++)
             {
                 int veletlenPolc = rnd.Next(mindenPolc.Count());
                 int veletlenCikk = rnd.Next(mindenCikk.Count());
-                keszletValtozas.Tarolo.Keszletek.EgyetBetesz(new Sajat.Keszlet.Keszlet()
+                valtozas.Tarolok.Keszletek.EgyetBetesz(new Keszlet()
                 {
-                    Polc = keszletValtozas.Tarolo.Polcok.Egyetlen(mindenPolc[veletlenPolc]),
-                    CikkID = mindenCikk[veletlenCikk],
+                    Polc = valtozas.Tarolok.Polcok.Egyetlen(mindenPolc[veletlenPolc]),
+                    Cikk = valtozas.Tarolok.Cikkek.Egyetlen(mindenCikk[veletlenCikk]),
                     Meny = rnd.Next(100)
                 });
-                keszletValtozas.ValtozasRogzitese();
+                valtozas.ValtozasRogzitese();
             }
 
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sajat.Uzlet;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Sajat.Keszlet
+namespace Sajat.Megjelenites
 {
     public partial class RaktarValasztas_N : UserControl
     {

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Sajat.Keszlet.Properties {
+namespace Sajat.Megjelenites.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

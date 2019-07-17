@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A660A00C-2E2A-4F58-A050-AFBEF17D0A36}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Sajat.Uzlet</RootNamespace>
+    <AssemblyName>UzletiLogika</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AlCsoport.cs" />
+    <Compile Include="Cikk.cs" />
+    <Compile Include="Elerhetoseg.cs" />
+    <Compile Include="FoCsoport.cs" />
+    <Compile Include="Irszam.cs" />
+    <Compile Include="ITarolok.cs" />
+    <Compile Include="IValtozas.cs" />
+    <Compile Include="Jogiszemely.cs" />
+    <Compile Include="Keszlet.cs" />
+    <Compile Include="Maganszemely.cs" />
+    <Compile Include="Orszag.cs" />
+    <Compile Include="Partner.cs" />
+    <Compile Include="Polc.cs" />
+    <Compile Include="PostaCim.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Raktar.cs" />
+    <Compile Include="Szotar_Partner_MJ.cs" />
+    <Compile Include="Szotar_PostaCim_Tipus.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\S_ObjektumModel\S_ObjektumModel.csproj">
+      <Project>{467A2FE7-82B3-4107-8DAC-1BD134D6B279}</Project>
+      <Name>S_ObjektumModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

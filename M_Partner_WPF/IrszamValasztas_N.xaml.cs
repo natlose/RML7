@@ -1,4 +1,5 @@
 ﻿using Sajat.Alkalmazas.API;
+using Sajat.Uzlet;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,11 +15,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Sajat.Partner
+namespace Sajat.Megjelenites
 {
-    /// <summary>
-    /// Interaction logic for IrszamValasztas.xaml
-    /// </summary>
     public partial class IrszamValasztas_N : UserControl
     {
         public IrszamValasztas_N()

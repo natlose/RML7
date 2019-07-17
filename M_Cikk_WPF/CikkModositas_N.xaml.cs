@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Sajat.Cikk
+namespace Sajat.Megjelenites
 {
     public partial class CikkModositas_N : UserControl
     {

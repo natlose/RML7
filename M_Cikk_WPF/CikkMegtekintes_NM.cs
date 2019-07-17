@@ -1,24 +1,22 @@
 ﻿using Sajat.Alkalmazas.API;
-using Sajat.Modul;
 using Sajat.ObjektumModel;
+using Sajat.Uzlet;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sajat.Cikk
+namespace Sajat.Megjelenites
 {
     public class CikkMegtekintes_NM : Megfigyelheto, ICsatolhatoNezetModell
     {
-        public CikkMegtekintes_NM(ITarolo tarolo, IKeszletReszletezo keszletReszletezo)
+        public CikkMegtekintes_NM(ITarolok tarolok)
         {
-            this.tarolo = tarolo;
-            this.keszletReszletezo = keszletReszletezo;
+            this.tarolok = tarolok;
         }
 
-        private readonly ITarolo tarolo;
-        private readonly IKeszletReszletezo keszletReszletezo;
+        private readonly ITarolok tarolok;
 
         #region ICsatolhatoNezetModell
         private FEKerelem feKerelem;
@@ -29,8 +27,11 @@ namespace Sajat.Cikk
             {
                 feKerelem = value;
                 int id = value.Parameterek.As<int>("id");
-                Cikk = tarolo.Cikkek.KiterjesztettEgyetlen(e => e.Id == id, e => e.AlCsoport);
-                KeszletLista = keszletReszletezo.Reszletezes(new[] { Cikk.Id });                
+                Cikk = tarolok.Cikkek.KiterjesztettEgyetlen(
+                    e => e.Id == id, 
+                    e => e.AlCsoport,
+                    e => e.Keszletek
+                );
             }
         }
 
@@ -45,8 +46,8 @@ namespace Sajat.Cikk
             set => ErtekadasErtesites(ref cikk, value);
         }
 
-        private IEnumerable<KeszletReszletek> keszletlista;
-        public IEnumerable<KeszletReszletek> KeszletLista
+        private IEnumerable<Keszlet> keszletlista;
+        public IEnumerable<Keszlet> KeszletLista
         {
             get => keszletlista;
             set => ErtekadasErtesites(ref keszletlista, value);

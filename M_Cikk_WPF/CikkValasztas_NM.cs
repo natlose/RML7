@@ -1,5 +1,6 @@
 ﻿using Sajat.Alkalmazas.API;
 using Sajat.ObjektumModel;
+using Sajat.Uzlet;
 using Sajat.WPF;
 using System;
 using System.Collections.Generic;
@@ -8,13 +9,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sajat.Cikk
+namespace Sajat.Megjelenites
 {
     public class CikkValasztas_NM : Megfigyelheto, ICsatolhatoNezetModell
     {
-        public CikkValasztas_NM(ITarolo tarolo)
+        public CikkValasztas_NM(ITarolok tarolok)
         {
-            this.tarolo = tarolo;
+            this.tarolok = tarolok;
             Szuromezok = new SzuromezoGyujtemeny()
                 .Mezo("nev", new Szuromezo("Név") { Elore = 1 })
                 .Mezo("cikkszam", new Szuromezo("Cikkszám") { Elore = 2 })
@@ -30,7 +31,7 @@ namespace Sajat.Cikk
         public bool Megszakithato => true;
         #endregion
 
-        private ITarolo tarolo;
+        private ITarolok tarolok;
 
         public SzuromezoGyujtemeny Szuromezok { get; set; }
 
@@ -47,7 +48,7 @@ namespace Sajat.Cikk
             string cikkszam = StringMuveletek.NullHaUres(Szuromezok["cikkszam"].Ertek);
             string gyartoi = StringMuveletek.NullHaUres(Szuromezok["gyartoi"].Ertek);
             string angolnev = StringMuveletek.NullHaUres(Szuromezok["angolnev"].Ertek);
-            lista = new ObservableCollection<Cikk>(tarolo.Cikkek.MindAhol(
+            lista = new ObservableCollection<Cikk>(tarolok.Cikkek.MindAhol(
                 cikk =>
                 (nev == null || cikk.Nev.Contains(nev))
                 && (cikkszam == null || cikk.Cikkszam.Contains(cikkszam))
@@ -96,7 +97,7 @@ namespace Sajat.Cikk
                     "Cikk-CikkModositas",
                     new FEParameterek().Parameter("id", cikk.Id),
                     (eredmenyek) => {
-                        tarolo.Cikkek.Frissit(cikk);
+                        tarolok.Cikkek.Frissit(cikk);
                     }
                 )
             );

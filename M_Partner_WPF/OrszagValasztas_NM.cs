@@ -1,6 +1,6 @@
 ﻿using Sajat.Alkalmazas.API;
 using Sajat.ObjektumModel;
-using Sajat.SQLTarolas;
+using Sajat.Uzlet;
 using Sajat.WPF;
 using System;
 using System.Collections.Generic;
@@ -9,13 +9,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sajat.Partner
+namespace Sajat.Megjelenites
 {
     public class OrszagValasztas_NM : Megfigyelheto, ICsatolhatoNezetModell
     {
-        public OrszagValasztas_NM(IOrszagTarolo tarolo)
+        public OrszagValasztas_NM(ITarolok tarolok)
         {
-            this.tarolo = tarolo;
+            this.tarolok = tarolok;
             Szuromezok = new SzuromezoGyujtemeny()
                 .Mezo("nev", new Szuromezo("Név") { Elore = 1 });
         }
@@ -28,7 +28,7 @@ namespace Sajat.Partner
         public bool Megszakithato { get => true; }
         #endregion
 
-        private IOrszagTarolo tarolo;
+        private ITarolok tarolok;
 
         private ObservableCollection<Orszag> lista;
         public ObservableCollection<Orszag> Lista
@@ -42,7 +42,7 @@ namespace Sajat.Partner
         public void Lekerdezeskor()
         {
             string nev = StringMuveletek.NullHaUres(Szuromezok["nev"].Ertek);
-            lista = new ObservableCollection<Orszag>(tarolo.MindAhol(
+            lista = new ObservableCollection<Orszag>(tarolok.Orszagok.MindAhol(
                 orszag =>
                 (nev == null || orszag.Nev.Contains(nev))
             ));
@@ -91,7 +91,7 @@ namespace Sajat.Partner
                     new FEParameterek().Parameter("id", orszag.Id),
                     (eredmenyek) => {
                         Orszag modositott = eredmenyek.As<Orszag>("orszag");
-                        tarolo.Frissit(orszag);
+                        tarolok.Orszagok.Frissit(orszag);
                     }
                 )
             );

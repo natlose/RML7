@@ -13,11 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Sajat.Partner
+namespace Sajat.Megjelenites
 {
-    /// <summary>
-    /// Interaction logic for IrszamModositas_N.xaml
-    /// </summary>
     public partial class IrszamModositas_N : UserControl
     {
         public IrszamModositas_N()
