@@ -60,7 +60,7 @@ namespace Sajat.Alkalmazas.WPF
         {
             try
             {
-                rekurzivGyermekElemErtelmezes(XElement.Load(Path.Combine(Directory.GetCurrentDirectory(), "M_Alkalmazas_WPF_BalMenu.xml")), 0, null);
+                rekurzivGyermekElemErtelmezes(XElement.Load(Path.Combine(Directory.GetCurrentDirectory(), "Alkalmazas_BalMenu.xml")), 0, null);
                 foreach (var sor in MindenSor.Where(i => i.SzuloSor == null)) sor.Lathato = true;
                 lathatoSorokUjrageneralasa();
             }

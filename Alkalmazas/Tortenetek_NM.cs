@@ -17,7 +17,7 @@ namespace Sajat.Alkalmazas.WPF
     {
         public ObservableCollection<Tortenet> Tortenetek { get; set; } = new ObservableCollection<Tortenet>();
 
-        private Regiszter regiszter = new Regiszter(Path.Combine(Directory.GetCurrentDirectory(), "M_Alkalmazas_WPF_FEsetek.xml"));
+        private Regiszter regiszter = new Regiszter(Path.Combine(Directory.GetCurrentDirectory(), "Alkalmazas_FEsetek.xml"));
 
         private static string[] KonfiguraltModulok(string konfigFajlUtvonal)
         {
@@ -45,7 +45,7 @@ namespace Sajat.Alkalmazas.WPF
         private IKernel ninjectKernel = new StandardKernel(
             new NinjectSettings()
             {
-                ExtensionSearchPatterns = KonfiguraltModulok(Path.Combine(Directory.GetCurrentDirectory(), "M_Alkalmazas_WPF_Modulok.xml")),
+                ExtensionSearchPatterns = KonfiguraltModulok(Path.Combine(Directory.GetCurrentDirectory(), "Alkalmazas_Modulok.xml")),
                 LoadExtensions = true
             }
         );

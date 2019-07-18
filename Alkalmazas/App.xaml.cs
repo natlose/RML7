@@ -16,7 +16,7 @@ namespace Sajat.Alkalmazas.WPF
 
         private void Application_Startup(object sender, StartupEventArgs e)
         {
-            StilusBetoltese(@"M_Alkalmazas_WPF_EgyeniStilus.xaml");
+            StilusBetoltese(@"Alkalmazas_EgyeniStilus.xaml");
         }
 
         private void StilusBetoltese(string utvonal)
