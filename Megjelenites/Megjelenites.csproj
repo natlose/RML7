@@ -155,6 +155,10 @@
       <Project>{611b3834-2676-4288-a577-b2ce9bf449df}</Project>
       <Name>AlkalmazasLogika</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Komponensek\Komponensek.csproj">
+      <Project>{6e7449f9-bf21-4b57-b575-f9d8b8a7ba0f}</Project>
+      <Name>Komponensek</Name>
+    </ProjectReference>
     <ProjectReference Include="..\UzletiLogika\UzletiLogika.csproj">
       <Project>{a660a00c-2e2a-4f58-a050-afbef17d0a36}</Project>
       <Name>UzletiLogika</Name>

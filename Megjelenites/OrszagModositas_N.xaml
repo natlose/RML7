@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Sajat.Megjelenites"
-             xmlns:sajatwpf="clr-namespace:Sajat.WPF;assembly=M_Komponensek_WPF"             
+             xmlns:sajatwpf="clr-namespace:Sajat.WPF;assembly=Komponensek"             
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <sajatwpf:EgysegnyiValtozas 
