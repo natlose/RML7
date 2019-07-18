@@ -1,29 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <FEsetek>
   <!--Partner-->
-  <FEset id="PartnerValasztas" n="PartnerValasztas_N, M_Partner_WPF" nm="PartnerValasztas_NM, M_Partner_WPF" />
-  <FEset id="PartnerModositas" n="PartnerModositas_N, M_Partner_WPF" nm="PartnerModositas_NM, M_Partner_WPF" />
-  <FEset id="OrszagValasztas" n="OrszagValasztas_N, M_Partner_WPF" nm="OrszagValasztas_NM, M_Partner_WPF" />
-  <FEset id="OrszagModositas" n="OrszagModositas_N, M_Partner_WPF" nm="OrszagModositas_NM, M_Partner_WPF" />
-  <FEset id="IrszamValasztas" n="IrszamValasztas_N, M_Partner_WPF" nm="IrszamValasztas_NM, M_Partner_WPF" />
-  <FEset id="IrszamModositas" n="IrszamModositas_N, M_Partner_WPF" nm="IrszamModositas_NM, M_Partner_WPF" />
-  <FEset id="PostaCimModositas" n="PostaCimModositas_N, M_Partner_WPF" nm="PostaCimModositas_NM, M_Partner_WPF" />
+  <FEset id="PartnerValasztas" n="PartnerValasztas_N, Megjelenites" nm="PartnerValasztas_NM, Megjelenites" />
+  <FEset id="PartnerModositas" n="PartnerModositas_N, Megjelenites" nm="PartnerModositas_NM, Megjelenites" />
+  <FEset id="OrszagValasztas" n="OrszagValasztas_N, Megjelenites" nm="OrszagValasztas_NM, Megjelenites" />
+  <FEset id="OrszagModositas" n="OrszagModositas_N, Megjelenites" nm="OrszagModositas_NM, Megjelenites" />
+  <FEset id="IrszamValasztas" n="IrszamValasztas_N, Megjelenites" nm="IrszamValasztas_NM, Megjelenites" />
+  <FEset id="IrszamModositas" n="IrszamModositas_N, Megjelenites" nm="IrszamModositas_NM, Megjelenites" />
+  <FEset id="PostaCimModositas" n="PostaCimModositas_N, Megjelenites" nm="PostaCimModositas_NM, Megjelenites" />
 
   <!--Cikk-->
-  <FEset id="FoCsoportValasztas" n="FoCsoportValasztas_N, M_Cikk_WPF" nm="FoCsoportValasztas_NM, M_Cikk_WPF" />
-  <FEset id="FoCsoportModositas" n="FoCsoportModositas_N, M_Cikk_WPF" nm="FoCsoportModositas_NM, M_Cikk_WPF" />
-  <FEset id="AlCsoportValasztas" n="AlCsoportValasztas_N, M_Cikk_WPF" nm="AlCsoportValasztas_NM, M_Cikk_WPF" />
-  <FEset id="AlCsoportModositas" n="AlCsoportModositas_N, M_Cikk_WPF" nm="AlCsoportModositas_NM, M_Cikk_WPF" />
-  <FEset id="CikkValasztas" n="CikkValasztas_N, M_Cikk_WPF" nm="CikkValasztas_NM, M_Cikk_WPF" />
-  <FEset id="CikkModositas" n="CikkModositas_N, M_Cikk_WPF" nm="CikkModositas_NM, M_Cikk_WPF" />
-  <FEset id="CikkMegtekintes" n="CikkMegtekintes_N, M_Cikk_WPF" nm="CikkMegtekintes_NM, M_Cikk_WPF" />
+  <FEset id="FoCsoportValasztas" n="FoCsoportValasztas_N, Megjelenites" nm="FoCsoportValasztas_NM, Megjelenites" />
+  <FEset id="FoCsoportModositas" n="FoCsoportModositas_N, Megjelenites" nm="FoCsoportModositas_NM, Megjelenites" />
+  <FEset id="AlCsoportValasztas" n="AlCsoportValasztas_N, Megjelenites" nm="AlCsoportValasztas_NM, Megjelenites" />
+  <FEset id="AlCsoportModositas" n="AlCsoportModositas_N, Megjelenites" nm="AlCsoportModositas_NM, Megjelenites" />
+  <FEset id="CikkValasztas" n="CikkValasztas_N, Megjelenites" nm="CikkValasztas_NM, Megjelenites" />
+  <FEset id="CikkModositas" n="CikkModositas_N, Megjelenites" nm="CikkModositas_NM, Megjelenites" />
+  <FEset id="CikkMegtekintes" n="CikkMegtekintes_N, Megjelenites" nm="CikkMegtekintes_NM, Megjelenites" />
 
   <!--Keszlet-->
-  <FEset id="RaktarValasztas" n="RaktarValasztas_N, M_Keszlet_WPF" nm="RaktarValasztas_NM, M_Keszlet_WPF" />
-  <FEset id="RaktarModositas" n="RaktarModositas_N, M_Keszlet_WPF" nm="RaktarModositas_NM, M_Keszlet_WPF" />
-  <FEset id="RaktarMegtekintes" n="RaktarMegtekintes_N, M_Keszlet_WPF" nm="RaktarMegtekintes_NM, M_Keszlet_WPF" />
-  <FEset id="PolcValasztas" n="PolcValasztas_N, M_Keszlet_WPF" nm="PolcValasztas_NM, M_Keszlet_WPF" />
-  <FEset id="PolcModositas" n="PolcModositas_N, M_Keszlet_WPF" nm="PolcModositas_NM, M_Keszlet_WPF" />
-  <FEset id="PolcMegtekintes" n="PolcMegtekintes_N, M_Keszlet_WPF" nm="PolcMegtekintes_NM, M_Keszlet_WPF" />
+  <FEset id="RaktarValasztas" n="RaktarValasztas_N, Megjelenites" nm="RaktarValasztas_NM, Megjelenites" />
+  <FEset id="RaktarModositas" n="RaktarModositas_N, Megjelenites" nm="RaktarModositas_NM, Megjelenites" />
+  <FEset id="RaktarMegtekintes" n="RaktarMegtekintes_N, Megjelenites" nm="RaktarMegtekintes_NM, Megjelenites" />
+  <FEset id="PolcValasztas" n="PolcValasztas_N, Megjelenites" nm="PolcValasztas_NM, Megjelenites" />
+  <FEset id="PolcModositas" n="PolcModositas_N, Megjelenites" nm="PolcModositas_NM, Megjelenites" />
+  <FEset id="PolcMegtekintes" n="PolcMegtekintes_N, Megjelenites" nm="PolcMegtekintes_NM, Megjelenites" />
 
 </FEsetek>
