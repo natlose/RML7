@@ -12,14 +12,14 @@
             <sajatwpf:StatikusSzoveg Cimke="Raktár" Szoveg="{Binding Polc.Raktar.Nev}" />
             <sajatwpf:StatikusSzoveg Cimke="Kód" Szoveg="{Binding Polc.Kod}" />
             <sajatwpf:StatikusSzoveg Cimke="Megjegyzés" Szoveg="{Binding Polc.Megjegyzes}" />
-            <sajatwpf:GombosLista TetelForras="{Binding KeszletLista, Mode=OneWay}" Cimke="Készletek" Megnyit="KeszletMegnyitaskor">
-                <GridViewColumn DisplayMemberBinding="{Binding Cikkszam}" Header="Cikkszám" Width="Auto" />
-                <GridViewColumn DisplayMemberBinding="{Binding Nev}" Header="Név" Width="Auto" />
-                <GridViewColumn DisplayMemberBinding="{Binding MEgys}" Header="ME" Width="Auto" />
+            <sajatwpf:GombosLista TetelForras="{Binding Polc.Keszletek, Mode=OneWay}" Cimke="Készletek" Megnyit="KeszletMegnyitaskor">
+                <GridViewColumn DisplayMemberBinding="{Binding Cikk.Cikkszam}" Header="Cikkszám" Width="Auto" />
+                <GridViewColumn DisplayMemberBinding="{Binding Cikk.Nev}" Header="Név" Width="Auto" />
+                <GridViewColumn DisplayMemberBinding="{Binding Cikk.MEgys}" Header="ME" Width="Auto" />
                 <GridViewColumn Header="Készlet">
                     <GridViewColumn.CellTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{Binding Keszlet, StringFormat={}{0:#,0.0}}" TextAlignment="Right" Width="Auto" />
+                            <TextBlock Text="{Binding Meny, StringFormat={}{0:#,0.0}}" TextAlignment="Right" Width="80" />
                         </DataTemplate>
                     </GridViewColumn.CellTemplate>
                 </GridViewColumn>

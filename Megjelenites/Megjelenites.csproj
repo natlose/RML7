@@ -32,6 +32,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -158,6 +159,10 @@
     <ProjectReference Include="..\Komponensek\Komponensek.csproj">
       <Project>{6e7449f9-bf21-4b57-b575-f9d8b8a7ba0f}</Project>
       <Name>Komponensek</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tarolas\Tarolas.csproj">
+      <Project>{4CD6ECC8-C42C-48F0-9F92-E41AFEC99AFE}</Project>
+      <Name>Tarolas</Name>
     </ProjectReference>
     <ProjectReference Include="..\UzletiLogika\UzletiLogika.csproj">
       <Project>{a660a00c-2e2a-4f58-a050-afbef17d0a36}</Project>
