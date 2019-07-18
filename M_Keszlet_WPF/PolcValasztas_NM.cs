@@ -23,7 +23,7 @@ namespace Sajat.Megjelenites
                     {
                         FEIndito.Inditas(
                             new FEKerelem(
-                                "Keszlet-RaktarValasztas",
+                                "RaktarValasztas",
                                 null,
                                 (eredmenyek) => {
                                     if (eredmenyek.As<bool>("valasztas"))
@@ -87,7 +87,7 @@ namespace Sajat.Megjelenites
         {
             FEIndito.Inditas(
                 new FEKerelem(
-                    "Keszlet-PolcModositas",
+                    "PolcModositas",
                     new FEParameterek().Parameter("id", 0),
                     (eredmenyek) => {
                         if (eredmenyek.As<bool>("rogzites")) Lekerdezeskor();
@@ -109,7 +109,7 @@ namespace Sajat.Megjelenites
         {
             FEIndito.Inditas(
                 new FEKerelem(
-                    "Keszlet-PolcModositas",
+                    "PolcModositas",
                     new FEParameterek().Parameter("id", polc.Id),
                     (eredmenyek) => {
                         tarolok.Polcok.Frissit(polc);
@@ -122,7 +122,7 @@ namespace Sajat.Megjelenites
         {
             FEIndito.Inditas(
                 new FEKerelem(
-                    "Keszlet-PolcMegtekintes",
+                    "PolcMegtekintes",
                     new FEParameterek().Parameter("id", polc.Id),
                     null
                 )

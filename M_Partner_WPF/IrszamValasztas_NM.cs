@@ -55,7 +55,7 @@ namespace Sajat.Megjelenites
         {
             FEIndito.Inditas(
                 new FEKerelem(
-                    "Partner-IrszamModositas",
+                    "IrszamModositas",
                     new FEParameterek().Parameter("id", irszam.Id),
                     (eredmenyek) => {
                         Irszam modositott = eredmenyek.As<Irszam>("irszam");
@@ -68,7 +68,7 @@ namespace Sajat.Megjelenites
         {
             FEIndito.Inditas(
                 new FEKerelem(
-                    "Partner-IrszamModositas",
+                    "IrszamModositas",
                     new FEParameterek().Parameter("id", 0),
                     (eredmenyek) => {
                         if (eredmenyek.As<bool>("rogzites"))

@@ -51,6 +51,7 @@ namespace Sajat.Alkalmazas.WPF
 
         public void FEKerelemkor(FEKerelem kerelem)
         {
+            const string nevter = "Sajat.Megjelenites.";
             try
             {
                 RegiszterBejegyzes regiszter = fesetIdFelismeres(kerelem.Id);
@@ -58,7 +59,7 @@ namespace Sajat.Alkalmazas.WPF
                     throw new ArgumentException($"A {kerelem.Id} felhasználói esetre nincsenek regisztrált osztályok!");
                 FEset eset = new FEset();
                 // Példányosítjuk a NézetModellt
-                object ismeretlenNM = ninjectKernel.GetService(Type.GetType(regiszter.NezetModellOsztaly, true));
+                object ismeretlenNM = ninjectKernel.GetService(Type.GetType(nevter + regiszter.NezetModellOsztaly, true));
                 if (!(ismeretlenNM is ICsatolhatoNezetModell))
                     throw new ArgumentException($"A {ismeretlenNM.GetType().AssemblyQualifiedName} ICsatolhatoNezetModell kell legyen!");
                 eset.NezetModell = ismeretlenNM as ICsatolhatoNezetModell;
@@ -81,7 +82,7 @@ namespace Sajat.Alkalmazas.WPF
                 eset.NezetModell.FEKerelem = kerelem;
                 // Példányosítjuk a Nézetet
                 eset.Nezet = new FEset_N();
-                object ismeretlenN = Activator.CreateInstance(Type.GetType(regiszter.NezetOsztaly, true));
+                object ismeretlenN = Activator.CreateInstance(Type.GetType(nevter + regiszter.NezetOsztaly, true));
                 if (!(ismeretlenN is UserControl))
                     throw new ArgumentException($"A {ismeretlenN.GetType().AssemblyQualifiedName} UserControl kell legyen!");
                 UserControl nezetBelso = ismeretlenN as UserControl;

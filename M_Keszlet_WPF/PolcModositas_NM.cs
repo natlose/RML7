@@ -65,7 +65,7 @@ namespace Sajat.Megjelenites
         {
             FEIndito.Inditas(
                 new FEKerelem(
-                    "Keszlet-RaktarValasztas",
+                    "RaktarValasztas",
                     null,
                     (eredmenyek) => {
                         if (eredmenyek.As<bool>("valasztas"))

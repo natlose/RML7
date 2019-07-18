@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Menu>
   <Sor szoveg="Partnerek">
-    <Sor szoveg="Partnerek" id="Partner-PartnerValasztas"/>
-    <Sor szoveg="Országok" id="Partner-OrszagValasztas"/>
-    <Sor szoveg="Irányítószámok" id="Partner-IrszamValasztas" />
+    <Sor szoveg="Partnerek" id="PartnerValasztas"/>
+    <Sor szoveg="Országok" id="OrszagValasztas"/>
+    <Sor szoveg="Irányítószámok" id="IrszamValasztas" />
   </Sor>
   <Sor szoveg="Cikkek">
-    <Sor szoveg="Cikkek" id="Cikk-CikkValasztas"/>
-    <Sor szoveg="Főcsoportok" id="Cikk-FoCsoportValasztas"/>
-    <Sor szoveg="Alcsoportok" id="Cikk-AlCsoportValasztas"/>
+    <Sor szoveg="Cikkek" id="CikkValasztas"/>
+    <Sor szoveg="Főcsoportok" id="FoCsoportValasztas"/>
+    <Sor szoveg="Alcsoportok" id="AlCsoportValasztas"/>
   </Sor>
   <Sor szoveg="Készlet">
-    <Sor szoveg="Raktárak" id="Keszlet-RaktarValasztas"/>
-    <Sor szoveg="Polcok" id="Keszlet-PolcValasztas"/>
+    <Sor szoveg="Raktárak" id="RaktarValasztas"/>
+    <Sor szoveg="Polcok" id="PolcValasztas"/>
   </Sor>
 </Menu>

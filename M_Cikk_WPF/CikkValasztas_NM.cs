@@ -69,7 +69,7 @@ namespace Sajat.Megjelenites
         {
             FEIndito.Inditas(
                 new FEKerelem(
-                    "Cikk-CikkModositas",
+                    "CikkModositas",
                     new FEParameterek().Parameter("id", 0),
                     (eredmenyek) => {
                         if (eredmenyek.As<bool>("rogzites"))
@@ -94,7 +94,7 @@ namespace Sajat.Megjelenites
         {
             FEIndito.Inditas(
                 new FEKerelem(
-                    "Cikk-CikkModositas",
+                    "CikkModositas",
                     new FEParameterek().Parameter("id", cikk.Id),
                     (eredmenyek) => {
                         tarolok.Cikkek.Frissit(cikk);
@@ -107,7 +107,7 @@ namespace Sajat.Megjelenites
         {
             FEIndito.Inditas(
                 new FEKerelem(
-                    "Cikk-CikkMegtekintes",
+                    "CikkMegtekintes",
                     new FEParameterek().Parameter("id", cikk.Id),
                     null
                 )

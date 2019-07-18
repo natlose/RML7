@@ -24,7 +24,7 @@ namespace Sajat.Megjelenites
                     {
                         FEIndito.Inditas(
                             new FEKerelem(
-                                "Cikk-FoCsoportValasztas",
+                                "FoCsoportValasztas",
                                 null,
                                 (eredmenyek) => {
                                     if (eredmenyek.As<bool>("valasztas"))
@@ -83,7 +83,7 @@ namespace Sajat.Megjelenites
         {
             FEIndito.Inditas(
                 new FEKerelem(
-                    "Cikk-AlCsoportModositas",
+                    "AlCsoportModositas",
                     new FEParameterek().Parameter("id", 0),
                     (eredmenyek) => {
                         if (eredmenyek.As<bool>("rogzites"))
@@ -108,7 +108,7 @@ namespace Sajat.Megjelenites
         {
             FEIndito.Inditas(
                 new FEKerelem(
-                    "Cikk-AlCsoportModositas",
+                    "AlCsoportModositas",
                     new FEParameterek().Parameter("id", alcsoport.Id),
                     (eredmenyek) => {
                         tarolok.AlCsoportok.Frissit(alcsoport);

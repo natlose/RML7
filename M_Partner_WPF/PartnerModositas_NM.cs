@@ -65,7 +65,7 @@ namespace Sajat.Megjelenites
         {
             FEIndito.Inditas(
                 new FEKerelem(
-                    "Partner-OrszagValasztas",
+                    "OrszagValasztas",
                     null,
                     (eredmenyek) => {
                         if (eredmenyek.As<bool>("valasztas"))
@@ -120,7 +120,7 @@ namespace Sajat.Megjelenites
             Partner.PostaCimek.Add(postacim);
             FEIndito.Inditas(
                 new FEKerelem(
-                    "Partner-PostaCimModositas",
+                    "PostaCimModositas",
                     new FEParameterek().Parameter("postacim", postacim),
                     //Szabad elhagyni az eredményfeldolgozót ha nincs mit csinálni benne.
                     //A Sajat.Alkalmazas.WPF.Tortenet elég okos, hogy ne hívja, ha nincs.
@@ -133,7 +133,7 @@ namespace Sajat.Megjelenites
         {
             FEIndito.Inditas(
                 new FEKerelem(
-                    "Partner-PostaCimModositas",
+                    "PostaCimModositas",
                     new FEParameterek().Parameter("postacim", postaCim),
                     null
                 )

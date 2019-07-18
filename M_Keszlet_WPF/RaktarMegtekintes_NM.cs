@@ -49,7 +49,7 @@ namespace Sajat.Megjelenites
         {
             FEIndito.Inditas(
                 new FEKerelem(
-                    "Keszlet-PolcModositas",
+                    "PolcModositas",
                     new FEParameterek().Parameter("id", polc.Id),
                     (eredmenyek) => {
                         tarolok.Polcok.Frissit(polc);
@@ -62,7 +62,7 @@ namespace Sajat.Megjelenites
         {
             FEIndito.Inditas(
                 new FEKerelem(
-                    "Keszlet-PolcMegtekintes",
+                    "PolcMegtekintes",
                     new FEParameterek().Parameter("id", polc.Id),
                     null
                 )
@@ -73,7 +73,7 @@ namespace Sajat.Megjelenites
         {
             FEIndito.Inditas(
                 new FEKerelem(
-                    "Keszlet-PolcModositas",
+                    "PolcModositas",
                     new FEParameterek()
                         .Parameter("id", 0)
                         .Parameter("raktarid", Raktar.Id),

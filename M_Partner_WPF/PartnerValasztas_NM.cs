@@ -31,7 +31,7 @@ namespace Sajat.Megjelenites
                     {
                         FEIndito.Inditas(
                             new FEKerelem(
-                                "Partner-OrszagValasztas",
+                                "OrszagValasztas",
                                 null,
                                 (eredmenyek) => {
                                     if (eredmenyek.As<bool>("valasztas"))
@@ -110,7 +110,7 @@ namespace Sajat.Megjelenites
         {
             FEIndito.Inditas(
                 new FEKerelem(
-                    "Partner-PartnerModositas",
+                    "PartnerModositas",
                     new FEParameterek().Parameter("id", 0),
                     (eredmenyek) => {
                         if (eredmenyek.As<int>("rogzites") == 1)
@@ -144,7 +144,7 @@ namespace Sajat.Megjelenites
         {
             FEIndito.Inditas(
                 new FEKerelem(
-                    "Partner-PartnerModositas", 
+                    "PartnerModositas", 
                     new FEParameterek().Parameter("id", partner.Id),
                     (eredmenyek) => {
                         Partner modositott = eredmenyek.As<Partner>("partner");
