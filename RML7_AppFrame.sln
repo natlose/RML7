@@ -9,11 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		todo.txt = todo.txt
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "M_AlkalmazasAPI", "M_AlkalmazasAPI\M_AlkalmazasAPI.csproj", "{4FC8D20F-86CF-4549-8D03-9FE4CE7E8093}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "M_Alkalmazas_WPF", "M_Alkalmazas_WPF\M_Alkalmazas_WPF.csproj", "{C6B96C6D-A56F-4017-A3EE-1094D7095964}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "S_ObjektumModel", "S_ObjektumModel\S_ObjektumModel.csproj", "{467A2FE7-82B3-4107-8DAC-1BD134D6B279}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SQL", "SQL", "{D56FB834-4B7B-4761-AA75-9F3B0769D6E9}"
 	ProjectSection(SolutionItems) = preProject
@@ -36,24 +32,18 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tarolas", "Tarolas\Tarolas.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Megjelenites", "Megjelenites\Megjelenites.csproj", "{654F8160-CF3F-4882-9182-90D4411CBF04}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlkalmazasLogika", "AlkalmazasLogika\AlkalmazasLogika.csproj", "{611B3834-2676-4288-A577-B2CE9BF449DF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4FC8D20F-86CF-4549-8D03-9FE4CE7E8093}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4FC8D20F-86CF-4549-8D03-9FE4CE7E8093}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4FC8D20F-86CF-4549-8D03-9FE4CE7E8093}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4FC8D20F-86CF-4549-8D03-9FE4CE7E8093}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C6B96C6D-A56F-4017-A3EE-1094D7095964}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C6B96C6D-A56F-4017-A3EE-1094D7095964}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C6B96C6D-A56F-4017-A3EE-1094D7095964}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C6B96C6D-A56F-4017-A3EE-1094D7095964}.Release|Any CPU.Build.0 = Release|Any CPU
-		{467A2FE7-82B3-4107-8DAC-1BD134D6B279}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{467A2FE7-82B3-4107-8DAC-1BD134D6B279}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{467A2FE7-82B3-4107-8DAC-1BD134D6B279}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{467A2FE7-82B3-4107-8DAC-1BD134D6B279}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9CD601A3-B9F4-442E-8912-B8B92E64FE9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9CD601A3-B9F4-442E-8912-B8B92E64FE9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9CD601A3-B9F4-442E-8912-B8B92E64FE9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -74,6 +64,10 @@ Global
 		{654F8160-CF3F-4882-9182-90D4411CBF04}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{654F8160-CF3F-4882-9182-90D4411CBF04}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{654F8160-CF3F-4882-9182-90D4411CBF04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{611B3834-2676-4288-A577-B2CE9BF449DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{611B3834-2676-4288-A577-B2CE9BF449DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{611B3834-2676-4288-A577-B2CE9BF449DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{611B3834-2676-4288-A577-B2CE9BF449DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

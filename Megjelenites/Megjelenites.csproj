@@ -151,17 +151,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\M_AlkalmazasAPI\M_AlkalmazasAPI.csproj">
-      <Project>{4fc8d20f-86cf-4549-8d03-9fe4ce7e8093}</Project>
-      <Name>M_AlkalmazasAPI</Name>
+    <ProjectReference Include="..\AlkalmazasLogika\AlkalmazasLogika.csproj">
+      <Project>{611b3834-2676-4288-a577-b2ce9bf449df}</Project>
+      <Name>AlkalmazasLogika</Name>
     </ProjectReference>
     <ProjectReference Include="..\M_Komponensek_WPF\M_Komponensek_WPF.csproj">
       <Project>{9cd601a3-b9f4-442e-8912-b8b92e64fe9c}</Project>
       <Name>M_Komponensek_WPF</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\S_ObjektumModel\S_ObjektumModel.csproj">
-      <Project>{467a2fe7-82b3-4107-8dac-1bd134d6b279}</Project>
-      <Name>S_ObjektumModel</Name>
     </ProjectReference>
     <ProjectReference Include="..\UzletiLogika\UzletiLogika.csproj">
       <Project>{a660a00c-2e2a-4f58-a050-afbef17d0a36}</Project>

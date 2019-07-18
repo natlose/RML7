@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F19949F4-9439-48DB-93EB-B405D732A48E}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>TesztAdat</RootNamespace>
-    <AssemblyName>TesztAdat</AssemblyName>
+    <ProjectGuid>{611B3834-2676-4288-A577-B2CE9BF449DF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Sajat</RootNamespace>
+    <AssemblyName>AlkalmazasLogika</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,16 +23,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
+    <DebugType>none</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>..\bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -43,25 +42,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="Ellenorizheto.cs" />
+    <Compile Include="FEEredmenyek.cs" />
+    <Compile Include="FEIndito.cs" />
+    <Compile Include="FEKerelem.cs" />
+    <Compile Include="FEParameterek.cs" />
+    <Compile Include="ICsatolhatoNezetModell.cs" />
+    <Compile Include="IEgysegnyiValtozas.cs" />
+    <Compile Include="ILapozhatoTarolo.cs" />
+    <Compile Include="ITarolo.cs" />
+    <Compile Include="Megfigyelheto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\AlkalmazasLogika\AlkalmazasLogika.csproj">
-      <Project>{611b3834-2676-4288-a577-b2ce9bf449df}</Project>
-      <Name>AlkalmazasLogika</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Tarolas\Tarolas.csproj">
-      <Project>{4cd6ecc8-c42c-48f0-9f92-e41afec99afe}</Project>
-      <Name>Tarolas</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\UzletiLogika\UzletiLogika.csproj">
-      <Project>{a660a00c-2e2a-4f58-a050-afbef17d0a36}</Project>
-      <Name>UzletiLogika</Name>
-    </ProjectReference>
+    <Compile Include="StringMuveletek.cs" />
+    <Compile Include="Szotar.cs" />
+    <Compile Include="TiltottKarakterekAttribute.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

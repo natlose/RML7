@@ -175,16 +175,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\M_AlkalmazasAPI\M_AlkalmazasAPI.csproj">
-      <Project>{4fc8d20f-86cf-4549-8d03-9fe4ce7e8093}</Project>
-      <Name>M_AlkalmazasAPI</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\S_ObjektumModel\S_ObjektumModel.csproj">
-      <Project>{467a2fe7-82b3-4107-8dac-1bd134d6b279}</Project>
-      <Name>S_ObjektumModel</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="M_Alkalmazas_WPF_FEsetek.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -193,6 +183,12 @@
     <None Include="M_Alkalmazas_WPF_Modulok.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AlkalmazasLogika\AlkalmazasLogika.csproj">
+      <Project>{611b3834-2676-4288-a577-b2ce9bf449df}</Project>
+      <Name>AlkalmazasLogika</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

@@ -63,9 +63,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\S_ObjektumModel\S_ObjektumModel.csproj">
-      <Project>{467A2FE7-82B3-4107-8DAC-1BD134D6B279}</Project>
-      <Name>S_ObjektumModel</Name>
+    <ProjectReference Include="..\AlkalmazasLogika\AlkalmazasLogika.csproj">
+      <Project>{611b3834-2676-4288-a577-b2ce9bf449df}</Project>
+      <Name>AlkalmazasLogika</Name>
     </ProjectReference>
     <ProjectReference Include="..\UzletiLogika\UzletiLogika.csproj">
       <Project>{A660A00C-2E2A-4F58-A050-AFBEF17D0A36}</Project>
