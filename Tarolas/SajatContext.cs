@@ -96,6 +96,15 @@ namespace Sajat.Tarolas
                 .HasColumnName("helyseg");
             #endregion
 
+            #region Koltseghely
+            modelBuilder.Entity<Koltseghely>().ToTable("Ktgh", "Partner");
+            modelBuilder.Entity<Koltseghely>().Property(p => p.Nev)
+                .HasColumnName("nev");
+            modelBuilder.Entity<Koltseghely>().Property(p => p.Megjegyzes)
+                .HasColumnName("megjegyzes")
+                .IsUnicode();
+            #endregion
+
             #region FoCsoport
             modelBuilder.Entity<FoCsoport>().ToTable("FoCsoport", "Cikk");
             modelBuilder.Entity<FoCsoport>().Property(p => p.Nev)
@@ -169,6 +178,45 @@ namespace Sajat.Tarolas
                 .HasColumnName("meny");
             #endregion
 
+            #region MozgasFej
+            modelBuilder.Entity<MozgasFej>().ToTable("MozgasFej", "Mozgas");
+            modelBuilder.Entity<MozgasFej>().Property(p => p.Piszkozat)
+                .HasColumnName("piszkozat");
+            modelBuilder.Entity<MozgasFej>().Property(p => p.Mozgasnem)
+                .HasColumnName("mozgasnem");
+            modelBuilder.Entity<MozgasFej>().Property(p => p.Irany)
+                .HasColumnName("irany");
+            modelBuilder.Entity<MozgasFej>().Property(p => p.Kelt)
+                .HasColumnName("kelt");
+            modelBuilder.Entity<MozgasFej>().Property(p => p.Sorszam)
+                .HasColumnName("sorszam");
+            modelBuilder.Entity<MozgasFej>()
+                .HasOptional(p => p.Partner)
+                .WithMany()
+                .Map(f => f.MapKey("fi_Partner"));
+            modelBuilder.Entity<MozgasFej>()
+                .HasOptional(p => p.Koltseghely)
+                .WithMany()
+                .Map(f => f.MapKey("fi_Ktgh"));
+            modelBuilder.Entity<MozgasFej>()
+                .HasMany(p => p.Tetelek)
+                .WithRequired(p => p.MozgasFej)
+                .Map(f => f.MapKey("fi_MozgasFej"));
+            #endregion
+
+            #region MozgasTetel
+            modelBuilder.Entity<MozgasTetel>().ToTable("MozgasTetel", "Mozgas");
+            modelBuilder.Entity<MozgasTetel>().Property(p => p.Bsrsz)
+                .HasColumnName("bsrsz");
+            modelBuilder.Entity<MozgasTetel>()
+                .HasRequired(p => p.Cikk)
+                .WithMany()
+                .Map(f => f.MapKey("fi_Cikk"));
+            modelBuilder.Entity<MozgasTetel>().Property(p => p.Meny)
+                .HasColumnName("meny");
+            modelBuilder.Entity<MozgasTetel>().Property(p => p.EgysAr)
+                .HasColumnName("egysar");
+            #endregion
         }
 
         public DbSet<Partner> Partnerek { get; set; }
@@ -178,6 +226,8 @@ namespace Sajat.Tarolas
         public DbSet<Orszag> Orszagok { get; set; }
 
         public DbSet<Irszam> Irszamok { get; set; }
+
+        public DbSet<Koltseghely> Koltseghelyek { get; set; }
 
         public DbSet<FoCsoport> FoCsoportok { get; set; }
 
@@ -190,6 +240,10 @@ namespace Sajat.Tarolas
         public DbSet<Polc> Polcok { get; set; }
 
         public DbSet<Keszlet> Keszletek { get; set; }
+
+        public DbSet<MozgasFej> MozgasFejek { get; set; }
+
+        public DbSet<MozgasTetel> MozgasTetelek { get; set; }
 
     }
 }

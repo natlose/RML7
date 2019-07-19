@@ -1,7 +1,9 @@
 
-Tarolo és Valtozas átalakítása a Partner környezetben is
+Validator -1,1 értékekre MozgasFej.Irany-hoz
 
-a sok Contextnek kéne közös kapcsolat, most mindenhol be van égetve a DEV
+Ktgh entitás és bekötni a MozgasFej-be
+
+Partnerben RowVersion RV legyen
 
 lekérdezésbe rendezettségválasztó (még lekérdezés elõtt!)
 
@@ -19,11 +21,9 @@ statikusszovegbe szótáras kifejtés képessége
 
 validátort országkódra, irányítószámra
 
-ITarolo Egyetlen(id)-be hibakezelés kell, ha nincs id elem a tárolóban (valaki megszerezte az id-t, más törölte a tárolóból)
-
 a balmenu.xml-ben lehessen paramétereket is rögzíteni egy indítandó felhasználói esethez
 
-Frissen felvett sor mutatása Lekerdezes-ben gyenge!
+Frissen felvett/módosított sor mutatása Lekerdezes-ben gyenge!
 
 Az EgyeniStilus tartalmazzon saját erõforrásokban FontFamily, FontSize, Background, stb értékeket, ezekre alapozzanak
 a stílusok. Az erõforrás értékek szerkesztésére legyen UI

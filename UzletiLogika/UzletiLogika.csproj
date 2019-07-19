@@ -49,7 +49,10 @@
     <Compile Include="Irszam.cs" />
     <Compile Include="Jogiszemely.cs" />
     <Compile Include="Keszlet.cs" />
+    <Compile Include="Koltseghely.cs" />
     <Compile Include="Maganszemely.cs" />
+    <Compile Include="MozgasFej.cs" />
+    <Compile Include="MozgasTetel.cs" />
     <Compile Include="Orszag.cs" />
     <Compile Include="Partner.cs" />
     <Compile Include="Polc.cs" />

@@ -89,6 +89,5 @@ namespace Sajat.Uzlet
             get => PostaCimek.FirstOrDefault(pc => pc.Tipus == "S");
         }
 
-
     }
 }
