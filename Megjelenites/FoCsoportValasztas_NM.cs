@@ -6,16 +6,20 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Data.Entity;
 using System.Text;
 using System.Threading.Tasks;
+using Sajat.Tarolas;
 
 namespace Sajat.Megjelenites
 {
     public class FoCsoportValasztas_NM : Megfigyelheto, ICsatolhatoNezetModell
     {
-        public FoCsoportValasztas_NM(ITarolok tarolok)
+        private readonly SajatContext context;
+
+        public FoCsoportValasztas_NM(SajatContext context)
         {
-            this.tarolok = tarolok;
+            this.context = context;
             Szuromezok = new SzuromezoGyujtemeny()
                 .Mezo("nev", new Szuromezo("Név") { Elore = 1 });
             Lekerdezeskor();
@@ -24,11 +28,8 @@ namespace Sajat.Megjelenites
         #region ICsatolhatoNezetModell
         public FEKerelem FEKerelem { get; set; }
         public FEIndito FEIndito { get; set; }
-
         public bool Megszakithato => true;
         #endregion
-
-        private ITarolok tarolok;
 
         public SzuromezoGyujtemeny Szuromezok { get; set; }
 
@@ -42,11 +43,10 @@ namespace Sajat.Megjelenites
         public void Lekerdezeskor()
         {
             string nev = StringMuveletek.NullHaUres(Szuromezok["nev"].Ertek);
-            lista = new ObservableCollection<FoCsoport>(tarolok.FoCsoportok.MindAhol(
+            Lista = new ObservableCollection<FoCsoport>(context.FoCsoportok.Where(
                 focsoport =>
                 (nev == null || focsoport.Nev.Contains(nev))
             ));
-            Ertesites(nameof(Lista));
         }
 
         public void Visszakor()
@@ -88,7 +88,7 @@ namespace Sajat.Megjelenites
                     "FoCsoportModositas",
                     new FEParameterek().Parameter("id", focsoport.Id),
                     (eredmenyek) => {
-                        tarolok.FoCsoportok.Frissit(focsoport);
+                        context.Entry(focsoport).Reload();
                     }
                 )
             );

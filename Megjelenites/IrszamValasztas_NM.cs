@@ -6,17 +6,21 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Data.Entity;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using Sajat.Tarolas;
 
 namespace Sajat.Megjelenites
 {
     public class IrszamValasztas_NM : Megfigyelheto, ICsatolhatoNezetModell
     {
-        public IrszamValasztas_NM(ITarolok tarolok)
+        private readonly SajatContext context;
+
+        public IrszamValasztas_NM(SajatContext context)
         {
-            this.tarolok = tarolok;
+            this.context = context;
             Szuromezok = new SzuromezoGyujtemeny()
                 .Mezo("orszag", new Szuromezo("Ország") { Elore = 1, Ertek = "HU"})
                 .Mezo("helyseg", new Szuromezo("Helység") { Elore = 2 });
@@ -25,13 +29,11 @@ namespace Sajat.Megjelenites
 
         #region ICsatolhatoNezetModell
         public FEKerelem FEKerelem { get; set; }
-
-        public bool Megszakithato { get => true; }
-
         public FEIndito FEIndito { get; set; }
+        public bool Megszakithato { get => true; }
         #endregion
 
-        private ITarolok tarolok;
+        public SzuromezoGyujtemeny Szuromezok { get; set; }
 
         private ObservableCollection<Irszam> lista;
         public ObservableCollection<Irszam> Lista
@@ -44,7 +46,7 @@ namespace Sajat.Megjelenites
         {
             string orszag = StringMuveletek.NullHaUres(Szuromezok["orszag"].Ertek);
             string helyseg = StringMuveletek.NullHaUres(Szuromezok["helyseg"].Ertek);
-            Lista = new ObservableCollection<Irszam>(tarolok.Irszamok.MindAhol(
+            Lista = new ObservableCollection<Irszam>(context.Irszamok.Where(
                 irsz =>
                 (orszag == null || irsz.Orszagkod == orszag)
                 && (helyseg == null || irsz.Helyseg.Contains(helyseg))
@@ -58,8 +60,7 @@ namespace Sajat.Megjelenites
                     "IrszamModositas",
                     new FEParameterek().Parameter("id", irszam.Id),
                     (eredmenyek) => {
-                        Irszam modositott = eredmenyek.As<Irszam>("irszam");
-                        tarolok.Irszamok.Frissit(irszam);
+                        context.Entry(irszam).Reload();
                     }
                 )
             );
@@ -73,7 +74,6 @@ namespace Sajat.Megjelenites
                     (eredmenyek) => {
                         if (eredmenyek.As<bool>("rogzites"))
                         {
-                            Irszam felvett = eredmenyek.As<Irszam>("irszam");
                             Lekerdezeskor();
                         }
                     }
@@ -97,8 +97,5 @@ namespace Sajat.Megjelenites
                      .Eredmeny("irszam", irszam)
              );
         }
-
-        public SzuromezoGyujtemeny Szuromezok { get; set; }
-
     }
 }

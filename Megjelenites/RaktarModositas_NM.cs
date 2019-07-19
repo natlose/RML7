@@ -4,19 +4,22 @@ using Sajat.Uzlet;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data.Entity;
 using System.Text;
 using System.Threading.Tasks;
+using Sajat.Tarolas;
 
 namespace Sajat.Megjelenites
 {
     public class RaktarModositas_NM : Megfigyelheto, ICsatolhatoNezetModell
     {
-        public RaktarModositas_NM(IValtozas valtozas)
+        private Valtozas valtozas;
+
+        public RaktarModositas_NM(Valtozas valtozas)
         {
             this.valtozas = valtozas;
         }
 
-        private IValtozas valtozas;
 
         #region ICsatolhatoNezetModell
         private FEKerelem feKerelem;
@@ -30,9 +33,9 @@ namespace Sajat.Megjelenites
                 if (id == 0)
                 {
                     Raktar = new Raktar();
-                    valtozas.Tarolok.Raktarak.EgyetBetesz(Raktar);
+                    valtozas.Context.Raktarak.Add(Raktar);
                 }
-                else Raktar = valtozas.Tarolok.Raktarak.Egyetlen(id);
+                else Raktar = valtozas.Context.Raktarak.Single(r => r.Id == id);
             }
         }
 

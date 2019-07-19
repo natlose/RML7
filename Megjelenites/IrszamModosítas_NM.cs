@@ -4,14 +4,18 @@ using Sajat.Uzlet;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data.Entity;
 using System.Text;
 using System.Threading.Tasks;
+using Sajat.Tarolas;
 
 namespace Sajat.Megjelenites
 {
     public class IrszamModositas_NM : Megfigyelheto, ICsatolhatoNezetModell
     {
-        public IrszamModositas_NM(IValtozas valtozas)
+        private Valtozas valtozas;
+
+        public IrszamModositas_NM(Valtozas valtozas)
         {
             this.valtozas = valtozas;
         }
@@ -28,9 +32,9 @@ namespace Sajat.Megjelenites
                 if (id == 0)
                 {
                     Irszam = new Irszam();
-                    valtozas.Tarolok.Irszamok.EgyetBetesz(Irszam);
+                    valtozas.Context.Irszamok.Add(Irszam);
                 }
-                else Irszam = valtozas.Tarolok.Irszamok.Egyetlen(id);
+                else Irszam = valtozas.Context.Irszamok.Single(i => i.Id == id);
             }
         }
 
@@ -39,7 +43,6 @@ namespace Sajat.Megjelenites
         public bool Megszakithato { get => !valtozas.VanValtozas; }
         #endregion
 
-        private IValtozas valtozas;
 
         private Irszam irszam;
         public Irszam Irszam

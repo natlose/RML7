@@ -1,9 +1,11 @@
 ﻿using Sajat.Alkalmazas.API;
 using Sajat.ObjektumModel;
+using Sajat.Tarolas;
 using Sajat.Uzlet;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data.Entity;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,12 +13,12 @@ namespace Sajat.Megjelenites
 {
     public class AlCsoportModositas_NM : Megfigyelheto, ICsatolhatoNezetModell
     {
-        public AlCsoportModositas_NM(IValtozas valtozas)
+        public AlCsoportModositas_NM(Valtozas valtozas)
         {
             this.valtozas = valtozas;
         }
 
-        private IValtozas valtozas;
+        private Valtozas valtozas;
 
         #region ICsatolhatoNezetModell
         private FEKerelem feKerelem;
@@ -30,9 +32,9 @@ namespace Sajat.Megjelenites
                 if (id == 0)
                 {
                     AlCsoport = new AlCsoport();
-                    valtozas.Tarolok.AlCsoportok.EgyetBetesz(AlCsoport);
+                    valtozas.Context.AlCsoportok.Add(AlCsoport);
                 }
-                else AlCsoport = valtozas.Tarolok.AlCsoportok.KiterjesztettEgyetlen(e => e.Id == id, e => e.FoCsoport);
+                else AlCsoport = valtozas.Context.AlCsoportok.Include(a => a.FoCsoport).Single(e => e.Id == id);
             }
         }
 
@@ -68,7 +70,8 @@ namespace Sajat.Megjelenites
                     (eredmenyek) => {
                         if (eredmenyek.As<bool>("valasztas"))
                         {
-                            FoCsoport valasztott = valtozas.Tarolok.FoCsoportok.Egyetlen(eredmenyek.As<int>("id"));
+                            int id = eredmenyek.As<int>("id");
+                            FoCsoport valasztott = valtozas.Context.FoCsoportok.Single(f => f.Id == id);
                             AlCsoport.FoCsoport = valasztott;
                         }
                     }

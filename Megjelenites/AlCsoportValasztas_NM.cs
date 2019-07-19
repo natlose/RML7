@@ -1,11 +1,13 @@
 ﻿using Sajat.Alkalmazas.API;
 using Sajat.ObjektumModel;
+using Sajat.Tarolas;
 using Sajat.Uzlet;
 using Sajat.WPF;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Data.Entity;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,9 +15,11 @@ namespace Sajat.Megjelenites
 {
     public class AlCsoportValasztas_NM : Megfigyelheto, ICsatolhatoNezetModell
     {
-        public AlCsoportValasztas_NM(ITarolok tarolok)
+        private readonly SajatContext context;
+
+        public AlCsoportValasztas_NM(SajatContext context)
         {
-            this.tarolok = tarolok;
+            this.context = context;
             Szuromezok = new SzuromezoGyujtemeny()
                 .Mezo("nev", new Szuromezo("Név") { Elore = 1 })
                 .Mezo("focsoport", new Szuromezo(
@@ -30,7 +34,7 @@ namespace Sajat.Megjelenites
                                     if (eredmenyek.As<bool>("valasztas"))
                                     {
                                         int id = eredmenyek.As<int>("id");
-                                        szm.Ertek = tarolok.FoCsoportok.Egyetlen(id).Nev;
+                                        szm.Ertek = context.FoCsoportok.Single(f => f.Id == id).Nev;
                                     }
                                 }
                             )
@@ -47,11 +51,10 @@ namespace Sajat.Megjelenites
         public bool Megszakithato => true;
         #endregion
 
-        private ITarolok tarolok;
-
         public SzuromezoGyujtemeny Szuromezok { get; set; }
 
         private ObservableCollection<AlCsoport> lista;
+
         public ObservableCollection<AlCsoport> Lista
         {
             get => lista;
@@ -62,13 +65,14 @@ namespace Sajat.Megjelenites
         {
             string nev = StringMuveletek.NullHaUres(Szuromezok["nev"].Ertek);
             string focsoport = StringMuveletek.NullHaUres(Szuromezok["focsoport"].Ertek);
-            lista = new ObservableCollection<AlCsoport>(tarolok.AlCsoportok.KiterjesztettMindAhol(
-                AlCsoport =>
+            Lista = new ObservableCollection<AlCsoport>(
+                context.AlCsoportok
+                .Include(a => a.FoCsoport)
+                .Where(AlCsoport =>
                     (nev == null || AlCsoport.Nev.Contains(nev))
-                    && (focsoport == null || AlCsoport.FoCsoport.Nev.Contains(focsoport)),
-                e => e.FoCsoport
-            ));
-            Ertesites(nameof(Lista));
+                    && (focsoport == null || AlCsoport.FoCsoport.Nev.Contains(focsoport))
+                )
+                .ToList());
         }
 
         public void Visszakor()
@@ -111,7 +115,7 @@ namespace Sajat.Megjelenites
                     "AlCsoportModositas",
                     new FEParameterek().Parameter("id", alcsoport.Id),
                     (eredmenyek) => {
-                        tarolok.AlCsoportok.Frissit(alcsoport);
+                        context.Entry(alcsoport).Reload();
                     }
                 )
             );

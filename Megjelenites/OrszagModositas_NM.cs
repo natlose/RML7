@@ -4,14 +4,17 @@ using Sajat.Uzlet;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data.Entity;
 using System.Text;
 using System.Threading.Tasks;
+using Sajat.Tarolas;
 
 namespace Sajat.Megjelenites
 {
     public class OrszagModositas_NM : Megfigyelheto, ICsatolhatoNezetModell
     {
-        public OrszagModositas_NM(IValtozas valtozas)
+        private Valtozas valtozas;
+        public OrszagModositas_NM(Valtozas valtozas)
         {
             this.valtozas = valtozas;
         }
@@ -28,9 +31,9 @@ namespace Sajat.Megjelenites
                 if (id == 0)
                 {
                     Orszag = new Orszag();
-                    valtozas.Tarolok.Orszagok.EgyetBetesz(Orszag);
+                    valtozas.Context.Orszagok.Add(Orszag);
                 }
-                else Orszag = valtozas.Tarolok.Orszagok.Egyetlen(id);
+                else Orszag = valtozas.Context.Orszagok.Single(o => o.Id == id);
             }
         }
 
@@ -39,7 +42,6 @@ namespace Sajat.Megjelenites
         public bool Megszakithato { get => !valtozas.VanValtozas; }
         #endregion
 
-        private IValtozas valtozas;
 
         private Orszag orszag;
         public Orszag Orszag
@@ -78,7 +80,6 @@ namespace Sajat.Megjelenites
             FEKerelem.Befejezes(
                 new FEEredmenyek()
                     .Eredmeny("rogzites", false)
-                    .Eredmeny("orszag", Orszag)
             );
         }
 

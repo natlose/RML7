@@ -66,6 +66,7 @@
     <Compile Include="IdegenKulcs.xaml.cs">
       <DependentUpon>IdegenKulcs.xaml</DependentUpon>
     </Compile>
+    <Compile Include="IntToVisibilityConverter.cs" />
     <Compile Include="Lapozo.cs" />
     <Compile Include="Lekerdezes.xaml.cs">
       <DependentUpon>Lekerdezes.xaml</DependentUpon>

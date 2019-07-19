@@ -4,19 +4,21 @@ using Sajat.Uzlet;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data.Entity;
 using System.Text;
 using System.Threading.Tasks;
+using Sajat.Tarolas;
 
 namespace Sajat.Megjelenites
 {
     public class FoCsoportModositas_NM : Megfigyelheto, ICsatolhatoNezetModell
     {
-        public FoCsoportModositas_NM(IValtozas valtozas)
+        private Valtozas valtozas;
+
+        public FoCsoportModositas_NM(Valtozas valtozas)
         {
             this.valtozas = valtozas;
         }
-
-        private IValtozas valtozas;
 
         #region ICsatolhatoNezetModell
         private FEKerelem feKerelem;
@@ -30,9 +32,9 @@ namespace Sajat.Megjelenites
                 if (id == 0)
                 {
                     FoCsoport = new FoCsoport();
-                    valtozas.Tarolok.FoCsoportok.EgyetBetesz(FoCsoport);
+                    valtozas.Context.FoCsoportok.Add(FoCsoport);
                 }
-                else FoCsoport = valtozas.Tarolok.FoCsoportok.Egyetlen(id);
+                else FoCsoport = valtozas.Context.FoCsoportok.Single(f => f.Id == id);
             }
         }
 

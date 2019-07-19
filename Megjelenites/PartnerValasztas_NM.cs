@@ -6,18 +6,22 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Data.Entity;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using Sajat.Tarolas;
 
 namespace Sajat.Megjelenites
 {
     public class PartnerValasztas_NM : Megfigyelheto, ICsatolhatoNezetModell
     {
-        public PartnerValasztas_NM(ITarolok tarolok)
+        private SajatContext context;
+
+        public PartnerValasztas_NM(SajatContext context)
         {
-            this.tarolok = tarolok;
+            this.context = context;
             Szuromezok = new SzuromezoGyujtemeny()
                 .Mezo("nev", new Szuromezo("Név") { Elore = 1})
                 .Mezo("mobil", new Szuromezo("Mobil"))
@@ -49,13 +53,9 @@ namespace Sajat.Megjelenites
 
         #region ICsatolhatoNezetModell
         public FEKerelem FEKerelem { get; set; }
-
         public FEIndito FEIndito { get; set; }
-
         public bool Megszakithato { get => true; }
         #endregion
-
-        private ITarolok tarolok;
 
         public SzuromezoGyujtemeny Szuromezok { get; set; }
 
@@ -83,20 +83,20 @@ namespace Sajat.Megjelenites
             string adoszam = StringMuveletek.NullHaUres(Szuromezok["adoszam"].Ertek);
             string orszag = StringMuveletek.NullHaUres(Szuromezok["orszag"].Ertek);
             Lista = new ObservableCollection<Partner>(
-                tarolok.Partnerek.EgyLapnyiKiterjesztettMindAhol(
-                    p => p.Nev, 
-                    p =>
+                context.Partnerek
+                    .Include(p => p.PostaCimek)
+                    .Where(
+                        p =>
                         (nev == null || p.Nev.Contains(nev))
                         && (mobil == null || p.Elerhetoseg.Mobil.Contains(mobil))
                         && (telefon == null || p.Elerhetoseg.Telefon.Contains(telefon))
                         && (email == null || p.Elerhetoseg.Email.Contains(email))
                         && (cegjegyzekszam == null || p.MJ == "J" && p.Jogiszemely.Cegjegyzekszam.Contains(cegjegyzekszam))
                         && (adoszam == null || p.MJ == "J" && p.Jogiszemely.Adoszam.Contains(adoszam))
-                        && (orszag == null || p.MJ == "J" && p.Jogiszemely.Orszag == orszag),
-                    Lapozo.Oldalmeret,
-                    Lapozo.Oldal,
-                    p => p.PostaCimek
-                )
+                        && (orszag == null || p.MJ == "J" && p.Jogiszemely.Orszag == orszag))
+                    .OrderBy(p => p.Nev)
+                .Skip((Lapozo.Oldal - 1) * Lapozo.Oldalmeret)
+                .Take(Lapozo.Oldalmeret)                
             );
         }
 
@@ -115,7 +115,6 @@ namespace Sajat.Megjelenites
                     (eredmenyek) => {
                         if (eredmenyek.As<int>("rogzites") == 1)
                         {
-                            Partner felvett = eredmenyek.As<Partner>("partner");
                             Lekerdezeskor();
                         }
                     }
@@ -148,7 +147,7 @@ namespace Sajat.Megjelenites
                     new FEParameterek().Parameter("id", partner.Id),
                     (eredmenyek) => {
                         Partner modositott = eredmenyek.As<Partner>("partner");
-                        if (eredmenyek.As<int>("rogzites") == 1) tarolok.Partnerek.Frissit(partner);
+                        if (eredmenyek.As<int>("rogzites") == 1) context.Entry(partner).Reload();
                         else if (eredmenyek.As<int>("rogzites") == -1) Lekerdezeskor();
                     }
                 )

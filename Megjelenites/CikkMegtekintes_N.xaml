@@ -15,13 +15,13 @@
             <sajatwpf:IdegenKulcs Cimke="Alcsoport" Kulcs="{Binding Cikk.AlCsoport.Id}" Szoveg="{Binding Cikk.AlCsoport.Nev}"/>
             <sajatwpf:StatikusSzoveg Cimke="Gyártói cikkszám" Szoveg="{Binding Cikk.GyartoiCikkszam}"/>
             <sajatwpf:StatikusSzoveg Cimke="Angol név" Szoveg="{Binding Cikk.AngolNev}"/>
-            <sajatwpf:GombosLista TetelForras="{Binding KeszletLista, Mode=OneWay}" Cimke="Készletek">
-                <GridViewColumn DisplayMemberBinding="{Binding RaktarNev}" Header="Raktár" Width="Auto" />
-                <GridViewColumn DisplayMemberBinding="{Binding PolcKod}" Header="Polc" Width="Auto" />
-                <GridViewColumn Header="Készlet">
+            <sajatwpf:GombosLista TetelForras="{Binding Cikk.Keszletek, Mode=OneWay}" Cimke="Készletek">
+                <GridViewColumn DisplayMemberBinding="{Binding Polc.Raktar.Nev}" Header="Raktár" Width="Auto" />
+                <GridViewColumn DisplayMemberBinding="{Binding Polc.Kod}" Header="Polc" Width="Auto" />
+                <GridViewColumn Header="Készlet" Width="Auto">
                     <GridViewColumn.CellTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{Binding Keszlet, StringFormat={}{0:#,0.0}}" TextAlignment="Right" Width="Auto" />
+                            <TextBlock Text="{Binding Meny, StringFormat={}{0:#,0.0}}" TextAlignment="Right" Width="80" />
                         </DataTemplate>
                     </GridViewColumn.CellTemplate>
                 </GridViewColumn>

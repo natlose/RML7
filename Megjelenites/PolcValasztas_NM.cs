@@ -6,16 +6,20 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Data.Entity;
 using System.Text;
 using System.Threading.Tasks;
+using Sajat.Tarolas;
 
 namespace Sajat.Megjelenites
 {
     public class PolcValasztas_NM : Megfigyelheto, ICsatolhatoNezetModell
     {
-        public PolcValasztas_NM(ITarolok tarolok)
+        private SajatContext context;
+
+        public PolcValasztas_NM(SajatContext context)
         {
-            this.tarolok = tarolok;
+            this.context = context;
             Szuromezok = new SzuromezoGyujtemeny()
                 .Mezo("raktar", new Szuromezo(
                     "Raktár",
@@ -29,7 +33,7 @@ namespace Sajat.Megjelenites
                                     if (eredmenyek.As<bool>("valasztas"))
                                     {
                                         int id = eredmenyek.As<int>("id");
-                                        szm.Ertek = tarolok.Raktarak.Egyetlen(id).Nev;
+                                        szm.Ertek = context.Raktarak.Single(r => r.Id == id).Nev;
                                     }
                                 }
                             )
@@ -45,11 +49,8 @@ namespace Sajat.Megjelenites
         #region ICsatolhatoNezetModell
         public FEKerelem FEKerelem { get; set; }
         public FEIndito FEIndito { get; set; }
-
         public bool Megszakithato => true;
         #endregion
-
-        private ITarolok tarolok;
 
         public SzuromezoGyujtemeny Szuromezok { get; set; }
 
@@ -65,14 +66,12 @@ namespace Sajat.Megjelenites
             string kod = StringMuveletek.NullHaUres(Szuromezok["kod"].Ertek);
             string raktar = StringMuveletek.NullHaUres(Szuromezok["raktar"].Ertek);
             string megj = StringMuveletek.NullHaUres(Szuromezok["megj"].Ertek);
-            lista = new ObservableCollection<Polc>(tarolok.Polcok.KiterjesztettMindAhol(
+            Lista = new ObservableCollection<Polc>(context.Polcok.Include(p => p.Raktar).Where(
                 Polc =>
                     (kod == null || Polc.Kod.Contains(kod))
                     && (raktar == null || Polc.Raktar.Nev.Contains(raktar))
-                    && (megj == null || Polc.Megjegyzes.Contains(megj)),
-                e => e.Raktar
+                    && (megj == null || Polc.Megjegyzes.Contains(megj))
             ));
-            Ertesites(nameof(Lista));
         }
 
         public void Visszakor()
@@ -112,7 +111,7 @@ namespace Sajat.Megjelenites
                     "PolcModositas",
                     new FEParameterek().Parameter("id", polc.Id),
                     (eredmenyek) => {
-                        tarolok.Polcok.Frissit(polc);
+                        context.Entry(polc).Reload();
                     }
                 )
             );

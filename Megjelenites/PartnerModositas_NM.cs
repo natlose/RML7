@@ -4,14 +4,18 @@ using Sajat.Uzlet;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data.Entity;
 using System.Text;
 using System.Threading.Tasks;
+using Sajat.Tarolas;
 
 namespace Sajat.Megjelenites
 {
     public class PartnerModositas_NM : Megfigyelheto, ICsatolhatoNezetModell
     {
-        public PartnerModositas_NM(IValtozas valtozas)
+        private Valtozas valtozas;
+
+        public PartnerModositas_NM(Valtozas valtozas)
         {
             this.valtozas = valtozas;
         }
@@ -28,9 +32,9 @@ namespace Sajat.Megjelenites
                 if (id == 0)
                 {
                     Partner = new Partner();
-                    valtozas.Tarolok.Partnerek.EgyetBetesz(Partner);
+                    valtozas.Context.Partnerek.Add(Partner);
                 }
-                else Partner = valtozas.Tarolok.Partnerek.KiterjesztettEgyetlen(e => e.Id == id, e => e.PostaCimek);
+                else Partner = valtozas.Context.Partnerek.Include(p => p.PostaCimek).Single(e => e.Id == id);
             }
         }
 
@@ -39,10 +43,7 @@ namespace Sajat.Megjelenites
         public bool Megszakithato { get => !valtozas.VanValtozas; }
         #endregion
 
-        IValtozas valtozas;
-
         private Partner partner;
-
         public Partner Partner
         {
             get => partner; 
@@ -96,20 +97,18 @@ namespace Sajat.Megjelenites
             FEKerelem.Befejezes(
                 new FEEredmenyek()
                     .Eredmeny("rogzites", 0)
-                    .Eredmeny("partner", Partner)
             );
         }
 
         internal void Torleskor()
         {
-            valtozas.Tarolok.Partnerek.EgyetTorol(Partner);
+            valtozas.Context.Partnerek.Remove(Partner);
             RogzitesEredmeny = valtozas.ValtozasRogzitese();
             if (RogzitesEredmeny == RogzitesEredmeny.Siker)
             {
                 FEKerelem.Befejezes(
                     new FEEredmenyek()
                         .Eredmeny("rogzites", -1)
-                        .Eredmeny("partner", Partner)
                 );
             }
         }

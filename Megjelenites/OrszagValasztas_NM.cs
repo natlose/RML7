@@ -6,29 +6,29 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Data.Entity;
 using System.Text;
 using System.Threading.Tasks;
+using Sajat.Tarolas;
 
 namespace Sajat.Megjelenites
 {
     public class OrszagValasztas_NM : Megfigyelheto, ICsatolhatoNezetModell
     {
-        public OrszagValasztas_NM(ITarolok tarolok)
+        private SajatContext context;
+
+        public OrszagValasztas_NM(SajatContext context)
         {
-            this.tarolok = tarolok;
+            this.context = context;
             Szuromezok = new SzuromezoGyujtemeny()
                 .Mezo("nev", new Szuromezo("Név") { Elore = 1 });
         }
 
         #region ICsatolhatoNezetModell
         public FEKerelem FEKerelem { get; set; }
-
         public FEIndito FEIndito { get; set; }
-
         public bool Megszakithato { get => true; }
         #endregion
-
-        private ITarolok tarolok;
 
         private ObservableCollection<Orszag> lista;
         public ObservableCollection<Orszag> Lista
@@ -42,11 +42,10 @@ namespace Sajat.Megjelenites
         public void Lekerdezeskor()
         {
             string nev = StringMuveletek.NullHaUres(Szuromezok["nev"].Ertek);
-            lista = new ObservableCollection<Orszag>(tarolok.Orszagok.MindAhol(
+            Lista = new ObservableCollection<Orszag>(context.Orszagok.Where(
                 orszag =>
                 (nev == null || orszag.Nev.Contains(nev))
             ));
-            Ertesites(nameof(Lista));
         }
 
         public void Felveszkor()
@@ -58,7 +57,6 @@ namespace Sajat.Megjelenites
                     (eredmenyek) => {
                         if (eredmenyek.As<bool>("rogzites"))
                         {
-                            Orszag felvett = eredmenyek.As<Orszag>("orszag");
                             Lekerdezeskor();
                         }
                     }
@@ -90,8 +88,7 @@ namespace Sajat.Megjelenites
                     "OrszagModositas",
                     new FEParameterek().Parameter("id", orszag.Id),
                     (eredmenyek) => {
-                        Orszag modositott = eredmenyek.As<Orszag>("orszag");
-                        tarolok.Orszagok.Frissit(orszag);
+                        context.Entry(orszag).Reload();
                     }
                 )
             );

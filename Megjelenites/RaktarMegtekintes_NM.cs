@@ -4,19 +4,22 @@ using Sajat.Uzlet;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data.Entity;
 using System.Text;
 using System.Threading.Tasks;
+using Sajat.Tarolas;
 
 namespace Sajat.Megjelenites
 {
     public class RaktarMegtekintes_NM : Megfigyelheto, ICsatolhatoNezetModell
     {
-        public RaktarMegtekintes_NM(ITarolok tarolok)
+        private SajatContext context;
+
+        public RaktarMegtekintes_NM(SajatContext context)
         {
-            this.tarolok = tarolok;
+            this.context = context;
         }
 
-        private ITarolok tarolok;
 
         #region ICsatolhatoNezetModell
         private FEKerelem feKerelem;
@@ -27,10 +30,7 @@ namespace Sajat.Megjelenites
             {
                 feKerelem = value;
                 int id = value.Parameterek.As<int>("id");
-                Raktar = tarolok.Raktarak.KiterjesztettEgyetlen(
-                    e => e.Id == id, 
-                    e => e.Polcok
-                );
+                Raktar = context.Raktarak.Include(r => r.Polcok).Single(e => e.Id == id);
             }
         }
 
@@ -52,7 +52,7 @@ namespace Sajat.Megjelenites
                     "PolcModositas",
                     new FEParameterek().Parameter("id", polc.Id),
                     (eredmenyek) => {
-                        tarolok.Polcok.Frissit(polc);
+                        context.Entry(polc).Reload();
                     }
                 )
             );
@@ -80,16 +80,13 @@ namespace Sajat.Megjelenites
                     (eredmenyek) => {
                         if (eredmenyek.As<bool>("rogzites"))
                         {
-                            Raktar = tarolok.Raktarak.KiterjesztettEgyetlen(
-                                e => e.Id == Raktar.Id,
-                                e => e.Polcok
-                            );
+                            int id = eredmenyek.As<int>("id");
+                            context.Polcok.Single(p => p.Id == id);
                         }
                     }
                 )
             );
         }
-
 
         public void Bezaraskor()
         {

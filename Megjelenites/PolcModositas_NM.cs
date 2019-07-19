@@ -1,9 +1,11 @@
 ﻿using Sajat.Alkalmazas.API;
 using Sajat.ObjektumModel;
+using Sajat.Tarolas;
 using Sajat.Uzlet;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data.Entity;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,12 +13,12 @@ namespace Sajat.Megjelenites
 {
     public class PolcModositas_NM : Megfigyelheto, ICsatolhatoNezetModell
     {
-        public PolcModositas_NM(IValtozas valtozas)
+        public PolcModositas_NM(Valtozas valtozas)
         {
             this.valtozas = valtozas;
         }
 
-        private IValtozas valtozas;
+        private Valtozas valtozas;
 
         #region ICsatolhatoNezetModell
         private FEKerelem feKerelem;
@@ -30,11 +32,11 @@ namespace Sajat.Megjelenites
                 if (id == 0)
                 {
                     Polc = new Polc();
-                    valtozas.Tarolok.Polcok.EgyetBetesz(Polc);
+                    valtozas.Context.Polcok.Add(Polc);
                     int raktarid = value.Parameterek.As<int>("raktarid");
-                    if (raktarid != 0) Polc.Raktar = valtozas.Tarolok.Raktarak.Egyetlen(raktarid);
+                    if (raktarid != 0) Polc.Raktar = valtozas.Context.Raktarak.Single(r => r.Id == raktarid);
                 }
-                else Polc = valtozas.Tarolok.Polcok.KiterjesztettEgyetlen(e => e.Id == id, e => e.Raktar);
+                else Polc = valtozas.Context.Polcok.Include(p => p.Raktar).Single(p => p.Id == id);
             }
         }
 
@@ -70,7 +72,8 @@ namespace Sajat.Megjelenites
                     (eredmenyek) => {
                         if (eredmenyek.As<bool>("valasztas"))
                         {
-                            Raktar valasztott = valtozas.Tarolok.Raktarak.Egyetlen(eredmenyek.As<int>("id"));
+                            int id = eredmenyek.As<int>("id");
+                            Raktar valasztott = valtozas.Context.Raktarak.Single(r => r.Id == id);
                             Polc.Raktar = valasztott;
                         }
                     }
