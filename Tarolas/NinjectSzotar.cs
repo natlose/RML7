@@ -12,8 +12,6 @@ namespace Sajat.Tarolas
     {
         public override void Load()
         {
-            Bind<ITarolok>().To<Tarolok_EF>();
-            Bind<IValtozas>().To<Valtozas_EF>();
         }
     }
 }

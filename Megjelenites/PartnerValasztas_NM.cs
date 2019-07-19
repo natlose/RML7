@@ -146,7 +146,6 @@ namespace Sajat.Megjelenites
                     "PartnerModositas", 
                     new FEParameterek().Parameter("id", partner.Id),
                     (eredmenyek) => {
-                        Partner modositott = eredmenyek.As<Partner>("partner");
                         if (eredmenyek.As<int>("rogzites") == 1) context.Entry(partner).Reload();
                         else if (eredmenyek.As<int>("rogzites") == -1) Lekerdezeskor();
                     }

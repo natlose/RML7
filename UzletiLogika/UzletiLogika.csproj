@@ -47,8 +47,6 @@
     <Compile Include="Elerhetoseg.cs" />
     <Compile Include="FoCsoport.cs" />
     <Compile Include="Irszam.cs" />
-    <Compile Include="ITarolok.cs" />
-    <Compile Include="IValtozas.cs" />
     <Compile Include="Jogiszemely.cs" />
     <Compile Include="Keszlet.cs" />
     <Compile Include="Maganszemely.cs" />
