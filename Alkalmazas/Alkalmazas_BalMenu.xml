@@ -14,4 +14,17 @@
     <Sor szoveg="Raktárak" id="RaktarValasztas"/>
     <Sor szoveg="Polcok" id="PolcValasztas"/>
   </Sor>
+  <Sor szoveg="Bizonylatok">
+    <Sor szoveg="Bevételezés" id="MozgasModositas" parameterek="mozgasnem=BE"/>
+    <Sor szoveg="Eladás" id="MozgasModositas" parameterek="mozgasnem=KI"/>
+    <Sor szoveg="Áthelyezés" id="MozgasModositas" parameterek="mozgasnem=ATH"/>
+    <Sor szoveg="Hiány" id="MozgasModositas" parameterek="mozgasnem=HNY"/>
+    <Sor szoveg="Többlet" id="MozgasModositas" parameterek="mozgasnem=TBL"/>
+    <Sor szoveg="Selejt" id="MozgasModositas" parameterek="mozgasnem=SELEJT"/>
+    <Sor szoveg="Felhasználás" id="MozgasModositas" parameterek="mozgasnem=FLH"/>
+    <Sor szoveg="Piszkozatok" id=""/>
+  </Sor>
+  <Sor szoveg="Rendelések">
+    <Sor szoveg="üres" id=""/>
+  </Sor>
 </Menu>

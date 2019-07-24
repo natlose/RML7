@@ -23,6 +23,11 @@ namespace Sajat.Megjelenites
             InitializeComponent();
         }
 
+        private void Lapozaskor(object sender, RoutedEventArgs e)
+        {
+            (DataContext as CikkValasztas_NM).Lapozaskor();
+        }
+
         private void Lekerdezeskor(object sender, RoutedEventArgs e)
         {
             (DataContext as CikkValasztas_NM).Lekerdezeskor();

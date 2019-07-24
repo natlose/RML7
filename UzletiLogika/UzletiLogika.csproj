@@ -52,6 +52,7 @@
     <Compile Include="Koltseghely.cs" />
     <Compile Include="Maganszemely.cs" />
     <Compile Include="MozgasFej.cs" />
+    <Compile Include="MozgasnemAllandok.cs" />
     <Compile Include="MozgasTetel.cs" />
     <Compile Include="Orszag.cs" />
     <Compile Include="Partner.cs" />
@@ -59,6 +60,7 @@
     <Compile Include="PostaCim.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Raktar.cs" />
+    <Compile Include="Szotar_Mozgasnem.cs" />
     <Compile Include="Szotar_Partner_MJ.cs" />
     <Compile Include="Szotar_PostaCim_Tipus.cs" />
   </ItemGroup>

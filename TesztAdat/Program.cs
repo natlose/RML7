@@ -14,7 +14,7 @@ namespace TesztAdat
         {
             var alapertekek = new Dictionary<string, int>() {
                 { "FOCSOPORT", 0 },
-                { "ALCSOPORT", 00 },
+                { "ALCSOPORT", 0 },
                 { "CIKK", 0 },
                 { "RAKTAR", 0 },
                 { "POLC", 0},
@@ -39,11 +39,11 @@ namespace TesztAdat
             var mindenId = valtozas.Context.FoCsoportok.Select(e => e.Id).ToArray();
             for (int i = 0; i < alapertekek["ALCSOPORT"]; i++)
             {
-                int veletlen = rnd.Next(mindenId.Count());
+                int veletlen = mindenId[rnd.Next(mindenId.Count())];
                 valtozas.Context.AlCsoportok.Add(new AlCsoport()
                 {
                     Nev = Guid.NewGuid().ToString(),
-                    FoCsoport = valtozas.Context.FoCsoportok.Single(f => f.Id == mindenId[veletlen])
+                    FoCsoport = valtozas.Context.FoCsoportok.Single(f => f.Id == veletlen)
                 }); 
             }
             valtozas.ValtozasRogzitese();
@@ -52,14 +52,14 @@ namespace TesztAdat
             var mindenAlCsop = valtozas.Context.AlCsoportok.Select(e => e.Id).ToArray();
             for (int i = 0; i < alapertekek["CIKK"]; i++)
             {
-                int veletlen = rnd.Next(mindenAlCsop.Count());
+                int veletlen = mindenAlCsop[rnd.Next(mindenAlCsop.Count())];
                 valtozas.Context.Cikkek.Add(new Cikk()
                 {
                     Cikkszam = Guid.NewGuid().ToString(),
                     GyartoiCikkszam = Guid.NewGuid().ToString(),
                     Nev = Guid.NewGuid().ToString(),
                     MEgys = Guid.NewGuid().ToString().Substring(0, 10),
-                    AlCsoport = valtozas.Context.AlCsoportok.Single(a => a.Id == mindenAlCsop[veletlen]),
+                    AlCsoport = valtozas.Context.AlCsoportok.Single(a => a.Id == veletlen),
                     
                 }); 
             }
@@ -79,12 +79,12 @@ namespace TesztAdat
             var mindenRaktar = valtozas.Context.Raktarak.Select(e => e.Id).ToArray();
             for (int i = 0; i < alapertekek["POLC"]; i++)
             {
-                int veletlen = rnd.Next(mindenRaktar.Count());
+                int veletlen = mindenRaktar[rnd.Next(mindenRaktar.Count())];
                 valtozas.Context.Polcok.Add(new Polc()
                 {
                     Kod = Guid.NewGuid().ToString().Substring(0, 15),
                     Megjegyzes = Guid.NewGuid().ToString(),
-                    Raktar = valtozas.Context.Raktarak.Single(r => r.Id == mindenRaktar[veletlen])
+                    Raktar = valtozas.Context.Raktarak.Single(r => r.Id == veletlen)
                 });
             }
             valtozas.ValtozasRogzitese();
@@ -94,12 +94,12 @@ namespace TesztAdat
             var mindenCikk = valtozas.Context.Cikkek.Select(e => e.Id).ToArray();
             for (int i = 0; i < alapertekek["KESZLET"]; i++)
             {
-                int veletlenPolc = rnd.Next(mindenPolc.Count());
-                int veletlenCikk = rnd.Next(mindenCikk.Count());
+                int veletlenPolc = mindenPolc[rnd.Next(mindenPolc.Count())];
+                int veletlenCikk = mindenCikk[rnd.Next(mindenCikk.Count())];
                 valtozas.Context.Keszletek.Add(new Keszlet()
                 {
-                    Polc = valtozas.Context.Polcok.Single(p => p.Id == mindenPolc[veletlenPolc]),
-                    Cikk = valtozas.Context.Cikkek.Single(c => c.Id == mindenCikk[veletlenCikk]),
+                    Polc = valtozas.Context.Polcok.Single(p => p.Id == veletlenPolc),
+                    Cikk = valtozas.Context.Cikkek.Single(c => c.Id == veletlenCikk),
                     Meny = rnd.Next(100)
                 });
                 valtozas.ValtozasRogzitese();

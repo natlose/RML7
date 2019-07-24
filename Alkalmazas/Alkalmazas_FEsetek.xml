@@ -26,4 +26,7 @@
   <FEset id="PolcModositas" n="PolcModositas_N, Megjelenites" nm="PolcModositas_NM, Megjelenites" />
   <FEset id="PolcMegtekintes" n="PolcMegtekintes_N, Megjelenites" nm="PolcMegtekintes_NM, Megjelenites" />
 
+  <!--Mozgas-->
+  <FEset id="MozgasModositas" n="MozgasModositas_N, Megjelenites" nm="MozgasModositas_NM, Megjelenites" />
+
 </FEsetek>

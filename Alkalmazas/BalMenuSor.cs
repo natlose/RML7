@@ -46,6 +46,8 @@ namespace Sajat.Alkalmazas.WPF
 
         public string FEsetId { get; set; }
 
+        public string Parameterek { get; set; }
+
         public int BehuzasSzint { get; set; }
 
         public double BehuzasiSzintSzelesseg { get; set; } = 25d;

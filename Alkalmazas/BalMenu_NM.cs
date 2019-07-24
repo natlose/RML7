@@ -39,6 +39,7 @@ namespace Sajat.Alkalmazas.WPF
                         SzuloSor = szuloSor,
                         Szoveg = gyermekElem.Attribute("szoveg")?.Value,
                         FEsetId = gyermekElem.Attribute("id")?.Value,
+                        Parameterek = gyermekElem.Attribute("parameterek")?.Value,
                         BehuzasSzint = behuzasSzint
                     };
                     if (szuloSor != null) szuloSor.LathatosagValtozas += gyermekSor.SzuloLathatosagValtozasakor;
@@ -85,7 +86,9 @@ namespace Sajat.Alkalmazas.WPF
             }
             else
             {
-                UjTortenetKerelem?.Invoke(this, new FEKerelem(sor.FEsetId));
+                FEParameterek fep = null;
+                if (!String.IsNullOrEmpty(sor.Parameterek)) fep = new FEParameterek(sor.Parameterek);
+                UjTortenetKerelem?.Invoke(this, new FEKerelem(sor.FEsetId, fep));
             }
         }
 

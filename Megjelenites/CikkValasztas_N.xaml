@@ -10,6 +10,8 @@
     <sajatwpf:Lekerdezes Lekerdez="Lekerdezeskor" Vissza="Visszakor" Szuromezok="{Binding Szuromezok}">
         <sajatwpf:GombosLista 
             TetelForras="{Binding Lista, Mode=OneWay}" 
+            Lapozo="{Binding Lapozo, Mode=OneWay}"
+            Lapoz="Lapozaskor" 
             Kivalaszt="Kivalasztaskor" 
             Modosit="Modositaskor" 
             Felvesz="Felveszkor"

@@ -10,6 +10,15 @@ namespace Sajat.Alkalmazas.API
     {
         public FEParameterek() { }
 
+        public FEParameterek(string vesszosLista)
+        {
+            foreach (var p in vesszosLista.Split(','))
+            {
+                string[] kvp = p.Split('=');
+                Add(kvp[0], kvp[1]);
+            }
+        }
+
         public FEParameterek Parameter(string kulcs, object ertek)
         {
             Add(kulcs, ertek);

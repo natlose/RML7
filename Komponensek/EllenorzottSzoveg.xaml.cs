@@ -45,6 +45,19 @@ namespace Sajat.WPF
             set { SetValue(SzovegProperty, value); }
         }
 
+
+
+        public HorizontalAlignment SzovegIgazitas
+        {
+            get { return (HorizontalAlignment)GetValue(SzovegIgazitasProperty); }
+            set { SetValue(SzovegIgazitasProperty, value); }
+        }
+
+        public static readonly DependencyProperty SzovegIgazitasProperty =
+            DependencyProperty.Register("SzovegIgazitas", typeof(HorizontalAlignment), typeof(EllenorzottSzoveg), new PropertyMetadata(HorizontalAlignment.Left));
+
+
+
         public RoutedEventHandler Keres
         {
             get { return (RoutedEventHandler)GetValue(KeresProperty); }

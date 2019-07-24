@@ -28,3 +28,10 @@ Frissen felvett/módosított sor mutatása Lekerdezes-ben gyenge!
 Az EgyeniStilus tartalmazzon saját erõforrásokban FontFamily, FontSize, Background, stb értékeket, ezekre alapozzanak
 a stílusok. Az erõforrás értékek szerkesztésére legyen UI
 
+
+20190720 ====
+MozgasTetelbe megjegyzés típusú sorok is legyenek. Ebben egy text mezõ lesz, nyomtatásban betördelve
+
+GombosLista rendezettség oszlopfejlécen kattintásra, megjegyzés a kezelõhöz
+
+Részletezõre példa

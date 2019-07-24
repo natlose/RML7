@@ -25,37 +25,75 @@ namespace Sajat.Megjelenites
                 .Mezo("cikkszam", new Szuromezo("Cikkszám") { Elore = 2 })
                 .Mezo("gyartoi", new Szuromezo("Gyártói"))
                 .Mezo("angolnev", new Szuromezo("Angol név"));
-            Lekerdezeskor();
         }
 
         #region ICsatolhatoNezetModell
-        public FEKerelem FEKerelem { get; set; }
+        private FEKerelem feKerelem;
+        public FEKerelem FEKerelem
+        {
+            get => feKerelem;
+            set
+            {
+                feKerelem = value;
+                if (feKerelem.Parameterek.ContainsKey("cikkszam")) Szuromezok["cikkszam"].Ertek = feKerelem.Parameterek.As<string>("cikkszam");
+                if (feKerelem.Parameterek.ContainsKey("nev")) Szuromezok["nev"].Ertek = feKerelem.Parameterek.As<string>("nev");
+                Lekerdezeskor();
+            }
+        }
         public FEIndito FEIndito { get; set; }
         public bool Megszakithato => true;
         #endregion
 
         public SzuromezoGyujtemeny Szuromezok { get; set; }
 
+        private Lapozo lapozo = new Lapozo();
+        public Lapozo Lapozo
+        {
+            get => lapozo;
+            set => ErtekadasErtesites(ref lapozo, value);
+        }
+
         private ObservableCollection<Cikk> lista;
+
         public ObservableCollection<Cikk> Lista
         {
             get => lista;
             set => ErtekadasErtesites(ref lista, value);
         }
 
+        private IQueryable<Cikk> lekerdezes
+        {
+            get
+            {
+                string nev = StringMuveletek.NullHaUres(Szuromezok["nev"].Ertek);
+                string cikkszam = StringMuveletek.NullHaUres(Szuromezok["cikkszam"].Ertek);
+                string gyartoi = StringMuveletek.NullHaUres(Szuromezok["gyartoi"].Ertek);
+                string angolnev = StringMuveletek.NullHaUres(Szuromezok["angolnev"].Ertek);
+                return context.Cikkek
+                        .Where(
+                            cikk =>
+                            (nev == null || cikk.Nev.Contains(nev))
+                            && (cikkszam == null || cikk.Cikkszam.Contains(cikkszam))
+                            && (gyartoi == null || cikk.GyartoiCikkszam.Contains(gyartoi))
+                            && (angolnev == null || cikk.AngolNev.Contains(angolnev))
+                        );
+            }
+        }
+
+        public void Lapozaskor()
+        {
+            Lista = new ObservableCollection<Cikk>(
+                lekerdezes
+                    .OrderBy(c => c.Cikkszam)
+                    .Skip((Lapozo.Oldal - 1) * Lapozo.Oldalmeret)
+                    .Take(Lapozo.Oldalmeret)
+            );
+        }
+
         public void Lekerdezeskor()
         {
-            string nev = StringMuveletek.NullHaUres(Szuromezok["nev"].Ertek);
-            string cikkszam = StringMuveletek.NullHaUres(Szuromezok["cikkszam"].Ertek);
-            string gyartoi = StringMuveletek.NullHaUres(Szuromezok["gyartoi"].Ertek);
-            string angolnev = StringMuveletek.NullHaUres(Szuromezok["angolnev"].Ertek);
-            Lista = new ObservableCollection<Cikk>(context.Cikkek.Where(
-                cikk =>
-                (nev == null || cikk.Nev.Contains(nev))
-                && (cikkszam == null || cikk.Cikkszam.Contains(cikkszam))
-                && (gyartoi == null || cikk.GyartoiCikkszam.Contains(gyartoi))
-                && (angolnev == null || cikk.AngolNev.Contains(angolnev))
-            ));
+            Lapozo.Ujraindit(sorokSzama: lekerdezes.Count());
+            Lapozaskor();
         }
 
         public void Visszakor()
@@ -71,7 +109,8 @@ namespace Sajat.Megjelenites
                 new FEKerelem(
                     "CikkModositas",
                     new FEParameterek().Parameter("id", 0),
-                    (eredmenyek) => {
+                    (eredmenyek) =>
+                    {
                         if (eredmenyek.As<bool>("rogzites"))
                         {
                             Lekerdezeskor();
@@ -96,7 +135,8 @@ namespace Sajat.Megjelenites
                 new FEKerelem(
                     "CikkModositas",
                     new FEParameterek().Parameter("id", cikk.Id),
-                    (eredmenyek) => {
+                    (eredmenyek) =>
+                    {
                         context.Entry(cikk).Reload();
                     }
                 )

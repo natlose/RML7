@@ -1,0 +1,105 @@
+﻿<UserControl x:Class="Sajat.Megjelenites.MozgasModositas_N"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Sajat.Megjelenites"
+             xmlns:sajatwpf="clr-namespace:Sajat.WPF;assembly=Komponensek"             
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    </UserControl.Resources>
+    <sajatwpf:EgysegnyiValtozas 
+        Rogzit="Rogziteskor" 
+        Elvet="Elveteskor" 
+        VanValtozas="{Binding VanValtozas, Mode=OneWay}" 
+        RogzitesEredmeny="{Binding RogzitesEredmeny, Mode=OneWay}" 
+    >
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <TextBlock 
+                Grid.Row="0"
+                Text="{Binding MozgasnemAllandok.Felirat}" FontFamily="Arial" FontSize="24"
+                />
+            <Border
+                Grid.Row="1"
+                CornerRadius="5" Background="WhiteSmoke" Margin="5" Padding="5"
+                >
+                <StackPanel>
+                    <sajatwpf:IdegenKulcs 
+                        Visibility="{Binding MozgasnemAllandok.Partnerfuggo, Converter={StaticResource BooleanToVisibilityConverter}}"
+                        Cimke="Partner" 
+                        Kulcs="{Binding MozgasFej.Partner.Id}" 
+                        Szoveg="{Binding MozgasFej.Partner.Nev, Mode=OneWay}" 
+                        Keres="PartnerKereseskor"
+                        />
+                    <sajatwpf:IdegenKulcs 
+                        Visibility="{Binding MozgasnemAllandok.Koltseghelyfuggo, Converter={StaticResource BooleanToVisibilityConverter}}"
+                        Cimke="Költséghely" 
+                        Kulcs="{Binding MozgasFej.Koltseghely.Id}" 
+                        Szoveg="{Binding MozgasFej.Koltseghely.Nev, Mode=OneWay}" 
+                        Keres="KoltseghelyKereseskor"
+                        />
+                    <StackPanel Orientation="Horizontal">
+                        <sajatwpf:EllenorzottDatum Cimke="Kelt" Datum="{Binding MozgasFej.Kelt}"/>
+                        <sajatwpf:EllenorzottSzoveg Cimke="Sorszám" Szoveg="{Binding MozgasFej.Sorszam, StringFormat={}{0,15}}"/>
+                        <sajatwpf:EllenorzottSzoveg Cimke="Keret"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+            <Border 
+                Grid.Row="2"
+                CornerRadius="5" Background="WhiteSmoke" Margin="5" Padding="5"
+                >
+                <StackPanel Orientation="Horizontal">
+                    <sajatwpf:EllenorzottDatum Cimke="Teljesítés" Datum="{Binding MozgasFej.Kelt}"/>
+                    <sajatwpf:EllenorzottSzoveg Cimke="Fizetési mód"/>
+                    <sajatwpf:EllenorzottDatum Cimke="Fizetési határidő" Datum="{Binding MozgasFej.Kelt}"/>
+                </StackPanel>
+            </Border>
+            <Border
+                Grid.Row="3"
+                CornerRadius="5" Background="WhiteSmoke" Margin="5" Padding="5"
+                >
+                <sajatwpf:SzerkeszthetoLista Tag="MySzerkeszthetoLista"
+                    Grid.Column="0" 
+                    Cimke="Tételek" 
+                    TetelForras="{Binding MozgasFej.Tetelek}"
+                    >
+                    <GridViewColumn DisplayMemberBinding="{Binding Bsrsz}" Header="Srsz" Width="Auto" />
+                    <GridViewColumn DisplayMemberBinding="{Binding Cikk.Cikkszam}" Header="Cikkszám" Width="Auto" />
+                    <GridViewColumn DisplayMemberBinding="{Binding Cikk.Nev}" Header="Név" Width="Auto" />
+                    <GridViewColumn DisplayMemberBinding="{Binding Meny}" Header="Meny" Width="Auto" />
+                    <GridViewColumn DisplayMemberBinding="{Binding Cikk.MEgys}" Header="ME" Width="Auto" />
+                    <GridViewColumn DisplayMemberBinding="{Binding EgysAr}" Header="Eár" Width="Auto" />
+                    <sajatwpf:SzerkeszthetoLista.SzerkesztoTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <sajatwpf:EllenorzottSzoveg Cimke="Cikkszám" Szoveg="{Binding Cikk.Cikkszam}" Keres="CikkszamKereseskor" LostFocus="CikkszamUtan" />
+                                <sajatwpf:EllenorzottSzoveg Cimke="Név" Szoveg="{Binding Cikk.Nev}" Keres="NevKereseskor" />
+                                <DockPanel>
+                                    <sajatwpf:StatikusSzoveg DockPanel.Dock="Right" Cimke="ME" Szoveg="{Binding Cikk.MEgys}" />
+                                    <sajatwpf:EllenorzottSzoveg Cimke="Mennyiség" Szoveg="{Binding Meny}" SzovegIgazitas="Right" />
+                                </DockPanel>
+                                <sajatwpf:EllenorzottSzoveg Cimke="Egységár" Szoveg="{Binding EgysAr}" SzovegIgazitas="Right" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </sajatwpf:SzerkeszthetoLista.SzerkesztoTemplate>
+                </sajatwpf:SzerkeszthetoLista>
+            </Border>
+            <Border
+                Grid.Row="4"
+                CornerRadius="5" Background="WhiteSmoke" Margin="5" Padding="5"
+                >
+                <TextBlock Text="Valami összegzés" />
+            </Border>
+        </Grid>
+    </sajatwpf:EgysegnyiValtozas>
+</UserControl>

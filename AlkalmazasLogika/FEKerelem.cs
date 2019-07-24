@@ -24,6 +24,8 @@ namespace Sajat.Alkalmazas.API
             Eredmenykor = eredmenykor;
         }
 
+        public FEKerelem(string id, FEParameterek parameterek) : this (id, parameterek, null) { }
+
         /// <summary>
         /// Felhasználói eset indítása parameterek megadása nélkül
         /// </summary>

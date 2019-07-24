@@ -55,6 +55,9 @@
     <Compile Include="EgysegnyiValtozas.xaml.cs">
       <DependentUpon>EgysegnyiValtozas.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EllenorzottDatum.xaml.cs">
+      <DependentUpon>EllenorzottDatum.xaml</DependentUpon>
+    </Compile>
     <Compile Include="EllenorzottSzoveg.xaml.cs">
       <DependentUpon>EllenorzottSzoveg.xaml</DependentUpon>
     </Compile>
@@ -93,6 +96,9 @@
     <Compile Include="StatikusSzoveg.xaml.cs">
       <DependentUpon>StatikusSzoveg.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SzerkeszthetoLista.xaml.cs">
+      <DependentUpon>SzerkeszthetoLista.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SzotarConverter.cs" />
     <Compile Include="Szuromezo.cs" />
     <Compile Include="SzuromezoGyujtemeny.cs" />
@@ -123,6 +129,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="EllenorzottDatum.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="EllenorzottSzoveg.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -146,6 +156,10 @@
     <Page Include="StatikusSzoveg.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SzerkeszthetoLista.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SzuromezoLenyilo.xaml">
       <Generator>MSBuild:Compile</Generator>
